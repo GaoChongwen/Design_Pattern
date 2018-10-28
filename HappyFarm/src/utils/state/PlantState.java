@@ -1,7 +1,7 @@
-package utils.state;
+package utils.state.plantState;
 
-public enum  PlantState {
-    seed,
-    growing,
-    mature
+import base.Plant;
+
+public interface PlantState {
+    public abstract void grow(Plant plant);
 }
