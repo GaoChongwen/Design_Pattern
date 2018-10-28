@@ -1,8 +1,15 @@
 package building.tile;
 
+/**
+ * @project: HappyFarm
+ * @description: 地砖类
+ * @designPattern: Flyweight
+ * @author: Chen Yulei
+ * @date: 2018-10-27
+ **/
 public class Tile {
 
-    // 一块地砖的颜色
+    // 地砖的颜色
     private String color;
 
     // 地砖的图案

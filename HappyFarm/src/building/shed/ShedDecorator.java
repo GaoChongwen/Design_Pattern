@@ -1,5 +1,11 @@
 package building.shed;
-
+/**
+ * @project: HappyFarm
+ * @description: 实体装饰器的父类
+ * @designPattern: Decorator
+ * @author: Chen Yulei
+ * @date: 2018-10-27
+ **/
 public class ShedDecorator extends Shed{
 
     protected Shed decoratedShed;

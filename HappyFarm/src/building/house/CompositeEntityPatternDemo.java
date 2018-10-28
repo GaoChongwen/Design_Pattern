@@ -1,9 +1,16 @@
 package building.house;
 
+/**
+ * @project: HappyFarm
+ * @description: 测试使用场景：设置房屋的组件（墙，门，瓦，窗户）的样式
+ * @designPattern: Composite Entity Pattern
+ * @author: Chen Yulei
+ * @date: 2018-10-27
+ **/
 public class CompositeEntityPatternDemo {
     public static void main(String[] args) {
 
-        House house = new House();
+        House house = House.getInstance();
 
         // 设置房子信息为"黄墙", "木质门", "红瓦","可推拉窗户"
         house.setInfo("黄墙", "木质门", "红瓦","可推拉窗户");

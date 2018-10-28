@@ -2,7 +2,13 @@ package building.tile;
 
 import factory.TileFactory;
 import org.omg.CORBA.TIMEOUT;
-
+/**
+ * @project: HappyFarm
+ * @description: 测试使用场景：按照规定的图案铺地砖
+ * @designPattern: Flyweight
+ * @author: Chen Yulei
+ * @date: 2018-10-27
+ **/
 public class FlyweightPatternDemo {
 
     public static void main(String[] agrs) {

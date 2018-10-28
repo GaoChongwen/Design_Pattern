@@ -1,5 +1,11 @@
 package building.shed;
-
+/**
+ * @project: HappyFarm
+ * @description: 测试使用场景：为动物的窝升级
+ * @designPattern: Decorator
+ * @author: Chen Yulei
+ * @date: 2018-10-27
+ **/
 public class DecoratorPatternDemo {
     public static void main(String[] args) {
 
@@ -8,12 +14,12 @@ public class DecoratorPatternDemo {
         cowShed.bulidShed();
         cowShed.done();
 
-        // 装修牛棚，增加照明设备
+        // 给牛棚增加照明设备
         Shed cowShedWithLight = new LightShedDecorator(cowShed);
         cowShedWithLight.bulidShed();
         cowShedWithLight.done();
 
-        // 继续装修牛棚，增加雨棚
+        // 给牛棚增加雨棚
         Shed cowShedWithCanopy = new CanopyShedDecorator(cowShed);
         cowShedWithCanopy.bulidShed();
         cowShedWithCanopy.done();
