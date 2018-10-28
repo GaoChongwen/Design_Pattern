@@ -35,9 +35,4 @@ abstract public class Action {
      * content will be decided by developers.
      */
     abstract protected boolean doSomething();
-
-    /**
-     * return the descriptions of the action, like " XX is doing .."
-     */
-    abstract protected String getDescription();
 }

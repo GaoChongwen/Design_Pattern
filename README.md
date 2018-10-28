@@ -20,7 +20,7 @@ A framework for happy farm using 23+ Design_Patterns
 | 12.Filter                  |         |         |         |         |         |         |         |         |         |         |
 | 13.Facade                  |         |         |         |         |         |         |         |         |         |         |
 | 14.Strategy                |         |         |         |         |         |         |         |         |         |         |
-| 15.Template Method         |         |         |         |         |         |         |         |         |         |         |
+| 15.Template Method         | 1 |         |         |         |         |         |         |         |         |         |
 | 16. Observer               | 1 |         |         |         |         |         |         |         |         |         |
 | 17.Iterator                |         |         |         |         |         |         |         |         |         |         |
 | 18.Chain of Responsibility |         |         |         |         |         |         |         |         |         |         |
@@ -33,4 +33,4 @@ A framework for happy farm using 23+ Design_Patterns
 | 25.Null Object             |         |         |         |         |         |         |         |         |         |         |
 | 26.Composite Entity        |         |         | 1 |         |         |         |         |         |         |         |
 | 27.Specification           |         |         |         |         |         ||||||
-| 28.Double Checked Locking |         |         | 1 ||||||||
+| 28.Double Checked Locking | 2 |         | 1 ||||||||

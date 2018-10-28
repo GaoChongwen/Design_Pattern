@@ -8,19 +8,28 @@ import utils.EmployeeSkill;
  * @author Chudi LAN
  * @version 2018-10-28
  * Design-Pattern: Template Method
+ * Employees can only execute an action if the tool and skill satisfy the task.
  */
-public class EmployeeAction extends PersonAction {
+abstract public class EmployeeAction extends PersonAction {
 
     public EmployeeAction(Person targetPerson){
         super(targetPerson);
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
-    protected boolean doSomething() {
-        return super.doSomething();
+    protected boolean checkCondition() {
+        if(!checkSkill()){
+            System.out.println("Employee "+getTargetPerson().getName()+" doesn't have the skill.");
+            return false;
+        }
+        if(!checkTool()){
+            System.out.println("There's no enough tool.");
+            return false;
+        }
+        return true;
     }
+
+    protected abstract boolean checkTool();
+    protected abstract boolean checkSkill();
+
 }
