@@ -5,7 +5,7 @@ import factory.PlantFactory;
 import utils.Enum.PlantType;
 
 /**
- * Design-Pattern: State
+ * Design-Pattern: State, Prototype
  *
  * @version 2018/10/28
  * @author lipeng liang
@@ -15,10 +15,10 @@ import utils.Enum.PlantType;
 public class Apple extends Plant {
     public Apple(int stockPrice,int salePrice){
         super(stockPrice,salePrice);
-        PlantFactory.getInstance().putPlant(this);
         this.type = PlantType.apple;
         this.stockPrice=stockPrice;
         this.salePrice=salePrice;
-
+        PlantFactory.getInstance().putPlant(this);
+        System.out.println("apple initial once");
     }
 }

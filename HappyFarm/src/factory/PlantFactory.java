@@ -2,11 +2,16 @@ package factory;
 
 import base.Plant;
 import utils.Enum.PlantType;
-
-import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Map;
 
+/**
+ * Design-Pattern: Factory Method, Prototype
+ *
+ * @version 2018/10/28
+ * @author lipeng liang
+ *
+ */
 public class PlantFactory extends AbstractFactory {
 
 
@@ -28,6 +33,7 @@ public class PlantFactory extends AbstractFactory {
     }
 
     public void putPlant(Plant plant){
+        System.out.println("in put plant");
         plantMap.put(plant.getType(),plant);
     }
 
