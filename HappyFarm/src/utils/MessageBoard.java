@@ -4,22 +4,34 @@ import base.Person;
 
 import java.util.*;
 
-public class MessageBoard extends Observable implements Mediator {
-    private static MessageBoard ourInstance = new MessageBoard();
+/**
+ * 设计模式：Singleton, Observer, Mediator
+ */
+public class MessageBoard extends Observable {
 
+    /**
+     * 设计模式：Singleton, Double checked locking
+     */
+    private volatile static MessageBoard ourInstance = new MessageBoard();
     public static MessageBoard getInstance() {
         return ourInstance;
     }
-
     private MessageBoard() {
     }
 
-    @Override
-    public void showMessage(Person person, String message) {
+    /**
+     * 设计模式：Mediator
+     * @param person
+     * @param message
+     */
+    public static void showMessage(Person person, String message) {
         System.out.println(new Date().toString()
                 + " [" + person.getName() +"] : " + message);
     }
 
+    /**
+     * 设计模式：Observer
+     */
     private ArrayList<Observer> employees = new ArrayList();
     public void addObserver(Observer employee) {
         employees.add(employee);
@@ -36,7 +48,7 @@ public class MessageBoard extends Observable implements Mediator {
     }
 
     public int getMessageNum(){
-
+        return 0;
     }
 
 }
