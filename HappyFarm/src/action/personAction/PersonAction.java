@@ -7,29 +7,44 @@ import base.Person;
  * @version 2018-10-28
  * Design-Pattern: Template Method, Bridge
  */
-public class PersonAction extends Action{
+abstract public class PersonAction extends Action{
     /** Register target person to execute the actions. */
-    protected Person targetPerson;
+    private Person targetPerson;
 
     PersonAction(Person targetPerson){
-        this.setTargerPerson(targetPerson);
+        this.setTargetPerson(targetPerson);
     }
 
-    public void setTargerPerson(Person targetPerson){
+    public void setTargetPerson(Person targetPerson){
         this.targetPerson = targetPerson;
     }
     public Person getTargetPerson(){
         return this.targetPerson;
     }
 
+    /**
+     * Skeleton of the action
+     * @return
+     */
     @Override
     protected boolean doSomething() {
-
+        System.out.println("Performing PersonAction.");
+        if(checkCondition()){
+            execute();
+            return true;
+        }
         return false;
     }
 
-    @Override
-    protected String getDescription() {
-        return null;
-    }
+
+    /**
+     * check all conditions for the action.
+     * @return true if conditions are satisfied.
+     */
+    protected abstract boolean checkCondition();
+
+    /**
+     * execute the exact action.
+     */
+    protected abstract void execute();
 }

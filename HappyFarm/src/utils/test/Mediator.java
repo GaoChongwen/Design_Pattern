@@ -6,8 +6,8 @@ import utils.EmployeeSkill;
 import utils.MessageBoard;
 
 /**
- * Mediator: 中介者模式
- * 场景：cyl 和 ppp 通过留言板发消息
+ * @author Chudi LAN
+ * Scenario: cyl and ppp leave messages through message board.
  */
 public class Mediator {
     public static void main(String args[]){
@@ -17,7 +17,7 @@ public class Mediator {
         cyl.leaveMessage("Hi pp~");
         ppp.leaveMessage("Hi ll~");
 
-        MessageBoard.showMessages();
+//        MessageBoard.showMessages();
     }
 
 }
