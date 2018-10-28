@@ -8,7 +8,7 @@ import utils.EmployeeSkill;
 /**
  * @author Chudi LAN
  * @version 2018-10-28
- * Scenario:
+ * Scenario: dynamically bind different operations to Cultivate and Breed
  */
 public class Strategy {
     public static void main(String args[]) {

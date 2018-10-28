@@ -2,15 +2,15 @@ package factory;
 
 import base.Plant;
 import utils.Enum.PlantType;
-
 import java.util.Hashtable;
 import java.util.Map;
 
 /**
  * Design-Pattern: Factory Method, Prototype
  *
- * @author lipeng liang
  * @version 2018/10/28
+ * @author lipeng liang
+ *
  */
 public class PlantFactory extends AbstractFactory {
 
@@ -32,26 +32,17 @@ public class PlantFactory extends AbstractFactory {
         return cachedPlant.clone();
     }
 
-    public void putPlant(Plant plant) {
-        plantMap.put(plant.getType(), plant);
-        System.out.println(plant.getType() + " is put into PlantFactory success!");
+    public void putPlant(Plant plant){
+        System.out.println("in put plant");
+        plantMap.put(plant.getType(),plant);
     }
 
-    public void getAllPlant() {
+    public void getAllPlant(){
 
         for (Map.Entry<PlantType, Plant> entry : plantMap.entrySet()) {
-            System.out.println("PlantType is " + entry.getKey() + ", Plant is " + entry.getValue().getType());
+            System.out.println("PlantType = " + entry.getKey() + ", Plant = " + entry.getValue().getType());
         }
 
-    }
-
-    public void rmvPlant(Plant plant) {
-
-        if (null==plantMap.remove(plant.getType())) {
-            System.out.println("remove success!");
-        }else {
-            System.out.println("remove fail!");
-        }
     }
 
 
