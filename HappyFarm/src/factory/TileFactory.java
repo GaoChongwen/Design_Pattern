@@ -5,16 +5,22 @@ import building.tile.TilePool;
 
 import java.util.HashMap;
 
+/**
+ * @project: HappyFarm
+ * @description: 地砖的工厂
+ *               当地砖库(TilePool)中存在相同样式时直接取用
+ *               不存在时新建一块地砖，并将地砖放入地砖库中以备以后使用
+ * @designPattern: Flyweight
+ * @author: Chen Yulei
+ * @date: 2018-10-27
+ **/
 // 场景：根据图纸来铺地砖
 public class TileFactory extends BuildingFactory{
 
     // 池容器
     private static HashMap<String, Tile> pool = new HashMap<String, Tile>();
 
-//    public static Tile getTile() {
-//        return new Tile();
-//    }
-
+    // 获取地砖（直接获取 或 创建新的）
     public static Tile getTile(String key) {
 
         Tile result = null;
