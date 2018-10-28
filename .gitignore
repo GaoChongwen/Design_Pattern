@@ -26,3 +26,8 @@ hs_err_pid*
 # for idea
 .idea/
 target/
+*.iml
+
+
+# for referrence
+*.pdf
