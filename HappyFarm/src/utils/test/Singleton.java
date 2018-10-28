@@ -1,6 +1,7 @@
 package utils.test;
 
 import person.Farmer;
+import utils.MessageBoard;
 
 /**
  * @author Chudi LAN
@@ -15,6 +16,14 @@ public class Singleton {
             System.out.println("farmer1 and farmer2 are the same instance.");
         } else {
             System.out.println("farmer1 and farmer2 are not the same instance.");
+        }
+
+        MessageBoard messageBoard1 = MessageBoard.getInstance();
+        MessageBoard messageBoard2 = MessageBoard.getInstance();
+        if(messageBoard1 ==  messageBoard2) {
+            System.out.println("messageBoard1 and messageBoard2 are the same instance.");
+        } else {
+            System.out.println("messageBoard1 and messageBoard2 are not the same instance.");
         }
     }
 }
