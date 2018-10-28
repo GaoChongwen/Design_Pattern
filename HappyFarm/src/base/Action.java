@@ -1,9 +1,5 @@
 package base;
 
-/**
- * @author Chudi LAN
- * Design-Pattern: Template Method
- */
 abstract public class Action {
     /**
      * Target: invoker of src.Action
@@ -24,20 +20,20 @@ abstract public class Action {
     protected Action() {}
 
     /**
-     * run src.Action.
-     * Design-Pattern: Template Method
+     * 运行 src.Action.
+     * 设计模式: Template Method
      */
     public boolean run(){
-        return doSomething();
+        return doSomethoing();
     }
 
     /**
-     * content will be determined by developers.
+     * 内容由开发者决定
      */
-    abstract protected boolean doSomething();
+    abstract protected boolean doSomethoing();
 
     /**
-     * return the descriptions of the action, like " is harvesting."
+     * 返回对应action的描述, 比如 " XX正在播种"
      */
     abstract protected String getDescription();
 }

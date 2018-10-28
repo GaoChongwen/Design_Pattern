@@ -6,10 +6,6 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-/**
- * @author Chudi LAN
- * Design-Pattern: Observer, Mediator
- */
 public class Person extends FarmObj implements Observer {
     protected String name;
     protected ArrayList<String> messages;
@@ -21,10 +17,9 @@ public class Person extends FarmObj implements Observer {
     public String getName(){
         return name;
     }
-    public void setName(String name) { this.name = name; }
 
     /**
-     * Design-Pattern：Observer
+     * 设计模式：Observer
      * @param o
      * @param arg
      */
@@ -34,7 +29,7 @@ public class Person extends FarmObj implements Observer {
     }
 
     /**
-     * Design-Pattern：Mediator
+     * 设计模式：Mediator
      */
     public void leaveMessage(String message) {
 
