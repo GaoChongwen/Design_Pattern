@@ -1,6 +1,6 @@
 package building.house;
 
-import base.Building;
+import base.FarmObj;
 import building.ImpVisitor.BuildingAcceptor;
 import building.ImpVisitor.BuildingVisitor;
 
@@ -11,7 +11,7 @@ import building.ImpVisitor.BuildingVisitor;
  * @author: Chen Yulei
  * @date: 2018-10-27
  **/
-public class House extends Building implements BuildingAcceptor {
+public class House extends FarmObj implements BuildingAcceptor {
 
     // 依赖的粗粒度读对象
     private CoarseGrainedHouse cgh = new CoarseGrainedHouse();

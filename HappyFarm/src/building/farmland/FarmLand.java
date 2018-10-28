@@ -1,7 +1,7 @@
 package building.farmland;
 
-import base.Building;
+import base.FarmObj;
 
-public class FarmLand extends Building {
+public class FarmLand extends FarmObj {
 
 }

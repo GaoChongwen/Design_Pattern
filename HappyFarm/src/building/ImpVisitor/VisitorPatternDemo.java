@@ -1,6 +1,5 @@
 package building.ImpVisitor;
 
-import base.Building;
 import building.house.House;
 import building.shed.ChickShed;
 import building.shed.CowShed;

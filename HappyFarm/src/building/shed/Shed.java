@@ -6,11 +6,11 @@ package building.shed;
  * @author: Chen Yulei
  * @date: 2018-10-27
  **/
-import base.Building;
+import base.FarmObj;
 import building.ImpVisitor.BuildingAcceptor;
 import building.ImpVisitor.BuildingVisitor;
 
-public class Shed extends Building implements BuildingAcceptor {
+public class Shed extends FarmObj implements BuildingAcceptor {
 
     // 获取动物窝的名字
     public String getName() {

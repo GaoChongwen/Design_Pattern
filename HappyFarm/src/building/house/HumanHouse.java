@@ -1,8 +1,8 @@
 package building.house;
 
-import base.Building;
+import base.FarmObj;
 import building.house.furniture.Furniture;
 
-public class HumanHouse extends Building {
+public class HumanHouse extends FarmObj {
     Furniture[] furnitures;
 }
