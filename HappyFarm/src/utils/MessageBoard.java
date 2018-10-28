@@ -11,37 +11,51 @@ import java.util.*;
 public class MessageBoard extends Observable {
 
     /**
-     * 设计模式：Singleton, Double checked locking
+     * Design-Pattern：Singleton, Double checked locking
      */
     private volatile static MessageBoard ourInstance = new MessageBoard();
     public static MessageBoard getInstance() {
         return ourInstance;
     }
     private MessageBoard() {
+        messages = new ArrayList<>();
     }
+    private static ArrayList<String> messages;
 
     /**
-     * 设计模式：Mediator
+     * Design-Pattern：Mediator
      * @param person
      * @param message
      */
-    public static void showMessage(Person person, String message) {
-        System.out.println(new Date().toString()
+    public static void addMessage(Person person, String message) {
+        messages.add(new Date().toString()
                 + " [" + person.getName() +"] : " + message);
+        ourInstance.notifyObservers();
+        showMessages();
+    }
+
+    public static void showMessages(){
+        System.out.println("--------------- Message Bord ---------------");
+        for(String m : messages){
+            System.out.println(m);
+        }
+        System.out.println();
     }
 
     /**
-     * 设计模式：Observer
+     * Design-Pattern：Observer
      */
-    private ArrayList<Observer> employees = new ArrayList();
-    public void addObserver(Observer employee) {
-        employees.add(employee);
+    private ArrayList<Observer> users = new ArrayList();
+    public void addObserver(Person person) {
+
+        users.add(person);
+        System.out.println(person.getName() + " is registered to Message Board");
     }
-    public void deleteObserver(Observer employee) {
-        employees.remove(employee);
+    public void deleteObserver(Observer person) {
+        users.remove(person);
     }
     public void notifyObservers() {
-        Iterator it = employees.iterator();
+        Iterator it = users.iterator();
         while (it.hasNext()) {
             Observer e = (Observer)it.next();
             e.update(this, null);
@@ -49,7 +63,9 @@ public class MessageBoard extends Observable {
     }
 
     public int getMessageNum(){
-        return 0;
+        return messages.size();
     }
 
 }
+
+
