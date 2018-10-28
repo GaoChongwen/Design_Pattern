@@ -6,7 +6,7 @@ import java.util.*;
 
 /**
  * @author Chudi LAN
- * Design-Pattern£ºSingleton, Double checked Locking, Observer, Mediator
+ * Design-Pattern: Singleton, Double checked Locking, Observer, Mediator
  */
 public class MessageBoard extends Observable {
 
