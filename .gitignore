@@ -26,3 +26,12 @@ hs_err_pid*
 # for idea
 .idea/
 target/
+*.iml
+production/
+
+
+# for referrence
+*.pdf
+
+# for DS_Store
+*.DS_Store

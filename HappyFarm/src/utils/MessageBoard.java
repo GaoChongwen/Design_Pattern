@@ -1,4 +1,4 @@
-package utils.message;
+package utils;
 
 import base.Person;
 
