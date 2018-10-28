@@ -31,3 +31,6 @@ target/
 
 # for referrence
 *.pdf
+
+# for DS_Store
+*.DS_Store
