@@ -1,8 +1,9 @@
 package utils.test;
 
 /**
- * Observer: 观察者模式
- * 场景：
+ * @author Chudi LAN
+ * Design-Pattern: Observer
+ * Scenario:
  */
 public class Observer {
     public static void main(String[] args){

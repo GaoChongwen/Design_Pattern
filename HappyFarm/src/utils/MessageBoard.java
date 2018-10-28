@@ -5,12 +5,13 @@ import base.Person;
 import java.util.*;
 
 /**
- * 设计模式：Singleton, Observer, Mediator
+ * @author Chudi LAN
+ * Design-Pattern：Singleton, Double checked Locking, Observer, Mediator
  */
 public class MessageBoard extends Observable {
 
     /**
-     * 设计模式：Singleton, Double checked locking
+     * Design-Pattern: Singleton, Double checked locking
      */
     private volatile static MessageBoard ourInstance = new MessageBoard();
     public static MessageBoard getInstance() {
@@ -20,7 +21,7 @@ public class MessageBoard extends Observable {
     }
 
     /**
-     * 设计模式：Mediator
+     * Design-Pattern: Mediator
      * @param person
      * @param message
      */
@@ -30,7 +31,7 @@ public class MessageBoard extends Observable {
     }
 
     /**
-     * 设计模式：Observer
+     * Design-Pattern: Observer
      */
     private ArrayList<Observer> employees = new ArrayList();
     public void addObserver(Observer employee) {
