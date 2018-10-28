@@ -7,7 +7,7 @@ import base.Person;
  * @version 2018-10-28
  * Design-Pattern: Template Method, Bridge
  */
-abstract public class PersonAction extends Action{
+abstract public class PersonAction extends Action implements ActionStrategy{
     /** Register target person to execute the actions. */
     private Person targetPerson;
 
@@ -30,7 +30,7 @@ abstract public class PersonAction extends Action{
     protected boolean doSomething() {
         System.out.println("Performing PersonAction.");
         if(checkCondition()){
-            execute();
+            doOperation();
             return true;
         }
         return false;
@@ -43,8 +43,4 @@ abstract public class PersonAction extends Action{
      */
     protected abstract boolean checkCondition();
 
-    /**
-     * execute the exact action.
-     */
-    protected abstract void execute();
 }
