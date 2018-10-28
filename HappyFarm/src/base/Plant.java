@@ -1,6 +1,7 @@
 package base;
 
 
+import building.farmland.FarmLand;
 import factory.PlantFactory;
 import utils.Enum.PlantType;
 import utils.state.plantState.PlantState;
@@ -18,6 +19,7 @@ public abstract class Plant extends FarmObj implements Cloneable {
     protected int stockPrice;
     protected int salePrice;
     protected PlantType type;
+    protected FarmLand requireLand;
 
     protected Plant(int stockPrice, int salePrice) {
     }

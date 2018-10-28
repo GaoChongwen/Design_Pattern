@@ -1,4 +1,4 @@
 package factory;
 
-public class FarmFactory extends BuildingFactory{
+public class FarmFactory extends AbstractFactory {
 }
