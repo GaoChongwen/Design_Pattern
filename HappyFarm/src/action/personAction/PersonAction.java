@@ -5,7 +5,7 @@ import base.Person;
 /**
  * @author Chudi LAN
  * @version 2018-10-28
- * Design-Pattern: Template Method, Bridge
+ * Design-Pattern: Template Method, Strategy
  */
 abstract public class PersonAction extends Action implements ActionStrategy{
     /** Register target person to execute the actions. */
