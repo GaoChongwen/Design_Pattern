@@ -1,6 +1,6 @@
 package animal;
 
-import base.Animal;
+import base.animal.Animal;
 
 public class Cow extends Animal {
 }
