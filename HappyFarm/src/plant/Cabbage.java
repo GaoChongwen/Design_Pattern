@@ -2,6 +2,7 @@ package plant;
 
 import base.Plant;
 import factory.PlantFactory;
+import utils.Enum.FarmLandType;
 import utils.Enum.PlantType;
 
 /**
@@ -18,6 +19,7 @@ public class Cabbage extends Plant {
         this.type = PlantType.cabbage;
         this.stockPrice = stockPrice;
         this.salePrice = salePrice;
+        this.reqLandType= FarmLandType.vegtbField;
         PlantFactory.getInstance().putPlant(this);
         System.out.println("cabbage initial once");
     }

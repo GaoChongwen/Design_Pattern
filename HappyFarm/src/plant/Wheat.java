@@ -3,6 +3,7 @@ package plant;
 import base.Plant;
 import factory.PlantFactory;
 import utils.Context;
+import utils.Enum.FarmLandType;
 import utils.Enum.PlantType;
 
 /**
@@ -19,6 +20,7 @@ public class Wheat extends Plant {
         this.type = PlantType.wheat;
         this.stockPrice = Context.wheat_stockPrice;
         this.salePrice = salePrice;
+        this.reqLandType = FarmLandType.cornField;
         PlantFactory.getInstance().putPlant(this);
         System.out.println("wheat initial once");
 

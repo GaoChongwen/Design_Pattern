@@ -2,9 +2,13 @@ package base;
 
 
 import building.farmland.FarmLand;
+import com.sun.org.apache.xpath.internal.functions.FuncLast;
 import factory.PlantFactory;
+import utils.Enum.FarmLandType;
 import utils.Enum.PlantType;
 import utils.state.plantState.PlantState;
+
+import javax.sound.midi.Track;
 
 /**
  * Design-Pattern: State, Prototype
@@ -19,7 +23,7 @@ public abstract class Plant extends FarmObj implements Cloneable {
     protected int stockPrice;
     protected int salePrice;
     protected PlantType type;
-    protected FarmLand requireLand;
+    protected FarmLandType reqLandType;
 
     protected Plant(int stockPrice, int salePrice) {
     }
@@ -46,6 +50,14 @@ public abstract class Plant extends FarmObj implements Cloneable {
 
     public PlantType getType() {
         return this.type;
+    }
+
+    public FarmLandType getReqLandType() {
+        return this.reqLandType;
+    }
+
+    public boolean checkLand(FarmLandType landType) {
+        return landType == getReqLandType();
     }
 
     /**
