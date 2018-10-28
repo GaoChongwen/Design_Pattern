@@ -11,7 +11,7 @@ import java.util.*;
 public class MessageBoard extends Observable {
 
     /**
-     * Design-Pattern: Singleton, Double checked locking
+     * 设计模式：Singleton, Double checked locking
      */
     private volatile static MessageBoard ourInstance = new MessageBoard();
     public static MessageBoard getInstance() {
@@ -21,7 +21,7 @@ public class MessageBoard extends Observable {
     }
 
     /**
-     * Design-Pattern: Mediator
+     * 设计模式：Mediator
      * @param person
      * @param message
      */
@@ -31,7 +31,7 @@ public class MessageBoard extends Observable {
     }
 
     /**
-     * Design-Pattern: Observer
+     * 设计模式：Observer
      */
     private ArrayList<Observer> employees = new ArrayList();
     public void addObserver(Observer employee) {
