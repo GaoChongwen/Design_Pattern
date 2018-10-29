@@ -29,4 +29,5 @@ public abstract class AbstractFactory {
     FarmLand getFarmLand(FarmLandType type) {
         return null;
     }
+
 }

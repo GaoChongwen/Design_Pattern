@@ -1,6 +1,6 @@
 package action.toolAction;
 
-import base.Plant;
+import base.plant.Plant;
 
 /**
  *
