@@ -1,7 +1,6 @@
 package factory;
 
-import base.Plant;
-import utils.Enum.PlantType;
+import base.plant.Plant;
 import java.util.Hashtable;
 import java.util.Map;
 

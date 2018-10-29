@@ -4,7 +4,6 @@ import base.Item;
 import base.plant.Plant;
 import propComp.props.landAdaptor.LandAdaptor;
 import utils.Enum.FarmLandType;
-import utils.test.Adaptor;
 
 /**
  * Design-Pattern: Prototype, Adaptor
@@ -29,19 +28,23 @@ public abstract class FarmLand extends Item implements Cloneable {
         return landType;
     }
 
+    @Override
+    protected void use() { }
+
     /**
      * @param p
      * @return
      * @DesignPattern: Adaptor
      */
 
-    public void setAdaptor(LandAdaptor landAdaptor) {
+    public void use(LandAdaptor landAdaptor) {
         this.adaptor = landAdaptor;
+        System.out.println(landType + " Adaptor works.");
     }
 
     public boolean plant(Plant p) {
 
-        if (idle && ((p.plant(landType)) || (adaptor != null && adaptor.plant(p)))) {
+        if (idle && (p.plant(landType) ||(adaptor != null && adaptor.plant(p)))) {
             plant = p;
             idle = false;
             System.out.println(landType + " plant " + p.getType() + "success!");

@@ -1,5 +1,7 @@
 package base.animal;
 
+import java.util.Random;
+
 public class MatureState implements AnimalState{
     private Animal animal;
     public MatureState(Animal animal){
@@ -8,7 +10,18 @@ public class MatureState implements AnimalState{
 
     @Override
     public void grow() {
-        //暂时什么都不做
-        //之后可以考虑随回合数增加而当场去世
+        Random ra=new Random();
+        int num=ra.nextInt(100)+1;
+        if(num<5){ //百分之5概率死亡
+            animal.setState(animal.deadState);
+            animal.shouldRemove=true;
+        }
     }
+
+    @Override
+    public void eat() {
+
+    }
+
+
 }

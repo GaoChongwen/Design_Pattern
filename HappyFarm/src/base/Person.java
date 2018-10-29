@@ -11,15 +11,10 @@ import java.util.Observer;
  * Design-Pattern: Singleton, Double Checked Locking, Observer, Mediator
  */
 public class Person extends FarmObj implements Observer {
-    protected String name;
     protected ArrayList<String> messages;
 
     protected Person() {
         messages = new ArrayList<>();
-    }
-
-    public String getName(){
-        return name;
     }
 
     /**
@@ -29,7 +24,7 @@ public class Person extends FarmObj implements Observer {
      */
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println(this.name + ": I can see "+((MessageBoard)o).getMessageNum()+" messages.");
+        System.out.println(getName() + ": I can see "+((MessageBoard)o).getMessageNum()+" messages.");
     }
 
     /**
@@ -39,7 +34,4 @@ public class Person extends FarmObj implements Observer {
         MessageBoard.addMessage(this, message);
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 }

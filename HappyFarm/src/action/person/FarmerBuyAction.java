@@ -65,10 +65,11 @@ public class FarmerBuyAction extends  FarmerAction{
         return false;
     }
     protected void buy(){
-        // todo add to warehouse
-        // todo money.use()
+
         // item.buy();
-        // Money.getInstance().use(item.getPrice() * count);
+
+        // Money.getInstance().buy(item, count);
+
         System.out.println("Purchase complete.");
     }
 }
