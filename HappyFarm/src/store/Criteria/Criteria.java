@@ -1,6 +1,9 @@
-package store;
+package store.Criteria;
+
+import base.Item;
+
+import java.util.List;
 
 public interface Criteria{
-   public void meetCriteria();
-//   public static List<Person> Persons;
+   public List<Item> meetCriteria(List<Item> persons);
 }

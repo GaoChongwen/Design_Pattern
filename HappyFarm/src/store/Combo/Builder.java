@@ -1,6 +1,8 @@
-package store;
+package store.Combo;
 
 public abstract class Builder{
-    public abstract void BuildX();
+    public abstract void buildComboName();
+    public abstract void buildCommodity();
 
+    public abstract Combo getCombo();
 }
