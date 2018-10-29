@@ -12,13 +12,27 @@ public class GrowingState implements AnimalState{
     public void grow() {
         Random ra=new Random();
         int num=ra.nextInt(100)+1;
-        //百分之90的概率成长为成熟期
+        //百分之70的概率成长为成熟期
         if(num<=20) {
-            animal.setState(animal.babyState);
-            animal.setMature(true);
+            animal.setState(animal.growingState);
+        }
+        else if(num>20&&num<90){
+            animal.setState(animal.matureState);
+            animal.isMature=true;
         }
         else{
-            animal.setState(animal.babyState);
+            animal.setState(animal.deadState);
+            animal.shouldRemove=true;
+        }
+    }
+
+    @Override
+    public void eat() {
+        Random ra=new Random();
+        int num=ra.nextInt(100)+1;
+        if(num>70){
+            animal.setState(animal.matureState);
+            animal.isMature=true;
         }
     }
 }
