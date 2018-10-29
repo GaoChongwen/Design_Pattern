@@ -1,9 +1,12 @@
 package building.farmland;
 
+import base.ClockObserver;
 import base.Item;
 import base.plant.Plant;
 import propComp.props.landAdaptor.LandAdaptor;
 import utils.Enum.FarmLandType;
+
+import java.util.Observable;
 
 /**
  * Design-Pattern: Prototype, Adaptor
@@ -12,7 +15,7 @@ import utils.Enum.FarmLandType;
  * @version 2018/10/28
  */
 
-public abstract class FarmLand extends Item implements Cloneable {
+public abstract class FarmLand extends ClockObserver implements Cloneable {
     protected FarmLandType landType;
     protected boolean idle;
     protected Plant plant;
@@ -54,6 +57,14 @@ public abstract class FarmLand extends Item implements Cloneable {
             return false;
         }
 
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        if(plant==null){
+            return;
+        }
+        plant.grow();
     }
 
     /**

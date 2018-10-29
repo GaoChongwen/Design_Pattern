@@ -1,12 +1,13 @@
 package base.animal;
 
 
+import base.ClockObserver;
 import base.FarmObj;
 
 import java.util.Observable;
 import java.util.Observer;
 
-public class Animal extends FarmObj {
+public class Animal extends ClockObserver {
 
     //动物的状态
     protected AnimalState babyState;
@@ -22,7 +23,7 @@ public class Animal extends FarmObj {
     public boolean shouldRemove; //标志是否应该被移除，例如死亡后就该移除
 
     public Animal(){
-        this.typename ="Animal";
+        setName("animal");
         babyState=new BabyState(this);
         growingState=new GrowingState(this);
         matureState=new MatureState(this);
