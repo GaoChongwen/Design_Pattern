@@ -2,6 +2,7 @@ package action.toolAction;
 
 import base.Action;
 import base.Plant;
+import propComp.tools.Tool;
 import utils.Enum.PlantType;
 
 /**
@@ -10,18 +11,28 @@ import utils.Enum.PlantType;
  * Design-Pattern: Bridge, Strategy
  */
 public abstract class ToolAction extends Action implements HarvestAPI {
-    protected ToolAction(){}
+    protected ToolAction(Tool tool){
+        super(tool);
+    }
 
     @Override
     protected boolean doSomething() {
-        harvest((Plant)getTarget());
+        harvest();
         return true;
     }
 
     @Override
-    public void harvest(Plant plant) {
-        if(plant.getType() == PlantType.wheat){
-            harvestWheat();
-        }
+    public boolean harvest(PlantType plantType) {
+        return false;
+    }
+
+    @Override
+    public boolean harvest() {
+        return false;
+    }
+
+    @Override
+    public boolean harvestWheat() {
+        return false;
     }
 }

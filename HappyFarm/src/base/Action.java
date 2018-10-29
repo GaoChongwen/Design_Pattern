@@ -21,7 +21,7 @@ abstract public class Action {
         this.Target = Target;
     }
 
-    protected Action() {}
+    protected Action(FarmObj target) {setTarget(target);}
 
     /**
      * run src.Action.

@@ -3,27 +3,33 @@ package action.toolAction;
 import base.FarmObj;
 import base.Plant;
 import propComp.tools.Tool;
+import utils.Enum.PlantType;
 
 /**
  * @author Chudi LAN
  * @version 2018-10-28
  */
 public class SickleAction extends  ToolAction{
-    static volatile private SickleAction instance = new SickleAction();
-    public static SickleAction getInstance() {return instance;}
-    private SickleAction(){}
-    public SickleAction(Plant plant){
-        setTarget(plant);
+    public SickleAction(Tool tool){
+        super(tool);
     }
 
     @Override
-    public void harvest(Plant plant) {
-        super.harvest(plant);
+    public boolean harvest() {
+        System.out.println("Harvesting with Sickle.");
+        return true;
     }
 
     @Override
-    public void harvestWheat() {
-        System.out.println("harvesting wheat with sickle.");
+    public boolean harvest(PlantType plantType) {
+        System.out.println("Harvesting "+plantType+" with Sickle.");
+        return true;
+    }
+
+    @Override
+    public boolean harvestWheat() {
+        System.out.println("Harvesting wheat with sickle.");
         // todo: 处理速度
+        return true;
     }
 }

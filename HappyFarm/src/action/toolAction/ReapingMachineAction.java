@@ -1,26 +1,36 @@
 package action.toolAction;
 
 import base.Plant;
+import propComp.tools.Tool;
+import utils.Enum.PlantType;
 
 /**
  *
  */
-public class ReapingMachineAction extends ToolAction implements HarvestAPI {
-    static volatile private ReapingMachineAction instance = new ReapingMachineAction();
-    public static ReapingMachineAction getInstance() {return instance;}
-    private ReapingMachineAction(){}
-    public ReapingMachineAction(Plant plant){
-        setTarget(plant);
+public class ReapingMachineAction extends ToolAction {
+    public ReapingMachineAction(Tool tool){
+        super(tool);
     }
 
     @Override
-    public void harvest(Plant plant) {
-        super.harvest(plant);
+    public boolean harvest(PlantType plantType) {
+        System.out.println("Harvesting "+plantType+" with Reaping Machine.");
+        return true;
     }
 
     @Override
-    public void harvestWheat() {
-        System.out.println("harvesting wheat with reaping machine.");
-        // todo: 处理速度
+    public boolean harvest() {
+        System.out.println("Harvesting with Reaping Machine.");
+        return true;
+    }
+
+    @Override
+    public boolean harvestWheat() {
+        System.out.println("Harvesting reap with Reaping Machine.");
+        return true;
+    }
+
+    private int harvsetSpeed(PlantType plantType){
+        return 0;
     }
 }

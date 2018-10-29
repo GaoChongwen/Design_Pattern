@@ -15,6 +15,6 @@ public class Sickle extends Tool {
     }
     @Override
     public void use() {
-        harvestAPI.harvestWheat();
+        harvestAPI.harvest();
     }
 }

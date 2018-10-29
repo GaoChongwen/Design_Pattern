@@ -14,6 +14,6 @@ public class ReapingMachine extends Tool {
 
     @Override
     public void use() {
-        harvestAPI.harvestWheat();
+        harvestAPI.harvest();
     }
 }

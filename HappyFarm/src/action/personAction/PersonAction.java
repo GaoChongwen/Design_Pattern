@@ -12,7 +12,7 @@ abstract public class PersonAction extends Action implements ActionStrategy{
     private Person targetPerson;
 
     PersonAction(Person targetPerson){
-        this.setTargetPerson(targetPerson);
+        super(targetPerson);
     }
 
     public void setTargetPerson(Person targetPerson){
