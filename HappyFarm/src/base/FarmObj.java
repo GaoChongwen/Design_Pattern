@@ -9,7 +9,7 @@ public abstract class FarmObj {
     private String type;
     private String name;
 
-    protected String getType() {
+    public String getType() {
         return type;
     }
 
@@ -17,7 +17,7 @@ public abstract class FarmObj {
         this.type = type;
     }
 
-    protected String getName() {
+    public String getName() {
         return name;
     }
 
