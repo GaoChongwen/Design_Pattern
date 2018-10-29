@@ -1,5 +1,6 @@
 package building.shed;
 
+import base.ClockObserver;
 import base.FarmObj;
 import base.Iterator;
 import base.animal.Animal;
@@ -9,7 +10,7 @@ import building.ImpVisitor.BuildingVisitor;
 import java.util.Observable;
 import java.util.Observer;
 
-public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
+public class AnimalHouse extends ClockObserver implements BuildingAcceptor {
     //protected int maxCapacity;
     protected int capacity;  //最大容量
     //protected int count;  //当前舍内动物数量

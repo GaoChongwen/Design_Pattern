@@ -44,6 +44,9 @@ public abstract class Plant extends FarmObj implements Cloneable {
         state.harvest(this);
     }
 
+    public void grow(){
+        state.grow(this);
+    }
     public int getStockPrice() {
         return this.stockPrice;
     }

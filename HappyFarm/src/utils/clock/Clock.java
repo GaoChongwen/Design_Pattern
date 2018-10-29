@@ -1,19 +1,22 @@
 package utils.clock;
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
+import base.ClockObserver;
 
-public class Clock implements Observable {
+import java.util.*;
+
+public class Clock extends Observable {
     private Clock instance;
-    private Clock(){
-        curDay=1;
-        timeSpeed=1;
+
+    private Clock() {
+        curDay = 1;
+        timeSpeed = 1;
     }
+
     private int curDay;
     private int timeSpeed;
 
     public Clock getInstance() {
-        if(instance==null){
+        if (instance == null) {
             return new Clock();
         }
         return instance;
@@ -27,17 +30,27 @@ public class Clock implements Observable {
         return timeSpeed;
     }
 
-    public void nextRound(){
-        curDay+=timeSpeed;
+    public void nextRound() {
+        curDay += timeSpeed;
+        notifyObservers();
     }
 
-    @Override
-    public void addListener(InvalidationListener listener) {
+    private ArrayList<ClockObserver> observers = new ArrayList();
+
+    public void addObserver(ClockObserver observer) {
+        observers.add(observer);
 
     }
 
-    @Override
-    public void removeListener(InvalidationListener listener) {
+    public void deleteObserver(ClockObserver observer) {
+        observers.remove(observer);
+    }
 
+    public void notifyObservers() {
+        Iterator it = observers.iterator();
+        while (it.hasNext()) {
+            Observer o = (Observer) it.next();
+            o.update(this, null);
+        }
     }
 }
