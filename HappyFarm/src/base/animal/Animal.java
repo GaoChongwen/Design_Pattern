@@ -6,34 +6,41 @@ import base.FarmObj;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Animal extends FarmObj implements Observer {
+public class Animal extends FarmObj {
 
+    //动物的状态
     protected AnimalState babyState;
     protected AnimalState growingState;
     protected AnimalState matureState;
+    protected AnimalState deadState;
     protected AnimalState state;
-    protected boolean isMature;
-    protected int stockPrice;
-    protected int salePrice;
+
+    protected int stockPrice;  //进价
+    protected int salePrice; //出价
+
+    public boolean isMature;  //标志是否可成熟，成熟后可以直接卖掉
+    public boolean shouldRemove; //标志是否应该被移除，例如死亡后就该移除
 
     public Animal(){
         this.typename ="Animal";
         babyState=new BabyState(this);
         growingState=new GrowingState(this);
         matureState=new MatureState(this);
+        deadState=new DeadState(this);
         this.state=babyState;
-        isMature=false;
+
         stockPrice=0;
         salePrice=0;
+
+        shouldRemove=false;
+        isMature=false;
     }
 
     public boolean isMature() {
         return isMature;
     }
 
-    public void setMature(boolean mature) {
-        isMature = mature;
-    }
+    public void setMature(boolean mature) { isMature = mature; }
 
     public AnimalState getState() {
         return state;
@@ -43,12 +50,9 @@ public class Animal extends FarmObj implements Observer {
         this.state = state;
     }
 
-    @Override
-    public void update(Observable o, Object arg) {  //粒度是否太细？用animal当观察者还是用animalHouse当观察者还有待商榷
-        this.grow();
-    }
-
-    private void grow(){
+    public void grow(){
         this.state.grow();
     }
+
+    public void eat(){this.state.eat();}
 }
