@@ -1,4 +1,19 @@
-package action.personAction;
+package action.person;
 
-public class FarmerSellAction {
+import base.FarmObj;
+
+public class FarmerSellAction extends FarmerAction {
+    public FarmerSellAction(FarmObj obj, int count){
+        super();
+    }
+
+    @Override
+    protected boolean checkCondition() {
+        return false;
+    }
+
+    @Override
+    public void doAction() {
+
+    }
 }

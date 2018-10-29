@@ -1,4 +1,4 @@
-package action.toolAction;
+package action.tool;
 
 
 import propComp.tools.Tool;

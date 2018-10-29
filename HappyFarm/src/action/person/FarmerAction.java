@@ -1,16 +1,16 @@
-package action.personAction;
+package action.person;
 
 import person.Farmer;
 
+/**
+ * @author Chudi LAN
+ * @version 2018-10-29
+ */
 abstract public class FarmerAction extends PersonAction{
     protected FarmerAction(){
-        super(Farmer.getInstance());
+        setTarget(Farmer.getInstance());
     }
 
     abstract public void doAction();
-
-    @Override
-    protected boolean checkCondition() {
-        return false;
-    }
+    abstract protected boolean checkCondition();
 }

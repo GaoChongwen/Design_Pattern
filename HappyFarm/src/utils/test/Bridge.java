@@ -1,15 +1,11 @@
 package utils.test;
 
-import action.toolAction.ReapingMachineAction;
-import action.toolAction.SickleAction;
-import action.toolAction.WheatReapingMachineAction;
-import factory.PlantFactory;
-import plant.Wheat;
+import action.tool.ReapingMachineAction;
+import action.tool.SickleAction;
+import action.tool.WheatReapingMachineAction;
 import propComp.tools.ReapingMachine;
 import propComp.tools.Sickle;
 import propComp.tools.Tool;
-import utils.Context;
-import utils.Enum.PlantType;
 
 /**
  * @author Chudi LAN
@@ -26,5 +22,7 @@ public class Bridge {
         sickleTool.use();
         reapingMachineTool.use();
         wheatReapingMachineTool.use();
+
+        ReapingMachineAction action = new ReapingMachineAction(null);
     }
 }

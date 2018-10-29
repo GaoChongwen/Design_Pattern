@@ -1,7 +1,6 @@
-package action.personAction;
+package action.person;
 import action.ActionStrategy;
 import base.Action;
-import base.Person;
 
 /**
  * @author Chudi LAN
@@ -28,4 +27,5 @@ abstract public class PersonAction extends Action implements ActionStrategy {
      */
     protected abstract boolean checkCondition();
 
+    abstract public void doAction();
 }

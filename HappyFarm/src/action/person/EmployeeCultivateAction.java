@@ -1,14 +1,9 @@
-package action.personAction;
+package action.person;
 
 import person.Employee;
 import utils.Enum.EmployeeSkill;
 
-public class EmployeeCultivateAction extends EmployeeAction{
-    public EmployeeCultivateAction(Employee employee){
-        super(employee);
-    }
-
-
+abstract public class EmployeeCultivateAction extends EmployeeAction{
     @Override
     protected boolean checkTool() {
         if(!checkSeed()){
@@ -23,7 +18,7 @@ public class EmployeeCultivateAction extends EmployeeAction{
 
     @Override
     protected boolean checkSkill() {
-        return ((Employee)getTargetPerson()).hasSkill(EmployeeSkill.cultivation);
+        return ((Employee)getTarget()).hasSkill(EmployeeSkill.cultivation);
     }
 
     @Override

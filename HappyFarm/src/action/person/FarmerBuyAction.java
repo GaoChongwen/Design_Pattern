@@ -1,6 +1,5 @@
-package action.personAction;
+package action.person;
 
-import base.FarmObj;
 import base.Item;
 
 /**
@@ -14,6 +13,7 @@ public class FarmerBuyAction extends  FarmerAction{
     private int count;
 
     public FarmerBuyAction(Item item, int count){
+        super();
         this.item = item;
         this.count = count;
     }
@@ -24,21 +24,30 @@ public class FarmerBuyAction extends  FarmerAction{
 
     @Override
     public void doAction() {
+        if(!checkCondition()){
+            System.out.println("Purchase failed。");
+            return;
+        }
+        buy();
+    }
+
+    @Override
+    protected boolean checkCondition() {
         System.out.println("Purchasing " + item);
         if(!checkStock()){
             System.out.println("Purchase exceeds the stock of the store.");
+            return false;
         }
 
         if(!checkBalance()){
             System.out.println("Money or Coupon not enough.");
-            return;
+            return false;
         }
         if(!checkCapacity()){
             System.out.println("Warehouse capacity is not enough.");
-            return;
+            return false;
         }
-
-        buy();
+        return true;
     }
 
     protected boolean checkBalance(){

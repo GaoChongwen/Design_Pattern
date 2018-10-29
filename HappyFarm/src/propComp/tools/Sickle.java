@@ -1,7 +1,6 @@
 package propComp.tools;
 
-import action.toolAction.HarvestAPI;
-import base.Item;
+import action.tool.HarvestAPI;
 import utils.Enum.ToolType;
 
 /**

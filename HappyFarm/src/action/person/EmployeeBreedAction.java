@@ -1,4 +1,4 @@
-package action.personAction;
+package action.person;
 
 import person.Employee;
 import utils.Enum.EmployeeSkill;
@@ -9,14 +9,17 @@ import utils.Enum.EmployeeSkill;
  * Design-Pattern: Template Method, Strategy
  */
 public class EmployeeBreedAction extends EmployeeAction {
-    public EmployeeBreedAction(Employee employee){
-        super(employee);
-    }
+    private static EmployeeBreedAction instance = new EmployeeBreedAction();
+    public static EmployeeBreedAction getInstance() {return instance;}
+    private EmployeeBreedAction(){}
 
+    /**
+     * overwrite checkTool() to check food
+     * @return
+     */
     @Override
     protected boolean checkTool() {
-        // todo: check tools for breeding
-        return false;
+        return checkFood();
     }
 
     @Override
@@ -30,7 +33,7 @@ public class EmployeeBreedAction extends EmployeeAction {
     }
 
     private boolean checkFood(){
-        // todo: check animal food
+        // todo check animal food
         return false;
     }
 }

@@ -1,4 +1,4 @@
-package action.personAction;
+package action;
 
 /**
  * @author Chudi LAN

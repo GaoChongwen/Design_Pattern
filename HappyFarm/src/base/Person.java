@@ -38,4 +38,8 @@ public class Person extends FarmObj implements Observer {
     public void leaveMessage(String message) {
         MessageBoard.addMessage(this, message);
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

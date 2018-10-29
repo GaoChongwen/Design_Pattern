@@ -1,7 +1,7 @@
 package utils.test;
 
-import action.personAction.EmployeeBreedAction;
-import action.personAction.EmployeeCultivateAction;
+import action.person.EmployeeBreedAction;
+import action.person.EmployeeCultivateAction;
 import person.Employee;
 import utils.Enum.EmployeeSkill;
 

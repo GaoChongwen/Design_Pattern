@@ -7,7 +7,7 @@ import singleton.MessageBoard;
 import java.util.Observable;
 
 /**
- * @autho Chudi LAN
+ * @author Chudi LAN
  * Design-Pattern: Observer
  */
 public class Employee extends Person {
