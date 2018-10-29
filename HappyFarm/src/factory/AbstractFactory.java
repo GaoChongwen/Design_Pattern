@@ -3,14 +3,15 @@ package factory;
 
 import base.Item;
 import base.Person;
-import base.Plant;
+import base.plant.Plant;
 import base.animal.Animal;
 import building.farmland.FarmLand;
+import propComp.props.landAdaptor.LandAdaptor;
 import utils.Enum.FarmLandType;
 import utils.Enum.PlantType;
 
 public abstract class AbstractFactory {
-    Plant createPlant(PlantType name) {
+    Plant createPlant(String name) {
         return null;
     }
 
@@ -26,7 +27,9 @@ public abstract class AbstractFactory {
         return null;
     }
 
-    FarmLand getFarmLand(FarmLandType type) {
+    FarmLand createFarmLand(String type) {
         return null;
     }
+
+    LandAdaptor createAdaptor(String type) { return null; }
 }

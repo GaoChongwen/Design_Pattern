@@ -2,10 +2,12 @@ package building.shed;
 
 import base.FarmObj;
 import base.animal.Animal;
+import building.ImpVisitor.BuildingAcceptor;
+import building.ImpVisitor.BuildingVisitor;
 
 import java.util.Iterator;
 
-public class AnimalHouse extends FarmObj {
+public class AnimalHouse extends FarmObj implements BuildingAcceptor {
     //protected int maxCapacity;
     protected int capacity;  //最大容量
     //protected int count;  //当前舍内动物数量
@@ -61,6 +63,27 @@ public class AnimalHouse extends FarmObj {
 
     public AnimalIterator getIterator() {
         return new AnimalIterator();
+    }
+
+    // 获取动物窝的名字
+    public String getName() {
+        return null;
+    }
+
+    // 搭建动物窝
+    public void bulidShed() {
+        System.out.println("开始搭建动物的住所...");
+    }
+
+    // 动物窝搭建完成
+    public void done() {
+        System.out.println("一个简陋的动物屋搭建完成。");
+    }
+
+    // 作为Visitor模式中的接受者, 接收访问者
+    @Override
+    public void accept(BuildingVisitor buildingVisitor) {
+        buildingVisitor.visit(this);
     }
 
 }

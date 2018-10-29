@@ -1,8 +1,6 @@
 package action.toolAction;
 
-import base.FarmObj;
-import base.Plant;
-import propComp.tools.Tool;
+import base.plant.Plant;
 
 /**
  * @author Chudi LAN

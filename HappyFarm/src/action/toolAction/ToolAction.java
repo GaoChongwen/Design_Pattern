@@ -1,7 +1,7 @@
 package action.toolAction;
 
 import base.Action;
-import base.Plant;
+import base.plant.Plant;
 import utils.Enum.PlantType;
 
 /**

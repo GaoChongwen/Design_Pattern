@@ -8,13 +8,13 @@ import base.animal.Animal;
 public class AnimalFactory extends AbstractFactory {
     @Override
     Animal createAnimal(String name) {
-        if(name=="cow"){
+        if(name.equals("cow")){
             return new Cow();
         }
-        else if(name=="chicken"){
+        else if(name.equals("chicken")){
             return new Chicken();
         }
-        else if(name=="pig"){
+        else if(name.equals("pig")){
             return new Pig();
         }
         else{

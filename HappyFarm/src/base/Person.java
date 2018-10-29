@@ -1,6 +1,6 @@
 package base;
 
-import utils.MessageBoard;
+import singleton.MessageBoard;
 
 import java.util.ArrayList;
 import java.util.Observable;

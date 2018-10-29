@@ -1,10 +1,9 @@
 package utils.test;
 
-import base.Person;
 import person.Employee;
 import person.Farmer;
 import utils.EmployeeSkill;
-import utils.MessageBoard;
+import singleton.MessageBoard;
 
 /**
  * @author Chudi LAN

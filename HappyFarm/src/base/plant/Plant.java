@@ -1,9 +1,9 @@
-package base;
+package base.plant;
 
 
+import base.FarmObj;
 import utils.Enum.FarmLandType;
 import utils.Enum.PlantType;
-import utils.state.plantState.PlantState;
 
 /**
  * Design-Pattern: State, Prototype
@@ -21,18 +21,23 @@ public abstract class Plant extends FarmObj implements Cloneable {
     protected FarmLandType reqLandType;
 
     protected Plant(int stockPrice, int salePrice) {
+        state = SeedState.getInstance();
     }
 
-    public void setState(PlantState state) {
+    protected void setState(PlantState state) {
         this.state = state;
+        System.out.println(type + " changes state to " + this.state + " success!");
     }
 
     public PlantState getState() {
         return this.state;
     }
 
-    public void die() {
-
+    public boolean plant(FarmLandType landType) {
+        if (landType == FarmLandType.allField || landType == reqLandType) {
+            return state.plant(this);
+        }
+        return false;
     }
 
     public int getStockPrice() {
@@ -52,8 +57,17 @@ public abstract class Plant extends FarmObj implements Cloneable {
     }
 
     public boolean checkLand(FarmLandType landType) {
-        return landType == getReqLandType();
+        return landType == this.reqLandType;
     }
+
+    public boolean checkType(PlantType plantType) {
+        return plantType == this.type;
+    }
+
+    protected void harvest() {
+        System.out.println(this.type + " harvest success.");
+    }
+
 
     /**
      * Design-Pattern: Prototype

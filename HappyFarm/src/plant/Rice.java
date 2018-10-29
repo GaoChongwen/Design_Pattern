@@ -1,6 +1,6 @@
 package plant;
 
-import base.Plant;
+import base.plant.Plant;
 import factory.PlantFactory;
 import utils.Enum.FarmLandType;
 import utils.Enum.PlantType;

@@ -17,7 +17,7 @@ public class Animal extends FarmObj implements Observer {
     protected int salePrice;
 
     public Animal(){
-        this.name="Animal";
+        this.typename ="Animal";
         babyState=new BabyState(this);
         growingState=new GrowingState(this);
         matureState=new MatureState(this);

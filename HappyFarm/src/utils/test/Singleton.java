@@ -1,7 +1,7 @@
 package utils.test;
 
 import person.Farmer;
-import utils.MessageBoard;
+import singleton.MessageBoard;
 
 /**
  * @author Chudi LAN

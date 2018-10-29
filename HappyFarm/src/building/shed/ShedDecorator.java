@@ -6,11 +6,11 @@ package building.shed;
  * @author: Chen Yulei
  * @date: 2018-10-27
  **/
-public class ShedDecorator extends Shed{
+public class ShedDecorator extends AnimalHouse{
 
-    protected Shed decoratedShed;
+    protected AnimalHouse decoratedShed;
 
-    public ShedDecorator(Shed decoratedShed){
+    public ShedDecorator(AnimalHouse decoratedShed){
         this.decoratedShed = decoratedShed;
     }
 

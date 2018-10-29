@@ -2,7 +2,7 @@ package person;
 
 import base.Person;
 import utils.EmployeeSkill;
-import utils.MessageBoard;
+import singleton.MessageBoard;
 
 import java.util.Observable;
 
