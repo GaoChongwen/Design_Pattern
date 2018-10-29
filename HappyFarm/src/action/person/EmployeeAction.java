@@ -10,15 +10,10 @@ import person.Employee;
  * Employees can only execute an action if the tool and skill satisfy the task.
  */
 abstract public class EmployeeAction extends PersonAction {
-
-    protected EmployeeAction(Employee employee){
-        super(employee);
-    }
-
     @Override
     protected boolean checkCondition() {
         if(!checkSkill()){
-            System.out.println("Employee "+getTargetPerson().getName()+" doesn't have the skill.");
+            System.out.println("Employee "+((Person)getTarget()).getName()+" doesn't have the skill.");
             return false;
         }
         if(!checkTool()){

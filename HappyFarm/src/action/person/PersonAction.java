@@ -1,4 +1,5 @@
 package action.personAction;
+import action.ActionStrategy;
 import base.Action;
 import base.Person;
 
@@ -7,33 +8,17 @@ import base.Person;
  * @version 2018-10-28
  * Design-Pattern: Template Method, Strategy
  */
-abstract public class PersonAction extends Action implements ActionStrategy{
-    /** Register target person to execute the actions. */
-    private Person targetPerson;
-
-    PersonAction(Person targetPerson){
-        super(targetPerson);
-    }
-
-    public void setTargetPerson(Person targetPerson){
-        this.targetPerson = targetPerson;
-    }
-    public Person getTargetPerson(){
-        return this.targetPerson;
-    }
-
+abstract public class PersonAction extends Action implements ActionStrategy {
     /**
      * Skeleton of the action
      * @return
      */
     @Override
-    protected boolean doSomething() {
+    protected void doSomething() {
         System.out.println("Performing PersonAction.");
         if(checkCondition()){
             doAction();
-            return true;
         }
-        return false;
     }
 
 

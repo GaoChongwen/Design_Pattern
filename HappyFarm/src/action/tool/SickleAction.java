@@ -6,8 +6,6 @@ import base.FarmObj;
 import propComp.tools.Tool;
 import utils.Enum.PlantType;
 
-import base.plant.Plant;
-
 
 /**
  * @author Chudi LAN
@@ -33,7 +31,6 @@ public class SickleAction extends  ToolAction{
     @Override
     public boolean harvestWheat() {
         System.out.println("Harvesting wheat with sickle.");
-        // todo: 处理速度
         return true;
     }
 }

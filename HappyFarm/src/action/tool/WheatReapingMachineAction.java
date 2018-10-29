@@ -3,6 +3,10 @@ package action.toolAction;
 import propComp.tools.Tool;
 import utils.Enum.PlantType;
 
+/**
+ * @author Chudi LAN
+ * @version 2018-10-29
+ */
 public class WheatReapingMachineAction extends ReapingMachineAction{
     public WheatReapingMachineAction(Tool tool){
         super(tool);

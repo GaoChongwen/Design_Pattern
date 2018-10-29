@@ -1,8 +1,7 @@
-package action.toolAction;
+package action.tool;
 
 
 import utils.Enum.PlantType;
-import base.plant.Plant;
 
 /**
  * @author Chudi LAN

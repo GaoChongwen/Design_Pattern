@@ -4,7 +4,6 @@ package action.toolAction;
 import propComp.tools.Tool;
 import utils.Enum.PlantType;
 
-import base.plant.Plant;
 
 
 /**
@@ -33,7 +32,4 @@ public class ReapingMachineAction extends ToolAction {
         return true;
     }
 
-    private int harvsetSpeed(PlantType plantType){
-        return 0;
-    }
 }

@@ -4,8 +4,6 @@ import base.Action;
 
 import propComp.tools.Tool;
 
-import base.plant.Plant;
-
 import utils.Enum.PlantType;
 
 /**
@@ -24,18 +22,7 @@ public abstract class ToolAction extends Action implements HarvestAPI {
         return true;
     }
 
-    @Override
-    public boolean harvest(PlantType plantType) {
-        return false;
-    }
-
-    @Override
-    public boolean harvest() {
-        return false;
-    }
-
-    @Override
-    public boolean harvestWheat() {
-        return false;
-    }
+    abstract public boolean harvest(PlantType plantType);
+    abstract public boolean harvest();
+    abstract public boolean harvestWheat();
 }

@@ -3,6 +3,11 @@ package action.personAction;
 import person.Employee;
 import utils.Enum.EmployeeSkill;
 
+/**
+ * @author Chudi LAN
+ * @version 2018-10-29
+ * Design-Pattern: Template Method, Strategy
+ */
 public class EmployeeBreedAction extends EmployeeAction {
     public EmployeeBreedAction(Employee employee){
         super(employee);
@@ -16,7 +21,7 @@ public class EmployeeBreedAction extends EmployeeAction {
 
     @Override
     protected boolean checkSkill() {
-        return ((Employee)getTargetPerson()).hasSkill(EmployeeSkill.breeding);
+        return ((Employee)getTarget()).hasSkill(EmployeeSkill.breeding);
     }
 
     @Override
