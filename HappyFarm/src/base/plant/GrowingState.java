@@ -1,6 +1,4 @@
-package utils.state.plantState;
-
-import base.Plant;
+package base.plant;
 
 import java.util.Random;
 
@@ -31,5 +29,13 @@ public class GrowingState implements PlantState {
         } else {
             plant.setState(MatureState.getInstance());
         }
+    }
+
+    public void remove(Plant plant) {
+        plant.setState(RemovedState.getInstance());
+    }
+
+    public void harvest(Plant plant) {
+
     }
 }

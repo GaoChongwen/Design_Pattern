@@ -1,12 +1,12 @@
 package factory;
 
-import base.Plant;
+import base.plant.Plant;
 import utils.Enum.PlantType;
 import java.util.Hashtable;
 import java.util.Map;
 
 /**
- * Design-Pattern: Factory Method, Prototype
+ * Design-Pattern: Factory Method, Prototype, Singleton
  *
  * @version 2018/10/28
  * @author lipeng liang

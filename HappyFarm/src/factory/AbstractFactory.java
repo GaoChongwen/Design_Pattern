@@ -3,7 +3,7 @@ package factory;
 
 import base.Item;
 import base.Person;
-import base.Plant;
+import base.plant.Plant;
 import base.animal.Animal;
 import building.farmland.FarmLand;
 import utils.Enum.FarmLandType;

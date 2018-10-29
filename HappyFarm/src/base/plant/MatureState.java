@@ -1,6 +1,4 @@
-package utils.state.plantState;
-
-import base.Plant;
+package base.plant;
 
 import java.util.Random;
 
@@ -28,7 +26,16 @@ public class MatureState implements PlantState {
         if (num < 90) {
             plant.setState(this);
         } else {
-            plant.die();
+            plant.setState(DieState.getInstance());
         }
+    }
+
+    public void remove(Plant plant) {
+        plant.setState(RemovedState.getInstance());
+    }
+
+    public void harvest(Plant plant) {
+        plant.harvest();
+        plant.setState(HarvestState.getInstance());
     }
 }
