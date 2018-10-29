@@ -1,6 +1,7 @@
 package action.personAction;
 
 import base.Person;
+import person.Employee;
 
 /**
  * @author Chudi LAN
@@ -10,8 +11,8 @@ import base.Person;
  */
 abstract public class EmployeeAction extends PersonAction {
 
-    public EmployeeAction(Person targetPerson){
-        super(targetPerson);
+    protected EmployeeAction(Employee employee){
+        super(employee);
     }
 
     @Override
@@ -27,7 +28,8 @@ abstract public class EmployeeAction extends PersonAction {
         return true;
     }
 
-    protected abstract boolean checkTool();
-    protected abstract boolean checkSkill();
+    abstract protected boolean checkTool();
+    abstract protected boolean checkSkill();
 
+    abstract public void doAction();
 }

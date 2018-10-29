@@ -3,8 +3,8 @@ package action.personAction;
 import person.Employee;
 import utils.Enum.EmployeeSkill;
 
-public class Breed extends EmployeeAction {
-    public Breed(Employee employee){
+public class EmployeeBreedAction extends EmployeeAction {
+    public EmployeeBreedAction(Employee employee){
         super(employee);
     }
 
@@ -20,7 +20,7 @@ public class Breed extends EmployeeAction {
     }
 
     @Override
-    public void doOperation() {
+    public void doAction() {
         System.out.println("Breeding completed.");
     }
 

@@ -1,6 +1,6 @@
 package utils.test;
 
-import action.personAction.Cultivate;
+import action.personAction.EmployeeCultivateAction;
 import base.Action;
 import person.Employee;
 import utils.Enum.EmployeeSkill;
@@ -14,7 +14,7 @@ public class TemplateMethod {
     public static void main(String args[]){
         Employee cyl = new Employee("cyl", EmployeeSkill.cultivation, 5000);
 
-        Action cultivate = new Cultivate(cyl);
+        Action cultivate = new EmployeeCultivateAction(cyl);
 
         cultivate.run();
     }

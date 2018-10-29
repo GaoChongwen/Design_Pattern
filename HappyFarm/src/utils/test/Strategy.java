@@ -1,7 +1,7 @@
 package utils.test;
 
-import action.personAction.Breed;
-import action.personAction.Cultivate;
+import action.personAction.EmployeeBreedAction;
+import action.personAction.EmployeeCultivateAction;
 import person.Employee;
 import utils.Enum.EmployeeSkill;
 
@@ -14,10 +14,10 @@ public class Strategy {
     public static void main(String args[]) {
         System.out.println("Testing Strategy Pattern");
         Employee ppp = new Employee("ppp", EmployeeSkill.breeding, 5000);
-        Cultivate op1 = new Cultivate(ppp);
-        Breed op2 = new Breed(ppp);
+        EmployeeCultivateAction op1 = new EmployeeCultivateAction(ppp);
+        EmployeeBreedAction op2 = new EmployeeBreedAction(ppp);
 
-        op1.doOperation();
-        op2.doOperation();
+        op1.doAction();
+        op2.doAction();
     }
 }

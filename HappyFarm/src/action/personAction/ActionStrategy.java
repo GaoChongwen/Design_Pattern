@@ -1,5 +1,5 @@
 package action.personAction;
 
 public interface ActionStrategy {
-    public void doOperation();
+    public void doAction();
 }

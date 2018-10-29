@@ -1,8 +1,11 @@
 package action.toolAction;
 
-import base.Plant;
+
 import propComp.tools.Tool;
 import utils.Enum.PlantType;
+
+import base.plant.Plant;
+
 
 /**
  *

@@ -30,7 +30,7 @@ abstract public class PersonAction extends Action implements ActionStrategy{
     protected boolean doSomething() {
         System.out.println("Performing PersonAction.");
         if(checkCondition()){
-            doOperation();
+            doAction();
             return true;
         }
         return false;

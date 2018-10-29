@@ -3,8 +3,8 @@ package action.personAction;
 import person.Employee;
 import utils.Enum.EmployeeSkill;
 
-public class Cultivate extends EmployeeAction{
-    public Cultivate(Employee employee){
+public class EmployeeCultivateAction extends EmployeeAction{
+    public EmployeeCultivateAction(Employee employee){
         super(employee);
     }
 
@@ -12,6 +12,9 @@ public class Cultivate extends EmployeeAction{
     @Override
     protected boolean checkTool() {
         if(!checkSeed()){
+            return false;
+        }
+        if(!checkCultivationTool()){
             return false;
         }
         // todo: check tools for cultivation
@@ -24,13 +27,18 @@ public class Cultivate extends EmployeeAction{
     }
 
     @Override
-    public void doOperation() {
+    public void doAction() {
         System.out.println("Cultivation completed.");
     }
 
 
     private boolean checkSeed(){
         // todo: check seeds
+        return false;
+    }
+
+    protected boolean checkCultivationTool(){
+        // todo check tools for cultivation
         return false;
     }
 

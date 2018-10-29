@@ -13,16 +13,20 @@ import java.util.Observable;
 public class Employee extends Person {
     private float salary;
     private EmployeeSkill skill;
+    private static int count;
+    private int id;
 
     public Employee(String name, EmployeeSkill skill, float salary){
         super();
         this.name = name;
         this.skill = skill;
         this.salary = salary;
+        count = 0;
+        id = count++;
     }
 
     public void getInfo(){
-        System.out.println("name: "+getName()+"   skill: "+getSkill().toString()+" salary: "+getSalary());
+        System.out.println("id: "+getId()+" name: "+getName()+"   skill: "+getSkill().toString()+" salary: "+getSalary());
     }
 
     @Override
@@ -39,5 +43,7 @@ public class Employee extends Person {
     public float getSalary(){
         return salary;
     }
+
+    public int getId() { return this.id; }
 
 }
