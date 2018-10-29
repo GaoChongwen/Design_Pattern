@@ -8,7 +8,7 @@ import building.ImpVisitor.BuildingVisitor;
  * @author: Chen Yulei
  * @date: 2018-10-27
  **/
-public class CowShed extends Shed {
+public class CowShed extends AnimalHouse {
 
     // 牛棚的名称（如：牛棚1号...）
     private String name;

@@ -1,7 +1,7 @@
 package building.ImpVisitor;
 
 import building.house.House;
-import building.shed.Shed;
+import building.shed.AnimalHouse;
 
 /**
  * @project: HappyFarm
@@ -14,5 +14,5 @@ public interface BuildingVisitor {
 
     // 访问接受者的实现类
     public void visit(House house);
-    public void visit(Shed shed);
+    public void visit(AnimalHouse shed);
 }
