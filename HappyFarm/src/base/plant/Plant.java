@@ -52,8 +52,9 @@ public abstract class Plant extends FarmObj implements Cloneable {
         return this.salePrice;
     }
 
-    public PlantType getType() {
-        return this.type;
+    @Override
+    public String getName() {
+        return this.type.toString();
     }
 
     public FarmLandType getReqLandType() {

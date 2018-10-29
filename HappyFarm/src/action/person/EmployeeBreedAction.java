@@ -8,7 +8,7 @@ import utils.Enum.EmployeeSkill;
  * @version 2018-10-29
  * Design-Pattern: Template Method, Strategy
  */
-public class EmployeeBreedAction extends EmployeeAction {
+public abstract class EmployeeBreedAction extends EmployeeAction {
     private static EmployeeBreedAction instance = new EmployeeBreedAction();
     public static EmployeeBreedAction getInstance() {return instance;}
     private EmployeeBreedAction(){}
@@ -31,4 +31,6 @@ public class EmployeeBreedAction extends EmployeeAction {
         // todo check animal food
         return false;
     }
+
+    abstract protected void execute();
 }
