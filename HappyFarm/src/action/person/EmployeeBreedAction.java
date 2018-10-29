@@ -27,11 +27,6 @@ public class EmployeeBreedAction extends EmployeeAction {
         return ((Employee)getTarget()).hasSkill(EmployeeSkill.breeding);
     }
 
-    @Override
-    public void doAction() {
-        System.out.println("Breeding completed.");
-    }
-
     private boolean checkFood(){
         // todo check animal food
         return false;

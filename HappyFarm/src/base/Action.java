@@ -1,5 +1,7 @@
 package base;
 
+import action.ActionStrategy;
+
 /**
  * @author Chudi LAN
  * Disign-Pattern: Template Method
@@ -7,21 +9,21 @@ package base;
  * note: When assigning a task to an employee, make sure to implement setTarget() before run().
  *
  */
-abstract public class Action {
+abstract public class Action implements ActionStrategy {
     /**
      * Target: invoker of src.Action
      * The target will be set in the runAction() method of FarmObj.java with the 'setTarget' method.
      */
-    private FarmObj Target = null;
+    private static FarmObj Target = null;
 
     /**
      * Getter & Setter for Target
      */
-    public FarmObj getTarget(){
+    protected FarmObj getTarget(){
         return Target;
     }
-    public void setTarget(FarmObj target) {
-        this.Target = target;
+    public static void setTarget(FarmObj target) {
+        Target = target;
     }
 
     protected Action() {}
@@ -30,7 +32,7 @@ abstract public class Action {
      * run src.Action.
      * Design-Pattern: Template Method
      */
-    public void run(){
+    public void doAction(){
         if(!checkTarget()){
             System.out.println("Error: No target is set to this action.");
             return;

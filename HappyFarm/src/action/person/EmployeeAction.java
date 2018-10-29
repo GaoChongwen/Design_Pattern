@@ -15,14 +15,17 @@ import base.Person;
 abstract public class EmployeeAction extends PersonAction {
     @Override
     protected boolean checkCondition() {
-        /* 1. check employee's skill. */
+        /** 1. check employee assigned. */
+        if(getTarget()==null){
+            System.out.println("You haven't assigned an employee.");
+            return false;
+        }
+        /* 2. check employee's skill. */
         if(!checkSkill()){
-            System.out.println("Employee "+((Person)getTarget()).getName()+" doesn't have the skill.");
             return false;
         }
         /* 2. check corresponding tool. */
         if(!checkTool()){
-            System.out.println("There's no enough tool.");
             return false;
         }
         return true;
@@ -30,5 +33,5 @@ abstract public class EmployeeAction extends PersonAction {
 
     abstract protected boolean checkTool();
     abstract protected boolean checkSkill();
-    abstract public void doAction();
+    abstract protected void execute();
 }

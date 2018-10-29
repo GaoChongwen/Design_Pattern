@@ -4,37 +4,17 @@ import person.Employee;
 import utils.Enum.EmployeeSkill;
 
 abstract public class EmployeeCultivateAction extends EmployeeAction{
-    @Override
-    protected boolean checkTool() {
-        if(!checkSeed()){
-            return false;
-        }
-        if(!checkCultivationTool()){
-            return false;
-        }
-        // todo: check tools for cultivation
-        return true;
-    }
 
     @Override
     protected boolean checkSkill() {
-        return ((Employee)getTarget()).hasSkill(EmployeeSkill.cultivation);
+        if(!((Employee)getTarget()).hasSkill(EmployeeSkill.cultivation)){
+            System.out.println("Employee "+((Employee) getTarget()).getName()+" doesn't have cultivation skill.");
+            return false;
+        }
+        return true;
     }
 
-    @Override
-    public void doAction() {
-        System.out.println("Cultivation completed.");
-    }
+    abstract protected boolean checkTool();
 
-
-    private boolean checkSeed(){
-        // todo: check seeds
-        return false;
-    }
-
-    protected boolean checkCultivationTool(){
-        // todo check tools for cultivation
-        return false;
-    }
-
+    abstract protected void execute();
 }

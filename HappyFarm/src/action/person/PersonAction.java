@@ -7,7 +7,7 @@ import base.Action;
  * @version 2018-10-28
  * Design-Pattern: Template Method, Strategy
  */
-abstract public class PersonAction extends Action implements ActionStrategy {
+abstract public class PersonAction extends Action{
     /**
      * Skeleton of the action
      * @return
@@ -16,7 +16,7 @@ abstract public class PersonAction extends Action implements ActionStrategy {
     protected void doSomething() {
         System.out.println("Performing PersonAction.");
         if(checkCondition()){
-            doAction();
+            execute();
         }
     }
 
@@ -27,5 +27,5 @@ abstract public class PersonAction extends Action implements ActionStrategy {
      */
     protected abstract boolean checkCondition();
 
-    abstract public void doAction();
+    abstract protected void execute();
 }

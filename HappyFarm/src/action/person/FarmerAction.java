@@ -11,6 +11,7 @@ abstract public class FarmerAction extends PersonAction{
         setTarget(Farmer.getInstance());
     }
 
-    abstract public void doAction();
     abstract protected boolean checkCondition();
+
+    abstract protected void execute();
 }

@@ -11,9 +11,4 @@ public class FarmerSellAction extends FarmerAction {
     protected boolean checkCondition() {
         return false;
     }
-
-    @Override
-    public void doAction() {
-
-    }
 }

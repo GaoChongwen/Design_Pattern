@@ -23,7 +23,7 @@ public class FarmerBuyAction extends  FarmerAction{
     }
 
     @Override
-    public void doAction() {
+    protected void execute() {
         if(!checkCondition()){
             System.out.println("Purchase failed。");
             return;
@@ -67,6 +67,8 @@ public class FarmerBuyAction extends  FarmerAction{
     protected void buy(){
         // todo add to warehouse
         // todo money.use()
+        // item.buy();
+        // Money.getInstance().use(item.getPrice() * count);
         System.out.println("Purchase complete.");
     }
 }

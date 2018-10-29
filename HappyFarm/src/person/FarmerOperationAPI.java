@@ -1,8 +1,8 @@
 package person;
 
 import base.FarmObj;
-import base.Item;
 import building.farmland.FarmLand;
+import propComp.props.landAdaptor.LandAdaptor;
 
 /***
  * @author Chudi LAN
@@ -16,16 +16,16 @@ public interface FarmerOperationAPI {
     public void changeName(String name);
 
     /** buy an item from the store. */
-    public void buy(Item item);
+    public void buy(String itemName);
 
     /** buy n items from the store. */
-    public void buy(Item item, int count);
+    public void buy(String itemName, int count);
 
     /** sell an item. */
-    public void sell(FarmObj farmObj);
+    public void sell(String itemName);
 
     /** sell n items. */
-    public void sell(FarmObj farmObj, int count);
+    public void sell(String itemName, int count);
 
     /** process an item. */
     public void process(FarmObj farmObj);
@@ -34,5 +34,5 @@ public interface FarmerOperationAPI {
     public void process();
 
     /** use land-adapter. */
-    public void useLandAdapter(FarmLand farmLand, LandAdapter landAdapter);
+    public void useLandAdapter(FarmLand farmLand, LandAdaptor landAdapter);
 }

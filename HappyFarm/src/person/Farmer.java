@@ -14,44 +14,5 @@ public class Farmer extends Person implements FarmerOperationAPI{
     public static Farmer getInstance() { return ourInstance; }
     private Farmer(){ this.name = "Farmer"; }
 
-    @Override
-    public void changeName(String name) {
-        setName(name);
-        System.out.println("The farmer has changed name to: "+getName());
-    }
 
-    @Override
-    public void buy(Item item) {
-
-    }
-
-    @Override
-    public void buy(Item item, int count) {
-
-    }
-
-    @Override
-    public void sell(FarmObj farmObj) {
-
-    }
-
-    @Override
-    public void sell(FarmObj farmObj, int count) {
-
-    }
-
-    @Override
-    public void process(FarmObj farmObj) {
-
-    }
-
-    @Override
-    public void process() {
-
-    }
-
-    @Override
-    public void useLandAdapter(FarmLand farmLand, LandAdapter landAdapter) {
-
-    }
 }

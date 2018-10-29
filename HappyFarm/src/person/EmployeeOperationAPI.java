@@ -23,7 +23,7 @@ public interface EmployeeOperationAPI {
 //    public void harvest(Plant plant);
 
     /** harvest a type of plants in the land. */
-    public void harvest(PlantType plantType);
+    public void harvest(String plantType);
 
     /** slaughter all animals in the shed. */
     public void slaughter();
