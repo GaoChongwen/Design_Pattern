@@ -30,13 +30,9 @@ public abstract class LandAdaptor extends Item implements Cloneable {
         return landType;
     }
 
-//    public void use(FarmLand land) {
-//        land.setAdaptor(this);
-//        System.out.println(landType + " Adaptor works.");
-//    }
-
-    public FarmLandType getAdaptorType() {
-        return this.landType;
+    @Override
+    public String getName() {
+        return landType + "Adaptor";
     }
 
 

@@ -29,13 +29,13 @@ public abstract class FarmLand extends Item implements Cloneable {
     }
 
     @Override
+    public String getName() {
+        return landType.toString();
+    }
+
+    @Override
     protected void use() { }
 
-    /**
-     * @param p
-     * @return
-     * @DesignPattern: Adaptor
-     */
 
     public void use(LandAdaptor landAdaptor) {
         this.adaptor = landAdaptor;
