@@ -28,13 +28,15 @@ public class TileFactory extends BuildingFactory{
         if (!pool.containsKey(key)) {
 
             // 新的地砖样式先照着图纸做出一块，放入地砖库中，以后便可做出相同的地砖，直接从地砖库中取用
-            System.out.println(key + " 这是新的地砖样式，先照着图做出一块然后放到地砖库中去");
+            System.out.println(key + " 这是新的地砖样式，正在制作新地砖... 制作成功。");
             result = new TilePool(key);
+            result.setColor(key.substring(0,2));
+            result.setPattern(key.substring(2,4));
             pool.put(key, result);
 
         } else {
             result = pool.get(key);
-            System.out.println(key + " 这是地砖库中有的地砖，直接取来用");
+            System.out.println(key + " 这是地砖库存在的样式，直接取来用");
 
         }
         return result;
