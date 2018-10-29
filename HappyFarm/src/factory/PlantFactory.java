@@ -16,7 +16,7 @@ public class PlantFactory extends AbstractFactory {
 
 
     private volatile static PlantFactory singleton = new PlantFactory();
-    private static Hashtable<PlantType, Plant> plantMap = new Hashtable<PlantType, Plant>();
+    private static Hashtable<String, Plant> plantMap = new Hashtable<String, Plant>();
 
 
     public static PlantFactory getInstance() {
@@ -24,7 +24,7 @@ public class PlantFactory extends AbstractFactory {
     }
 
     @Override
-    public Plant createPlant(PlantType type) {
+    public Plant createPlant(String type) {
         Plant cachedPlant = plantMap.get(type);
         if (cachedPlant == null) {
             return null;
@@ -34,12 +34,12 @@ public class PlantFactory extends AbstractFactory {
 
     public void putPlant(Plant plant){
         System.out.println("in put plant");
-        plantMap.put(plant.getType(),plant);
+        plantMap.put(plant.getType().toString(),plant);
     }
 
     public void getAllPlant(){
 
-        for (Map.Entry<PlantType, Plant> entry : plantMap.entrySet()) {
+        for (Map.Entry<String, Plant> entry : plantMap.entrySet()) {
             System.out.println("PlantType = " + entry.getKey() + ", Plant = " + entry.getValue().getType());
         }
 

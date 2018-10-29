@@ -17,7 +17,7 @@ public class AdaptorFactory extends AbstractFactory {
 
 
     private volatile static AdaptorFactory singleton = new AdaptorFactory();
-    private static Hashtable<FarmLandType, LandAdaptor> AdaptorMap = new Hashtable<FarmLandType, LandAdaptor>();
+    private static Hashtable<String, LandAdaptor> AdaptorMap = new Hashtable<String, LandAdaptor>();
 
 
     public static AdaptorFactory getInstance() {
@@ -25,7 +25,7 @@ public class AdaptorFactory extends AbstractFactory {
     }
 
     @Override
-    public LandAdaptor createAdaptor(FarmLandType type) {
+    public LandAdaptor createAdaptor(String type) {
         LandAdaptor cachedAdaptor = AdaptorMap.get(type);
         if (cachedAdaptor == null) {
             return null;
@@ -35,12 +35,12 @@ public class AdaptorFactory extends AbstractFactory {
 
     public void putAdaptor(LandAdaptor Adaptor){
         System.out.println("in put Adaptor");
-        AdaptorMap.put(Adaptor.getLandType(),Adaptor);
+        AdaptorMap.put(Adaptor.getLandType().toString(),Adaptor);
     }
 
     public void getAllAdaptor(){
 
-        for (Map.Entry<FarmLandType,LandAdaptor> entry : AdaptorMap.entrySet()) {
+        for (Map.Entry<String,LandAdaptor> entry : AdaptorMap.entrySet()) {
             System.out.println("AdaptorType = " + entry.getKey() + ", Adaptor = " + entry.getValue().getLandType());
         }
 
