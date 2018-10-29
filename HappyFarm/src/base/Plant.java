@@ -52,7 +52,11 @@ public abstract class Plant extends FarmObj implements Cloneable {
     }
 
     public boolean checkLand(FarmLandType landType) {
-        return landType == getReqLandType();
+        return landType == this.reqLandType;
+    }
+
+    public boolean checkType(PlantType plantType){
+        return plantType == this.type;
     }
 
     /**
