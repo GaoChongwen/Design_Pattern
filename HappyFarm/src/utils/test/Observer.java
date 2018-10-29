@@ -2,7 +2,7 @@ package utils.test;
 
 import person.Employee;
 import person.Farmer;
-import utils.EmployeeSkill;
+import utils.Enum.EmployeeSkill;
 import singleton.MessageBoard;
 
 /**

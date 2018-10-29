@@ -11,7 +11,7 @@ import java.util.*;
 public class MessageBoard extends Observable {
 
     /**
-     * Design-Pattern��Singleton, Double checked locking
+     * Design-Pattern: Singleton, Double checked locking
      */
     private volatile static MessageBoard ourInstance = new MessageBoard();
     public static MessageBoard getInstance() {
@@ -23,7 +23,7 @@ public class MessageBoard extends Observable {
     private static ArrayList<String> messages;
 
     /**
-     * Design-Pattern��Mediator
+     * Design-Pattern: Mediator
      * @param person
      * @param message
      */
@@ -43,7 +43,7 @@ public class MessageBoard extends Observable {
     }
 
     /**
-     * Design-Pattern��Observer
+     * Design-Pattern: Observer
      */
     private ArrayList<Observer> users = new ArrayList();
     public void addObserver(Person person) {

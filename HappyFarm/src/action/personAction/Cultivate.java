@@ -1,8 +1,7 @@
 package action.personAction;
 
-import base.Person;
 import person.Employee;
-import utils.EmployeeSkill;
+import utils.Enum.EmployeeSkill;
 
 public class Cultivate extends EmployeeAction{
     public Cultivate(Employee employee){

@@ -3,7 +3,7 @@ package utils.test;
 import action.personAction.Breed;
 import action.personAction.Cultivate;
 import person.Employee;
-import utils.EmployeeSkill;
+import utils.Enum.EmployeeSkill;
 
 /**
  * @author Chudi LAN

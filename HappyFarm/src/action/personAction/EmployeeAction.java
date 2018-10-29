@@ -1,8 +1,6 @@
 package action.personAction;
 
-import base.Action;
 import base.Person;
-import utils.EmployeeSkill;
 
 /**
  * @author Chudi LAN

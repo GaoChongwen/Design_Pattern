@@ -1,8 +1,7 @@
 package action.personAction;
 
-import base.Person;
 import person.Employee;
-import utils.EmployeeSkill;
+import utils.Enum.EmployeeSkill;
 
 public class Breed extends EmployeeAction {
     public Breed(Employee employee){
