@@ -9,6 +9,10 @@ public class RemovedState implements PlantState {
         return singleton;
     }
 
+    public boolean plant(Plant plant) {
+        return false;
+    }
+
     public void grow(Plant plant) { }
 
     public void remove(Plant plant) { }

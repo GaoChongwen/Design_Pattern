@@ -21,6 +21,10 @@ public class GrowingState implements PlantState {
         return singleton;
     }
 
+    public boolean plant(Plant plant) {
+        return false;
+    }
+
     public void grow(Plant plant) {
         Random ra = new Random();
         int num = ra.nextInt(100);

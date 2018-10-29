@@ -32,6 +32,13 @@ public abstract class Plant extends FarmObj implements Cloneable {
         return this.state;
     }
 
+    public boolean plant(FarmLandType landType){
+        if(landType==reqLandType){
+            return state.plant(this);
+        }
+        return false;
+    }
+
     public int getStockPrice() {
         return this.stockPrice;
     }

@@ -23,11 +23,15 @@ public class MatureState implements PlantState {
     public void grow(Plant plant) {
         Random ra = new Random();
         int num = ra.nextInt(100);
-        if (num < 90) {
+        if (num < 50) {
             plant.setState(this);
         } else {
             plant.setState(DieState.getInstance());
         }
+    }
+
+    public boolean plant(Plant plant) {
+        return false;
     }
 
     public void remove(Plant plant) {
