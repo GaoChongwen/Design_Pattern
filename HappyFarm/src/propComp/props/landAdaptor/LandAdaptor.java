@@ -5,6 +5,13 @@ import base.plant.Plant;
 import building.farmland.FarmLand;
 import utils.Enum.FarmLandType;
 
+/**
+ * Design-Pattern: Adaptor, Prototype
+ *
+ * @author lipeng liang
+ * @version 2018/10/29
+ */
+
 public abstract class LandAdaptor extends Item implements Cloneable {
     protected boolean used;
     protected FarmLandType landType;
@@ -23,11 +30,10 @@ public abstract class LandAdaptor extends Item implements Cloneable {
         return landType;
     }
 
-    public void use(FarmLand land) {
-        this.land = land;
-//        this.land.setAdaptor(this);
-        System.out.println(landType + " Adaptor works.");
-    }
+//    public void use(FarmLand land) {
+//        land.setAdaptor(this);
+//        System.out.println(landType + " Adaptor works.");
+//    }
 
     public FarmLandType getAdaptorType() {
         return this.landType;

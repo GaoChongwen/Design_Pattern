@@ -10,11 +10,11 @@ import utils.Enum.FarmLandType;
  * @version 2018/10/29
  */
 
-public class AppleAdaptor extends LandAdaptor {
+public class VegtbAdaptor extends LandAdaptor {
 
-    public AppleAdaptor() {
+    public VegtbAdaptor() {
         super();
-        this.landType = FarmLandType.appleField;
+        this.landType = FarmLandType.vegtbField;
         this.land = FarmLandFactory.getInstance().createFarmLand(landType.toString());
     }
 }
