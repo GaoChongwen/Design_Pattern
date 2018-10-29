@@ -1,7 +1,7 @@
 package building.ImpVisitor;
 
 import building.house.House;
-import building.shed.Shed;
+import building.shed.AnimalHouse;
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 /**
@@ -39,7 +39,7 @@ public class SpringVisitor implements BuildingVisitor {
     }
 
     @Override
-    public void visit(Shed shed) {
+    public void visit(AnimalHouse shed) {
         System.out.println("春节到了，给" + shed.getName() + "挂上灯笼吧~");
         System.out.println(shed.getName() + "有了春节的气息。\n");
     }

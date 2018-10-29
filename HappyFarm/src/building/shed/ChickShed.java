@@ -8,7 +8,7 @@ import building.ImpVisitor.BuildingVisitor;
  * @author: Chen Yulei
  * @date: 2018-10-27
  **/
-public class ChickShed extends Shed {
+public class ChickShed extends AnimalHouse {
 
     // 鸡窝的名字（如：鸡窝1号...）
     private String name;

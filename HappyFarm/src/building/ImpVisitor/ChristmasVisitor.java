@@ -1,8 +1,7 @@
 package building.ImpVisitor;
 
 import building.house.House;
-import building.shed.Shed;
-
+import building.shed.AnimalHouse;
 /**
  * @project: HappyFarm
  * @description: 给建筑制造圣诞节的气氛
@@ -31,7 +30,7 @@ public class ChristmasVisitor implements BuildingVisitor {
     }
 
     @Override
-    public void visit(Shed shed) {
+    public void visit(AnimalHouse shed) {
         System.out.print("圣诞节到了，给" + shed.getName());
         hangDecorations();
         System.out.println(shed.getName() + "有了圣诞节的气息。\n");

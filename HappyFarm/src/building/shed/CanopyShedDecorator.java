@@ -9,9 +9,9 @@ package building.shed;
 public class CanopyShedDecorator extends ShedDecorator {
 
     // 被装饰的Shed对象
-    private Shed shed;
+    private AnimalHouse shed;
 
-    public CanopyShedDecorator(Shed decoratedShed) {
+    public CanopyShedDecorator(AnimalHouse decoratedShed) {
         super(decoratedShed);
         shed = decoratedShed;
     }
