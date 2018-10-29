@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class FarmLandFactory extends AbstractFactory {
     private volatile static FarmLandFactory singleton = new FarmLandFactory();
-    private static Hashtable<FarmLandType, FarmLand> FarmLandMap = new Hashtable<FarmLandType, FarmLand>();
+    private static Hashtable<String, FarmLand> FarmLandMap = new Hashtable<String, FarmLand>();
 
 
     public static FarmLandFactory getInstance() {
@@ -22,7 +22,7 @@ public class FarmLandFactory extends AbstractFactory {
     }
 
     @Override
-    public FarmLand createFarmLand(FarmLandType type) {
+    public FarmLand createFarmLand(String type) {
         FarmLand cachedFarmLand = FarmLandMap.get(type);
         if (cachedFarmLand == null) {
             return null;
@@ -32,12 +32,12 @@ public class FarmLandFactory extends AbstractFactory {
 
     public void putFarmLand(FarmLand FarmLand) {
         System.out.println("in put FarmLand");
-        FarmLandMap.put(FarmLand.getLandType(), FarmLand);
+        FarmLandMap.put(FarmLand.getLandType().toString(), FarmLand);
     }
 
     public void getAllFarmLand() {
 
-        for (Map.Entry<FarmLandType, FarmLand> entry : FarmLandMap.entrySet()) {
+        for (Map.Entry<String, FarmLand> entry : FarmLandMap.entrySet()) {
             System.out.println("FarmLandType = " + entry.getKey() + ", FarmLand = " + entry.getValue().getLandType());
         }
 

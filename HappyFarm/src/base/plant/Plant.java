@@ -21,6 +21,7 @@ public abstract class Plant extends FarmObj implements Cloneable {
     protected FarmLandType reqLandType;
 
     protected Plant(int stockPrice, int salePrice) {
+        state = SeedState.getInstance();
     }
 
     protected void setState(PlantState state) {
@@ -32,11 +33,15 @@ public abstract class Plant extends FarmObj implements Cloneable {
         return this.state;
     }
 
-    public boolean plant(FarmLandType landType){
-        if(landType==reqLandType){
+    public boolean plant(FarmLandType landType) {
+        if (landType == FarmLandType.allField || landType == reqLandType) {
             return state.plant(this);
         }
         return false;
+    }
+
+    public void harvest() {
+        state.harvest(this);
     }
 
     public int getStockPrice() {
@@ -63,7 +68,7 @@ public abstract class Plant extends FarmObj implements Cloneable {
         return plantType == this.type;
     }
 
-    protected void harvest() {
+    protected void harvest(int _) {
         System.out.println(this.type + " harvest success.");
     }
 

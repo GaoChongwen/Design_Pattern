@@ -12,11 +12,8 @@ import utils.Enum.EmployeeSkill;
 
 import propComp.props.landAdaptor.LandAdaptor;
 
-import utils.Enum.FarmLandType;
-import utils.Enum.PlantType;
-
 public abstract class AbstractFactory {
-    Plant createPlant(PlantType name) {
+    Plant createPlant(String name) {
         return null;
     }
 
@@ -30,11 +27,9 @@ public abstract class AbstractFactory {
     
     Employee createEmployee(String name, EmployeeSkill skill, float salary) { return null; }
 
-
-    FarmLand createFarmLand(FarmLandType type) {
+    FarmLand createFarmLand(String type) {
         return null;
     }
 
-    LandAdaptor createAdaptor(FarmLandType type) { return null; }
-
+    LandAdaptor createAdaptor(String type) { return null; }
 }

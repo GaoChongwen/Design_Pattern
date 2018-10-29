@@ -17,7 +17,7 @@ public class Factory {
         Apple a = new Apple(Context.apple_stockPrice,Context.apple_salePrice);
 
         PlantFactory.getInstance().getAllPlant();
-        Apple a1 = (Apple)PlantFactory.getInstance().createPlant(PlantType.apple);
+        Apple a1 = (Apple)PlantFactory.getInstance().createPlant("apple");
         System.out.println("key is"+ a1.getType());
 
         EmployeeFactory employeeFactory = EmployeeFactory.getInstance();

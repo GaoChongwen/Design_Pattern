@@ -1,22 +1,24 @@
 package base;
 
 /**
- * @author
- * Design-Pattern: Bridge, Proxy, Responsibility
- *      Bridge for Tools&ToolAction
- *      Proxy&ChainOfResponsibility for Coupon
+ * @author Design-Pattern: Bridge, Proxy, Responsibility
+ * Bridge for Tools&ToolAction
+ * Proxy&ChainOfResponsibility for Coupon
  */
-public class Item extends FarmObj {
+public abstract class Item extends FarmObj {
     protected int price;
 
-    public int getPrice() {
+    protected int getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    protected void setPrice(int price) {
         this.price = price;
     }
 
-    public void use(){
-    }
+    protected void use() {}
+
+    protected void buy() {}
+
+    protected void sell(){}
 }

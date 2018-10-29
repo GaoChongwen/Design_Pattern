@@ -39,7 +39,7 @@ public class MatureState implements PlantState {
     }
 
     public void harvest(Plant plant) {
-        plant.harvest();
+        plant.harvest(1);
         plant.setState(HarvestState.getInstance());
     }
 }

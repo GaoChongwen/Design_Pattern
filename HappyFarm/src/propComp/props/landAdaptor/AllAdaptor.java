@@ -1,10 +1,12 @@
 package propComp.props.landAdaptor;
 
+import factory.FarmLandFactory;
 import utils.Enum.FarmLandType;
 
 public class AllAdaptor extends LandAdaptor {
-    protected AllAdaptor(FarmLandType type) {
-        super(type);
-        this.used = false;
+    public AllAdaptor() {
+        super();
+        this.landType = FarmLandType.allField;
+        this.land = FarmLandFactory.getInstance().createFarmLand(landType.toString());
     }
 }
