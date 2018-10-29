@@ -1,4 +1,6 @@
-package action.person;
+package action.person.farmer;
+
+import action.person.farmer.FarmerAction;
 
 /**
  * @author Chudi LAN
@@ -6,7 +8,7 @@ package action.person;
  * Design-Pattern: Template Method.
  */
 
-public class FarmerBuyAction extends  FarmerAction{
+public class FarmerBuyAction extends FarmerAction {
     private String itemName;
     private int count;
 

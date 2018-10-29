@@ -1,9 +1,10 @@
-package action.person;
+package action.person.employee;
 
+import action.person.employee.EmployeeAction;
 import person.Employee;
 import utils.Enum.EmployeeSkill;
 
-abstract public class EmployeeCultivateAction extends EmployeeAction{
+abstract public class EmployeeCultivateAction extends EmployeeAction {
 
     @Override
     protected boolean checkSkill() {

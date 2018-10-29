@@ -1,4 +1,4 @@
-package action.person;
+package action.person.farmer;
 
 /**
  * @author Chudi LAN

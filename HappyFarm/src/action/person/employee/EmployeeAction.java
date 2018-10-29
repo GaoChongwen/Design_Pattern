@@ -1,5 +1,6 @@
-package action.person;
+package action.person.employee;
 
+import action.person.PersonAction;
 import base.Person;
 
 /**

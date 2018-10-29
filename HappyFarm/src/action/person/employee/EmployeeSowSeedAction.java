@@ -1,4 +1,4 @@
-package action.person;
+package action.person.employee;
 
 import base.plant.Plant;
 import building.farmland.FarmLand;
@@ -9,7 +9,7 @@ import building.farmland.FarmLand;
  *
  * Design-Pattern: Singleton, Template Method.
  */
-public class EmployeeSowSeedAction extends EmployeeCultivateAction{
+public class EmployeeSowSeedAction extends EmployeeCultivateAction {
     private static Plant seed = null;
     private static FarmLand farmLand = null;
 
@@ -38,5 +38,13 @@ public class EmployeeSowSeedAction extends EmployeeCultivateAction{
     @Override
     protected void execute() {
         farmLand.plant(seed);
+    }
+
+    public static void setFarmLand(FarmLand farmLand) {
+        EmployeeSowSeedAction.farmLand = farmLand;
+    }
+
+    public static void setSeed(Plant seed) {
+        EmployeeSowSeedAction.seed = seed;
     }
 }

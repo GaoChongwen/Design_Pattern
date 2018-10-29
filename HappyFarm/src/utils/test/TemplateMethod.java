@@ -1,6 +1,6 @@
 package utils.test;
 
-import action.person.EmployeeCultivateAction;
+import action.person.employee.EmployeeCultivateAction;
 import base.Action;
 import person.Employee;
 import utils.Enum.EmployeeSkill;

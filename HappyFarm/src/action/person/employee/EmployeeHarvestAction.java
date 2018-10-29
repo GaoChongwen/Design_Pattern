@@ -1,4 +1,4 @@
-package action.person;
+package action.person.employee;
 
 import base.plant.Plant;
 import propComp.tools.Tool;
@@ -9,7 +9,7 @@ import propComp.tools.Tool;
  *
  * Design-Pattern: Singleton, Template Method.
  */
-public class EmployeeHarvestAction extends EmployeeCultivateAction{
+public class EmployeeHarvestAction extends EmployeeCultivateAction {
     private static Plant plant = null;
     private static Tool harvestTool = null;
 

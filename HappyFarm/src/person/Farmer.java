@@ -1,7 +1,5 @@
 package person;
-import action.person.FarmerBuyAction;
 import base.FarmObj;
-import base.Item;
 import base.Person;
 import building.farmland.FarmLand;
 import propComp.props.landAdaptor.LandAdaptor;
