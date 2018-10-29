@@ -6,6 +6,7 @@ import base.Person;
 import base.plant.Plant;
 import base.animal.Animal;
 import building.farmland.FarmLand;
+import propComp.props.landAdaptor.LandAdaptor;
 import utils.Enum.FarmLandType;
 import utils.Enum.PlantType;
 
@@ -26,8 +27,9 @@ public abstract class AbstractFactory {
         return null;
     }
 
-    FarmLand getFarmLand(FarmLandType type) {
+    FarmLand createFarmLand(FarmLandType type) {
         return null;
     }
 
+    LandAdaptor createAdaptor(FarmLandType type) { return null; }
 }
