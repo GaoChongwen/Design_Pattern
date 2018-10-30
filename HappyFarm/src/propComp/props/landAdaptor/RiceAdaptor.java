@@ -6,7 +6,7 @@ import utils.Enum.FarmLandType;
 
 /**
  * Design-Pattern: Adaptor, Prototype, Factory Method
- * @description: 稻田适配器类，可转换种植水稻
+ * @description: 稻田适配器类（一种道具），可使任何土地转换种植水稻，使用过后该道具失效
  * @author lipeng liang
  * @version 2018/10/29
  */

@@ -1,6 +1,8 @@
 package factory;
 
 import base.plant.Plant;
+import singleton.Farm;
+
 import java.util.Hashtable;
 import java.util.Map;
 
@@ -26,15 +28,22 @@ public class PlantFactory extends AbstractFactory {
     public Plant createPlant(String type) {
         Plant cachedPlant = plantMap.get(type);
         if (cachedPlant == null) {
-            return null;
+                return null;
         }
         return cachedPlant.clone();
     }
 
     public void putPlant(Plant plant){
-        System.out.println("in put plant");
         plantMap.put(plant.getName(),plant);
     }
+
+    public boolean checkPlant(String plant){
+        if(plantMap.get(plant)==null){
+            return false;
+        }
+        return true;
+    }
+
 
     public void getAllPlant(){
 

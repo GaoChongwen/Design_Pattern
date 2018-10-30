@@ -20,11 +20,13 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
     protected boolean idle;
     protected Plant plant;
     protected LandAdaptor adaptor;
+    protected String DesignPattern;
 
     protected FarmLand() {
         this.idle = true;
         this.adaptor = null;
         this.plant = null;
+        this.DesignPattern="";
     }
 
     // 获取土地种类名
@@ -53,6 +55,7 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
     // 挂载适配器
     public void use(LandAdaptor landAdaptor) {
         this.adaptor = landAdaptor;
+        System.out.println();
         System.out.println(landType + " Adaptor works.");
     }
 
@@ -65,14 +68,16 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
      *               否则，种植失败。
      */
     public boolean plant(Plant p) {
-
+        if(DesignPattern=="Adaptor Pattern"){
+            System.out.println("- Adaptor Pattern | "+landType+" method: plant(Plant p)");
+        }
         if (idle && (p.plant(landType) || (adaptor != null && adaptor.plant(p)))) {
             plant = p;
             idle = false;
-            System.out.println(landType + " plant " + p.getType() + " success");
+            System.out.println(landType + " plant " + p.getName() + " success");
             return true;
         } else {
-            System.out.println(landType + " plant " + p.getType() + " fail");
+            System.out.println(landType + " plant " + p.getName() + " fail");
             return false;
         }
 
@@ -101,5 +106,9 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
             e.printStackTrace();
         }
         return clone;
+    }
+
+    public void setDesignPattern(String designPattern){
+        DesignPattern=designPattern;
     }
 }

@@ -1,6 +1,7 @@
 package factory;
 
 import propComp.props.landAdaptor.LandAdaptor;
+import singleton.Farm;
 
 import java.util.Hashtable;
 import java.util.Map;
@@ -35,15 +36,22 @@ public class AdaptorFactory extends AbstractFactory {
     public LandAdaptor createAdaptor(String type) {
         LandAdaptor cachedAdaptor = AdaptorMap.get(type);
         if (cachedAdaptor == null) {
-            return null;
+                return null;
         }
         return cachedAdaptor.clone();
     }
 
-    public void putAdaptor(LandAdaptor Adaptor){
+    public void putAdaptor(LandAdaptor Adaptor)
+    {
         AdaptorMap.put(Adaptor.getLandType().toString(),Adaptor);
     }
 
+    public boolean checkAdaptor(String Adaptor){
+        if(AdaptorMap.get(Adaptor)==null){
+            return false;
+        }
+        return true;
+    }
     public void getAllAdaptor(){
 
         for (Map.Entry<String,LandAdaptor> entry : AdaptorMap.entrySet()) {
