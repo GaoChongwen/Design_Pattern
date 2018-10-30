@@ -4,6 +4,7 @@ import animal.Cow;
 import base.Produce;
 import factory.ProduceFactory;
 import utils.Enum.ProduceType;
+import utils.Context;
 
 /**
  * Design-Pattern: Facade
@@ -14,11 +15,12 @@ import utils.Enum.ProduceType;
  */
 
 public class Milk extends Produce {
-    public Milk(int farmPrice,int salePrice){
+    public Milk(){
+        super();
         this.type = ProduceType.milk;
-        this.farmPrice=farmPrice;
-        this.salePrice=salePrice;
-        ProduceFactory.getInstance().putProduce(this);
+        this.farmPrice=Context.getInstance().cow_salePrice;
+        this.salePrice=this.farmPrice*2;
+        ProduceFactory.getInstance().createProduce(this.getType());
         System.out.println("milk initial once");
     }
 }

@@ -1,13 +1,13 @@
 package factory;
 
-//import produce.Juice;
+import produce;
 import base.Produce;
 import utils.Enum.ProduceType;
 import java.util.Hashtable;
 import java.util.Map;
 
 /**
- * Design-Pattern: Factory mathod,Singleton
+ * Design-Pattern: Factory method ,Singleton
 
  * @version 2018/10/28
  * @author xuan liu
@@ -17,23 +17,53 @@ import java.util.Map;
 public class ProduceFactory extends AbstractFactory {
 
     private volatile static ProduceFactory singleton = new ProduceFactory();
-    private static Hashtable<String, Produce> produceMap = new Hashtable<String, Produce>();
+    private ProduceFactory(){
+        produces = new ArrayList<>();
+    }
 
     public static ProduceFactory getInstance() {
         return singleton;
     }
 
-    @Override
-    public Produce createProduce(String type){
-        Produce cachedProduce = produceMap.get(type);
-        if (cachedProduce == null) {
-            return null;
+    public int getExactProduceNum(String name){
+        int count = 0;
+        for(String produce : produces){
+            int result = name.compareTo(produce);
+            if(result == 0){ count++; }
         }
-        return cachedProduce.clone();
+        return count;
     }
 
-    public void putProduce(Produce produce){
-        System.out.println("in put produce");
-        produceMap.put(produce.getName(),produce);
+    @Override
+    public Produce createProduce(String name){
+
+        //Produce produce = new Produce(name);
+        if(name.equals("cow")){
+            produces.add("milk");
+            return new Milk();
+        }
+        else if(name.equals("chicken")){
+            produces.add("foodChicken");
+            return new foodChicken();
+        }
+        else if(name.equals("pig")){
+            produces.add("pork");
+            return new Pork();
+        }
+        else if(name.equals("apple")){
+            produces.add("juice");
+            return new Juice();
+        }
+        else if(name.equals("wheat")){
+            produces.add("flour");
+            return new Flour();
+        }
+        else if(name.equals("rice")){
+            produces.add("foodRice");
+            return new foodRice();
+        }
+        else{
+            return null;
+        }
     }
 }

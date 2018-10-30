@@ -8,7 +8,7 @@ package utils.Enum;
 public enum ProduceType {
     flour,  // wheat-面粉
     juice,  // apple-果汁
-    rice,   // rice-rice
+    foodRice,   // rice-foodRice
 
     milk,   //cow-牛奶
     pork,   //pig-猪肉

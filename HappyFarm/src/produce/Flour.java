@@ -4,6 +4,7 @@ import plant.Wheat;
 import base.Produce;
 import factory.ProduceFactory;
 import utils.Enum.ProduceType;
+import utils.Context;
 
 /**
  * Design-Pattern: Prototype
@@ -14,11 +15,12 @@ import utils.Enum.ProduceType;
  */
 
 public class Flour extends Produce {
-    public Flour (int salePrice){
+    public Flour(){
+        super();
         this.type = ProduceType.flour;
-        this.farmPrice=Wheat.getSalePrice();
-        this.salePrice=salePrice;
-        ProduceFactory.getInstance().putProduce(this);
+        this.farmPrice=Context.getInstance().wheat_salePrice;
+        this.salePrice=this.farmPrice*2;
+        ProduceFactory.getInstance().createProduce(this.getType());
         System.out.println("flour initial once");
     }
 }

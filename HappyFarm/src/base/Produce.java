@@ -13,27 +13,29 @@ import base.FarmObj;
  */
 
 public abstract class Produce extends FarmObj implements Cloneable{
-    private int farmPrice;
-    private int salePrice;
-    private ProduceType type;
+    protected int farmPrice;
+    protected int salePrice;
+    protected ProduceType type;
 
-    protected Produce(int farmPrice , int salePrice) {
-
+    protected Produce() {
+        //this.type = type;
+        farmPrice = 0;
+        salePrice = 0;
     }
 
-    protected int getFarmPrice() {
+    public int getFarmPrice() {
         return this.farmPrice;
     }
 
-    protected int getSalePrice() {
+    public int getSalePrice() {
         return this.salePrice;
     }
 
-    protected void setSalePrice(int price){
+    public void setSalePrice(int price){
         this.salePrice = price;
     }
 
-    protected ProduceType getType() {
+    public ProduceType getType() {
         return this.type;
     }
 
@@ -42,7 +44,7 @@ public abstract class Produce extends FarmObj implements Cloneable{
     }
 
     /**
-     * Design-Pattern: Prototype
+     * @Design-Pattern: Prototype
      */
     public Produce clone() {
         Produce clone = null;
@@ -52,6 +54,6 @@ public abstract class Produce extends FarmObj implements Cloneable{
             e.printStackTrace();
         }
         return clone;
-
     }
+
 }
