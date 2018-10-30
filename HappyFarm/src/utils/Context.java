@@ -26,12 +26,9 @@ public class Context {
     public static int pig_salePrice = 7000;
 
     // price of produce
-    public static int flour_price = wheat_salePrice * 2;
-    public static int foodChicken_price = chicken_salePrice * 2;
-    public static int foodRice_price = rice_salePrice * 2;
-    public static int juice_price = apple_salePrice * 2;
-    public static int milk_price = cow_salePrice * 2;
-    public static int pork_price = pig_salePrice * 2;
+   public static int milk_price = cow_salePrice * 2;
+    public static int cookedFood_price = pig_salePrice * 2;
+    public static int animalFood_price = rice_salePrice * 2;
 
 
     // types of tiles

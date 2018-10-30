@@ -8,16 +8,15 @@ import utils.Context;
 
 /**
  * Design-Pattern: Prototype
-
- * @version 2018/10/28
- * @author xuan liu
  *
+ * @author xuan liu
+ * @version 2018/10/28
  */
 
-public class Flour extends Produce {
-    public Flour(){
-        this.salePrice = Context.flour_price;
-        this.type = ProduceType.flour;
+public class AnimalFood extends Produce {
+    public AnimalFood() {
+        this.type = ProduceType.animalFood;
+        this.salePrice = Context.animalFood_price;
         ProduceFactory.getInstance().putProduce(this);
     }
 }

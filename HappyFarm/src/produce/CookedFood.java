@@ -13,10 +13,10 @@ import utils.Context;
  *
  */
 
-public class Pork extends Produce {
-    public Pork(){
-        this.salePrice = Context.pork_price;
-        this.type = ProduceType.pork;
+public class CookedFood extends Produce {
+    public CookedFood(){
+        this.salePrice = Context.cookedFood_price;
+        this.type = ProduceType.cookedFood;
         ProduceFactory.getInstance().putProduce(this);
     }
 }
