@@ -7,7 +7,7 @@ import utils.Enum.PlantType;
 
 /**
  * Design-Pattern: State, Prototype
- *
+ * @description: 白菜类，继承植物类
  * @version 2018/10/28
  * @author lipeng liang
  *

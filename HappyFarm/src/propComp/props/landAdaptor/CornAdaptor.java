@@ -6,7 +6,7 @@ import utils.Enum.FarmLandType;
 
 /**
  * Design-Pattern: Adaptor, Prototype, Factory Method
- *
+ * @description: 麦田适配器类，可转换种植小麦
  * @author lipeng liang
  * @version 2018/10/29
  */

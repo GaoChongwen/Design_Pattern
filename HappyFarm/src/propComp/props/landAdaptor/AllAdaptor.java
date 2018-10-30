@@ -8,7 +8,7 @@ import utils.Enum.FarmLandType;
 
 /**
  * Design-Pattern: Adaptor, Prototype
- *
+ * @description: 全能适配器类，可转换种植所有种类的植物
  * @author lipeng liang
  * @version 2018/10/29
  */

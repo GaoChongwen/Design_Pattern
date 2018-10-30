@@ -9,8 +9,8 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * Design-Pattern: Prototype, Adaptor
- *
+ * @Design-Pattern: Prototype, Adaptor
+ * @description: 种植植物的土地抽象类
  * @author lipeng liang
  * @version 2018/10/28
  */
