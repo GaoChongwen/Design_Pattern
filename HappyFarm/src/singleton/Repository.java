@@ -64,11 +64,11 @@ public class Repository {
     }
 
     // 从仓库中获取植物，传入植物类型，返回所有此类型的植物
-    ArrayList<Plant> get(PlantType plantType) {
+    ArrayList<Plant> get(String plantType) {
         ArrayList<Plant> somePlants = new ArrayList<>();
         for (int i = 0; i < plants.size(); i++) {
             Plant curPlant = plants.get(i);
-            if (curPlant.getType() == plantType) {
+            if (curPlant.getName().equals(plantType)) {
                 somePlants.add(curPlant);
             }
         }

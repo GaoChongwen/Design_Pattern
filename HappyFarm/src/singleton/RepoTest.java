@@ -33,7 +33,7 @@ public class RepoTest {
         System.out.println(repository);
 
         // 获取所有水稻
-        System.out.println(repository.get(rice1.getType()));
+        System.out.println(repository.get(rice1.getName()));
 
     }
 }
