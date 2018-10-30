@@ -9,6 +9,5 @@ public class Plant {
         Apple a = new Apple();
         Apple a1 = (Apple) PlantFactory.getInstance().createPlant("apple");
 
-
     }
 }

@@ -21,7 +21,7 @@ public class ChickShed extends AnimalHouse {
         super();
         this.capacity = 40;
         this.animals = new Animal[40];
-        this.name =
+        this.name = 
     }
 
     public static ChickShed getInstance() {

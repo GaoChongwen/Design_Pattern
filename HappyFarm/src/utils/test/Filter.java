@@ -2,6 +2,9 @@ package utils.test;
 
 import base.plant.Plant;
 import factory.PlantFactory;
+import plant.Apple;
+import plant.Cabbage;
+import plant.Rice;
 import plant.Wheat;
 import store.Criteria.Criteria;
 import store.Criteria.CriteriaDemo;
@@ -9,10 +12,13 @@ import store.Criteria.CriteriaDemo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CriteriaTest {
+public class Filter {
     public static void main(String args[]){
         List<base.plant.Plant> plants = new ArrayList<base.plant.Plant>();
-
+        Apple a =new Apple();
+        Wheat b =new Wheat();
+        Rice c = new Rice();
+        Cabbage d = new Cabbage();
         plants.add(PlantFactory.getInstance().createPlant("wheat"));
         plants.add(PlantFactory.getInstance().createPlant("apple"));
         plants.add(PlantFactory.getInstance().createPlant("rice"));
