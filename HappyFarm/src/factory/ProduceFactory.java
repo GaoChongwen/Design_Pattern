@@ -1,6 +1,6 @@
 package factory;
 
-import produce;
+import base.produce;
 import base.Produce;
 import utils.Enum.ProduceType;
 import java.util.Hashtable;
