@@ -1,4 +1,4 @@
-package utils.test;
+package test.filter;
 
 import base.plant.Plant;
 import factory.PlantFactory;

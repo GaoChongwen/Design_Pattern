@@ -1,4 +1,4 @@
-package utils.test;
+package test.bridge;
 
 import action.tool.ReapingMachineAction;
 import action.tool.SickleAction;

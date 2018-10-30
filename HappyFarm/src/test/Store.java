@@ -1,4 +1,4 @@
-package utils.test;
+package test;
 
 
 import utils.Enum.PlantType;
