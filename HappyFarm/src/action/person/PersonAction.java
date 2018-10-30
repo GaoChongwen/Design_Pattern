@@ -1,5 +1,4 @@
 package action.person;
-import action.ActionStrategy;
 import base.Action;
 
 /**
@@ -14,7 +13,7 @@ abstract public class PersonAction extends Action{
      */
     @Override
     protected void doSomething() {
-        output("doSomething","someone is performing an action.");
+        templateMethodOutput("step 1. doSomething","someone is performing an action.");
         if(checkCondition()){
             execute();
         }

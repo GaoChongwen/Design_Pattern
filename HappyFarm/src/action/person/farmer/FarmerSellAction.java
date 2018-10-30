@@ -1,7 +1,5 @@
 package action.person.farmer;
 
-import action.person.farmer.FarmerAction;
-import base.FarmObj;
 import store.Store;
 
 /**
@@ -13,7 +11,7 @@ public class FarmerSellAction extends FarmerAction {
 
     private volatile static FarmerSellAction instance = new FarmerSellAction();
     private FarmerSellAction(){
-        output("constructor","I am created.");
+        templateMethodOutput("constructor","I am created.");
     }
     public static FarmerSellAction getInstance() {
         return instance;
@@ -27,7 +25,7 @@ public class FarmerSellAction extends FarmerAction {
      */
     @Override
     protected boolean checkCondition() {
-        output("checkCondition","checking item name.");
+        templateMethodOutput("step 1_1. checkCondition","checking item name.");
         if(itemName == null){
             System.out.println("You haven't specified an itemName to FarmerSellAction.");
             return false;
@@ -37,14 +35,14 @@ public class FarmerSellAction extends FarmerAction {
 
     @Override
     protected void execute() {
-        output("execute", "selling item "+itemName);
+        templateMethodOutput("1_2. execute", "selling item "+itemName);
         if(Store.getInstance().sellCommity(itemName)){
             System.out.println(itemName+" sold successfully.");
         }
     }
 
     public void setItemName(String itemName) {
-        output("setItemName", "an item name is specified.");
+        templateMethodOutput("setItemName", "an item name is specified.");
         this.itemName = itemName;
     }
 

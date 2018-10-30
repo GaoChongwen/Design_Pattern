@@ -1,7 +1,6 @@
 package action.person.employee;
 
 import action.person.PersonAction;
-import base.Person;
 
 /**
  * Design-Pattern: Template Method
@@ -16,7 +15,7 @@ import base.Person;
 abstract public class EmployeeAction extends PersonAction {
     @Override
     protected boolean checkCondition() {
-        output("checkCondition", "checking employee, employee skill and tool.");
+        templateMethodOutput("step 1_1. checkCondition", "checking employee, employee skill and tool.");
         /* 1. check employee assigned. */
         if(getTarget()==null){
             System.out.println("You haven't assigned an employee.");

@@ -11,7 +11,7 @@ public class EmployeeSlaughterAction extends EmployeeBreedAction {
 
     private volatile static EmployeeSlaughterAction instance = new EmployeeSlaughterAction();
     private EmployeeSlaughterAction() {
-        output("constructor", "I am created.");
+        templateMethodOutput("constructor", "I am created.");
     }
     public static EmployeeSlaughterAction getInstance(){
         animalHouse = null;
@@ -20,7 +20,7 @@ public class EmployeeSlaughterAction extends EmployeeBreedAction {
 
     @Override
     protected boolean checkTool() {
-        output("checkTool", "checking animal house.");
+        templateMethodOutput("step 1_1_2. checkTool", "checking animal house.");
         if(animalHouse == null){
             System.out.println("ERROR: You haven't specified an animal house");
             return false;
@@ -30,7 +30,7 @@ public class EmployeeSlaughterAction extends EmployeeBreedAction {
 
     @Override
     protected void execute() {
-        output("execute", "slaughtering an animal.");
+        templateMethodOutput("step 1_2. execute", "slaughtering an animal.");
         animalHouse.slaughter();
     }
 

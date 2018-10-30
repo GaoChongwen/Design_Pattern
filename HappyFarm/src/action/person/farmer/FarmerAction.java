@@ -1,7 +1,6 @@
 package action.person.farmer;
 
 import action.person.PersonAction;
-import person.Farmer;
 
 /**
  * @author Chudi LAN
@@ -9,7 +8,7 @@ import person.Farmer;
  */
 abstract public class FarmerAction extends PersonAction {
     protected FarmerAction() {
-        output("constructor","I am created.");
+        templateMethodOutput("constructor","I am created.");
     }
 
     abstract protected boolean checkCondition();

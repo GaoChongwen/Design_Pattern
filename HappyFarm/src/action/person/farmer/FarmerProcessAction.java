@@ -13,7 +13,7 @@ public class FarmerProcessAction extends FarmerAction{
     private volatile static FarmerProcessAction instance = new FarmerProcessAction();
     private FarmerProcessAction(){
         super();
-        output("constructor","I am created.");
+        templateMethodOutput("constructor","I am created.");
     }
     public static FarmerProcessAction getInstance(){
         return instance;
@@ -26,7 +26,7 @@ public class FarmerProcessAction extends FarmerAction{
      */
     @Override
     protected boolean checkCondition() {
-        output("checkCondition", "checking item.");
+        templateMethodOutput("step 1_1. checkCondition", "checking item.");
         if(item == null){
             System.out.println("ERROR: You haven't specified which item to process.");
             return false;
@@ -37,12 +37,12 @@ public class FarmerProcessAction extends FarmerAction{
 
     @Override
     protected void execute() {
-        output("execute","processing an item.");
+        templateMethodOutput("1_2. execute","processing an item.");
 //        Process.getInstance().process(item);
     }
 
     public void setItem(Item item) {
-        output("setItem","an item is specified.");
+        templateMethodOutput("setItem","an item is specified.");
         this.item = item;
     }
 

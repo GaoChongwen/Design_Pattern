@@ -1,7 +1,6 @@
 package base;
 
 import action.ActionStrategy;
-import utils.Output;
 
 /**
  * @author Chudi LAN
@@ -11,6 +10,7 @@ import utils.Output;
  *
  */
 abstract public class Action implements ActionStrategy {
+    private boolean templateMethodMode;
     /**
      * Target: invoker of src.Action
      * The target will be set in the runAction() method of FarmObj.java with the 'setTarget' method.
@@ -27,17 +27,21 @@ abstract public class Action implements ActionStrategy {
         this.Target = target;
     }
 
-    protected Action() {}
+    protected Action() {
+        templateMethodMode = false;
+    }
 
     /**
      * run src.Action.
      * Design-Pattern: Template Method
      */
     public void doAction(){
-        System.out.println("\n< Template Method starts >");
-        output("doAction","an action is performing.");
+        if(templateMethodMode)System.out.println("    < Template Method starts >");
+        templateMethodOutput("step 0. doAction","an action is performing.");
+
         doSomething();
-        System.out.println("< Template Method ends >\n");
+
+        if(templateMethodMode)System.out.println("    < Template Method ends >\n");
     }
 
     /**
@@ -45,8 +49,10 @@ abstract public class Action implements ActionStrategy {
      */
     abstract protected void doSomething();
 
-    public void output(String methodName, String actionDesc) {
-        System.out.println(this.getClassName()+": "+methodName+ "(): " +actionDesc);
+    public void templateMethodOutput(String methodName, String actionDesc) {
+        if(templateMethodMode){
+        System.out.println(methodName+ "(): " +actionDesc);
+        }
     }
 
     protected String getClassName() {
@@ -54,5 +60,9 @@ abstract public class Action implements ActionStrategy {
     }
     protected String getObjectID() {
         return "";
+    }
+
+    public void setTemplateMethodMode(boolean templateMethodMode) {
+        this.templateMethodMode = templateMethodMode;
     }
 }

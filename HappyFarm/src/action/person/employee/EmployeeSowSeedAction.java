@@ -15,7 +15,7 @@ public class EmployeeSowSeedAction extends EmployeeCultivateAction {
 
     private volatile static EmployeeSowSeedAction instance = new EmployeeSowSeedAction();
     private EmployeeSowSeedAction(){
-        output("constructor", "I am created.");
+        templateMethodOutput("constructor", "I am created.");
     }
     public static EmployeeSowSeedAction getInstance() {
         return instance;
@@ -23,7 +23,7 @@ public class EmployeeSowSeedAction extends EmployeeCultivateAction {
 
     @Override
     protected boolean checkTool() {
-        output("checkTool","checking seed and farmland");
+        templateMethodOutput("step 1_1_2. checkTool","checking seed and farmland");
         if(seed == null){
             System.out.println("You haven't specified a seed to plant.");
             return false;
@@ -37,17 +37,17 @@ public class EmployeeSowSeedAction extends EmployeeCultivateAction {
 
     @Override
     protected void execute() {
-        output("execute", "sowing seed");
+        templateMethodOutput("step 1_2. execute", "sowing seed");
         farmLand.plant(seed);
     }
 
     public  void setFarmLand(FarmLand farmLand) {
-        output("setFarmLand", "a farm land is specified.");
+        templateMethodOutput("setFarmLand", "a farm land is specified.");
         this.farmLand = farmLand;
     }
 
     public  void setSeed(Plant seed) {
-        output("setSed", "a seed is specified.");
+        templateMethodOutput("setSed", "a seed is specified.");
         this.seed = seed;
     }
 

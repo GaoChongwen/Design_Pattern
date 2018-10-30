@@ -1,6 +1,5 @@
 package action.person.employee;
 
-import action.person.employee.EmployeeAction;
 import person.Employee;
 import utils.Enum.EmployeeSkill;
 
@@ -25,7 +24,7 @@ abstract public class EmployeeCultivateAction extends EmployeeAction {
      */
     @Override
     protected boolean checkSkill() {
-        output("checkSkill", "checking cultivation skill.");
+        templateMethodOutput("step 1_1_1. checkSkill", "checking cultivation skill.");
         if(!((Employee)getTarget()).hasSkill(EmployeeSkill.cultivation)){
             System.out.println("Employee "+((Employee) getTarget()).getName()+" doesn't have cultivation skill.");
             return false;

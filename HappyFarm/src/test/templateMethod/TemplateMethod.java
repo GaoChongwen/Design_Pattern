@@ -46,15 +46,25 @@ public class TemplateMethod {
         /* 播种操作demo */
         // 1. 指定一个播种Action
         EmployeeSowSeedAction employeeSowSeedAction = EmployeeSowSeedAction.getInstance();
+            // 指定debug Template Method模式
+        employeeSowSeedAction.setTemplateMethodMode(true);
         // 2. 指定一个雇员
         employeeSowSeedAction.setTarget(testEmp);
         // 3. 指定一块土地
         employeeSowSeedAction.setFarmLand(cornField);
         // 4. 指定一个种子
         employeeSowSeedAction.setSeed(wheat);
+
         // 5. 执行播种操作
+        System.out.println("" +
+                "\n================================================" +
+                "\n Scenario 1:" +
+                "\n     Assign an employee with cultivation skill " +
+                "\n     to harvest a corn filed " +
+                "\n     planted with wheat." +
+                "\n================================================");
         employeeSowSeedAction.doAction();
-        employeeSowSeedAction.doAction();
+
 
         wheat.grow();
         wheat.grow();
@@ -62,6 +72,8 @@ public class TemplateMethod {
         /* 收割操作demo */
         // 1. 指定一个收割Action
         EmployeeHarvestAction employeeHarvestAction = EmployeeHarvestAction.getInstance();
+            // 指定debug Template Method模式
+        employeeHarvestAction.setTemplateMethodMode(true);
         // 2. 指定一个雇员
         employeeHarvestAction.setTarget(testEmp);
         // 3. 指定一块土地
@@ -78,6 +90,8 @@ public class TemplateMethod {
         /* 买东西demo */
         // 1. 指定买东西Action
         FarmerBuyAction buyAction = FarmerBuyAction.getInstance();
+            // 指定debug Template Method模式
+        buyAction.setTemplateMethodMode(true);
         // 2. 指定购买种类
         buyAction.setItemName("wheat");
         // 3. 执指定购买数量
@@ -88,6 +102,8 @@ public class TemplateMethod {
         /* 卖东西demo */
         // 1. 指定卖东西操作
         FarmerSellAction sellAction = FarmerSellAction.getInstance();
+            // 指定debug Template Method模式
+        buyAction.setTemplateMethodMode(true);
         // 2. 指定出售种类
         sellAction.setItemName("wheat");
         // 3. 执行出售操作
@@ -100,6 +116,6 @@ public class TemplateMethod {
         // todo...
 
 //        chickShed.feed();chickShed.feed();chickShed.feed();chickShed.feed();
-//        chickShed.slaughter();
+        chickShed.slaughter();
     }
 }

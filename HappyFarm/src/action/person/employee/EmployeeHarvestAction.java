@@ -1,7 +1,6 @@
 package action.person.employee;
 
 import base.FarmObj;
-import base.plant.Plant;
 import building.farmland.FarmLand;
 import propComp.tools.Tool;
 
@@ -23,7 +22,7 @@ public class EmployeeHarvestAction extends EmployeeCultivateAction {
 
     private volatile static EmployeeHarvestAction instance = new EmployeeHarvestAction();
     private EmployeeHarvestAction(){
-        output("constructor", "I am created.");
+        templateMethodOutput("constructor", "I am created.");
     }
     public static EmployeeHarvestAction getInstance() {
         return instance;
@@ -31,7 +30,7 @@ public class EmployeeHarvestAction extends EmployeeCultivateAction {
 
     @Override
     protected boolean checkTool() {
-        output("checkTool","checking farmland and harvest tool.");
+        templateMethodOutput("step 1_1_2. checkTool","checking farmland and harvest tool.");
         if(farmLand==null){
             System.out.println("ERROR: You haven't specified a farmland to harvest.");
             return false;
@@ -53,17 +52,17 @@ public class EmployeeHarvestAction extends EmployeeCultivateAction {
      */
     @Override
     protected void execute() {
-        output("execute", "harvesting in a farmland.");
+        templateMethodOutput("step 1_2. execute", "harvesting in a farmland.");
         farmLand.harvest();
     }
 
     public  void setFarmLand(FarmLand farmLand) {
-       output("setFarmLand", "a farmland is specified.");
+       templateMethodOutput("setFarmLand", "a farmland is specified.");
         this.farmLand = farmLand;
     }
 
     public void setHarvestTool(Tool harvestTool) {
-        output("setHarvestTool", "a harvest tool is specified.");
+        templateMethodOutput("setHarvestTool", "a harvest tool is specified.");
         this.harvestTool = harvestTool;
     }
 

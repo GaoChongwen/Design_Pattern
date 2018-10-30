@@ -2,10 +2,6 @@ package action.tool;
 
 import base.Action;
 
-import propComp.tools.Tool;
-
-import utils.Enum.PlantType;
-
 /**
  * Design-Pattern: Bridge, Strategy
  *
@@ -24,7 +20,7 @@ public abstract class ToolAction extends Action implements HarvestAPI {
     }
 
     protected void doSomething() {
-        output("doSomething", "harvesting with a tool.");
+        templateMethodOutput("doSomething", "harvesting with a tool.");
         harvest();
     }
 

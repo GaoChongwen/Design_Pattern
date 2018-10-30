@@ -1,6 +1,5 @@
 package action.person.employee;
 
-import base.animal.Animal;
 import building.shed.AnimalHouse;
 
 /**
@@ -13,14 +12,14 @@ public class EmployeeFeedAction extends EmployeeBreedAction {
 
     private volatile static EmployeeFeedAction instance = new EmployeeFeedAction();
     private EmployeeFeedAction(){
-        output("constructor", "I am created.");
+        templateMethodOutput("constructor", "I am created.");
     }
     public static EmployeeFeedAction getInstance(){
         return instance;
     }
 
     public void setAnimalHouse(AnimalHouse animalHouse) {
-        output("setAnimalHouse", "an animal house is specified.");
+        templateMethodOutput("setAnimalHouse", "an animal house is specified.");
         this.animalHouse = animalHouse;
     }
 
@@ -30,7 +29,7 @@ public class EmployeeFeedAction extends EmployeeBreedAction {
 
     @Override
     protected boolean checkTool() {
-        output("checkTool", "checking animal house and animal food");
+        templateMethodOutput("step 1_1_2. checkTool", "checking animal house and animal food");
         if(animalHouse == null){
             System.out.println("ERROR: You haven't specified an animal to feed.");
             return false;
@@ -44,7 +43,7 @@ public class EmployeeFeedAction extends EmployeeBreedAction {
 
     @Override
     protected void execute() {
-        output("execute", "feeding an animal.");
+        templateMethodOutput("step 1_2. execute", "feeding an animal.");
         animalHouse.feed();
     }
 

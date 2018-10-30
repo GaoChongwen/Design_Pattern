@@ -5,12 +5,12 @@ package action.tool;
  */
 public class ReapingMachineAction extends ToolAction {
     public ReapingMachineAction(){
-        output("constructor","I am created.");
+        templateMethodOutput("constructor","I am created.");
     }
 
     @Override
     public boolean harvest() {
-        output("harvest","harvesting with reaping machine.");
+        templateMethodOutput("harvest","harvesting with reaping machine.");
         return true;
     }
 

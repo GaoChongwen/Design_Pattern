@@ -1,6 +1,5 @@
 package action.person.employee;
 
-import action.person.employee.EmployeeAction;
 import person.Employee;
 import utils.Enum.EmployeeSkill;
 
@@ -13,7 +12,7 @@ public abstract class EmployeeBreedAction extends EmployeeAction {
 
     @Override
     protected boolean checkSkill() {
-        output("checkSkill","checking breeding skill.");
+        templateMethodOutput("step 1_1_1. checkSkill","checking breeding skill.");
         if(!((Employee)getTarget()).hasSkill(EmployeeSkill.breeding)){
             System.out.println("Employee "+getTarget().getName()+" doesn't have breeding skill.");
             return false;
