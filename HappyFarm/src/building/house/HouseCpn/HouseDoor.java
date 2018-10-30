@@ -14,7 +14,7 @@ public class HouseDoor {
 
     // 默认是木质门
     public HouseDoor() {
-        info = "木质门";
+        info = "WoodenDoor";
     }
 
     public String getInfo() {

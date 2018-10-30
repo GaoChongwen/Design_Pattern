@@ -104,12 +104,12 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
 
     // 搭建动物窝
     public void bulidShed() {
-        System.out.println("开始搭建动物的住所...");
+        System.out.println("Building shed...");
     }
 
     // 动物窝搭建完成
     public void done() {
-        System.out.println("一个简陋的动物屋搭建完成。");
+        System.out.println("Done.");
     }
 
     // 作为Visitor模式中的接受者, 接收访问者

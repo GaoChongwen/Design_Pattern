@@ -12,7 +12,7 @@ public class HouseTile {
 
     // 默认是青瓦
     public HouseTile() {
-        info = "青瓦";
+        info = "BlackTile";
     }
 
     public String getInfo() {

@@ -24,12 +24,12 @@ public class RepoTest {
         Plant rice3 = new Rice();
         Plant wheat = new Wheat();
         repository.add(rice1, rice2, rice3, wheat);
-        System.out.println("当前仓库库存：");
+        System.out.println("Current repository：");//当前库存z
         System.out.println(repository);
 
         // 删除植物
         repository.remove(rice1);
-        System.out.println("当前仓库库存：");
+        System.out.println("Current repository：");
         System.out.println(repository);
 
         // 获取所有水稻
