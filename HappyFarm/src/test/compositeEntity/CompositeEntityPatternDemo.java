@@ -1,4 +1,6 @@
-package building.house;
+package test.compositeEntity;
+
+import building.house.House;
 
 /**
  * @project: HappyFarm
@@ -9,6 +11,10 @@ package building.house;
  **/
 public class CompositeEntityPatternDemo {
     public static void main(String[] args) {
+
+        System.out.println("====== Test Composite Entity Pattern ======");
+        System.out.println("Set the style of the house's components (walls, doors, tiles, windows)");
+        System.out.println();
 
         House house = House.getInstance();
 

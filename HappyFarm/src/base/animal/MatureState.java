@@ -26,9 +26,10 @@ public class MatureState implements AnimalState{
     }
 
     @Override
-    public void process() {
+    public boolean process() {
         animal.setState(animal.deadState);
         animal.shouldRemove=true;
         animal.isMature=false;
+        return true;
     }
 }

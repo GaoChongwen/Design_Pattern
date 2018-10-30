@@ -6,11 +6,7 @@ package utils.Enum;
  *
  */
 public enum ProduceType {
-    flour,  // wheat-面粉
-    juice,  // apple-果汁
-    foodRice,   // rice-foodRice
-
     milk,   //cow-牛奶
-    pork,   //pig-猪肉
-    foodChicken,//chicken-鸡肉
+    cookedFood,   //pig-猪肉;chicken-鸡肉
+    animalFood, // rice，cabbage-饲料
 }

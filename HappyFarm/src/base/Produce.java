@@ -13,34 +13,18 @@ import base.FarmObj;
  */
 
 public abstract class Produce extends Item implements Cloneable{
-    protected int farmPrice;
     protected int salePrice;
     protected ProduceType type;
 
     protected Produce() {
-        //this.type = type;
-        farmPrice = 0;
-        salePrice = 0;
-    }
-
-    public int getFarmPrice() {
-        return this.farmPrice;
     }
 
     public int getSalePrice() {
         return this.salePrice;
     }
 
-    public void setSalePrice(int price){
-        this.salePrice = price;
-    }
-
-    public ProduceType getType() {
-        return this.type;
-    }
-
-    public boolean checkType(ProduceType produceType) {
-        return produceType == this.type;
+    public String getName() {
+        return this.type.toString();
     }
 
     /**
@@ -55,5 +39,4 @@ public abstract class Produce extends Item implements Cloneable{
         }
         return clone;
     }
-
 }

@@ -1,6 +1,9 @@
-package building.ImpVisitor;
+package test.visitor;
 
 import animal.Cow;
+import building.ImpVisitor.BuildingAcceptor;
+import building.ImpVisitor.ChristmasVisitor;
+import building.ImpVisitor.SpringVisitor;
 import building.house.House;
 import building.shed.AnimalHouse;
 import building.shed.ChickShed;
@@ -17,6 +20,9 @@ import com.sun.javafx.css.parser.Css2Bin;
 public class VisitorPatternDemo {
 
     public static void main(String[] args) {
+
+        System.out.println("============= Test Visitor Pattern =============");
+        System.out.println("=== Add a festive atmosphere to the building ===");
 
         // 给房子增添春节的气息
         BuildingAcceptor house= House.getInstance();
