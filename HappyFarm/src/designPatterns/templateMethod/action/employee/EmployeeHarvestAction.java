@@ -1,7 +1,6 @@
-package action.person.employee;
+package designPatterns.templateMethod.action.employee;
 
 import base.FarmObj;
-import base.plant.Plant;
 import building.farmland.FarmLand;
 import propComp.tools.Tool;
 
