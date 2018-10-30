@@ -36,6 +36,10 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
         return landType.toString();
     }
 
+    @Override
+    public String getType() {
+        return "FarmLand";
+    }
 
     public void use(LandAdaptor landAdaptor) {
         this.adaptor = landAdaptor;
@@ -45,19 +49,26 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
     /**
      * @Design-Pattern: Adaptor
      * @param p: 需要种植的植物
-     * @description: 如果该植物适合本土地类型，则种植；否则，若
+     * @return: 种植成功返回true;失败返回false;
+     * @description: 如果该植物适合本土地类型，则种植；
+     *               否则，若有相应适配器，则使用适配器种植；
+     *               否则，种植失败。
      */
-    public void plant(Plant p) {
+    public boolean plant(Plant p) {
 
         if (idle && (p.plant(landType) || (adaptor != null && adaptor.plant(p)))) {
             plant = p;
             idle = false;
+            System.out.println(landType + " plant " + p.getType() + " success");
+            return true;
         } else {
-            System.out.println(landType + " plant " + p.getType() + " fail!");
+            System.out.println(landType + " plant " + p.getType() + " fail");
+            return false;
         }
 
     }
 
+    // 收获植物
     public void harvest(Plant p) {
         if (idle) { return; }
         idle = p.harvest();

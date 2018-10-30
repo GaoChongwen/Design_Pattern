@@ -52,4 +52,6 @@ public class Animal extends FarmObj {
     }
 
     public void eat(){this.state.eat();}
+
+    public void process(){this.state.process();}
 }
