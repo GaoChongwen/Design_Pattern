@@ -14,7 +14,7 @@ abstract public class Action implements ActionStrategy {
      * Target: invoker of src.Action
      * The target will be set in the runAction() method of FarmObj.java with the 'setTarget' method.
      */
-    private static FarmObj Target = null;
+    private FarmObj Target = null;
 
     /**
      * Getter & Setter for Target
@@ -22,8 +22,8 @@ abstract public class Action implements ActionStrategy {
     protected FarmObj getTarget(){
         return Target;
     }
-    public static void setTarget(FarmObj target) {
-        Target = target;
+    public void setTarget(FarmObj target) {
+        this.Target = target;
     }
 
     protected Action() {}
@@ -33,10 +33,6 @@ abstract public class Action implements ActionStrategy {
      * Design-Pattern: Template Method
      */
     public void doAction(){
-        if(!checkTarget()){
-            System.out.println("Error: No target is set to this action.");
-            return;
-        }
          doSomething();
     }
 

@@ -18,15 +18,12 @@ import propComp.tools.Tool;
  * @version 2018-10-29
  */
 public class EmployeeHarvestAction extends EmployeeCultivateAction {
-    private static FarmLand farmLand = null;
-    private static Tool harvestTool = null;
+    private  FarmLand farmLand = null;
+    private  Tool harvestTool = null;
 
     private volatile static EmployeeHarvestAction instance = new EmployeeHarvestAction();
     private EmployeeHarvestAction(){}
     public static EmployeeHarvestAction getInstance() {
-        farmLand = null;
-        harvestTool = null;
-        setTarget(null);
         return instance;
     }
 
@@ -53,15 +50,14 @@ public class EmployeeHarvestAction extends EmployeeCultivateAction {
      */
     @Override
     protected void execute() {
-
-//        farmLand.harvest();
+        farmLand.harvest();
     }
 
-    public static void setFarmLand(FarmLand farmLand) {
-        EmployeeHarvestAction.farmLand = farmLand;
+    public  void setFarmLand(FarmLand farmLand) {
+        this.farmLand = farmLand;
     }
 
-    public static void setHarvestTool(Tool harvestTool) {
-        EmployeeHarvestAction.harvestTool = harvestTool;
+    public  void setHarvestTool(Tool harvestTool) {
+        this.harvestTool = harvestTool;
     }
 }

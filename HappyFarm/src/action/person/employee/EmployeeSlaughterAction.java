@@ -9,7 +9,6 @@ public class EmployeeSlaughterAction extends EmployeeBreedAction {
     private EmployeeSlaughterAction() {}
     public static EmployeeSlaughterAction getInstance(){
         animalHouse = null;
-        setTarget(null);
         return instance;
     }
 

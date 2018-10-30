@@ -15,7 +15,6 @@ public class EmployeeFeedAction extends EmployeeBreedAction {
     public static EmployeeFeedAction getInstance(){
 //        animalFood = null;
         animal = null;
-        setTarget(null);
         return instance;
     }
 

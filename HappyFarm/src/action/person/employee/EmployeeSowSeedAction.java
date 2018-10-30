@@ -18,7 +18,6 @@ public class EmployeeSowSeedAction extends EmployeeCultivateAction {
     public static EmployeeSowSeedAction getInstance() {
         seed = null;
         farmLand = null;
-        setTarget(null);
         return instance;
     }
 
