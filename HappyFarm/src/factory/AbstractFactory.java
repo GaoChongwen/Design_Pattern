@@ -27,9 +27,19 @@ public abstract class AbstractFactory {
         return null;
     }
 
-    FarmLand createFarmLand(String type) {
+    FarmLand createFarmLand(String type) {}
+    Produce createProduce(String name){
+        return null;
+    }
+
+    FarmLand createFarmLand(FarmLandType type) {
         return null;
     }
 
     LandAdaptor createAdaptor(String type) { return null; }
+
+    Produce createProduce(String name) {
+        return null;
+    }
+
 }
