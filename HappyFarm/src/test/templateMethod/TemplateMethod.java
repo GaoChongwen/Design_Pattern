@@ -1,20 +1,22 @@
 package test.templateMethod;
 
-import action.person.employee.EmployeeCultivateAction;
+import action.person.employee.EmployeeFeedAction;
 import action.person.employee.EmployeeHarvestAction;
 import action.person.employee.EmployeeSlaughterAction;
 import action.person.employee.EmployeeSowSeedAction;
 import action.person.farmer.FarmerBuyAction;
 import action.person.farmer.FarmerProcessAction;
 import action.person.farmer.FarmerSellAction;
+import action.person.farmer.FarmerUseLandAdaptorAction;
 import animal.Chicken;
-import base.Action;
 import base.animal.Animal;
 import building.farmland.CornField;
 import building.shed.ChickShed;
+import factory.AdaptorFactory;
 import person.Employee;
 import person.Farmer;
 import plant.Wheat;
+import propComp.props.landAdaptor.AppleAdaptor;
 import propComp.tools.Sickle;
 import propComp.tools.Tool;
 import singleton.Farm;
@@ -30,6 +32,7 @@ public class TemplateMethod {
     public static void main(String args[]){
         /* 此部分代码与本模式无关 */
         Employee testEmp = new Employee("Mary", EmployeeSkill.cultivation, 5000);
+        Employee breadEmp = new Employee("Breeder",EmployeeSkill.breeding, 5000);
         Farmer farmer = Farmer.getInstance();
         Tool sickle = new Sickle();
         CornField cornField = new CornField();
@@ -42,6 +45,9 @@ public class TemplateMethod {
         chickShed.addAnimal(chicken1);
         chickShed.addAnimal(chicken2);
         chickShed.addAnimal(chicken3);
+        Farm.initialFarmObj();
+        AppleAdaptor appleAdaptor = (AppleAdaptor) AdaptorFactory.getInstance().createAdaptor("appleField");
+
 
         /* 播种操作demo */
         // 1. 指定一个播种Action
@@ -85,13 +91,14 @@ public class TemplateMethod {
                 "\n====================================================================" +
                 "\n Scenario 2:" +
                 "\n     Assign an employee with cultivation skill " +
-                "\n     to harvest a corn filed " +
-                "\n     planted with wheat." +
+                "\n     to harvest a corn filed planted with wheat." +
                 "\n====================================================================");
         employeeSowSeedAction.doAction();
 //        employeeHarvestAction.doAction();
 
         /* 喂养动物demo */
+        EmployeeFeedAction feedAction = EmployeeFeedAction.getInstance();
+
 
         /* 屠宰动物demo */
         // 1. 指定一个屠宰Action
@@ -99,14 +106,14 @@ public class TemplateMethod {
         // 指定debug Template Method模式
         slaughterAction.setTemplateMethodMode(true);
         // 2. 指定一个雇员
-        slaughterAction.setTarget(testEmp);
+        slaughterAction.setTarget(breadEmp);
         // 3. 指定一个AnimalHouse
         slaughterAction.setAnimalHouse(chickShed);
         // 5. 执行屠宰操作
         System.out.println("" +
                 "\n====================================================================" +
                 "\n Scenario 3:" +
-                "\n     Assign an employee with cultivation skill " +
+                "\n     Assign an employee with breeding skill " +
                 "\n     to slaughter a chicken shed. "+
                 "\n====================================================================");
         slaughterAction.doAction();
@@ -133,10 +140,15 @@ public class TemplateMethod {
         // 1. 指定卖东西操作
         FarmerSellAction sellAction = FarmerSellAction.getInstance();
             // 指定debug Template Method模式
-        buyAction.setTemplateMethodMode(true);
+        sellAction.setTemplateMethodMode(true);
         // 2. 指定出售种类
         sellAction.setItemName("wheat");
         // 3. 执行出售操作
+        System.out.println("" +
+                "\n====================================================================" +
+                "\n Scenario 5:" +
+                "\n     The farmer tries to sell a wheat seeds "+
+                "\n====================================================================");
         sellAction.doAction();
 
         /* 加工demo */
@@ -145,7 +157,22 @@ public class TemplateMethod {
         // 2. 指定加工对象
         // todo...
 
-//        chickShed.feed();chickShed.feed();chickShed.feed();chickShed.feed();
-        chickShed.slaughter();
+        /* 使用Adaptor Demo */
+        // 1. 指定操作
+        FarmerUseLandAdaptorAction useLandAdaptorAction = FarmerUseLandAdaptorAction.getInstance();
+            //  指定debug Template模式
+        useLandAdaptorAction.setTemplateMethodMode(true);
+        // 2. 指定farm land
+        useLandAdaptorAction.setFarmLand(cornField);
+        // 3. 指定Adaptor
+        useLandAdaptorAction.setLandAdaptor(appleAdaptor);
+        // 4. 执行操作
+        System.out.println("" +
+                "\n====================================================================" +
+                "\n Scenario 6:" +
+                "\n     The farmer tries to adapt a corn field into an apple field " +
+                "\n     using appleFieldAdaptor. "+
+                "\n====================================================================");
+        useLandAdaptorAction.doAction();
     }
 }

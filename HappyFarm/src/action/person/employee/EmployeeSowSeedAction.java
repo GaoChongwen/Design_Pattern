@@ -42,12 +42,12 @@ public class EmployeeSowSeedAction extends EmployeeCultivateAction {
     }
 
     public  void setFarmLand(FarmLand farmLand) {
-        templateMethodOutput("setFarmLand", "a farm land is specified.");
+        //templateMethodOutput("setFarmLand", "a farm land is specified.");
         this.farmLand = farmLand;
     }
 
     public  void setSeed(Plant seed) {
-        templateMethodOutput("setSed", "a seed is specified.");
+        //templateMethodOutput("setSed", "a seed is specified.");
         this.seed = seed;
     }
 

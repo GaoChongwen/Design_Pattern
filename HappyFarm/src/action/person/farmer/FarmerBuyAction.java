@@ -59,12 +59,12 @@ public class FarmerBuyAction extends FarmerAction {
     }
 
     public void setCount(int count) {
-        templateMethodOutput("setCount", "count is specified.");
+//        templateMethodOutput("setCount", "count is specified.");
         this.count = count;
     }
 
     public void setItemName(String itemName) {
-        templateMethodOutput("setItemName", "an item name is specified.");
+//        templateMethodOutput("setItemName", "an item name is specified.");
         this.itemName = itemName;
     }
 

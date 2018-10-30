@@ -38,4 +38,12 @@ public class FarmerUseLandAdaptorAction extends FarmerAction{
         templateMethodOutput("step 1_2. execute","using an adaptor on a farmland.");
         farmLand.use(landAdaptor);
     }
+
+    public void setFarmLand(FarmLand farmLand) {
+        this.farmLand = farmLand;
+    }
+
+    public void setLandAdaptor(LandAdaptor landAdaptor) {
+        this.landAdaptor = landAdaptor;
+    }
 }
