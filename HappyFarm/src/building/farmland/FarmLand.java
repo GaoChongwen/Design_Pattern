@@ -45,9 +45,9 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
     }
 
     // 收获植物
-    public void harvest(Plant p) {
+    public void harvest() {
         if (idle) { return; }
-        idle = p.harvest();
+        idle = plant.harvest();
     }
 
     // 挂载适配器
