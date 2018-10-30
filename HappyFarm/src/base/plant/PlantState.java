@@ -20,6 +20,6 @@ public interface PlantState {
     public boolean harvest(Plant plant);
 
     // 加工:MatureState to RemovedState
-    public void process(Plant plant);
+    public boolean process(Plant plant);
 
 }
