@@ -42,6 +42,11 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
         System.out.println(landType + " Adaptor works.");
     }
 
+    /**
+     * @Design-Pattern: Adaptor
+     * @param p: 需要种植的植物
+     * @description: 如果该植物适合本土地类型，则种植；否则，若
+     */
     public void plant(Plant p) {
 
         if (idle && (p.plant(landType) || (adaptor != null && adaptor.plant(p)))) {
