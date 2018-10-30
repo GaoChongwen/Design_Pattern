@@ -27,20 +27,30 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
         this.plant = null;
     }
 
+    // 获取土地种类名
     public FarmLandType getLandType() {
         return landType;
     }
 
+    // 获取土地种类名
     @Override
     public String getName() {
         return landType.toString();
     }
 
+    // 获取类型
     @Override
     public String getType() {
         return "FarmLand";
     }
 
+    // 收获植物
+    public void harvest(Plant p) {
+        if (idle) { return; }
+        idle = p.harvest();
+    }
+
+    // 挂载适配器
     public void use(LandAdaptor landAdaptor) {
         this.adaptor = landAdaptor;
         System.out.println(landType + " Adaptor works.");
@@ -66,12 +76,6 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
             return false;
         }
 
-    }
-
-    // 收获植物
-    public void harvest(Plant p) {
-        if (idle) { return; }
-        idle = p.harvest();
     }
 
     /**

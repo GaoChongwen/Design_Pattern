@@ -2,6 +2,7 @@ package propComp.props.landAdaptor;
 
 import base.plant.Plant;
 import building.farmland.FarmLand;
+import factory.AdaptorFactory;
 import factory.FarmLandFactory;
 import utils.Enum.FarmLandType;
 
@@ -16,6 +17,7 @@ public class AllAdaptor extends LandAdaptor {
     public AllAdaptor() {
         super();
         this.landType = FarmLandType.allField;
+        AdaptorFactory.getInstance().putAdaptor(this);
     }
 
     @Override

@@ -26,4 +26,8 @@ public abstract class Item extends FarmObj {
     protected void buy() {}
 
     protected void sell(){}
+
+    public boolean getIsUsed(){
+        return isUsed;
+    }
 }

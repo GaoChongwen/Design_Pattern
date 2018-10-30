@@ -25,10 +25,17 @@ public abstract class Plant extends FarmObj implements Cloneable {
         state = SeedState.getInstance();
     }
 
-    // 获取植物种类名
+    // 获取植物种类
     @Override
     public String getName() {
         return this.type.toString();
+    }
+
+
+    // 获取类型
+    @Override
+    public String getType() {
+        return "Plant";
     }
 
     // 获取购买价格
