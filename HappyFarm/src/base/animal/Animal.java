@@ -33,6 +33,22 @@ public class Animal extends FarmObj {
         isMature=false;
     }
 
+    public int getStockPrice() {
+        return stockPrice;
+    }
+
+    public void setStockPrice(int stockPrice) {
+        this.stockPrice = stockPrice;
+    }
+
+    public int getSalePrice() {
+        return salePrice;
+    }
+
+    public void setSalePrice(int salePrice) {
+        this.salePrice = salePrice;
+    }
+
     public boolean isMature() {
         return isMature;
     }
