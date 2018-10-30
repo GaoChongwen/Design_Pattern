@@ -40,6 +40,13 @@ public abstract class Plant extends FarmObj implements Cloneable {
         return false;
     }
 
+    public void harvest() {
+        state.harvest(this);
+    }
+
+    public void grow(){
+        state.grow(this);
+    }
     public int getStockPrice() {
         return this.stockPrice;
     }
@@ -48,8 +55,9 @@ public abstract class Plant extends FarmObj implements Cloneable {
         return this.salePrice;
     }
 
-    public PlantType getType() {
-        return this.type;
+    @Override
+    public String getName() {
+        return this.type.toString();
     }
 
     public FarmLandType getReqLandType() {
@@ -64,7 +72,7 @@ public abstract class Plant extends FarmObj implements Cloneable {
         return plantType == this.type;
     }
 
-    protected void harvest() {
+    protected void harvest(int _) {
         System.out.println(this.type + " harvest success.");
     }
 

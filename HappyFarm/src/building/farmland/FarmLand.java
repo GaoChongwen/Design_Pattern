@@ -1,10 +1,12 @@
 package building.farmland;
 
+import base.ClockObserver;
 import base.Item;
 import base.plant.Plant;
 import propComp.props.landAdaptor.LandAdaptor;
 import utils.Enum.FarmLandType;
-import utils.test.Adaptor;
+
+import java.util.Observable;
 
 /**
  * Design-Pattern: Prototype, Adaptor
@@ -13,7 +15,7 @@ import utils.test.Adaptor;
  * @version 2018/10/28
  */
 
-public abstract class FarmLand extends Item implements Cloneable {
+public abstract class FarmLand extends ClockObserver implements Cloneable {
     protected FarmLandType landType;
     protected boolean idle;
     protected Plant plant;
@@ -29,19 +31,23 @@ public abstract class FarmLand extends Item implements Cloneable {
         return landType;
     }
 
-    /**
-     * @param p
-     * @return
-     * @DesignPattern: Adaptor
-     */
+    @Override
+    public String getName() {
+        return landType.toString();
+    }
 
-    public void setAdaptor(LandAdaptor landAdaptor) {
+    @Override
+    protected void use() { }
+
+
+    public void use(LandAdaptor landAdaptor) {
         this.adaptor = landAdaptor;
+        System.out.println(landType + " Adaptor works.");
     }
 
     public boolean plant(Plant p) {
 
-        if (idle && ((p.plant(landType)) || (adaptor != null && adaptor.plant(p)))) {
+        if (idle && (p.plant(landType) ||(adaptor != null && adaptor.plant(p)))) {
             plant = p;
             idle = false;
             System.out.println(landType + " plant " + p.getType() + "success!");
@@ -51,6 +57,14 @@ public abstract class FarmLand extends Item implements Cloneable {
             return false;
         }
 
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        if(plant==null){
+            return;
+        }
+        plant.grow();
     }
 
     /**

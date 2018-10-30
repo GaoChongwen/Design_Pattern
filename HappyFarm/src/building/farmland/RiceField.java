@@ -4,10 +4,10 @@ import factory.FarmLandFactory;
 import utils.Enum.FarmLandType;
 
 /**
- * Design-Pattern: Prototype
+ * Design-Pattern: Adaptor, Prototype
  *
  * @author lipeng liang
- * @version 2018/10/28
+ * @version 2018/10/29
  */
 public class RiceField extends FarmLand {
     public RiceField() {

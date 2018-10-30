@@ -1,7 +1,6 @@
 package factory;
 
 import propComp.props.landAdaptor.LandAdaptor;
-import utils.Enum.FarmLandType;
 
 import java.util.Hashtable;
 import java.util.Map;

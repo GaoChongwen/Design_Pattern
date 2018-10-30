@@ -1,17 +1,32 @@
 package building.shed;
 
+import base.ClockObserver;
 import base.FarmObj;
+import base.Iterator;
 import base.animal.Animal;
 import building.ImpVisitor.BuildingAcceptor;
 import building.ImpVisitor.BuildingVisitor;
 
-import java.util.Iterator;
+import java.util.Observable;
+import java.util.Observer;
 
-public class AnimalHouse extends FarmObj implements BuildingAcceptor {
+public class AnimalHouse extends ClockObserver implements BuildingAcceptor {
     //protected int maxCapacity;
     protected int capacity;  //最大容量
     //protected int count;  //当前舍内动物数量
     protected int cost;  //造价
+
+    @Override
+    public void update(Observable o, Object arg) {
+        for(int i=0; i<capacity; ++i){
+            animals[i].grow();
+        }
+        for (int i=0; i<capacity; ++i){
+            if(animals[i].shouldRemove)
+                animals[i]=null;
+        }
+    }
+
 
     //protected int lstPos;
     class AnimalIterator implements Iterator {
@@ -32,13 +47,6 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor {
             Animal animal = animals[curPos];
             curPos++;
             return animals;
-        }
-
-        @Override
-        public void remove() {
-            if (capacity > 0) {
-                animals[curPos] = null;
-            }
         }
     }
 

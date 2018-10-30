@@ -1,7 +1,6 @@
 package factory;
 
 import base.plant.Plant;
-import utils.Enum.PlantType;
 import java.util.Hashtable;
 import java.util.Map;
 
@@ -34,7 +33,7 @@ public class PlantFactory extends AbstractFactory {
 
     public void putPlant(Plant plant){
         System.out.println("in put plant");
-        plantMap.put(plant.getType().toString(),plant);
+        plantMap.put(plant.getName(),plant);
     }
 
     public void getAllPlant(){

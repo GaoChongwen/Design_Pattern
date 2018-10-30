@@ -1,13 +1,27 @@
 package base;
 
-public class FarmObj {
-    protected String typename;  //此处用name还是type有待商榷
 
-    public String getTypename() {
-        return typename;
+public abstract class FarmObj {
+    /**
+     * type: 如：Shed, Plant, ...
+     * name: 如：ChickShed, CowShed, Apple, Rice, ...
+     */
+    private String type;
+    private String name;
+
+    public String getType() {
+        return type;
     }
 
-    public void setTypename(String typename) {
-        this.typename = typename;
+    protected void setType(String type) {
+        this.type = type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    protected void setName(String name) {
+        this.name = name;
     }
 }
