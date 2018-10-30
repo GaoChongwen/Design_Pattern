@@ -3,14 +3,21 @@ package test.templateMethod;
 import action.person.employee.EmployeeCultivateAction;
 import action.person.employee.EmployeeHarvestAction;
 import action.person.employee.EmployeeSowSeedAction;
+import action.person.farmer.FarmerBuyAction;
+import action.person.farmer.FarmerProcessAction;
+import action.person.farmer.FarmerSellAction;
+import animal.Chicken;
 import base.Action;
+import base.animal.Animal;
 import building.farmland.CornField;
+import building.shed.ChickShed;
 import person.Employee;
 import person.Farmer;
 import plant.Wheat;
 import propComp.tools.Sickle;
 import propComp.tools.Tool;
 import singleton.Farm;
+import store.Store;
 import utils.Enum.EmployeeSkill;
 
 /**
@@ -26,6 +33,14 @@ public class TemplateMethod {
         Tool sickle = new Sickle();
         CornField cornField = new CornField();
         Wheat wheat = new Wheat();
+        Store store =Store.getInstance();
+        Animal chicken1=new Chicken();
+        Animal chicken2 = new Chicken();
+        Animal chicken3 = new Chicken();
+        ChickShed chickShed = ChickShed.getInstance();
+        chickShed.addAnimal(chicken1);
+        chickShed.addAnimal(chicken2);
+        chickShed.addAnimal(chicken3);
 
 
         /* 播种操作demo */
@@ -55,15 +70,35 @@ public class TemplateMethod {
         // 5. 执行收割操作
         employeeHarvestAction.doAction();
 
-
         /* 喂养动物demo */
 
         /* 屠宰动物demo */
 
         /* 买东西demo */
+        // 1. 指定买东西Action
+        FarmerBuyAction buyAction = FarmerBuyAction.getInstance();
+        // 2. 指定购买种类
+        buyAction.setItemName("wheat");
+        // 3. 执指定购买数量
+        buyAction.setCount(5);
+        // 3. 执行购买操作
+        buyAction.doAction();
 
         /* 卖东西demo */
+        // 1. 指定卖东西操作
+        FarmerSellAction sellAction = FarmerSellAction.getInstance();
+        // 2. 指定出售种类
+        sellAction.setItemName("wheat");
+        // 3. 执行出售操作
+        sellAction.doAction();
 
         /* 加工demo */
+        // 1. 指定加工操作
+        FarmerProcessAction processAction = FarmerProcessAction.getInstance();
+        // 2. 指定加工对象
+        // todo...
+
+//        chickShed.feed();chickShed.feed();chickShed.feed();chickShed.feed();
+//        chickShed.slaughter();
     }
 }

@@ -1,6 +1,7 @@
 package action.person.farmer;
 
 import action.person.farmer.FarmerAction;
+import store.Store;
 
 /**
  * @author Chudi LAN
@@ -51,7 +52,7 @@ public class FarmerBuyAction extends FarmerAction {
     @Override
     protected void execute() {
         output("execute","buying "+count+" "+itemName);
-//        Store.getInstance().buy(itemName, count);
+//        Store.getInstance().buyCommity(itemName,count);
     }
 
     public void setCount(int count) {
