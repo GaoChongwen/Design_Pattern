@@ -19,7 +19,7 @@ import utils.Enum.PlantType;
  * @version 2018-10-28
  */
 public abstract class ToolAction extends Action implements HarvestAPI {
-    protected ToolAction(Tool tool){
+    protected ToolAction(){
 
     }
 

@@ -41,7 +41,6 @@ public class AdaptorFactory extends AbstractFactory {
     }
 
     public void putAdaptor(LandAdaptor Adaptor){
-        System.out.println("in put Adaptor");
         AdaptorMap.put(Adaptor.getLandType().toString(),Adaptor);
     }
 

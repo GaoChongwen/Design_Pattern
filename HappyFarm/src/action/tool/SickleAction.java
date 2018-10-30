@@ -10,8 +10,8 @@ import utils.Enum.PlantType;
  * @version 2018-10-28
  */
 public class SickleAction extends  ToolAction{
-    public SickleAction(Tool tool){
-        super(tool);
+    public SickleAction(){
+
     }
 
     @Override

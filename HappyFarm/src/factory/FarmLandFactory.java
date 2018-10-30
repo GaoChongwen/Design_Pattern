@@ -31,7 +31,6 @@ public class FarmLandFactory extends AbstractFactory {
     }
 
     public void putFarmLand(FarmLand FarmLand) {
-        System.out.println("in put FarmLand");
         FarmLandMap.put(FarmLand.getName(), FarmLand);
     }
 

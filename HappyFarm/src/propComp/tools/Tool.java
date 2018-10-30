@@ -13,7 +13,7 @@ public abstract class Tool extends Item {
     private ToolType toolType;
     protected HarvestAPI harvestAPI;
 
-    private Tool(){}
+    public Tool(){}
 
     protected Tool(ToolType toolType, HarvestAPI harvestAPI){
         this.harvestAPI = harvestAPI;

@@ -10,8 +10,7 @@ import utils.Enum.PlantType;
  *
  */
 public class ReapingMachineAction extends ToolAction {
-    public ReapingMachineAction(Tool tool){
-        super(tool);
+    public ReapingMachineAction(){
     }
 
     @Override

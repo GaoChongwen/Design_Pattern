@@ -8,8 +8,8 @@ import utils.Enum.PlantType;
  * @version 2018-10-29
  */
 public class WheatReapingMachineAction extends ReapingMachineAction{
-    public WheatReapingMachineAction(Tool tool){
-        super(tool);
+    public WheatReapingMachineAction(){
+
     }
 
     @Override

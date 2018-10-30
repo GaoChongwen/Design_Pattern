@@ -15,7 +15,7 @@ public class Bridge {
     public static void main(String args[]){
 //        Wheat wheat = (Wheat)PlantFactory.getInstance().createPlant(PlantType.wheat);
         Tool sickleTool = new Sickle(new SickleAction(null));
-        Tool reapingMachineTool = new ReapingMachine(new ReapingMachineAction(null));
+        Tool reapingMachineTool = new ReapingMachine(new ReapingMachineAction());
         Tool wheatReapingMachineTool = new ReapingMachine(new WheatReapingMachineAction((null)));
 
 
