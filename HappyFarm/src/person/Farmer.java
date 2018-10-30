@@ -11,7 +11,7 @@ import propComp.props.landAdaptor.LandAdaptor;
 public class Farmer extends Person implements FarmerOperationAPI{
     private volatile static Farmer ourInstance = new Farmer();
     public static Farmer getInstance() { return ourInstance; }
-    private Farmer(){ this.name = "Farmer"; }
+    private Farmer(){ setName("Farmer"); }
 
     @Override
     public void changeName(String name) {

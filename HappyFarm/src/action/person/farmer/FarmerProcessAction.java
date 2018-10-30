@@ -39,7 +39,7 @@ public class FarmerProcessAction extends FarmerAction{
     @Override
     protected void execute() {
         System.out.println("FarmerProcessAction instance is executing.");
-        Process.getInstance().process(item);
+//        Process.getInstance().process(item);
     }
 
     public static void setItem(Item item) {

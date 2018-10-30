@@ -18,7 +18,8 @@ public class Employee extends Person {
 
     public Employee(String name, EmployeeSkill skill, float salary){
         super();
-        this.name = name;
+        setName(name);
+        setType("Employee");
         this.skill = skill;
         this.salary = salary;
         count = 0;
@@ -31,7 +32,7 @@ public class Employee extends Person {
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println(this.name+": I can see " + ((MessageBoard)o).getMessageNum() + " messages.");
+        System.out.println(getName()+": I can see " + ((MessageBoard)o).getMessageNum() + " messages.");
     }
 
     public boolean hasSkill(EmployeeSkill skill){

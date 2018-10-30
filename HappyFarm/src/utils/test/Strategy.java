@@ -14,10 +14,10 @@ public class Strategy {
     public static void main(String args[]) {
         System.out.println("Testing Strategy Pattern");
         Employee ppp = new Employee("ppp", EmployeeSkill.breeding, 5000);
-        EmployeeCultivateAction op1 = new EmployeeCultivateAction(ppp);
-        EmployeeBreedAction op2 = new EmployeeBreedAction(ppp);
+//        EmployeeCultivateAction op1 = new EmployeeCultivateAction(ppp);
+//        EmployeeBreedAction op2 = new EmployeeBreedAction(ppp);
 
-        op1.doAction();
-        op2.doAction();
+//        op1.doAction();
+//        op2.doAction();
     }
 }

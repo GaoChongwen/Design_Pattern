@@ -38,12 +38,14 @@ public class FarmerSellAction extends FarmerAction {
             System.out.println("You haven't specified count to FarmerSellAction.");
             return false;
         }
-       return Store.getInstance().sell(itemName, count);
+        return true;
+//       return Store.getInstance().sell(itemName, count);
     }
 
     @Override
     protected void execute() {
-        System.out.println(itemName+" sold successfully.");
+//        Store.getInstance().sell(itemName,count);
+//        System.out.println(itemName+" sold successfully.");
     }
 
     public static void setItemName(String itemName) {

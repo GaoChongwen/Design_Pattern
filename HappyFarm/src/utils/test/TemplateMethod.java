@@ -14,8 +14,8 @@ public class TemplateMethod {
     public static void main(String args[]){
         Employee cyl = new Employee("cyl", EmployeeSkill.cultivation, 5000);
 
-        Action cultivate = new EmployeeCultivateAction(cyl);
+//        Action cultivate = new EmployeeCultivateAction(cyl);
 
-        cultivate.run();
+//        cultivate.run();
     }
 }
