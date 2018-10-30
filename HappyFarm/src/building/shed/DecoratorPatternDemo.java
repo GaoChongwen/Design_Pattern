@@ -25,7 +25,7 @@ public class DecoratorPatternDemo {
         cowShedWithCanopy.done();
 
         // 新建一个简陋的鸡窝
-        AnimalHouse chickShed = new ChickShed("鸡窝");
+        AnimalHouse chickShed = new ChickShed();
         chickShed.bulidShed();
         chickShed.done();
 

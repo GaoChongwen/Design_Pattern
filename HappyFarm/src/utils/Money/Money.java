@@ -24,6 +24,11 @@ public class Money {
         return instance;
     }
 
+    public boolean sell(int price){
+        money += price;
+        return true;
+    }
+
     public int calculate(int couponNum,int count,int price){
         if (couponNum>=count) {
             couponNum-=count;
