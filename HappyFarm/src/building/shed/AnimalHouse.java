@@ -6,6 +6,7 @@ import base.animal.Animal;
 import building.ImpVisitor.BuildingAcceptor;
 import building.ImpVisitor.BuildingVisitor;
 
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -14,6 +15,14 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
     protected int capacity;  //最大容量
     //protected int count;  //当前舍内动物数量
     protected int cost;  //造价
+    //protected int level;
+    Animal[] animals;
+
+    public AnimalHouse() {
+        capacity = 0;
+        //count=0;
+        cost = 0;
+    }
 
     @Override
     public void update(Observable o, Object arg) {
@@ -48,15 +57,6 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
         }
     }
 
-    //protected int level;
-    Animal[] animals;
-
-    public AnimalHouse() {
-        capacity = 0;
-        //count=0;
-        cost = 0;
-    }
-
     public boolean addAnimal(Animal animal) {
         for (int i = 0; i < capacity; ++i) {
             if (animals[i] == null) {
@@ -67,13 +67,18 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
         return false;  //没有空栏位
     }
 
-    public void slaughter(){
+    public ArrayList<Animal> slaughter(){
+        _clear();
+        ArrayList<Animal> ret=new ArrayList<Animal>();
         for(int i=0; i<capacity; ++i){
             if(animals[i]!=null&&animals[i].isMature){
                 animals[i].shouldRemove=true;
-                System.out.println("您是想卖掉这只"+animals[i].getName()+"还是想加工它呢？");
+                ret.add(animals[i]);
+                //System.out.println("您是想卖掉这只"+animals[i].getName()+"还是想加工它呢？");
             }
         }
+        _clear();
+        return ret;
     }
 
     public void feed(){
