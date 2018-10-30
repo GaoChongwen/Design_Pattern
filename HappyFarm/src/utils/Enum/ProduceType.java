@@ -9,7 +9,6 @@ public enum ProduceType {
     flour,  // wheat-面粉
     juice,  // apple-果汁
     rice,   // rice-rice
-    AnimalFood,// cabbage-饲料
 
     milk,   //cow-牛奶
     pork,   //pig-猪肉

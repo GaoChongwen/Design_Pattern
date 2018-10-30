@@ -1,7 +1,6 @@
 package process;
 
 import factory.ProduceFactory;
-import base.Item;
 import base.Produce;
 
 /**
@@ -19,7 +18,7 @@ import base.Produce;
 //流程3
 
 //...
-
+//生产农副产品
 public class Process{
 
     private volatile static Process singleton = new Process();
@@ -28,16 +27,14 @@ public class Process{
         return singleton;
     }
 
-    public Produce process(Item item) {
+    public Produce process(String type) {
 
-        Produce produce = ProduceFactory.getInstance().creatProduce(item.getType());
+        Produce produce = ProduceFactory.getInstance().creatProduce(type);
 
-        int price = 0;
-        produce.setPrice(price);
+        //设定农副产品价格
+        int farmPrice = produce.getFarmPrice();
+        produce.setSalePrice(farmPrice+10);
 
         return produce;
     }
 }
-
-
-

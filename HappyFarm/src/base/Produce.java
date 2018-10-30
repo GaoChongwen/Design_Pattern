@@ -2,7 +2,7 @@ package base;
 
 import factory.ProduceFactory;
 import utils.Enum.ProduceType;
-import base.Item;
+import base.FarmObj;
 
 /**
  * Design-Pattern: Prototype
@@ -12,7 +12,7 @@ import base.Item;
  *
  */
 
-public abstract class Produce extends Item implements Cloneable{
+public abstract class Produce extends FarmObj implements Cloneable{
     protected int farmPrice;
     protected int salePrice;
     private ProduceType type;
