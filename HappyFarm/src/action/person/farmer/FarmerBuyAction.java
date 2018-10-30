@@ -16,34 +16,40 @@ public class FarmerBuyAction extends FarmerAction {
 
     /** Don't let anyone instantiate this class */
     private FarmerBuyAction(){
-
+        super();
     }
 
     public static FarmerBuyAction getInstance() {
         itemName = null;
-        count = -1;
+        count = 1;
         return instance;
     }
 
     /**
      * Returns a boolean to indicate whether execution of the Buying Action is valid.
      *
-     * <p>The</p>
+     * The preconditions execute():
+     *      1. the name of item is specified by {@link #setItemName(String)}
+     *      2. the count of item is specified by {@link #setCount(int)}
      *
      * @return the result of condition checking for execute()
      */
     @Override
     protected boolean checkCondition() {
+        System.out.println("FarmerBuyAction");
         if(itemName == null){
             System.out.println("you haven't specified item name.");
             return false;
         }
-        if(count==-1){
-            return false;
+        if(count<0){
+            System.out.println("Invalid number.");
         }
         return true;
     }
 
+    /**
+     *
+     */
     @Override
     protected void execute() {
         System.out.println("FarmerBuyAction instance is executing.");
