@@ -1,12 +1,12 @@
 package building.farmland;
 
-import base.ClockObserver;
-import base.Item;
+import base.FarmObj;
 import base.plant.Plant;
 import propComp.props.landAdaptor.LandAdaptor;
 import utils.Enum.FarmLandType;
 
 import java.util.Observable;
+import java.util.Observer;
 
 /**
  * Design-Pattern: Prototype, Adaptor
@@ -15,7 +15,7 @@ import java.util.Observable;
  * @version 2018/10/28
  */
 
-public abstract class FarmLand extends ClockObserver implements Cloneable {
+public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
     protected FarmLandType landType;
     protected boolean idle;
     protected Plant plant;
@@ -36,39 +36,42 @@ public abstract class FarmLand extends ClockObserver implements Cloneable {
         return landType.toString();
     }
 
-    @Override
-    protected void use() { }
-
 
     public void use(LandAdaptor landAdaptor) {
         this.adaptor = landAdaptor;
         System.out.println(landType + " Adaptor works.");
     }
 
-    public boolean plant(Plant p) {
+    public void plant(Plant p) {
 
-        if (idle && (p.plant(landType) ||(adaptor != null && adaptor.plant(p)))) {
+        if (idle && (p.plant(landType) || (adaptor != null && adaptor.plant(p)))) {
             plant = p;
             idle = false;
-            System.out.println(landType + " plant " + p.getType() + "success!");
-            return true;
         } else {
-            System.out.println(landType + " plant " + p.getType() + "fail!");
-            return false;
+            System.out.println(landType + " plant " + p.getType() + " fail!");
         }
 
     }
 
+    public void harvest(Plant p) {
+        if (idle) { return; }
+        idle = p.harvest();
+    }
+
+    /**
+     * @Design-Pattern: Observer
+     * @description: 作为Clock的观察者，Clock变化，植物更新生长。
+     */
     @Override
     public void update(Observable o, Object arg) {
-        if(plant==null){
+        if (plant == null) {
             return;
         }
         plant.grow();
     }
 
     /**
-     * Design-Pattern: Prototype
+     * @Design-Pattern: Prototype
      */
     public FarmLand clone() {
         FarmLand clone = null;

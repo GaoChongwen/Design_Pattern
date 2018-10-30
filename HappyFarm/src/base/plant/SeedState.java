@@ -1,7 +1,5 @@
 package base.plant;
 
-import java.util.Random;
-
 /**
  * Design-Pattern: Singleton, Double checked locking, State
  *
@@ -18,15 +16,15 @@ public class SeedState implements PlantState {
         return singleton;
     }
 
+    // 种植: SeedState to GrowingState
     public boolean plant(Plant plant){
         plant.setState(GrowingState.getInstance());
         return true;
     }
     public void grow(Plant plant) { }
 
-    public void remove(Plant plant) {
-        plant.setState(RemovedState.getInstance());
-    }
+    public boolean harvest(Plant plant) { return false; }
 
-    public void harvest(Plant plant) { }
+    public void process(Plant plant){ }
+
 }
