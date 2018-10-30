@@ -15,11 +15,11 @@ import utils.Enum.PlantType;
 
 public class Wheat extends Plant {
 
-    public Wheat(int stockPrice, int salePrice) {
-        super(stockPrice, salePrice);
+    public Wheat() {
+        super();
         this.type = PlantType.wheat;
         this.stockPrice = Context.wheat_stockPrice;
-        this.salePrice = salePrice;
+        this.salePrice = Context.wheat_salePrice;
         this.reqLandType = FarmLandType.cornField;
         PlantFactory.getInstance().putPlant(this);
         System.out.println("wheat initial once");

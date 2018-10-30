@@ -1,17 +1,29 @@
 package singleton;
 
 import base.FarmObj;
+import plant.Apple;
+import utils.Enum.PlantType;
 
 public class Farm extends FarmObj {
     private volatile static Farm singleton = new Farm();
-    protected boolean design_pattern;
+    public static Farm getInstance() { return singleton; }
 
     private Farm(){
-        design_pattern =true;
+
     }
 
+    // 初始化植物
+    private void initialPlant(){
+        new Apple();
+    }
 
-    public static Farm getInstance() { return singleton; }
+    private void initialPorps(){
+
+    }
+
+    private void initialBuilding(){
+
+    }
 
 
 }
