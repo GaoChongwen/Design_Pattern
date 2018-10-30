@@ -12,7 +12,8 @@ import building.shed.*;
 public class DecoratorPatternDemo {
     public static void main(String[] args) {
 
-        System.out.println("====== Test Decorator Pattern ======");
+        System.out.println("======= Test Decorator Pattern =======");
+        System.out.println("====== Upgrade the Animal House ======");
 
         // 新建一个简陋的牛棚
         AnimalHouse cowShed = CowShed.getInstance();
