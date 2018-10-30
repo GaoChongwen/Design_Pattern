@@ -50,10 +50,12 @@ public class EmployeeHarvestAction extends EmployeeCultivateAction {
      */
     @Override
     protected void execute() {
+        System.out.println("EmployeeHarvestAction is executing.");
         farmLand.harvest();
     }
 
     public  void setFarmLand(FarmLand farmLand) {
+        System.out.println(farmLand.getName()+" is set to EmployeeHarvestAction.");
         this.farmLand = farmLand;
     }
 
