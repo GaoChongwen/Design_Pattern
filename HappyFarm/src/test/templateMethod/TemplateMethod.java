@@ -98,6 +98,14 @@ public class TemplateMethod {
 
         /* 喂养动物demo */
         EmployeeFeedAction feedAction = EmployeeFeedAction.getInstance();
+        feedAction.setTemplateMethodMode(true);
+        feedAction.setAnimalHouse(chickShed);
+        System.out.println("" +
+                "\n====================================================================" +
+                "\n Scenario 3:" +
+                "\n     The farmer tries to feed animals in chicken shed." +
+                "\n====================================================================");
+        feedAction.doAction();
 
 
         /* 屠宰动物demo */
@@ -112,7 +120,7 @@ public class TemplateMethod {
         // 5. 执行屠宰操作
         System.out.println("" +
                 "\n====================================================================" +
-                "\n Scenario 3:" +
+                "\n Scenario 4:" +
                 "\n     Assign an employee with breeding skill " +
                 "\n     to slaughter a chicken shed. "+
                 "\n====================================================================");
@@ -131,7 +139,7 @@ public class TemplateMethod {
         // 3. 执行购买操作
         System.out.println("" +
                 "\n====================================================================" +
-                "\n Scenario 4:" +
+                "\n Scenario 5:" +
                 "\n     The farmer tries to buy 5 wheat seeds "+
                 "\n====================================================================");
         buyAction.doAction();
@@ -146,7 +154,7 @@ public class TemplateMethod {
         // 3. 执行出售操作
         System.out.println("" +
                 "\n====================================================================" +
-                "\n Scenario 5:" +
+                "\n Scenario 6:" +
                 "\n     The farmer tries to sell a wheat seeds "+
                 "\n====================================================================");
         sellAction.doAction();
@@ -169,7 +177,7 @@ public class TemplateMethod {
         // 4. 执行操作
         System.out.println("" +
                 "\n====================================================================" +
-                "\n Scenario 6:" +
+                "\n Scenario 8:" +
                 "\n     The farmer tries to adapt a corn field into an apple field " +
                 "\n     using appleFieldAdaptor. "+
                 "\n====================================================================");
