@@ -15,7 +15,7 @@ import java.util.HashMap;
  * @date: 2018-10-27
  **/
 // 场景：根据图纸来铺地砖
-public class TileFactory extends BuildingFactory{
+public class TileFactory extends AbstractFactory {
 
     // 池容器
     private static HashMap<String, Tile> pool = new HashMap<String, Tile>();
