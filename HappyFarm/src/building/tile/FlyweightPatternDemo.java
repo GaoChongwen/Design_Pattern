@@ -13,7 +13,7 @@ public class FlyweightPatternDemo {
 
     public static void main(String[] agrs) {
 
-        String[] colors = {"红色", "橙色", "黄色", "绿色", "蓝色", "紫色", "白色"};
+        String[] colors = {"red", "orange", "yellow", "green", "blue", "purple", "白色"};
         String[] pattern = {"条纹", "格子", "碎花"};
         for (int i = 0; i < colors.length; i++) {
             String color = colors[i];
