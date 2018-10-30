@@ -1,6 +1,7 @@
 package propComp.PropDir;
 
 import base.Item;
+import base.Produce;
 import propComp.props.landAdaptor.AppleAdaptor;
 import propComp.props.landAdaptor.CornAdaptor;
 import propComp.props.landAdaptor.LandAdaptor;
@@ -28,6 +29,20 @@ public class Prop {
     public static void display(PropDir node){
         if (node.isNode()) {
             Node node1 = (Node) node;
+            for (int i = 0; i < node1.nodeList.size(); i++) {
+                PropDir propDir = node1.nodeList.get(i);
+                if (!propDir.isNode()){
+                    Filer filer = (Filer)propDir;
+                    System.out.println(filer.name);
+                } else{
+                    display(propDir);
+                }
+            }
+        }
+    }
+    public static void CheckAndRemove(PropDir node){
+        if (node.isNode()) {
+            Node node1 = (Node) node;
 
             for (int i = 0; i < node1.nodeList.size(); i++) {
                 PropDir propDir = node1.nodeList.get(i);
@@ -41,6 +56,28 @@ public class Prop {
             }
         }
     }
+    public static boolean checkNow(PropDir node,String name){
+        if (node.isNode()) {
+            Node node1 = (Node) node;
+            for (int i = 0; i < node1.nodeList.size(); i++) {
+                PropDir propDir = node1.nodeList.get(i);
+                if (!propDir.isNode()){
+                    Filer filer = (Filer)propDir;
+                    System.out.println(filer.name);
+                    if (filer.name.equals(name))
+                        return true;
+                } else{
+                    checkNow(propDir,name);
+                }
+            }
+        }
+        return false;
+    }
+    public boolean Check(String name){
+        boolean flag = checkNow((PropDir)Root.getInstance().propDir,name);
+        return flag;
+    }
+
 
     public static void addAdaptor(LandAdaptor adaptor){
         Node node = null;
@@ -59,24 +96,24 @@ public class Prop {
         }
     }
 
-    /*
-    public static void addProduct(Product product){
-       Node node = null;
-        for (int i=0;i<Root.getInstance().propDir.nodeList.size();i++){
-        if (Root.getInstance().propDir.nodeList.get(i).getName().equals("Product")){
-            node = (Node)Root.getInstance().propDir.nodeList.get(i);
-            break;
+
+    public static void addProduct(Produce product) {
+        Node node = null;
+        for (int i = 0; i < Root.getInstance().propDir.nodeList.size(); i++) {
+            if (Root.getInstance().propDir.nodeList.get(i).getName().equals("Product")) {
+                node = (Node) Root.getInstance().propDir.nodeList.get(i);
+                break;
+            }
         }
-    }
-    Filer filer = new Filer(product.getName());
+        Filer filer = new Filer(product.getName());
         filer.setItem(product);
         try {
-        node.addNode(filer);
-    }catch (Exception e){
-        e.printStackTrace();
+            node.addNode(filer);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-    }
-    */
+
 
 
 

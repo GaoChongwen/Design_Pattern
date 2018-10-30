@@ -3,6 +3,8 @@ package store;
 import base.FarmObj;
 import base.animal.Animal;
 import base.plant.Plant;
+import building.shed.ChickShed;
+import building.shed.CowShed;
 import factory.AnimalFactory;
 import factory.PlantFactory;
 import plant.Apple;
@@ -11,6 +13,7 @@ import singleton.MessageBoard;
 import singleton.Repository;
 import store.Combo.Builder;
 import store.Combo.ComboBuilderA;
+import store.Combo.ComboBuilderB;
 import store.Combo.Director;
 import utils.Money.Money;
 
@@ -27,6 +30,8 @@ public class Store {
     private volatile static Store singleton = new Store();
     private Map<String, Integer> Commodities = new HashMap<String, Integer>();
     private Map<String, String> Kinds = new HashMap<String, String>();
+
+
     private Builder builder = new ComboBuilderA();
 
 
@@ -73,8 +78,8 @@ public class Store {
         List<FarmObj> result = new ArrayList<FarmObj>();
         //Create Items
         if (Commodities.containsKey(name)) {
+            Money.getInstance().buy(name , number ,PlantFactory.getInstance().createPlant(name).getStockPrice());
             if (Kinds.get(name).equals("Plant")) {
-                Money.getInstance().buy(name , number ,PlantFactory.getInstance().createPlant(name).getStockPrice());
                 result.add(PlantFactory.getInstance().createPlant(name));
             }
             else if (Kinds.get(name).equals("Tool")) {
@@ -82,7 +87,18 @@ public class Store {
                 //result.add(ToolFactory.getInstance().createPlant(name));
             }
             else if (Kinds.get(name).equals("Animal")) {
+                Animal animal = AnimalFactory.getInstance().createAnimal(name);
+                if(name.equals("pig")){
 
+                }
+                else if (name.equals("cow")){
+                    //TODO
+ //                   CowShed.getInstance().add();
+                }
+                else if(name.equals("chicken")){
+                    //TODO
+ //                   ChickShed.getInstance().add();
+                }
             }
             else if (Kinds.get(name).equals("Adaptor")) {
 
@@ -91,21 +107,34 @@ public class Store {
         }
     return true;
 }
-
+//买套餐
    public boolean buyCombo(Integer id){
        Director director =new Director();
        if(id.equals(1)){
-
+           //解压Animals
+           for (Animal animal:builder.getCombo().getAnimals()
+                ) {
+               ChickShed.getInstance().addAnimal(animal);
+           }
        }
        else if(id.equals(2)){
-
-       }
-       else if(id.equals(3)){
-
+          builder = new ComboBuilderB();
+           for (Animal animal:builder.getCombo().getAnimals()
+           ) {
+               CowShed.getInstance().addAnimal(animal);
+           }
        }
        else{
            return false;
        }
+       //decline money
+       Money.getInstance().buy("Combo",1,builder.getCombo().getTotalPrice());
+       //store Plant
+       for (Plant plant:builder.getCombo().getPlants()
+            ) {
+           Repository.getInstance().add(plant);
+       }
+       //TODO store other thing
         return true;
    }
 }

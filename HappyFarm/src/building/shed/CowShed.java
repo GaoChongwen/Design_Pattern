@@ -1,5 +1,6 @@
 package building.shed;
 
+import animal.Cow;
 import base.animal.Animal;
 import building.ImpVisitor.BuildingVisitor;
 /**
@@ -68,4 +69,45 @@ public class CowShed extends AnimalHouse {
 //        super.accept(buildingVisitor);
         buildingVisitor.visit(this);
     }
+
+    // 向牛棚中添加牛牛，容量满了返回false
+    public boolean add() {
+        for (int i = 0; i < capacity; ++i) {
+            if (animals[i] == null) {
+                animals[i] = new Cow();  //找到空栏位
+                return true;
+            }
+        }
+        return false;  //没有空栏位
+    }
+
+    // 判断牛棚是否为空
+    public boolean isEmpty() {
+        if (animals[0] == null) {
+            return true;
+        }
+        return false;
+    }
+
+    // 获取牛牛数量
+    public int getCowCount() {
+        for (int i = 0; i < capacity; ++i) {
+            if (animals[i] == null) {
+                return i;
+            }
+        }
+        return capacity;
+    }
+
+    // 从牛棚中移除牛牛，牛棚为空，移除失败
+    public boolean remove() {
+        if (isEmpty()) {
+            return false;
+        }
+        else {
+            animals[getCowCount() - 1] = null;
+            return true;
+        }
+    }
+
 }

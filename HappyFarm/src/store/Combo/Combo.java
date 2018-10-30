@@ -75,8 +75,16 @@ public class Combo {
     }
     //TODO Show Combo
     public void showCombo(){
-
+        System.out.println("套餐中含有");
+        System.out.println(plants.size() + "个" +plants.get(0).getType());
+        System.out.println(animals.size() + "个" +animals.get(0).getType());
+        System.out.println("总价为"+getTotalPrice());
     }
+
+    public void setTotalPrice(Integer totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
     public List<Item> getAdaptors(){
         return adaptors;
     }

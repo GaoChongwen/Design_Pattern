@@ -1,21 +1,11 @@
-package test.factoryMethod;
+package test.prototype;
 
 import factory.CouponFactor;
-import factory.PlantFactory;
-import plant.Apple;
-import plant.Wheat;
-
 import utils.Enum.PlantType;
 import utils.Money.Money;
 
-public class Factory {
+public class PrototypeDemo1 {
     public static void main(String args[]){
-        Wheat w = new Wheat();
-        Apple a = new Apple();
-
-        PlantFactory.getInstance().getAllPlant();
-        Apple a1 = (Apple)PlantFactory.getInstance().createPlant(PlantType.apple.toString());
-        System.out.println("key is"+ a1.getType());
 
         CouponFactor.getInstance().CouponInitial();
         CouponFactor.getInstance().add(PlantType.apple.toString());

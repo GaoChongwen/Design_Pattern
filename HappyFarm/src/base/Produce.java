@@ -12,7 +12,7 @@ import base.FarmObj;
  *
  */
 
-public abstract class Produce extends FarmObj implements Cloneable{
+public abstract class Produce extends Item implements Cloneable{
     protected int farmPrice;
     protected int salePrice;
     protected ProduceType type;

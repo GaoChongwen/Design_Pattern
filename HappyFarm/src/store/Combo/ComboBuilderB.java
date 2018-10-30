@@ -7,12 +7,12 @@ import base.plant.Plant;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ComboBuilderA extends Builder {
+public class ComboBuilderB extends Builder {
     private Combo product = new Combo();
 
     @Override
     public void buildComboName() {
-        product.setComboName("套餐A");
+        product.setComboName("套餐B");
     }
 
     @Override
@@ -20,12 +20,11 @@ public class ComboBuilderA extends Builder {
         /**
          * 在这里添加套餐内的东西
          */
-        product.setPlant("white",1,1);
+        product.setPlant("rice",1,1);
         product.setAdaptors("",1,10);
-        product.setAnimals("chicken",1,10);
+        product.setAnimals("cow",1,10);
         product.setTools("",1,1);
         product.setEmployees();
-        product.setTotalPrice(22);
     }
 
     @Override

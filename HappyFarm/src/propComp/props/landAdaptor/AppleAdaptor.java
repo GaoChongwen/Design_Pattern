@@ -6,7 +6,7 @@ import utils.Enum.FarmLandType;
 
 /**
  * Design-Pattern: Adaptor, Prototype, Factory Method
- * @description: 苹果适配器类，可转换种植苹果
+ * @description: 苹果适配器类（一种道具），可使任何类型土地转换种植苹果，使用过后该道具失效
  * @author lipeng liang
  * @version 2018/10/29
  */

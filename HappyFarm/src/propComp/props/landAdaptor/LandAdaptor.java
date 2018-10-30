@@ -7,7 +7,7 @@ import utils.Enum.FarmLandType;
 
 /**
  * Design-Pattern: Adaptor, Prototype
- * @description: 土地适配器抽象类
+ * @description: 土地适配器抽象类（一种道具），可使任何土地转换种植另一种植物，使用过后该道具失效
  * @author lipeng liang
  * @version 2018/10/29
  */
@@ -16,10 +16,12 @@ public abstract class LandAdaptor extends Item implements Cloneable {
     protected boolean isUsed;
     protected FarmLandType landType;
     protected FarmLand land;
+    protected String DesignPattern;
 
     protected LandAdaptor() {
         this.isUsed = false;
         this.land = null;
+        DesignPattern="";
     }
 
     @Override
@@ -37,6 +39,9 @@ public abstract class LandAdaptor extends Item implements Cloneable {
 
 
     public boolean plant(Plant plant) {
+        if(DesignPattern=="Adaptor Pattern"){
+            System.out.println("- Adaptor Pattern | " + landType + " method: plant(Plant p)");
+        }
         if (!isUsed) {
             System.out.println(landType + " adaptor running, changes to " + land.getLandType());
             isUsed = land.plant(plant);
@@ -56,5 +61,8 @@ public abstract class LandAdaptor extends Item implements Cloneable {
             e.printStackTrace();
         }
         return clone;
+    }
+    public void setDesignPattern(String designPattern){
+        DesignPattern=designPattern;
     }
 }

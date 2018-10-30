@@ -1,6 +1,7 @@
 package factory;
 
 import building.farmland.FarmLand;
+import singleton.Farm;
 import utils.Enum.FarmLandType;
 
 import java.util.Hashtable;
@@ -16,7 +17,6 @@ public class FarmLandFactory extends AbstractFactory {
     private volatile static FarmLandFactory singleton = new FarmLandFactory();
     private static Hashtable<String, FarmLand> FarmLandMap = new Hashtable<String, FarmLand>();
 
-
     public static FarmLandFactory getInstance() {
         return singleton;
     }
@@ -25,13 +25,20 @@ public class FarmLandFactory extends AbstractFactory {
     public FarmLand createFarmLand(String type) {
         FarmLand cachedFarmLand = FarmLandMap.get(type);
         if (cachedFarmLand == null) {
-            return null;
+                return null;
         }
         return cachedFarmLand.clone();
     }
 
     public void putFarmLand(FarmLand FarmLand) {
         FarmLandMap.put(FarmLand.getName(), FarmLand);
+    }
+
+    public boolean checkFarmLand(String land){
+        if(FarmLandMap.get(land)==null){
+            return false;
+        }
+        return true;
     }
 
     public void getAllFarmLand() {
