@@ -1,4 +1,4 @@
-package utils.test;
+package test.state;
 
 import base.animal.Animal;
 import factory.AbstractFactory;

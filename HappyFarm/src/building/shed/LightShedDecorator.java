@@ -18,7 +18,7 @@ public class LightShedDecorator extends ShedDecorator {
 
     // 安装照明设备
     public void installLight() {
-        System.out.println("正在给" + shed.getName() + "安装照明设备...");
+        System.out.println("Installing lights for " + shed.getName());
     }
 
     // 搭建Shed并安装照明设备

@@ -18,7 +18,7 @@ public class CanopyShedDecorator extends ShedDecorator {
 
     // 安装雨棚
     public void buildCanopy() {
-        System.out.println("正在给"+ shed.getName()+"搭建雨棚...");
+        System.out.println("Building canopy for "+ shed.getName());
     }
 
     // 搭建Shed并安装雨棚

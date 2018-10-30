@@ -13,12 +13,12 @@ public class ChristmasVisitor implements BuildingVisitor {
 
     // 摆放圣诞树
     public void placeChristmastree() {
-        System.out.println("======圣诞节到了======\n摆一颗圣诞树吧~");
+        System.out.println("======Christmas is coming======\nPlacing a Christmas tree ~");
     }
 
     // 挂上装饰物
     public void hangDecorations() {
-        System.out.println("挂上好看的圣诞老人装饰物~");
+        System.out.println("Hanging the Santa decorations ~");
     }
 
     @Override
@@ -26,13 +26,13 @@ public class ChristmasVisitor implements BuildingVisitor {
         house.showHouse();
         placeChristmastree();
         hangDecorations();
-        System.out.println("房子有了圣诞节的气息。\n");
+        System.out.println(" The house has a breath of Christmas.\n");
     }
 
     @Override
     public void visit(AnimalHouse shed) {
-        System.out.print("圣诞节到了，给" + shed.getName());
+        System.out.print("Christmas is coming，");
         hangDecorations();
-        System.out.println(shed.getName() + "有了圣诞节的气息。\n");
+        System.out.println(shed.getName() + "has a breath of Christmas。\n");
     }
 }
