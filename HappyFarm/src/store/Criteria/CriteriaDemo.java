@@ -17,8 +17,6 @@ public class CriteriaDemo implements Criteria {
         for (Plant item: Items
              ) {
             if(item.getType().equals("apple")){
-
-//            if(item.checkType(PlantType.apple)){
                 resultItems.add(item);
             }
         }
