@@ -16,4 +16,9 @@ public class DeadState implements AnimalState {
     public void eat() {
 
     }
+
+    @Override
+    public void process() {
+
+    }
 }

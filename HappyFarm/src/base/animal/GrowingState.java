@@ -35,4 +35,9 @@ public class GrowingState implements AnimalState{
             animal.isMature=true;
         }
     }
+
+    @Override
+    public void process() {
+
+    }
 }

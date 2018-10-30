@@ -1,6 +1,5 @@
 package building.shed;
 
-import base.ClockObserver;
 import base.FarmObj;
 import base.Iterator;
 import base.animal.Animal;
@@ -10,7 +9,7 @@ import building.ImpVisitor.BuildingVisitor;
 import java.util.Observable;
 import java.util.Observer;
 
-public class AnimalHouse extends ClockObserver implements BuildingAcceptor {
+public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
     //protected int maxCapacity;
     protected int capacity;  //最大容量
     //protected int count;  //当前舍内动物数量
@@ -18,15 +17,14 @@ public class AnimalHouse extends ClockObserver implements BuildingAcceptor {
 
     @Override
     public void update(Observable o, Object arg) {
+        _clear();
         for(int i=0; i<capacity; ++i){
-            animals[i].grow();
+            if(animals[i]!=null) {
+                animals[i].grow();
+            }
         }
-        for (int i=0; i<capacity; ++i){
-            if(animals[i].shouldRemove)
-                animals[i]=null;
-        }
+        _clear();
     }
-
 
     //protected int lstPos;
     class AnimalIterator implements Iterator {
@@ -69,6 +67,32 @@ public class AnimalHouse extends ClockObserver implements BuildingAcceptor {
         return false;  //没有空栏位
     }
 
+    public void slaughter(){
+        for(int i=0; i<capacity; ++i){
+            if(animals[i]!=null&&animals[i].isMature){
+                animals[i].shouldRemove=true;
+                System.out.println("您是想卖掉这只"+animals[i].getName()+"还是想加工它呢？");
+            }
+        }
+    }
+
+    public void feed(){
+        _clear();
+        for(int i=0; i<capacity; ++i){
+            if(animals[i]!=null){
+                animals[i].eat();
+            }
+        }
+        _clear();
+    }
+
+    private void _clear(){
+        for(int i=0; i<capacity; ++i){
+            if(animals[i]!=null&&animals[i].shouldRemove){
+                animals[i]=null;
+            }
+        }
+    }
     public AnimalIterator getIterator() {
         return new AnimalIterator();
     }

@@ -2,13 +2,16 @@ package factory;
 
 
 import base.Item;
-import base.Person;
-import base.plant.Plant;
+
 import base.animal.Animal;
+import base.plant.Plant;
 import building.farmland.FarmLand;
+
+import person.Employee;
+import propComp.tools.Tool;
+import utils.Enum.EmployeeSkill;
+
 import propComp.props.landAdaptor.LandAdaptor;
-import utils.Enum.FarmLandType;
-import utils.Enum.PlantType;
 
 public abstract class AbstractFactory {
     Plant createPlant(String name) {
@@ -23,9 +26,7 @@ public abstract class AbstractFactory {
         return null;
     }
 
-    Person createPerson(String name) {
-        return null;
-    }
+    Employee createEmployee(String name, EmployeeSkill skill, float salary) { return null; }
 
     FarmLand createFarmLand(String type) {}
     Produce createProduce(String name){
@@ -37,6 +38,8 @@ public abstract class AbstractFactory {
     }
 
     LandAdaptor createAdaptor(String type) { return null; }
+
+    Tool createTool(String name) { return null; }
 
     Produce createProduce(String name) {
         return null;

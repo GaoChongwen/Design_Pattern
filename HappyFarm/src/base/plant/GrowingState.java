@@ -25,21 +25,16 @@ public class GrowingState implements PlantState {
         return false;
     }
 
+    // 生长: 80% 可能性生长为MatureState
     public void grow(Plant plant) {
         Random ra = new Random();
         int num = ra.nextInt(100);
-        if (num < 20) {
-            plant.setState(this);
-        } else {
+        if (num > 20) {
             plant.setState(MatureState.getInstance());
         }
     }
 
-    public void remove(Plant plant) {
-        plant.setState(RemovedState.getInstance());
-    }
+    public boolean harvest(Plant plant) { return false;}
+    public void process(Plant plant){ }
 
-    public void harvest(Plant plant) {
-
-    }
 }

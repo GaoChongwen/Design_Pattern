@@ -7,18 +7,18 @@ import utils.Enum.FarmLandType;
 
 /**
  * Design-Pattern: Adaptor, Prototype
- *
+ * @description: 土地适配器抽象类
  * @author lipeng liang
  * @version 2018/10/29
  */
 
 public abstract class LandAdaptor extends Item implements Cloneable {
-    protected boolean used;
+    protected boolean isUsed;
     protected FarmLandType landType;
     protected FarmLand land;
 
     protected LandAdaptor() {
-        this.used = false;
+        this.isUsed = false;
         this.land = null;
     }
 
@@ -37,14 +37,15 @@ public abstract class LandAdaptor extends Item implements Cloneable {
 
 
     public boolean plant(Plant plant) {
-        if (!used) {
+        if (!isUsed) {
             System.out.println(landType + " adaptor running, changes to " + land.getLandType());
-            used = land.plant(plant);
-            System.out.println(used ? "worked done." : "worked fail.");
-            return used;
+            isUsed = land.plant(plant);
+            System.out.println(isUsed ? "adaptor worked done." : "adaptor worked fail.");
+            return isUsed;
         }
         return false;
     }
+
 
 
     public LandAdaptor clone() {

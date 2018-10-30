@@ -15,7 +15,8 @@ public class RemovedState implements PlantState {
 
     public void grow(Plant plant) { }
 
-    public void remove(Plant plant) { }
+    public boolean harvest(Plant plant) { return false;}
 
-    public void harvest(Plant plant) { }
+    public void process(Plant plant){ }
+
 }

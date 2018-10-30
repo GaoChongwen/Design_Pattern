@@ -5,8 +5,8 @@ import java.util.Hashtable;
 import java.util.Map;
 
 /**
- * Design-Pattern: Factory Method, Prototype, Singleton
- *
+ * Design-Pattern: Factory Method, Prototype
+ * @description: 植物工厂类
  * @version 2018/10/28
  * @author lipeng liang
  *

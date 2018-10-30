@@ -4,8 +4,8 @@ import factory.FarmLandFactory;
 import utils.Enum.FarmLandType;
 
 /**
- * Design-Pattern: Adaptor, Prototype
- *
+ * @Design-Pattern: Adaptor, Prototype
+ * @description: 种植苹果的土地类
  * @author lipeng liang
  * @version 2018/10/29
  */
