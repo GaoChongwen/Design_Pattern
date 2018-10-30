@@ -6,7 +6,7 @@ import utils.Context;
 
 public class Plant {
     public static void main(String args[]){
-        Apple a = new Apple(Context.apple_stockPrice,Context.apple_salePrice);
+        Apple a = new Apple();
         Apple a1 = (Apple) PlantFactory.getInstance().createPlant("apple");
 
 

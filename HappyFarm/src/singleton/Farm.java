@@ -2,6 +2,9 @@ package singleton;
 
 import base.FarmObj;
 import plant.Apple;
+import plant.Cabbage;
+import plant.Rice;
+import plant.Wheat;
 import utils.Enum.PlantType;
 
 public class Farm extends FarmObj {
@@ -15,6 +18,9 @@ public class Farm extends FarmObj {
     // 初始化植物
     private void initialPlant(){
         new Apple();
+        new Wheat();
+        new Cabbage();
+        new Rice();
     }
 
     private void initialPorps(){
