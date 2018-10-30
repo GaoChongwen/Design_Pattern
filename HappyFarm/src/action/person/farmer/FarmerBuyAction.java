@@ -39,14 +39,15 @@ public class FarmerBuyAction extends FarmerAction {
             return false;
         }
         if(count==-1){
-
+            return false;
         }
+        return true;
     }
 
     @Override
     protected void execute() {
         System.out.println("FarmerBuyAction instance is executing.");
-        Store.getInstance().buy(itemName, count);
+//        Store.getInstance().buy(itemName, count);
     }
 
     public void setCount(int count) {

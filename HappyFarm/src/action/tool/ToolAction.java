@@ -20,13 +20,12 @@ import utils.Enum.PlantType;
  */
 public abstract class ToolAction extends Action implements HarvestAPI {
     protected ToolAction(Tool tool){
-        super(tool);
+
     }
 
     @Override
-    protected boolean doSomething() {
+    protected void doSomething() {
         harvest();
-        return true;
     }
 
     abstract public boolean harvest(PlantType plantType);
