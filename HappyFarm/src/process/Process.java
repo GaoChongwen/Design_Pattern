@@ -28,9 +28,13 @@ public class Process{
         return singleton;
     }
 
-    public Produce process(Item item){
-        ProduceFactory process = new ProduceFactory();
-        Produce produce = process.getInstance().creatProduce(item.getType());
+    public Produce process(Item item) {
+
+        Produce produce = ProduceFactory.getInstance().creatProduce(item.getType());
+
+        int price = 0;
+        produce.setPrice(price);
+
         return produce;
     }
 }

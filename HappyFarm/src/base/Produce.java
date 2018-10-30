@@ -2,6 +2,7 @@ package base;
 
 import factory.ProduceFactory;
 import utils.Enum.ProduceType;
+import base.Item;
 
 /**
  * Design-Pattern: Prototype
@@ -11,7 +12,7 @@ import utils.Enum.ProduceType;
  *
  */
 
-public abstract class Produce {
+public abstract class Produce extends Item implements Cloneable{
     protected int farmPrice;
     protected int salePrice;
     private ProduceType type;
@@ -20,19 +21,19 @@ public abstract class Produce {
 
     }
 
-    public int getFarmPrice() {
+    protected int getFarmPrice() {
         return this.farmPrice;
     }
 
-    public int getSalePrice() {
+    protected int getSalePrice() {
         return this.salePrice;
     }
 
-   // public int setSalePrice(){
-   //     return this.salePrice;
-   // }
+    protected void setSalePrice(int price){
+        this.salePrice = price;
+    }
 
-    public ProduceType getType() {
+    protected ProduceType getType() {
         return this.type;
     }
 
