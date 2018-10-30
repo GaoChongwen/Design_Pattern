@@ -1,4 +1,7 @@
-package building.shed;
+package test.decorator;
+
+import building.shed.*;
+
 /**
  * @project: HappyFarm
  * @description: 测试使用场景：为动物的窝升级
@@ -8,6 +11,8 @@ package building.shed;
  **/
 public class DecoratorPatternDemo {
     public static void main(String[] args) {
+
+        System.out.println("====== Test Decorator Pattern ======");
 
         // 新建一个简陋的牛棚
         AnimalHouse cowShed = CowShed.getInstance();

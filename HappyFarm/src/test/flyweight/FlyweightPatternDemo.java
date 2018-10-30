@@ -1,5 +1,6 @@
-package building.tile;
+package test.flyweight;
 
+import building.tile.Tile;
 import factory.TileFactory;
 import org.omg.CORBA.TIMEOUT;
 /**
@@ -12,6 +13,8 @@ import org.omg.CORBA.TIMEOUT;
 public class FlyweightPatternDemo {
 
     public static void main(String[] agrs) {
+
+        System.out.println("====== Test Flyweight Pattern =====");
 
         String[] colors = {"Red", "Orange", "Yellow", "Green", "Blue", "Purple", "White"};
         String[] pattern = {"Stripe", "Lattice", "Floral"}; // 条纹 格子 碎花
