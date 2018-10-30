@@ -15,6 +15,7 @@ public class MatureState implements AnimalState{
         if(num<5){ //百分之5概率死亡
             animal.setState(animal.deadState);
             animal.shouldRemove=true;
+            animal.isMature=false;
         }
     }
 
