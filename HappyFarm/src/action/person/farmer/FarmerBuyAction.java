@@ -52,7 +52,9 @@ public class FarmerBuyAction extends FarmerAction {
     @Override
     protected void execute() {
         output("execute","buying "+count+" "+itemName);
-//        Store.getInstance().buyCommity(itemName,count);
+        if(Store.getInstance().buyCommity(itemName,count)){
+            System.out.println("Purchase success.");
+        }
     }
 
     public void setCount(int count) {

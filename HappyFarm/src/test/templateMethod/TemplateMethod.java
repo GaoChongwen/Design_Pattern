@@ -54,6 +54,7 @@ public class TemplateMethod {
         employeeSowSeedAction.setSeed(wheat);
         // 5. 执行播种操作
         employeeSowSeedAction.doAction();
+        employeeSowSeedAction.doAction();
 
         wheat.grow();
         wheat.grow();

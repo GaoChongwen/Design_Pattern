@@ -2,6 +2,7 @@ package action.person.farmer;
 
 import action.person.farmer.FarmerAction;
 import base.FarmObj;
+import store.Store;
 
 /**
  * @author Chudi LAN
@@ -37,7 +38,9 @@ public class FarmerSellAction extends FarmerAction {
     @Override
     protected void execute() {
         output("execute", "selling item "+itemName);
-//        todo Store.getInstance().sell(itemName);
+        if(Store.getInstance().sellCommity(itemName)){
+            System.out.println(itemName+" sold successfully.");
+        }
     }
 
     public void setItemName(String itemName) {
