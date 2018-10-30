@@ -21,7 +21,7 @@ public abstract class Plant extends FarmObj implements Cloneable {
     protected PlantType type;
     protected FarmLandType reqLandType;
 
-    protected Plant(int stockPrice, int salePrice) {
+    protected Plant() {
         state = SeedState.getInstance();
     }
 
