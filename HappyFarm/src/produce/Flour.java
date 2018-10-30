@@ -14,9 +14,9 @@ import utils.Enum.ProduceType;
  */
 
 public class Flour extends Produce {
-    public Flour (int farmPrice,int salePrice){
+    public Flour (int salePrice){
         this.type = ProduceType.flour;
-        this.farmPrice=farmPrice;
+        this.farmPrice=Wheat.getSalePrice();
         this.salePrice=salePrice;
         ProduceFactory.getInstance().putProduce(this);
         System.out.println("flour initial once");

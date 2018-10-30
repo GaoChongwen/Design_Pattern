@@ -13,8 +13,8 @@ import base.FarmObj;
  */
 
 public abstract class Produce extends FarmObj implements Cloneable{
-    protected int farmPrice;
-    protected int salePrice;
+    private int farmPrice;
+    private int salePrice;
     private ProduceType type;
 
     protected Produce(int farmPrice , int salePrice) {
@@ -45,12 +45,13 @@ public abstract class Produce extends FarmObj implements Cloneable{
      * Design-Pattern: Prototype
      */
     public Produce clone() {
-        Produce clone;
+        Produce clone = null;
         try {
             clone = (Produce) super.clone();
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
         return clone;
+
     }
 }

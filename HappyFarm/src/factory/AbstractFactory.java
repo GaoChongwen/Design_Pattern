@@ -41,8 +41,4 @@ public abstract class AbstractFactory {
 
     Tool createTool(String name) { return null; }
 
-    Produce createProduce(String name) {
-        return null;
-    }
-
 }

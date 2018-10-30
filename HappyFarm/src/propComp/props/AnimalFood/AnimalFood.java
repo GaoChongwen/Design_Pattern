@@ -17,12 +17,16 @@ public class AnimalFood extends Item {
     //protected int salePrice;
 
     //遍历 each
+    protected void sell() {
+
+        //Store.getInstance().buy(this, count);
+    }
+
     public void use() {
 
         for(Animal animal : animals){
             animal.eat();
         }
         this.used = true;
-
     }
 }
