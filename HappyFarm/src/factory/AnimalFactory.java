@@ -7,7 +7,7 @@ import base.animal.Animal;
 
 public class AnimalFactory extends AbstractFactory {
     @Override
-    Animal createAnimal(String name) {
+    public Animal createAnimal(String name) {
         if(name.equals("cow")){
             return new Cow();
         }

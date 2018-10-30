@@ -1,5 +1,6 @@
 package building.shed;
 
+import base.animal.Animal;
 import building.ImpVisitor.BuildingVisitor;
 /**
  * @project: HappyFarm
@@ -10,8 +11,31 @@ import building.ImpVisitor.BuildingVisitor;
  **/
 public class ChickShed extends AnimalHouse {
 
-    // 鸡窝的名字（如：鸡窝1号...）
+    // 名称：鸡窝
     private String name;
+
+    private static ChickShed instance;
+
+    // 私有构造器
+    private ChickShed() {
+        super();
+        this.capacity = 40;
+        this.animals = new Animal[40];
+        this.name = "ChickShed";
+    }
+
+    public static ChickShed getInstance() {
+        if (instance == null) {
+            // 双重检查锁定
+            // 保证了同一时间只能只能有一个对象访问此同步块
+            synchronized (ChickShed.class) {
+                if(instance==null){
+                    instance=new ChickShed();
+                }
+            }
+        }
+        return instance;
+    }
 
     // 获取鸡窝名字
     public String getName() {
@@ -20,10 +44,6 @@ public class ChickShed extends AnimalHouse {
 
     // 设置鸡窝名字
     public void setName(String name) {
-        this.name = name;
-    }
-
-    public ChickShed(String name) {
         this.name = name;
     }
 

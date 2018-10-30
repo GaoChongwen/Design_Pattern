@@ -1,5 +1,6 @@
 package singleton;
 
+import animal.Cow;
 import base.FarmObj;
 import base.animal.Animal;
 import building.farmland.*;
@@ -27,10 +28,7 @@ public class Farm extends FarmObj {
     private ArrayList<FarmLand> lands;
     private House house;
 
-    private Farm(){
-
-    }
-
+    private Farm(){ }
 
     private void initialFarmObj(){
 
@@ -58,6 +56,25 @@ public class Farm extends FarmObj {
         // 初始化兑换券
         CouponFactor.getInstance().CouponInitial();
 
+
+        // 初始化工具包
+
+
+        System.out.println("Initial Plants and Animals done.\nInitial Props done.\nInitial PropBag done.");
+
+
+        // 创建牛棚、鸡舍
+        sheds = new ArrayList<AnimalHouse>(2);
+        sheds.add(CowShed.getInstance());
+        sheds.add(ChickShed.getInstance());
+        for(AnimalHouse shed:sheds){
+            shed.bulidShed();
+            shed.done();
+        }
+
+        // 创建屋舍
+        house=House.getInstance();
+
         // 初始化地砖
         for (int i = 0; i < Context.tiles_color.length; i++) {
             String color = Context.tiles_color[i];
@@ -67,24 +84,22 @@ public class Farm extends FarmObj {
             }
         }
 
-        // 初始化工具包
+        System.out.println("Building House done.\nInitial Tiles done.");
 
-        // 创建牛棚、鸡舍
-        sheds = new ArrayList<AnimalHouse>(2);
-        sheds.add(new CowShed("CowShed"));
-        sheds.add(new ChickShed("ChickShed"));
-        for(AnimalHouse shed:sheds){
-            shed.bulidShed();
-            shed.done();
-        }
-
-        // 创建屋舍
-        house=House.getInstance();
-        house.setInfo(Context.wallInfo[0],Context.doorInfo[0],Context.tileInfo[0],Context.windowInfo[0]);
-        System.out.println("Building House done.");
-
+        System.out.println("Initial done.\n Welcome to Happy Farm.");
     }
 
+    public AnimalHouse getAnimalHouse(int index){
+        if(index<0||index>sheds.size()){return null;}
+        return sheds.get(index);
+    }
+
+    // 查看棚的信息
+    public void inspectSheds(){
+        for (AnimalHouse shed: sheds){
+            shed.getName();
+        }
+    }
 
 
 

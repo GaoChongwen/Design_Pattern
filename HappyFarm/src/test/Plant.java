@@ -1,4 +1,4 @@
-package utils.test;
+package test;
 
 import factory.PlantFactory;
 import plant.Apple;
