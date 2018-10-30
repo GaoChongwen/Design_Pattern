@@ -1,6 +1,5 @@
 package produce;
 
-import plant.Rice;
 import base.Produce;
 import factory.ProduceFactory;
 import utils.Enum.ProduceType;
@@ -16,11 +15,8 @@ import utils.Context;
 
 public class foodRice extends Produce {
     public foodRice(){
-        super();
+        this.salePrice = Context.foodRice_price;
         this.type = ProduceType.foodRice;
-        this.farmPrice=Context.getInstance().rice_salePrice;
-        this.salePrice=this.farmPrice*2;
-        ProduceFactory.getInstance().createProduce(this.getType());
-        System.out.println("foodRice initial once");
+        ProduceFactory.getInstance().putProduce(this);
     }
 }

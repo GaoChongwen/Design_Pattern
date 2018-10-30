@@ -16,11 +16,8 @@ import utils.Context;
 
 public class Flour extends Produce {
     public Flour(){
-        super();
+        this.salePrice = Context.flour_price;
         this.type = ProduceType.flour;
-        this.farmPrice=Context.getInstance().wheat_salePrice;
-        this.salePrice=this.farmPrice*2;
-        ProduceFactory.getInstance().createProduce(this.getType());
-        System.out.println("flour initial once");
+        ProduceFactory.getInstance().putProduce(this);
     }
 }

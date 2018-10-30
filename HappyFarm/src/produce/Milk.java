@@ -16,11 +16,8 @@ import utils.Context;
 
 public class Milk extends Produce {
     public Milk(){
-        super();
+        this.salePrice = Context.milk_price;
         this.type = ProduceType.milk;
-        this.farmPrice=Context.getInstance().cow_salePrice;
-        this.salePrice=this.farmPrice*2;
-        ProduceFactory.getInstance().createProduce(this.getType());
-        System.out.println("milk initial once");
+        ProduceFactory.getInstance().putProduce(this);
     }
 }

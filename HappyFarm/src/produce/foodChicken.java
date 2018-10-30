@@ -16,11 +16,7 @@ import utils.Context;
 
 public class foodChicken extends Produce {
     public foodChicken(){
-        super();
+        this.salePrice = Context.foodChicken_price;
         this.type = ProduceType.foodChicken;
-        this.farmPrice=Context.getInstance().chicken_salePrice;
-        this.salePrice=this.farmPrice*3;
-        ProduceFactory.getInstance().createProduce(this.getType());
-        System.out.println("foodChicken initial once");
     }
 }
