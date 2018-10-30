@@ -32,6 +32,10 @@ public abstract class AbstractFactory {
         return null;
     }
 
+    public Produce createProduce(String name){
+        return null;
+    }
+
     public LandAdaptor createAdaptor(String type) { return null; }
 
     public Tool createTool(String name) { return null; }
