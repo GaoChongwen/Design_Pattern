@@ -14,31 +14,25 @@ import utils.Enum.EmployeeSkill;
 import propComp.props.landAdaptor.LandAdaptor;
 
 public abstract class AbstractFactory {
-    Plant createPlant(String name) {
+    public Plant createPlant(String name) {
         return null;
     }
 
-    Animal createAnimal(String name) {
+    public Animal createAnimal(String name) {
         return null;
     }
 
-    Item createItem(String name) {
+    public Item createItem(String name) {
+        return null;
+    }
+    
+    public Employee createEmployee(String name, EmployeeSkill skill, float salary) { return null; }
+
+    public FarmLand createFarmLand(String type) {
         return null;
     }
 
-    Employee createEmployee(String name, EmployeeSkill skill, float salary) { return null; }
+    public LandAdaptor createAdaptor(String type) { return null; }
 
-    FarmLand createFarmLand(String type) {}
-    Produce createProduce(String name){
-        return null;
-    }
-
-    FarmLand createFarmLand(FarmLandType type) {
-        return null;
-    }
-
-    LandAdaptor createAdaptor(String type) { return null; }
-
-    Tool createTool(String name) { return null; }
-
+    public Tool createTool(String name) { return null; }
 }
