@@ -7,6 +7,11 @@ package base;
  */
 public abstract class Item extends FarmObj {
     protected int price;
+    protected boolean isUsed;
+
+    protected Item(){
+        isUsed=false;
+    }
 
     protected int getPrice() {
         return price;
@@ -21,4 +26,8 @@ public abstract class Item extends FarmObj {
     protected void buy() {}
 
     protected void sell(){}
+
+    public boolean getIsUsed(){
+        return isUsed;
+    }
 }

@@ -34,5 +34,8 @@ public class BabyState implements AnimalState {
         }
     }
 
+    @Override
+    public void process() {
 
+    }
 }

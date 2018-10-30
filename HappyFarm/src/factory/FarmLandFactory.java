@@ -8,7 +8,7 @@ import java.util.Map;
 
 /**
  * Design-Pattern: Factory Method, Prototype
- *
+ * @description: 土地工厂类
  * @author lipeng liang
  * @version 2018/10/28
  */
@@ -31,7 +31,6 @@ public class FarmLandFactory extends AbstractFactory {
     }
 
     public void putFarmLand(FarmLand FarmLand) {
-        System.out.println("in put FarmLand");
         FarmLandMap.put(FarmLand.getName(), FarmLand);
     }
 

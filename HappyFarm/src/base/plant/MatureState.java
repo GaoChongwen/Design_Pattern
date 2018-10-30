@@ -3,11 +3,11 @@ package base.plant;
 import java.util.Random;
 
 /**
- * Design-Pattern: Singleton, Double checked locking, State
- *
+ * @Project: HappyFarm
+ * @description: MatureState records state of plant
+ * @Design-Pattern: Singleton, Double checked locking, State
  * @version 2018/10/28
  * @author lipeng liang
- *
  */
 
 public class MatureState implements PlantState {
@@ -20,26 +20,24 @@ public class MatureState implements PlantState {
         return singleton;
     }
 
-    public void grow(Plant plant) {
-        Random ra = new Random();
-        int num = ra.nextInt(100);
-        if (num < 50) {
-            plant.setState(this);
-        } else {
-            plant.setState(DieState.getInstance());
-        }
-    }
+    // 生长: 无法生长
+    public void grow(Plant plant) { }
 
     public boolean plant(Plant plant) {
         return false;
     }
 
-    public void remove(Plant plant) {
+    // 收获: MatureState to RemovedState
+    public boolean harvest(Plant plant) {
+        plant.harvest(1);
+        plant.setState(RemovedState.getInstance());
+        return true;
+    }
+
+    // 加工: MatureState to RemovedState
+    public void process(Plant plant){
+        plant.process(1);
         plant.setState(RemovedState.getInstance());
     }
 
-    public void harvest(Plant plant) {
-        plant.harvest(1);
-        plant.setState(HarvestState.getInstance());
-    }
 }

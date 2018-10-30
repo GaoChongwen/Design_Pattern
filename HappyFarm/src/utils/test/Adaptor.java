@@ -11,7 +11,7 @@ public class Adaptor {
         AllAdaptor allAdaptor = new AllAdaptor();
         AppleField appleField = new AppleField();
         CornField wheatField = new CornField();
-        Wheat w = new Wheat(Context.wheat_stockPrice,Context.wheat_salePrice);
+        Wheat w = new Wheat();
         appleField.plant(w);
 
         appleField.use(allAdaptor);

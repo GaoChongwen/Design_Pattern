@@ -1,7 +1,7 @@
 package utils.test;
 
 import person.Employee;
-import utils.EmployeeSkill;
+import utils.Enum.EmployeeSkill;
 
 /**
  * @author Chudi LAN

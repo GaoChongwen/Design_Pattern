@@ -19,10 +19,10 @@ public class RepoTest {
         Repository repository = Repository.getInstance();
 
         // 添加植物
-        Plant rice1 = new Rice(20,30);
-        Plant rice2 = new Rice(21,30);
-        Plant rice3 = new Rice(22,30);
-        Plant wheat = new Wheat(10,13);
+        Plant rice1 = new Rice();
+        Plant rice2 = new Rice();
+        Plant rice3 = new Rice();
+        Plant wheat = new Wheat();
         repository.add(rice1, rice2, rice3, wheat);
         System.out.println("当前仓库库存：");
         System.out.println(repository);

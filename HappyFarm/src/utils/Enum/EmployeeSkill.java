@@ -1,4 +1,4 @@
-package utils;
+package utils.Enum;
 
 public enum EmployeeSkill {
     cultivation,    // 耕种

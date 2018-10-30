@@ -1,13 +1,9 @@
 package base.animal;
 
 
-import base.ClockObserver;
 import base.FarmObj;
 
-import java.util.Observable;
-import java.util.Observer;
-
-public class Animal extends ClockObserver {
+public class Animal extends FarmObj {
 
     //动物的状态
     protected AnimalState babyState;
@@ -37,6 +33,22 @@ public class Animal extends ClockObserver {
         isMature=false;
     }
 
+    public int getStockPrice() {
+        return stockPrice;
+    }
+
+    public void setStockPrice(int stockPrice) {
+        this.stockPrice = stockPrice;
+    }
+
+    public int getSalePrice() {
+        return salePrice;
+    }
+
+    public void setSalePrice(int salePrice) {
+        this.salePrice = salePrice;
+    }
+
     public boolean isMature() {
         return isMature;
     }
@@ -56,4 +68,6 @@ public class Animal extends ClockObserver {
     }
 
     public void eat(){this.state.eat();}
+
+    public void process(){this.state.process();}
 }

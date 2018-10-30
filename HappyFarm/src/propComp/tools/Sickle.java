@@ -1,7 +1,7 @@
 package propComp.tools;
 
-import action.toolAction.HarvestAPI;
-import base.Item;
+import action.tool.HarvestAPI;
+import action.tool.SickleAction;
 import utils.Enum.ToolType;
 
 /**
@@ -9,12 +9,15 @@ import utils.Enum.ToolType;
  * @version 2018-10-28
  */
 public class Sickle extends Tool {
+    public Sickle(){
+        this(new SickleAction());
+    }
+
     public Sickle(HarvestAPI harvestAPI){
         super(ToolType.sickle, harvestAPI);
-
     }
     @Override
     public void use() {
-        harvestAPI.harvestWheat();
+        harvestAPI.harvest();
     }
 }

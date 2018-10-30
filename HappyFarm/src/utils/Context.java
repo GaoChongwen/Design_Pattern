@@ -4,26 +4,37 @@ public class Context {
     private volatile static Context singleton = new Context();
 
     private Context() {
-        // initial price of plants
-        this.apple_stockPrice = 40;
-        this.apple_salePrice = 350;
-        this.cabbage_stockPrice = 10;
-        this.cabbage_salePrice = 100;
-        this.rice_stockPrice = 30;
-        this.rice_salePrice = 230;
-        this.wheat_stockPrice = 20;
-        this.wheat_salePrice = 170;
+
     }
 
     // price of plants
-    public static int apple_stockPrice;
-    public static int apple_salePrice;
-    public static int cabbage_stockPrice;
-    public static int cabbage_salePrice;
-    public static int rice_stockPrice;
-    public static int rice_salePrice;
-    public static int wheat_stockPrice;
-    public static int wheat_salePrice;
+    public static int apple_stockPrice = 40;
+    public static int apple_salePrice = 4000;
+    public static int cabbage_stockPrice=10;
+    public static int cabbage_salePrice=1000;
+    public static int rice_stockPrice=30;
+    public static int rice_salePrice=3000;
+    public static int wheat_stockPrice=20;
+    public static int wheat_salePrice=2000;
+
+    // price of animals
+    public static int chicken_stockPrice=50;
+    public static int chicken_salePrice=6000;
+    public static int cow_stockPrice=100;
+    public static int cow_salePrice=10000;
+    public static int pig_stockPrice=70;
+    public static int pig_salePrice=7000;
+
+
+    // types of tiles
+    public static String[] tiles_color = {"red", "blue", "yellow"};
+    public static String[] tiles_pattern = {"stripe", "flower"};
+
+    // info of house
+    public static String[] wallInfo={"Red Wall","Blue Wall","Yellow Wall"};
+    public static String[] doorInfo={"Wood Door","Iron Door","Gold Door"};
+    public static String[] windowInfo={"Landing Windows","Sliding Windows"};
+    public static String[] tileInfo={"Red Tile","Blue Tile","Yellow Tile"};
 
     public static Context getInstance() {
         return singleton;
