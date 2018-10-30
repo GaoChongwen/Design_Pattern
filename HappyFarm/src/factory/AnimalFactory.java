@@ -4,8 +4,16 @@ import animal.Chicken;
 import animal.Cow;
 import animal.Pig;
 import base.animal.Animal;
+import base.plant.Plant;
+
+import java.util.Hashtable;
 
 public class AnimalFactory extends AbstractFactory {
+    private volatile static PlantFactory singleton = new PlantFactory();
+
+    public static PlantFactory getInstance() {
+        return singleton;
+    }
     @Override
     public Animal createAnimal(String name) {
         if(name.equals("cow")){
