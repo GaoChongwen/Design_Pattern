@@ -1,15 +1,25 @@
 package base.plant;
 
-import base.plant.Plant;
+/**
+ * @Project: HappyFarm
+ * @description: 植物状态接口
+ * @Design-Pattern: State
+ * @author lipeng liang
+ * @version 2018/10/28
+ */
 
 public interface PlantState {
 
+    // 种植:SeedState to GrowingState
     public boolean plant(Plant plant);
 
+    // 生长:GrowingState to MatureState
     public void grow(Plant plant);
 
-    public void remove(Plant plant);
+    // 收获:MatureState to RemovedState
+    public boolean harvest(Plant plant);
 
-    public void harvest(Plant plant);
+    // 加工:MatureState to RemovedState
+    public void process(Plant plant);
 
 }

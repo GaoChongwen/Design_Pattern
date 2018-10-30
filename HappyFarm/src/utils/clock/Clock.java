@@ -1,7 +1,5 @@
 package utils.clock;
 
-import base.ClockObserver;
-
 import java.util.*;
 
 public class Clock extends Observable {
@@ -35,14 +33,14 @@ public class Clock extends Observable {
         notifyObservers();
     }
 
-    private ArrayList<ClockObserver> observers = new ArrayList();
+    private ArrayList<Observer> observers = new ArrayList();
 
-    public void addObserver(ClockObserver observer) {
+    public void addObserver(Observer observer) {
         observers.add(observer);
 
     }
 
-    public void deleteObserver(ClockObserver observer) {
+    public void deleteObserver(Observer observer) {
         observers.remove(observer);
     }
 

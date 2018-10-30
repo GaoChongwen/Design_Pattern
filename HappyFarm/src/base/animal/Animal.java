@@ -1,13 +1,9 @@
 package base.animal;
 
 
-import base.ClockObserver;
 import base.FarmObj;
 
-import java.util.Observable;
-import java.util.Observer;
-
-public class Animal extends ClockObserver {
+public class Animal extends FarmObj {
 
     //动物的状态
     protected AnimalState babyState;

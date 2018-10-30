@@ -1,15 +1,14 @@
 package utils.test;
 
-import factory.EmployeeFactory;
+import factory.CouponFactor;
 import factory.PlantFactory;
-import person.Employee;
 import plant.Apple;
 import plant.Wheat;
+import propComp.props.coupon.AppleCoupon;
+import propComp.props.coupon.Coupon;
 import utils.Context;
-import utils.Enum.EmployeeSkill;
 import utils.Enum.PlantType;
-
-import java.util.ArrayList;
+import utils.Money.Money;
 
 public class Factory {
     public static void main(String args[]){
@@ -17,16 +16,21 @@ public class Factory {
         Apple a = new Apple(Context.apple_stockPrice,Context.apple_salePrice);
 
         PlantFactory.getInstance().getAllPlant();
-        Apple a1 = (Apple)PlantFactory.getInstance().createPlant("apple");
+        Apple a1 = (Apple)PlantFactory.getInstance().createPlant(PlantType.apple.toString());
         System.out.println("key is"+ a1.getType());
 
-        EmployeeFactory employeeFactory = EmployeeFactory.getInstance();
-        Employee cyl = employeeFactory.createEmployee("cyl", EmployeeSkill.cultivation, 123);
-        Employee ppp = employeeFactory.createEmployee("ppp", EmployeeSkill.breeding, 456);
-        Employee www = employeeFactory.createEmployee("www", EmployeeSkill.cultivation, 789);
-        employeeFactory.getAllEmployees();
+        CouponFactor.getInstance().CouponInitial();
+        CouponFactor.getInstance().add(PlantType.apple.toString());
+        CouponFactor.getInstance().add(PlantType.wheat.toString());
+        CouponFactor.getInstance().add(PlantType.rice.toString());
+        CouponFactor.getInstance().add(PlantType.cabbage.toString());
+        CouponFactor.getInstance().add("super");
+        System.out.println(Money.getInstance().couponList.size());
+        System.out.println(Money.getInstance().buy("Apple",2,100));
+        System.out.println(Money.getInstance().buy("Wheat",2,100));
+        System.out.println(Money.getInstance().buy("Wheat",1,100));
 
-        ArrayList emps = employeeFactory.findEmployeesWithSkill(EmployeeSkill.cultivation);
+        //System.out.println(Money.getInstance().couponList.size());
 
     }
 }
