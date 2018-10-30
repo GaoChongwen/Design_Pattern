@@ -20,8 +20,8 @@ public abstract class ToolAction extends Action implements HarvestAPI {
 
     @Override
     public void harvest(Plant plant) {
-        if(plant.getType() == PlantType.wheat){
-            harvestWheat();
-        }
+ //       if(plant.getType() == PlantType.wheat){
+ //           harvestWheat();
+ //       }
     }
 }

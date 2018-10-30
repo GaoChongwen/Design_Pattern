@@ -1,6 +1,6 @@
 package store.Criteria;
 
-import base.Item;
+import base.plant.Plant;
 
 import java.util.List;
 
@@ -14,9 +14,9 @@ public class AndCriteria implements Criteria {
     }
 
     @Override
-    public List<Item> meetCriteria(List<Item> persons) {
+    public List<Plant> meetCriteria(List<Plant> persons) {
         // TODO Auto-generated method stub
-        List<Item> firstCriteriaPersons = criteria.meetCriteria(persons);
+        List<Plant> firstCriteriaPersons = criteria.meetCriteria(persons);
         return otherCriteria.meetCriteria(firstCriteriaPersons);
     }
 

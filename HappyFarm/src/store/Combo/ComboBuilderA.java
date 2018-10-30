@@ -1,6 +1,8 @@
 package store.Combo;
 
+import base.FarmObj;
 import base.Item;
+import base.plant.Plant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +16,15 @@ public class ComboBuilderA extends Builder {
     }
 
     @Override
-    public void buildCommodity() {
-        List<Item> principalItem = new ArrayList<Item>();
+    public void build() {
         /**
-         * 在这里添加套餐内的商品
+         * 在这里添加套餐内的东西
          */
-        product.setCommodity(principalItem);
+        product.setPlant("white",1,1);
+        product.setAdaptors("ad",1,10);
+        product.setAnimals("pig",1,10);
+        product.setTools("test",1,1);
+        product.setEmployees();
     }
 
     @Override

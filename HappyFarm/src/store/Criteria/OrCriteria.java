@@ -1,6 +1,6 @@
 package store.Criteria;
 
-import base.Item;
+import base.plant.Plant;
 
 import java.util.List;
 
@@ -14,13 +14,13 @@ public class OrCriteria implements Criteria {
     }
 
     @Override
-    public List<Item> meetCriteria(List<Item> persons) {
+    public List<Plant> meetCriteria(List<Plant> persons) {
         // TODO Auto-generated method stub
-        List<Item> firstCriteriaPersons = criteria.meetCriteria(persons);
-        List<Item> otherCriteriaPersons = otherCriteria.meetCriteria(persons);
-        for (Item Item : otherCriteriaPersons) {
-            if (!firstCriteriaPersons.contains(Item)) {
-                firstCriteriaPersons.add(Item);
+        List<Plant> firstCriteriaPersons = criteria.meetCriteria(persons);
+        List<Plant> otherCriteriaPersons = otherCriteria.meetCriteria(persons);
+        for (Plant plant : otherCriteriaPersons) {
+            if (!firstCriteriaPersons.contains(plant)) {
+                firstCriteriaPersons.add(plant);
             }
         }
         return firstCriteriaPersons;
