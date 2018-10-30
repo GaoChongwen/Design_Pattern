@@ -10,7 +10,7 @@ public class DecoratorPatternDemo {
     public static void main(String[] args) {
 
         // 新建一个简陋的牛棚
-        AnimalHouse cowShed = new CowShed("牛棚");
+        AnimalHouse cowShed = CowShed.getInstance();
         cowShed.bulidShed();
         cowShed.done();
 
@@ -25,7 +25,7 @@ public class DecoratorPatternDemo {
         cowShedWithCanopy.done();
 
         // 新建一个简陋的鸡窝
-        AnimalHouse chickShed = new ChickShed();
+        AnimalHouse chickShed = ChickShed.getInstance();
         chickShed.bulidShed();
         chickShed.done();
 

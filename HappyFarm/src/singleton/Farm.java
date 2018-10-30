@@ -1,5 +1,6 @@
 package singleton;
 
+import animal.Cow;
 import base.FarmObj;
 import base.animal.Animal;
 import building.farmland.*;
@@ -64,8 +65,8 @@ public class Farm extends FarmObj {
 
         // 创建牛棚、鸡舍
         sheds = new ArrayList<AnimalHouse>(2);
-        sheds.add(new CowShed("CowShed"));
-        sheds.add(new ChickShed("ChickShed"));
+        sheds.add(CowShed.getInstance());
+        sheds.add(ChickShed.getInstance());
         for(AnimalHouse shed:sheds){
             shed.bulidShed();
             shed.done();
