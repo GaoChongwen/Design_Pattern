@@ -9,10 +9,17 @@ import person.Farmer;
  */
 abstract public class FarmerAction extends PersonAction {
     protected FarmerAction() {
-        setTarget(Farmer.getInstance());
+        output("constructor","I am created.");
     }
 
     abstract protected boolean checkCondition();
-
     abstract protected void execute();
+
+    protected String getClassName() {
+        return "FarmerAction";
+    }
+    protected String getObjectID() {
+        return "";
+    }
+
 }

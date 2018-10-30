@@ -1,6 +1,7 @@
 package action.person.employee;
 
 import base.animal.Animal;
+import building.shed.AnimalHouse;
 
 /**
  * @author Chudi LAN
@@ -8,18 +9,19 @@ import base.animal.Animal;
  */
 public class EmployeeFeedAction extends EmployeeBreedAction {
 //    private static AnimalFood animalFood = null;
-    private static Animal animal;
+    private AnimalHouse animalHouse;
 
     private volatile static EmployeeFeedAction instance = new EmployeeFeedAction();
-    private EmployeeFeedAction(){}
+    private EmployeeFeedAction(){
+        output("constructor", "I am created.");
+    }
     public static EmployeeFeedAction getInstance(){
-//        animalFood = null;
-        animal = null;
         return instance;
     }
 
-    public static void setAnimal(Animal animal) {
-        EmployeeFeedAction.animal = animal;
+    public void setAnimalHouse(AnimalHouse animalHouse) {
+        output("setAnimalHouse", "an animal house is specified.");
+        this.animalHouse = animalHouse;
     }
 
 //    public static void setAnimalFood(AnimalFood animalFood) {
@@ -28,8 +30,9 @@ public class EmployeeFeedAction extends EmployeeBreedAction {
 
     @Override
     protected boolean checkTool() {
-        if(animal == null){
-            System.out.println("You haven't specified an animal to feed.");
+        output("checkTool", "checking animal house and animal food");
+        if(animalHouse == null){
+            System.out.println("ERROR: You haven't specified an animal to feed.");
             return false;
         }
 //        if(animalFood == null){
@@ -41,7 +44,14 @@ public class EmployeeFeedAction extends EmployeeBreedAction {
 
     @Override
     protected void execute() {
-//        animal.eat(animalFood);
-        System.out.println("Feeding complete.");
+        output("execute", "feeding an animal.");
+        animalHouse.feed();
+    }
+
+    protected String getClassName() {
+        return "EmployeeFeedAction";
+    }
+    protected String getObjectID() {
+        return "instance";
     }
 }

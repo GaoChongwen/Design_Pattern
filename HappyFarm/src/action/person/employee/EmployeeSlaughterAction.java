@@ -10,7 +10,9 @@ public class EmployeeSlaughterAction extends EmployeeBreedAction {
     private static AnimalHouse animalHouse = null;
 
     private volatile static EmployeeSlaughterAction instance = new EmployeeSlaughterAction();
-    private EmployeeSlaughterAction() {}
+    private EmployeeSlaughterAction() {
+        output("constructor", "I am created.");
+    }
     public static EmployeeSlaughterAction getInstance(){
         animalHouse = null;
         return instance;
@@ -18,9 +20,9 @@ public class EmployeeSlaughterAction extends EmployeeBreedAction {
 
     @Override
     protected boolean checkTool() {
-        System.out.println("EmployeeSlaughterAction: instance: checkTool: checking animal house");
+        output("checkTool", "checking animal house.");
         if(animalHouse == null){
-            System.out.println("You haven't specified an animal house");
+            System.out.println("ERROR: You haven't specified an animal house");
             return false;
         }
         return true;
@@ -28,7 +30,14 @@ public class EmployeeSlaughterAction extends EmployeeBreedAction {
 
     @Override
     protected void execute() {
-        System.out.println("Employee");
+        output("execute", "slaughtering an animal.");
         animalHouse.slaughter();
+    }
+
+    protected String getClassName() {
+        return "EmployeeSlaughterAction";
+    }
+    protected String getObjectID() {
+        return "instance";
     }
 }

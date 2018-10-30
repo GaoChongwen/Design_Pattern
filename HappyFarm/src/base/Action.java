@@ -1,6 +1,7 @@
 package base;
 
 import action.ActionStrategy;
+import utils.Output;
 
 /**
  * @author Chudi LAN
@@ -33,7 +34,10 @@ abstract public class Action implements ActionStrategy {
      * Design-Pattern: Template Method
      */
     public void doAction(){
-         doSomething();
+        System.out.println("\n< Template Method starts >");
+        output("doAction","an action is performing.");
+        doSomething();
+        System.out.println("< Template Method ends >\n");
     }
 
     /**
@@ -41,7 +45,14 @@ abstract public class Action implements ActionStrategy {
      */
     abstract protected void doSomething();
 
-    private boolean checkTarget(){
-        return Target==null;
+    public void output(String methodName, String actionDesc) {
+        System.out.println(this.getClassName()+": "+methodName+ "(): " +actionDesc);
+    }
+
+    protected String getClassName() {
+        return "Action";
+    }
+    protected String getObjectID() {
+        return "";
     }
 }

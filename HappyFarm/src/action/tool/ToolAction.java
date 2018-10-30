@@ -23,12 +23,17 @@ public abstract class ToolAction extends Action implements HarvestAPI {
 
     }
 
-    @Override
     protected void doSomething() {
+        output("doSomething", "harvesting with a tool.");
         harvest();
     }
 
-    abstract public boolean harvest(PlantType plantType);
     abstract public boolean harvest();
-    abstract public boolean harvestWheat();
+
+    protected String getClassName() {
+        return "ToolAction";
+    }
+    protected String getObjectID() {
+        return "";
+    }
 }

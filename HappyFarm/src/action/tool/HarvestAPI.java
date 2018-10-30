@@ -9,7 +9,5 @@ import utils.Enum.PlantType;
  * Design-Pattern: Bridge
  */
 public interface HarvestAPI {
-    public boolean harvest(PlantType plantType);
     public boolean harvest();
-    public boolean harvestWheat();
 }

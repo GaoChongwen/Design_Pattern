@@ -10,12 +10,10 @@ import utils.Enum.EmployeeSkill;
  * Design-Pattern: Template Method, Strategy
  */
 public abstract class EmployeeBreedAction extends EmployeeAction {
-    @Override
-    abstract protected boolean checkTool();
 
     @Override
     protected boolean checkSkill() {
-        System.out.println("Checking breeding skill.");
+        output("checkSkill","checking breeding skill.");
         if(!((Employee)getTarget()).hasSkill(EmployeeSkill.breeding)){
             System.out.println("Employee "+getTarget().getName()+" doesn't have breeding skill.");
             return false;
@@ -23,5 +21,14 @@ public abstract class EmployeeBreedAction extends EmployeeAction {
         return true;
     }
 
+    @Override
+    abstract protected boolean checkTool();
     abstract protected void execute();
+
+    protected String getClassName() {
+        return "EmployeeBreedAction";
+    }
+    protected String getObjectID() {
+        return "";
+    }
 }

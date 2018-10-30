@@ -9,19 +9,17 @@ import action.person.farmer.FarmerAction;
  */
 
 public class FarmerBuyAction extends FarmerAction {
-    private static String itemName;
-    private static int count;
+    private String itemName=null;
+    private int count=0;
 
     private static FarmerBuyAction instance = new FarmerBuyAction();
 
     /** Don't let anyone instantiate this class */
     private FarmerBuyAction(){
-        super();
+        output("constructor","I am created.");
     }
 
     public static FarmerBuyAction getInstance() {
-        itemName = null;
-        count = 1;
         return instance;
     }
 
@@ -36,13 +34,13 @@ public class FarmerBuyAction extends FarmerAction {
      */
     @Override
     protected boolean checkCondition() {
-        System.out.println("FarmerBuyAction");
+        output("checkCondition", "checking item name and count.");
         if(itemName == null){
-            System.out.println("you haven't specified item name.");
+            System.out.println("ERROR: you haven't specified item name.");
             return false;
         }
         if(count<0){
-            System.out.println("Invalid number.");
+            System.out.println("ERROR: Invalid number.");
         }
         return true;
     }
@@ -52,16 +50,24 @@ public class FarmerBuyAction extends FarmerAction {
      */
     @Override
     protected void execute() {
-        System.out.println("FarmerBuyAction instance is executing.");
+        output("execute","buying "+count+" "+itemName);
 //        Store.getInstance().buy(itemName, count);
     }
 
     public void setCount(int count) {
+        output("setCount", "count is specified.");
         this.count = count;
     }
 
     public void setItemName(String itemName) {
-        System.out.println("String "+itemName+" is set to FarmerBuyAction.");
+        output("setItemName", "an item name is specified.");
         this.itemName = itemName;
+    }
+
+    protected String getClassName() {
+        return "FarmerBuyAction";
+    }
+    protected String getObjectID() {
+        return "instance";
     }
 }

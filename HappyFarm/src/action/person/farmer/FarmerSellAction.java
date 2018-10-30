@@ -8,17 +8,13 @@ import base.FarmObj;
  * @version 2018-10-30
  */
 public class FarmerSellAction extends FarmerAction {
-    private static String itemName = null;
-    private static int count = -1;
+    private  String itemName = null;
 
     private volatile static FarmerSellAction instance = new FarmerSellAction();
     private FarmerSellAction(){
-        super();
-        System.out.println("FarmerSellAction is created.");
+        output("constructor","I am created.");
     }
     public static FarmerSellAction getInstance() {
-        itemName = null;
-        count = -1;
         return instance;
     }
 
@@ -30,29 +26,30 @@ public class FarmerSellAction extends FarmerAction {
      */
     @Override
     protected boolean checkCondition() {
+        output("checkCondition","checking item name.");
         if(itemName == null){
             System.out.println("You haven't specified an itemName to FarmerSellAction.");
             return false;
         }
-        if(count == -1){
-            System.out.println("You haven't specified count to FarmerSellAction.");
-            return false;
-        }
         return true;
-//       return Store.getInstance().sell(itemName, count);
     }
 
     @Override
     protected void execute() {
-//        Store.getInstance().sell(itemName,count);
-//        System.out.println(itemName+" sold successfully.");
+        output("execute", "selling item "+itemName);
+//        todo Store.getInstance().sell(itemName);
     }
 
-    public static void setItemName(String itemName) {
-        FarmerSellAction.itemName = itemName;
+    public void setItemName(String itemName) {
+        output("setItemName", "an item name is specified.");
+        this.itemName = itemName;
     }
 
-    public static void setCount(int count) {
-        FarmerSellAction.count = count;
+
+    protected String getClassName() {
+        return "FarmerSellAction";
+    }
+    protected String getObjectID() {
+        return "instance";
     }
 }

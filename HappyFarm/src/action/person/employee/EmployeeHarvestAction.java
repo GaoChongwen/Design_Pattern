@@ -22,19 +22,22 @@ public class EmployeeHarvestAction extends EmployeeCultivateAction {
     private  Tool harvestTool = null;
 
     private volatile static EmployeeHarvestAction instance = new EmployeeHarvestAction();
-    private EmployeeHarvestAction(){}
+    private EmployeeHarvestAction(){
+        output("constructor", "I am created.");
+    }
     public static EmployeeHarvestAction getInstance() {
         return instance;
     }
 
     @Override
     protected boolean checkTool() {
+        output("checkTool","checking farmland and harvest tool.");
         if(farmLand==null){
-            System.out.println("You haven't specified a farmland to harvest.");
+            System.out.println("ERROR: You haven't specified a farmland to harvest.");
             return false;
         }
         if(harvestTool==null){
-            System.out.println("You haven't specified a tool to harvest.");
+            System.out.println("ERROR: You haven't specified a tool to harvest.");
             return false;
         }
         return true;
@@ -50,16 +53,24 @@ public class EmployeeHarvestAction extends EmployeeCultivateAction {
      */
     @Override
     protected void execute() {
-        System.out.println("EmployeeHarvestAction is executing.");
+        output("execute", "harvesting in a farmland.");
         farmLand.harvest();
     }
 
     public  void setFarmLand(FarmLand farmLand) {
-        System.out.println(farmLand.getName()+" is set to EmployeeHarvestAction.");
+       output("setFarmLand", "a farmland is specified.");
         this.farmLand = farmLand;
     }
 
-    public  void setHarvestTool(Tool harvestTool) {
+    public void setHarvestTool(Tool harvestTool) {
+        output("setHarvestTool", "a harvest tool is specified.");
         this.harvestTool = harvestTool;
+    }
+
+    protected String getClassName() {
+        return "EmployeeHarvestAction";
+    }
+    protected String getObjectID() {
+        return "instance";
     }
 }

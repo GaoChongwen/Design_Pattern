@@ -25,6 +25,7 @@ abstract public class EmployeeCultivateAction extends EmployeeAction {
      */
     @Override
     protected boolean checkSkill() {
+        output("checkSkill", "checking cultivation skill.");
         if(!((Employee)getTarget()).hasSkill(EmployeeSkill.cultivation)){
             System.out.println("Employee "+((Employee) getTarget()).getName()+" doesn't have cultivation skill.");
             return false;
@@ -33,6 +34,12 @@ abstract public class EmployeeCultivateAction extends EmployeeAction {
     }
 
     abstract protected boolean checkTool();
-
     abstract protected void execute();
+
+    protected String getClassName() {
+        return "EmployeeCultivateAction";
+    }
+    protected String getObjectID() {
+        return "";
+    }
 }

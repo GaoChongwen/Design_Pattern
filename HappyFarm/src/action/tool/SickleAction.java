@@ -11,24 +11,19 @@ import utils.Enum.PlantType;
  */
 public class SickleAction extends  ToolAction{
     public SickleAction(){
-
+        output("constructor", "I am created.");
     }
 
     @Override
     public boolean harvest() {
-        System.out.println("Harvesting with Sickle.");
+        output("harvest", "harvesting with sickle.");
         return true;
     }
 
-    @Override
-    public boolean harvest(PlantType plantType) {
-        System.out.println("Harvesting "+plantType+" with Sickle.");
-        return true;
+    protected String getClassName() {
+        return "SickleAction";
     }
-
-    @Override
-    public boolean harvestWheat() {
-        System.out.println("Harvesting wheat with sickle.");
-        return true;
+    protected String getObjectID() {
+        return "";
     }
 }

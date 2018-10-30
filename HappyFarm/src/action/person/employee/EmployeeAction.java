@@ -16,6 +16,7 @@ import base.Person;
 abstract public class EmployeeAction extends PersonAction {
     @Override
     protected boolean checkCondition() {
+        output("checkCondition", "checking employee, employee skill and tool.");
         /* 1. check employee assigned. */
         if(getTarget()==null){
             System.out.println("You haven't assigned an employee.");
@@ -35,4 +36,11 @@ abstract public class EmployeeAction extends PersonAction {
     abstract protected boolean checkTool();
     abstract protected boolean checkSkill();
     abstract protected void execute();
+
+    protected String getClassName() {
+        return "EmployeeAction";
+    }
+    protected String getObjectID() {
+        return "";
+    }
 }

@@ -10,19 +10,20 @@ import building.farmland.FarmLand;
  * Design-Pattern: Singleton, Template Method.
  */
 public class EmployeeSowSeedAction extends EmployeeCultivateAction {
-    private static Plant seed = null;
-    private static FarmLand farmLand = null;
+    private  Plant seed = null;
+    private  FarmLand farmLand = null;
 
     private volatile static EmployeeSowSeedAction instance = new EmployeeSowSeedAction();
-    private EmployeeSowSeedAction(){}
+    private EmployeeSowSeedAction(){
+        output("constructor", "I am created.");
+    }
     public static EmployeeSowSeedAction getInstance() {
-        seed = null;
-        farmLand = null;
         return instance;
     }
 
     @Override
     protected boolean checkTool() {
+        output("checkTool","checking seed and farmland");
         if(seed == null){
             System.out.println("You haven't specified a seed to plant.");
             return false;
@@ -36,14 +37,24 @@ public class EmployeeSowSeedAction extends EmployeeCultivateAction {
 
     @Override
     protected void execute() {
+        output("execute", "sowing seed");
         farmLand.plant(seed);
     }
 
-    public static void setFarmLand(FarmLand farmLand) {
-        EmployeeSowSeedAction.farmLand = farmLand;
+    public  void setFarmLand(FarmLand farmLand) {
+        output("setFarmLand", "a farm land is specified.");
+        this.farmLand = farmLand;
     }
 
-    public static void setSeed(Plant seed) {
-        EmployeeSowSeedAction.seed = seed;
+    public  void setSeed(Plant seed) {
+        output("setSed", "a seed is specified.");
+        this.seed = seed;
+    }
+
+    protected String getClassName() {
+        return "EmployeeSowSeedAction";
+    }
+    protected String getObjectID() {
+        return "instance";
     }
 }

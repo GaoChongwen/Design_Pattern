@@ -14,7 +14,7 @@ abstract public class PersonAction extends Action{
      */
     @Override
     protected void doSomething() {
-        System.out.println("Performing PersonAction.");
+        output("doSomething","someone is performing an action.");
         if(checkCondition()){
             execute();
         }
@@ -28,4 +28,13 @@ abstract public class PersonAction extends Action{
     protected abstract boolean checkCondition();
 
     abstract protected void execute();
+
+    protected String getClassName() {
+        return "Person Action";
+    }
+
+
+    protected String getObjectID() {
+        return "";
+    }
 }
