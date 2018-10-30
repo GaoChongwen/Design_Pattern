@@ -13,6 +13,7 @@ public class MatureState implements AnimalState{
         Random ra=new Random();
         int num=ra.nextInt(100)+1;
         if(num<5){ //百分之5概率死亡
+            System.out.println(animal.getName()+"病死了");
             animal.setState(animal.deadState);
             animal.shouldRemove=true;
             animal.isMature=false;

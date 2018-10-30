@@ -13,7 +13,7 @@ public class HouseWall {
 
     // 默认是灰墙
     public HouseWall() {
-        info = "灰墙";
+        info = "GrayWall";
     }
 
     public String getInfo() {

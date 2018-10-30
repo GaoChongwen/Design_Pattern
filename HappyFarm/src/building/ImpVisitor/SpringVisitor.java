@@ -15,18 +15,18 @@ public class SpringVisitor implements BuildingVisitor {
 
     // 春节要挂灯笼
     public void hanglantern(){
-        System.out.print("======春节到了======\n挂灯笼咯~");
+        System.out.print("======Spring Festival is coming======\nHanging lantern ~");
     }
 
     // 春节要帖福字
     public void postFU() {
-        System.out.println("帖福字咯~");
+        System.out.println("Posting FU ~");
     }
 
     // 春节要帖对联
     public void postCouplet() {
 
-        System.out.println("帖对联咯~");
+        System.out.println("Posting couplet ~");
     }
 
     @Override
@@ -35,12 +35,12 @@ public class SpringVisitor implements BuildingVisitor {
         hanglantern();
         postFU();
         postCouplet();
-        System.out.println("房子有了春节的气息。\n");
+        System.out.println("The house has the breath of the Spring Festival. \n");
     }
 
     @Override
     public void visit(AnimalHouse shed) {
-        System.out.println("春节到了，给" + shed.getName() + "挂上灯笼吧~");
-        System.out.println(shed.getName() + "有了春节的气息。\n");
+        System.out.println("Spring Festival is coming，hanging lantern for " + shed.getName());
+        System.out.println(shed.getName() + "has the breath of Spring Festival。\n");
     }
 }

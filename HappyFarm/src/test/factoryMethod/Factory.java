@@ -1,4 +1,4 @@
-package utils.test;
+package test.factoryMethod;
 
 import factory.CouponFactor;
 import factory.PlantFactory;

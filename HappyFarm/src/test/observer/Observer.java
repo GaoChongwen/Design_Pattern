@@ -1,4 +1,4 @@
-package utils.test;
+package test.observer;
 
 import person.Employee;
 import person.Farmer;

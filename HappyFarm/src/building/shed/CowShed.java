@@ -1,5 +1,6 @@
 package building.shed;
 
+import base.animal.Animal;
 import building.ImpVisitor.BuildingVisitor;
 /**
  * @project: HappyFarm
@@ -10,9 +11,31 @@ import building.ImpVisitor.BuildingVisitor;
  **/
 public class CowShed extends AnimalHouse {
 
-    // 牛棚的名称（如：牛棚1号...）
+    // 名称：牛棚
     private String name;
 
+    private static CowShed instance;
+
+    // 私有构造器
+    private CowShed() {
+        super();
+        this.capacity = 40;
+        this.animals = new Animal[40];
+        this.name = "CowShed";
+    }
+
+    public static CowShed getInstance() {
+        if (instance == null) {
+            // 双重检查锁定
+            // 保证了同一时间只能只能有一个对象访问此同步块
+            synchronized (CowShed.class) {
+                if(instance==null){
+                    instance=new CowShed();
+                }
+            }
+        }
+        return instance;
+    }
     // 获取牛棚名称
     public String getName() {
         return name;
@@ -30,13 +53,13 @@ public class CowShed extends AnimalHouse {
     // 搭建牛棚
     @Override
     public void bulidShed() {
-        System.out.println("正在为奶牛搭建牛棚...");
+        System.out.println("Building cow shed...");
     }
 
     // 牛棚搭建完毕
     @Override
     public void done() {
-        System.out.println("一个简易的牛棚搭建完成。\n");
+        System.out.println("Done.\n");
     }
 
     // 作为Visitor模式中的接受者, 接收访问者

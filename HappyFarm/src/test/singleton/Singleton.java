@@ -1,4 +1,4 @@
-package utils.test;
+package test.singleton;
 
 import person.Farmer;
 import singleton.MessageBoard;

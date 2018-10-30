@@ -19,7 +19,7 @@ public class FenceShedDecorator extends ShedDecorator {
 
     // 加固篱笆
     public void strongFence() {
-        System.out.println("正在给" + shed.getName() + "加固篱笆...");
+        System.out.println("Stronging fence for " + shed.getName());
     }
 
     // 搭建Shed并加固篱笆

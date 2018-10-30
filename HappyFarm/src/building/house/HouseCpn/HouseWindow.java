@@ -14,7 +14,7 @@ public class HouseWindow {
     // 默认是推拉窗
 
     public HouseWindow() {
-        info = "推拉窗";
+        info = "PushableWindow";
     }
 
     public String getInfo() {

@@ -13,8 +13,8 @@ public class FlyweightPatternDemo {
 
     public static void main(String[] agrs) {
 
-        String[] colors = {"红色", "橙色", "黄色", "绿色", "蓝色", "紫色", "白色"};
-        String[] pattern = {"条纹", "格子", "碎花"};
+        String[] colors = {"Red", "Orange", "Yellow", "Green", "Blue", "Purple", "White"};
+        String[] pattern = {"Stripe", "Lattice", "Floral"}; // 条纹 格子 碎花
         for (int i = 0; i < colors.length; i++) {
             String color = colors[i];
             for (int j = 0; j < pattern.length; j++) {
@@ -22,6 +22,6 @@ public class FlyweightPatternDemo {
                 TileFactory.getTile(key);
             }
         }
-        Tile tile = TileFactory.getTile("红色碎花");
+        Tile tile = TileFactory.getTile("RedFloral"); // 红色碎花
     }
 }

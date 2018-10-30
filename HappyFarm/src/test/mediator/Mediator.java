@@ -1,4 +1,4 @@
-package utils.test;
+package test.mediator;
 
 import person.Employee;
 import utils.Enum.EmployeeSkill;

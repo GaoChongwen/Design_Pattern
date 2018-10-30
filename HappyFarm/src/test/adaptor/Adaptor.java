@@ -1,4 +1,4 @@
-package utils.test;
+package test.adaptor;
 
 import building.farmland.AppleField;
 import building.farmland.CornField;
