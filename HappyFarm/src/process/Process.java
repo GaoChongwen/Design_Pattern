@@ -1,7 +1,8 @@
 package process;
 
 import factory.ProduceFactory;
-import base.Item
+import base.Item;
+import base.Produce;
 
 /**
  * Design-Pattern: Facade,Singleton
@@ -27,10 +28,10 @@ public class Process{
         return singleton;
     }
 
-    public process(Item item){
-        ProduceFactory produce = new ProduceFactory();
-        produce.getInstance().creatProcude(item.getType());
-        return null;
+    public Produce process(Item item){
+        ProduceFactory process = new ProduceFactory();
+        Produce produce = process.getInstance().creatProduce(item.getType());
+        return produce;
     }
 }
 
