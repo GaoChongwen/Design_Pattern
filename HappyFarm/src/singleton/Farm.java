@@ -14,6 +14,11 @@ import plant.Apple;
 import plant.Cabbage;
 import plant.Rice;
 import plant.Wheat;
+import produce.AnimalFood;
+import produce.CookedFood;
+import produce.Milk;
+import propComp.PropDir.Prop;
+import propComp.PropDir.Root;
 import propComp.props.landAdaptor.*;
 import utils.Context;
 import utils.Enum.FarmLandType;
@@ -28,10 +33,11 @@ public class Farm extends FarmObj {
     private ArrayList<AnimalHouse> sheds;
     private ArrayList<FarmLand> lands;
     private House house;
+    private Root toolBag;
 
     private Farm(){ }
 
-    public static void initialFarmObj(){
+    public void initialFarmObj(){
         System.out.println("Initialing Farm...");
         // 初始化植物
         new Apple();
@@ -39,11 +45,11 @@ public class Farm extends FarmObj {
         new Cabbage();
         new Rice();
 
-        // 初始化土地
-        new CornField();
-        new RiceField();
-        new VegtbField();
-        new AppleField();
+        // 初始化土地并创建农田
+        this.lands.add(new CornField());
+        this.lands.add(new RiceField());
+        this.lands.add(new VegtbField());
+        this.lands.add(new AppleField());
 
         // 初始化适配器
         new AppleAdaptor();
@@ -52,10 +58,40 @@ public class Farm extends FarmObj {
         new VegtbAdaptor();
         new AllAdaptor();
 
+        // 初始化加工副产品
+        new AnimalFood();
+        new CookedFood();
+        new Milk();
+
+        // 初始化农舍
+        /**
+         *
+          */
+
         // 初始化兑换券
         CouponFactor.getInstance().CouponInitial();
 
-        System.out.println("Initial Done.");
+        // 初始化工具包
+        try{
+            Prop.createTree();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
+        // 建造房屋
+        this.house=House.getInstance();
+
+        // 初始化地砖
+        for (int i = 0; i < Context.tiles_color.length; i++) {
+            String color = Context.tiles_color[i];
+            for (int j = 0; j < Context.tiles_pattern.length; j++) {
+                String key = color + Context.tiles_pattern[j];
+                TileFactory.getTile(key);
+            }
+        }
+
+
+        System.out.println("Initial Done.");
+
     }
+}

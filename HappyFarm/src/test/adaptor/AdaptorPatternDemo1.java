@@ -22,7 +22,7 @@ public class AdaptorPatternDemo1 {
     public static void main(String args[]) {
 
         // 读配置表，配置植物、土地、适配器(使用适配器必须先配置)
-        Farm.initialFarmObj();
+        Farm.getInstance().initialFarmObj();
 
         // 创建小麦适配器
         CornAdaptor cornAdaptor = (CornAdaptor) AdaptorFactory.getInstance().createAdaptor("cornField");

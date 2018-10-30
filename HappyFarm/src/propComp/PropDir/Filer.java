@@ -3,7 +3,6 @@ package propComp.PropDir;
 import base.FarmObj;
 import base.Item;
 import propComp.props.landAdaptor.LandAdaptor;
-import utils.test.Adaptor;
 
 public class Filer extends PropDir {
     private Item item = null;
