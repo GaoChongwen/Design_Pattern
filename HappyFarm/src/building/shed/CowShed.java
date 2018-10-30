@@ -53,13 +53,13 @@ public class CowShed extends AnimalHouse {
     // 搭建牛棚
     @Override
     public void bulidShed() {
-        System.out.println("正在为奶牛搭建牛棚...");
+        System.out.println("Building cow shed...");
     }
 
     // 牛棚搭建完毕
     @Override
     public void done() {
-        System.out.println("一个简易的牛棚搭建完成。\n");
+        System.out.println("Done.\n");
     }
 
     // 作为Visitor模式中的接受者, 接收访问者

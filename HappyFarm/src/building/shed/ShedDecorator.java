@@ -16,12 +16,12 @@ public class ShedDecorator extends AnimalHouse{
 
     @Override
     public void bulidShed() {
-        System.out.println("========开始装修========");
+        System.out.println("========Start decorating...========");
     }
 
     @Override
     public void done() {
-        System.out.println("装修完成。\n");
+        System.out.println("Done.\n");
     }
 
 }

@@ -35,7 +35,7 @@ public class Repository {
     }
 
     // 向仓库中添加植物（任意个）
-    void add(Plant ... somePlants) {
+    public void add(Plant ... somePlants) {
 
         // 判断每个植物是否添加成功
         boolean flag = true;
@@ -43,23 +43,23 @@ public class Repository {
         for (int i = 0; i < somePlants.length; i++) {
             flag = plants.add(somePlants[i]);
             if (!flag) {
-                System.out.println("第" + i + "个植物添加失败!");
+                System.out.println(i + ": add failed!");
             }
         }
     }
 
     // 从仓库中删除植物，传入被删除的植物
-    boolean remove(Plant plant) {
+    public boolean remove(Plant plant) {
         return plants.remove(plant);
     }
 
     // 从仓库中删除植物，传入索引
-    Plant remove(int index) {
+    public Plant remove(int index) {
         return plants.remove(index);
     }
 
     // 仓库中是否包含某种植物
-    boolean contains(Plant plant) {
+    public boolean contains(Plant plant) {
         return plants.contains(plant);
     }
 
@@ -76,7 +76,7 @@ public class Repository {
     }
 
     // 从仓库中获取植物，传入索引
-    Plant get(int index) {
+    public Plant get(int index) {
         return plants.get(index);
     }
 

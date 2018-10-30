@@ -51,7 +51,7 @@ public class House extends FarmObj implements BuildingAcceptor {
 
     // 打印房屋信息
     public void showHouse(){
-        System.out.print("这个房子拥有：");
+        System.out.print("The house has：");
         for (int i = 0; i < cgh.getCpnInfo().length; i++) {
             System.out.print(cgh.getCpnInfo()[i] + " ");
         }
