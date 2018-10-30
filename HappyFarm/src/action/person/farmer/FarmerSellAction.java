@@ -35,9 +35,11 @@ public class FarmerSellAction extends FarmerAction {
 
     @Override
     protected void execute() {
-        templateMethodOutput("1_2. execute", "selling item "+itemName);
+        templateMethodOutput("1_2_1. execute", "selling item "+itemName);
         if(Store.getInstance().sellCommity(itemName)){
-            System.out.println(itemName+" sold successfully.");
+            templateMethodOutput("1_2_2 execute", itemName+" sold successfully.");
+        }else {
+            templateMethodOutput("1_2_2 execute", "failed to sell "+itemName);
         }
     }
 

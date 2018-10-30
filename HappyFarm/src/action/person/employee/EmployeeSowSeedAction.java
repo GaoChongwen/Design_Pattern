@@ -37,7 +37,7 @@ public class EmployeeSowSeedAction extends EmployeeCultivateAction {
 
     @Override
     protected void execute() {
-        templateMethodOutput("step 1_2. execute", "sowing seed");
+        templateMethodOutput("step 1_2. execute", "an employee is sowing seed");
         farmLand.plant(seed);
     }
 

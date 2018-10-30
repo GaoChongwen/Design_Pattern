@@ -7,14 +7,13 @@ import building.shed.AnimalHouse;
  * @version 2018-10-30
  */
 public class EmployeeSlaughterAction extends EmployeeBreedAction {
-    private static AnimalHouse animalHouse = null;
+    private AnimalHouse animalHouse = null;
 
     private volatile static EmployeeSlaughterAction instance = new EmployeeSlaughterAction();
     private EmployeeSlaughterAction() {
         templateMethodOutput("constructor", "I am created.");
     }
     public static EmployeeSlaughterAction getInstance(){
-        animalHouse = null;
         return instance;
     }
 
@@ -39,5 +38,9 @@ public class EmployeeSlaughterAction extends EmployeeBreedAction {
     }
     protected String getObjectID() {
         return "instance";
+    }
+
+    public void setAnimalHouse(AnimalHouse animalHouse) {
+        this.animalHouse = animalHouse;
     }
 }

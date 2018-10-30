@@ -36,12 +36,12 @@ abstract public class Action implements ActionStrategy {
      * Design-Pattern: Template Method
      */
     public void doAction(){
-        if(templateMethodMode)System.out.println("    < Template Method starts >");
+        if(templateMethodMode)System.out.println("[ Template Method starts ]");
         templateMethodOutput("step 0. doAction","an action is performing.");
 
         doSomething();
 
-        if(templateMethodMode)System.out.println("    < Template Method ends >\n");
+        if(templateMethodMode)System.out.println("[ Template Method ends ]\n");
     }
 
     /**

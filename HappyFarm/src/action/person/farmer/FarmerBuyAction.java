@@ -50,9 +50,11 @@ public class FarmerBuyAction extends FarmerAction {
      */
     @Override
     protected void execute() {
-        templateMethodOutput("step 1_2. execute","buying "+count+" "+itemName);
+        templateMethodOutput("step 1_2_1. execute","buying "+count+" "+itemName);
         if(Store.getInstance().buyCommity(itemName,count)){
-            System.out.println("Purchase success.");
+            templateMethodOutput("step 1_2_2. execute","purchase success.");
+        }else {
+            templateMethodOutput("step_1_2_2. ex3cute","purchase failed,");
         }
     }
 

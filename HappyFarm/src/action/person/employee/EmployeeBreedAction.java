@@ -14,7 +14,7 @@ public abstract class EmployeeBreedAction extends EmployeeAction {
     protected boolean checkSkill() {
         templateMethodOutput("step 1_1_1. checkSkill","checking breeding skill.");
         if(!((Employee)getTarget()).hasSkill(EmployeeSkill.breeding)){
-            System.out.println("Employee "+getTarget().getName()+" doesn't have breeding skill.");
+            templateMethodOutput("step 1_1_2. checkSkill","Employee: "+getTarget().getName()+": doesn't have breeding skill.");
             return false;
         }
         return true;

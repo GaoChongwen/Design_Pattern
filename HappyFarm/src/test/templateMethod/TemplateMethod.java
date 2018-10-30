@@ -2,6 +2,7 @@ package test.templateMethod;
 
 import action.person.employee.EmployeeCultivateAction;
 import action.person.employee.EmployeeHarvestAction;
+import action.person.employee.EmployeeSlaughterAction;
 import action.person.employee.EmployeeSowSeedAction;
 import action.person.farmer.FarmerBuyAction;
 import action.person.farmer.FarmerProcessAction;
@@ -28,7 +29,7 @@ import utils.Enum.EmployeeSkill;
 public class TemplateMethod {
     public static void main(String args[]){
         /* 此部分代码与本模式无关 */
-        Employee testEmp = new Employee("Test Template Method Employee", EmployeeSkill.cultivation, 5000);
+        Employee testEmp = new Employee("Mary", EmployeeSkill.cultivation, 5000);
         Farmer farmer = Farmer.getInstance();
         Tool sickle = new Sickle();
         CornField cornField = new CornField();
@@ -41,7 +42,6 @@ public class TemplateMethod {
         chickShed.addAnimal(chicken1);
         chickShed.addAnimal(chicken2);
         chickShed.addAnimal(chicken3);
-
 
         /* 播种操作demo */
         // 1. 指定一个播种Action
@@ -57,12 +57,12 @@ public class TemplateMethod {
 
         // 5. 执行播种操作
         System.out.println("" +
-                "\n================================================" +
+                "\n====================================================================" +
                 "\n Scenario 1:" +
                 "\n     Assign an employee with cultivation skill " +
-                "\n     to harvest a corn filed " +
-                "\n     planted with wheat." +
-                "\n================================================");
+                "\n     to plant a seed of wheat " +
+                "\n     in a corn filed." +
+                "\n====================================================================");
         employeeSowSeedAction.doAction();
 
 
@@ -81,11 +81,36 @@ public class TemplateMethod {
         // 4. 指定一个收获工具
         employeeHarvestAction.setHarvestTool(sickle);
         // 5. 执行收割操作
-        employeeHarvestAction.doAction();
+        System.out.println("" +
+                "\n====================================================================" +
+                "\n Scenario 2:" +
+                "\n     Assign an employee with cultivation skill " +
+                "\n     to harvest a corn filed " +
+                "\n     planted with wheat." +
+                "\n====================================================================");
+        employeeSowSeedAction.doAction();
+//        employeeHarvestAction.doAction();
 
         /* 喂养动物demo */
 
         /* 屠宰动物demo */
+        // 1. 指定一个屠宰Action
+        EmployeeSlaughterAction slaughterAction = EmployeeSlaughterAction.getInstance();
+        // 指定debug Template Method模式
+        slaughterAction.setTemplateMethodMode(true);
+        // 2. 指定一个雇员
+        slaughterAction.setTarget(testEmp);
+        // 3. 指定一个AnimalHouse
+        slaughterAction.setAnimalHouse(chickShed);
+        // 5. 执行屠宰操作
+        System.out.println("" +
+                "\n====================================================================" +
+                "\n Scenario 3:" +
+                "\n     Assign an employee with cultivation skill " +
+                "\n     to slaughter a chicken shed. "+
+                "\n====================================================================");
+        slaughterAction.doAction();
+
 
         /* 买东西demo */
         // 1. 指定买东西Action
@@ -97,6 +122,11 @@ public class TemplateMethod {
         // 3. 执指定购买数量
         buyAction.setCount(5);
         // 3. 执行购买操作
+        System.out.println("" +
+                "\n====================================================================" +
+                "\n Scenario 4:" +
+                "\n     The farmer tries to buy 5 wheat seeds "+
+                "\n====================================================================");
         buyAction.doAction();
 
         /* 卖东西demo */
