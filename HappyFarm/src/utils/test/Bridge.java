@@ -14,15 +14,15 @@ import propComp.tools.Tool;
 public class Bridge {
     public static void main(String args[]){
 //        Wheat wheat = (Wheat)PlantFactory.getInstance().createPlant(PlantType.wheat);
-        Tool sickleTool = new Sickle(new SickleAction(null));
+        Tool sickleTool = new Sickle(new SickleAction());
         Tool reapingMachineTool = new ReapingMachine(new ReapingMachineAction());
-        Tool wheatReapingMachineTool = new ReapingMachine(new WheatReapingMachineAction((null)));
+        Tool wheatReapingMachineTool = new ReapingMachine(new WheatReapingMachineAction());
 
 
         sickleTool.use();
         reapingMachineTool.use();
         wheatReapingMachineTool.use();
 
-        ReapingMachineAction action = new ReapingMachineAction(null);
+        ReapingMachineAction action = new ReapingMachineAction();
     }
 }

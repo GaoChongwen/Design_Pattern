@@ -7,13 +7,13 @@ import base.animal.Animal;
  * @version 2018-10-29
  */
 public class EmployeeFeedAction extends EmployeeBreedAction {
-    private static AnimalFood animalFood = null;
+//    private static AnimalFood animalFood = null;
     private static Animal animal;
 
     private volatile static EmployeeFeedAction instance = new EmployeeFeedAction();
     private EmployeeFeedAction(){}
     public static EmployeeFeedAction getInstance(){
-        animalFood = null;
+//        animalFood = null;
         animal = null;
         setTarget(null);
         return instance;
@@ -23,9 +23,9 @@ public class EmployeeFeedAction extends EmployeeBreedAction {
         EmployeeFeedAction.animal = animal;
     }
 
-    public static void setAnimalFood(AnimalFood animalFood) {
-        EmployeeFeedAction.animalFood = animalFood;
-    }
+//    public static void setAnimalFood(AnimalFood animalFood) {
+//        EmployeeFeedAction.animalFood = animalFood;
+//    }
 
     @Override
     protected boolean checkTool() {
@@ -33,16 +33,16 @@ public class EmployeeFeedAction extends EmployeeBreedAction {
             System.out.println("You haven't specified an animal to feed.");
             return false;
         }
-        if(animalFood == null){
-            System.out.println("You haven't specified a food.");
-            return false;
-        }
+//        if(animalFood == null){
+//            System.out.println("You haven't specified a food.");
+//            return false;
+//        }
         return true;
     }
 
     @Override
     protected void execute() {
-        animal.eat(animalFood);
+//        animal.eat(animalFood);
         System.out.println("Feeding complete.");
     }
 }
