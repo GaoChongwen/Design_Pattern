@@ -4,19 +4,19 @@ import action.person.PersonAction;
 import base.Person;
 
 /**
- * @author Chudi LAN
- * @version 2018-10-28
- *
  * Design-Pattern: Template Method
  *
- *      Employees can only execute an action if the tool and skill satisfy the task.
+ * <p>The template methods <code>checkTool()</code> and <p>checkSkill()</p> indicates
+ * that Employee can only execute an action if the tool and skill satisfy the task.</p>
  *
+ * @author Chudi LAN
+ * @version 2018-10-28
  *
  */
 abstract public class EmployeeAction extends PersonAction {
     @Override
     protected boolean checkCondition() {
-        /** 1. check employee assigned. */
+        /* 1. check employee assigned. */
         if(getTarget()==null){
             System.out.println("You haven't assigned an employee.");
             return false;
@@ -25,7 +25,7 @@ abstract public class EmployeeAction extends PersonAction {
         if(!checkSkill()){
             return false;
         }
-        /* 2. check corresponding tool. */
+        /* 3. check tool. */
         if(!checkTool()){
             return false;
         }

@@ -1,6 +1,6 @@
-package base;
+package designPatterns.observer.messageBoard;
 
-import singleton.MessageBoard;
+import designPatterns.observer.utils.FarmObj;
 
 import java.util.ArrayList;
 import java.util.Observable;
@@ -11,6 +11,7 @@ import java.util.Observer;
  * Design-Pattern: Singleton, Double Checked Locking, Observer, Mediator
  */
 abstract public class Person extends FarmObj implements Observer {
+
     protected ArrayList<String> messages;
 
     protected Person() {
