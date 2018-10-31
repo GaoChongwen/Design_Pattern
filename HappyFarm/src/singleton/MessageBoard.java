@@ -32,16 +32,21 @@ public class MessageBoard extends Observable {
         messages.add(new Date().toString()
                 + " [" + person.getName() +"] : " + message);
         ourInstance.notifyObservers();
-        if(designPatternMode == DesignPatternMode.Default)
-            showMessages();
+        if(designPatternMode == DesignPatternMode.MediatorPattern) {
+            System.out.println("                    [ Mediator Pattern]                      ");
+            System.out.println("Person: leaveMessage(): a user is sending message via message board.");
+        }
+        showMessages();
     }
 
     public static void showMessages(){
-        System.out.println("--------------- Message Bord ---------------");
+        if(designPatternMode == DesignPatternMode.MediatorPattern)
+            System.out.println("Person: showMessage(): Message board show messages as a mediator.");
+        System.out.println("-------------------------- Message Bord ------------------------------\n");
         for(String m : messages){
             System.out.println(m);
         }
-        System.out.println();
+        System.out.println("\n----------------------------------------------------------------------\n\n");
     }
 
     /**
