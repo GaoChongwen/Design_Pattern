@@ -80,20 +80,23 @@ public class ChickShed extends AnimalHouse {
 
     // 判断鸡窝是否为空
     public boolean isEmpty() {
-       if (animals[0] == null) {
-           return true;
-       }
-       return false;
+        for (int i = 0; i < capacity; ++i) {
+            if (animals[i] != null) {
+                return false;
+            }
+        }
+        return true;
     }
 
     // 获取小鸡数量
     public int getChickCount() {
+        int count = 0;
         for (int i = 0; i < capacity; ++i) {
-            if (animals[i] == null) {
-                return i;
+            if (animals[i] != null) {
+                count += 1;
             }
         }
-        return capacity;
+        return count;
     }
 
     // 从鸡窝中移除小鸡，鸡窝为空，移除失败
