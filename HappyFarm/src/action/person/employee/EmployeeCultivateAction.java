@@ -1,6 +1,5 @@
 package action.person.employee;
 
-import action.person.employee.EmployeeAction;
 import person.Employee;
 import utils.Enum.EmployeeSkill;
 
@@ -25,14 +24,21 @@ abstract public class EmployeeCultivateAction extends EmployeeAction {
      */
     @Override
     protected boolean checkSkill() {
+        templateMethodOutput("step 1_1_1. checkSkill", "checking cultivation skill.");
         if(!((Employee)getTarget()).hasSkill(EmployeeSkill.cultivation)){
-            System.out.println("Employee "+((Employee) getTarget()).getName()+" doesn't have cultivation skill.");
+            templateMethodOutput("step 1_1_2. checkSkill","Employee: "+getTarget().getName()+": doesn't have cultivation skill.");
             return false;
         }
         return true;
     }
 
     abstract protected boolean checkTool();
+    abstract public void execute(boolean success);
 
-    abstract protected void execute();
+    protected String getClassName() {
+        return "EmployeeCultivateAction";
+    }
+    protected String getObjectID() {
+        return "";
+    }
 }

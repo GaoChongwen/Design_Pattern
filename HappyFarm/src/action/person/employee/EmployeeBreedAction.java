@@ -1,6 +1,5 @@
 package action.person.employee;
 
-import action.person.employee.EmployeeAction;
 import person.Employee;
 import utils.Enum.EmployeeSkill;
 
@@ -10,18 +9,25 @@ import utils.Enum.EmployeeSkill;
  * Design-Pattern: Template Method, Strategy
  */
 public abstract class EmployeeBreedAction extends EmployeeAction {
-    @Override
-    abstract protected boolean checkTool();
 
     @Override
     protected boolean checkSkill() {
-        System.out.println("Checking breeding skill.");
+        templateMethodOutput("step 1_1_1. checkSkill","checking breeding skill.");
         if(!((Employee)getTarget()).hasSkill(EmployeeSkill.breeding)){
-            System.out.println("Employee "+getTarget().getName()+" doesn't have breeding skill.");
+            templateMethodOutput("step 1_1_2. checkSkill","Employee: "+getTarget().getName()+": doesn't have breeding skill.");
             return false;
         }
         return true;
     }
 
-    abstract protected void execute();
+    @Override
+    abstract protected boolean checkTool();
+    abstract public void execute(boolean success);
+
+    protected String getClassName() {
+        return "EmployeeBreedAction";
+    }
+    protected String getObjectID() {
+        return "";
+    }
 }

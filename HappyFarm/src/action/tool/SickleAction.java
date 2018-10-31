@@ -1,34 +1,30 @@
 package action.tool;
 
 
-import propComp.tools.Tool;
-import utils.Enum.PlantType;
-
-
 /**
  * @author Chudi LAN
  * @version 2018-10-28
  */
 public class SickleAction extends  ToolAction{
     public SickleAction(){
-
+        templateMethodOutput("constructor", "I am created.");
     }
 
     @Override
     public boolean harvest() {
-        System.out.println("Harvesting with Sickle.");
+        //templateMethodOutput("harvest", "harvesting with sickle.");
         return true;
     }
 
-    @Override
-    public boolean harvest(PlantType plantType) {
-        System.out.println("Harvesting "+plantType+" with Sickle.");
-        return true;
+    protected String getClassName() {
+        return "SickleAction";
+    }
+    protected String getObjectID() {
+        return "";
     }
 
     @Override
-    public boolean harvestWheat() {
-        System.out.println("Harvesting wheat with sickle.");
-        return true;
+    public void execute(boolean success) {
+
     }
 }

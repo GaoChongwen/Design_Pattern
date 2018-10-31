@@ -1,24 +1,19 @@
 package action.person.farmer;
 
-import action.person.farmer.FarmerAction;
-import base.FarmObj;
+import store.Store;
 
 /**
  * @author Chudi LAN
  * @version 2018-10-30
  */
 public class FarmerSellAction extends FarmerAction {
-    private static String itemName = null;
-    private static int count = -1;
+    private  String itemName = null;
 
     private volatile static FarmerSellAction instance = new FarmerSellAction();
     private FarmerSellAction(){
-        super();
-        System.out.println("FarmerSellAction is created.");
+        templateMethodOutput("constructor","I am created.");
     }
     public static FarmerSellAction getInstance() {
-        itemName = null;
-        count = -1;
         return instance;
     }
 
@@ -30,29 +25,40 @@ public class FarmerSellAction extends FarmerAction {
      */
     @Override
     protected boolean checkCondition() {
+        templateMethodOutput("step 1_1. checkCondition","checking item name.");
         if(itemName == null){
             System.out.println("You haven't specified an itemName to FarmerSellAction.");
             return false;
         }
-        if(count == -1){
-            System.out.println("You haven't specified count to FarmerSellAction.");
-            return false;
-        }
         return true;
-//       return Store.getInstance().sell(itemName, count);
     }
 
     @Override
-    protected void execute() {
-//        Store.getInstance().sell(itemName,count);
-//        System.out.println(itemName+" sold successfully.");
+    public void execute(boolean success) {
+        if(success) {
+            templateMethodOutput("1_2_1. execute", "selling item " + itemName);
+            strategyPatternOutput("FarmerSellAction: execute(true)", "sell action success strategy");
+            if (Store.getInstance().sellCommity(itemName)) {
+                templateMethodOutput("1_2_2 execute", itemName + " sold successfully.");
+            } else {
+                templateMethodOutput("1_2_2 execute", "failed to sell " + itemName);
+            }
+        } else {
+            strategyPatternOutput("FarmerSellAction: execute(false)", "sell action failed strategy");
+        }
     }
 
-    public static void setItemName(String itemName) {
-        FarmerSellAction.itemName = itemName;
+    public FarmerSellAction setItemName(String itemName) {
+//        templateMethodOutput("setItemName", "an item name is specified.");
+        this.itemName = itemName;
+        return instance;
     }
 
-    public static void setCount(int count) {
-        FarmerSellAction.count = count;
+
+    protected String getClassName() {
+        return "FarmerSellAction";
+    }
+    protected String getObjectID() {
+        return "instance";
     }
 }

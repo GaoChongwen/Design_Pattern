@@ -10,19 +10,20 @@ import building.farmland.FarmLand;
  * Design-Pattern: Singleton, Template Method.
  */
 public class EmployeeSowSeedAction extends EmployeeCultivateAction {
-    private static Plant seed = null;
-    private static FarmLand farmLand = null;
+    private  Plant seed = null;
+    private  FarmLand farmLand = null;
 
     private volatile static EmployeeSowSeedAction instance = new EmployeeSowSeedAction();
-    private EmployeeSowSeedAction(){}
+    private EmployeeSowSeedAction(){
+        templateMethodOutput("constructor", "I am created.");
+    }
     public static EmployeeSowSeedAction getInstance() {
-        seed = null;
-        farmLand = null;
         return instance;
     }
 
     @Override
     protected boolean checkTool() {
+        templateMethodOutput("step 1_1_2. checkTool","checking seed and farmland");
         if(seed == null){
             System.out.println("You haven't specified a seed to plant.");
             return false;
@@ -35,15 +36,26 @@ public class EmployeeSowSeedAction extends EmployeeCultivateAction {
     }
 
     @Override
-    protected void execute() {
-        farmLand.plant(seed);
+    public void execute(boolean success) {
+        if(success) {
+            templateMethodOutput("step 1_2. execute", "an employee is sowing seed");
+            strategyPatternOutput("EmployeeSowSeedAction: execute(true)", "sow seed action success strategy");
+            farmLand.plant(seed);
+        }else {
+            strategyPatternOutput("EmployeeSowSeedAction: execute(false)", "sow seed action failed strategy");
+        }
     }
 
-    public static void setFarmLand(FarmLand farmLand) {
-        EmployeeSowSeedAction.farmLand = farmLand;
+    public  EmployeeSowSeedAction setFarmLand(FarmLand farmLand) {
+        //templateMethodOutput("setFarmLand", "a farm land is specified.");
+        this.farmLand = farmLand;
+        return instance;
     }
 
-    public static void setSeed(Plant seed) {
-        EmployeeSowSeedAction.seed = seed;
+    public  EmployeeSowSeedAction setSeed(Plant seed) {
+        //templateMethodOutput("setSed", "a seed is specified.");
+        this.seed = seed;
+        return instance;
     }
+
 }

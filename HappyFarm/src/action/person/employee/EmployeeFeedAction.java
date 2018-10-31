@@ -1,47 +1,48 @@
 package action.person.employee;
 
-import base.animal.Animal;
+import building.shed.AnimalHouse;
 
 /**
  * @author Chudi LAN
  * @version 2018-10-29
  */
 public class EmployeeFeedAction extends EmployeeBreedAction {
-//    private static AnimalFood animalFood = null;
-    private static Animal animal;
+    private AnimalHouse animalHouse;
 
     private volatile static EmployeeFeedAction instance = new EmployeeFeedAction();
-    private EmployeeFeedAction(){}
+    private EmployeeFeedAction(){
+        templateMethodOutput("constructor", "I am created.");
+    }
     public static EmployeeFeedAction getInstance(){
-//        animalFood = null;
-        animal = null;
         return instance;
     }
 
-    public static void setAnimal(Animal animal) {
-        EmployeeFeedAction.animal = animal;
+    public EmployeeFeedAction setAnimalHouse(AnimalHouse animalHouse) {
+        templateMethodOutput("setAnimalHouse", "an animal house is specified.");
+        this.animalHouse = animalHouse;
+        return instance;
     }
 
-//    public static void setAnimalFood(AnimalFood animalFood) {
-//        EmployeeFeedAction.animalFood = animalFood;
-//    }
 
     @Override
     protected boolean checkTool() {
-        if(animal == null){
-            System.out.println("You haven't specified an animal to feed.");
+        templateMethodOutput("step 1_1_2. checkTool", "checking animal house.");
+        if(animalHouse == null){
+            templateMethodOutput("step 1_1_2. checkTool", "no animal house is specified.");
             return false;
         }
-//        if(animalFood == null){
-//            System.out.println("You haven't specified a food.");
-//            return false;
-//        }
         return true;
     }
 
     @Override
-    protected void execute() {
-//        animal.eat(animalFood);
-        System.out.println("Feeding complete.");
+    public void execute(boolean success) {
+        if(success) {
+            templateMethodOutput("step 1_2. execute", "feeding an animal.");
+            strategyPatternOutput("EmployeeFeedAction: execute(true)", "feed action success strategy");
+            animalHouse.feed();
+        }
+        else {
+            strategyPatternOutput("EmployeeFeedAction: execute(false)", "feed action failed strategy");
+        }
     }
 }

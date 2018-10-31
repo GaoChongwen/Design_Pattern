@@ -2,9 +2,11 @@ package action.person.farmer;
 
 import animal.Cow;
 import base.FarmObj;
+import base.Produce;
 import base.animal.Animal;
 import base.plant.Plant;
 import processSystem.ProcessMaker;
+import singleton.Farm;
 
 /**
  * @author Chudi LAN
@@ -12,15 +14,16 @@ import processSystem.ProcessMaker;
  * Design-Pattern: Template Method
  */
 public class FarmerProcessAction extends FarmerAction{
-    private static FarmObj farmObj = null;
+
+    private FarmObj farmObj = null;
+
 
     private volatile static FarmerProcessAction instance = new FarmerProcessAction();
     private FarmerProcessAction(){
         super();
-        System.out.println("FarmerProcessAction instance is created.");
+        templateMethodOutput("constructor","I am created.");
     }
     public static FarmerProcessAction getInstance(){
-        farmObj = null;
         return instance;
     }
 
@@ -31,29 +34,52 @@ public class FarmerProcessAction extends FarmerAction{
      */
     @Override
     protected boolean checkCondition() {
-        System.out.println("FarmerProcessAction instance is checking conditions.");
+        templateMethodOutput("step 1_1. checkCondition", "checking item.");
         if(farmObj == null){
-            System.out.println("You haven't specified which farmObj to process.");
+            System.out.println("ERROR: You haven't specified which item to process.");
             return false;
         }
         return true;
     }
 
 
-    @Override
-    protected void execute() {
-        System.out.println("FarmerProcessAction instance is executing.");
-        if(farmObj.getName().length() > 2 && farmObj.getName().substring(0, 3) == "cow"){
-            ProcessMaker.getInstance().processCow((Cow) farmObj);
-        }else if(farmObj.getType()=="Animal"&&farmObj.getName().length() > 2 && farmObj.getName().substring(0, 3) != "cow"){
-            ProcessMaker.getInstance().processMeat((Animal)farmObj);
-        }else if(farmObj.getType()=="Plant"){
-            ProcessMaker.getInstance().processPlant((Plant)farmObj);
-        }
+    public FarmerProcessAction setFarmObj(FarmObj farmObj) {
+        //System.out.println("FarmObj "+farmObj.getName()+" is set to FarmerProcessAction.");
+        this.farmObj = farmObj;
+        return instance;
     }
 
-    public static void setFarmObj(FarmObj farmObj) {
-        System.out.println("FarmObj "+farmObj.getName()+" is set to FarmerProcessAction.");
-        FarmerProcessAction.farmObj = farmObj;
+    @Override
+    public void execute(boolean success) {
+        if(success) {
+            templateMethodOutput("step 1_2. execute", "processing a farmObj.");
+            strategyPatternOutput("FarmerProcessAction: execute(true)", "process action success strategy");
+            Produce product = null;
+            if(farmObj.getName().length() > 2 && farmObj.getName().substring(0, 3).equals("cow")){
+                templateMethodOutput("step 1_2_1. execute","producing milk");
+                product = (ProcessMaker.getInstance().processCow((Cow) farmObj));
+            }
+            else if(farmObj.getType().equals("Animal")&&farmObj.getName().length() > 2 && !farmObj.getName().substring(0, 3).equals("cow")){
+                templateMethodOutput("step 1_2_1. execute","producing meat");
+                product =(ProcessMaker.getInstance().processMeat((Animal)farmObj));
+            }
+            else if(farmObj.getType().equals("Plant")){
+                templateMethodOutput("step 1_2_1.execute","producing fodder.");
+                product =(ProcessMaker.getInstance().processPlant((Plant)farmObj));
+             if(product != null){
+                 // todo add to prop bag
+             }
+        }
+        }else {
+            strategyPatternOutput("FarmerProcessAction: execute(false)", "process action failed strategy");
+        }
     }
+    protected String getClassName() {
+        return "FarmerProcessAction";
+    }
+
+    protected String getObjectID() {
+        return "instance";
+    }
+
 }

@@ -21,13 +21,13 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
     protected boolean idle;
     protected Plant plant;
     protected LandAdaptor adaptor;
-    protected DesignPatternMode DesignPattern;
+    protected static DesignPatternMode DesignPattern;
 
     protected FarmLand() {
         this.idle = true;
         this.adaptor = null;
         this.plant = null;
-        this.DesignPattern=null;
+        DesignPattern=null;
     }
 
     // 获取土地种类名
@@ -56,7 +56,6 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
     // 挂载适配器
     public void use(LandAdaptor landAdaptor) {
         this.adaptor = landAdaptor;
-        System.out.println();
         System.out.println(landType + " Adaptor works.");
     }
 
@@ -72,7 +71,10 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
         if(DesignPattern==DesignPatternMode.AdaptorPattern){
             System.out.println("- Adaptor Pattern | "+landType+" method: plant(Plant p)");
         }
-        if (idle && (p.plant(landType) || (adaptor != null && adaptor.plant(p)))) {
+        if(!idle){
+            System.out.println(landType+" is not idle, can't plant "+p.getName());
+        }
+        if (p.plant(landType) || (adaptor != null && adaptor.plant(p))) {
             plant = p;
             idle = false;
             System.out.println(landType + " plant " + p.getName() + " success");
@@ -90,6 +92,10 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
      */
     @Override
     public void update(Observable o, Object arg) {
+        if(DesignPattern==DesignPatternMode.ObserverPattern){
+            System.out.println("Observer Pattern | "+landType+" method: update(Observable o, Object arg) -> to grow FarmObj in "+landType);
+        }
+
         if (plant == null) {
             return;
         }
@@ -109,7 +115,7 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
         return clone;
     }
 
-    public void setDesignPattern(DesignPatternMode designPattern){
-        DesignPattern=designPattern;
+    public static void setDesignPattern(DesignPatternMode designPatter){
+        DesignPattern=designPatter;
     }
 }

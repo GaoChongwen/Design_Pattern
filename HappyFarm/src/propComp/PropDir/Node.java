@@ -5,6 +5,14 @@ import base.Item;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @Design-Pattern: Composite Pattern
+ * @description: Node类 继承于PropDir 文件夹节点 可以添加文件以及文件夹
+ * @version 2018/10/30
+ * @author jihao luo
+ *
+ */
+
 public class Node extends PropDir {
     private String nodeName;
     protected int type = 0;

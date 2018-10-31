@@ -21,13 +21,13 @@ public class State {
             Random ra = new Random();
             int num = ra.nextInt(2) + 1;
             if(num==1){
-                animals[i]=((AnimalFactory) animalFactory).createAnimal("chicken");
+                animals[i]=animalFactory.createAnimal("chicken");
             }
             else if(num==2){
-                animals[i]=((AnimalFactory) animalFactory).createAnimal("cow");
+                animals[i]=animalFactory.createAnimal("cow");
             }
             else if(num==3){
-                animals[i]=((AnimalFactory) animalFactory).createAnimal("pig");
+                animals[i]=animalFactory.createAnimal("pig");
             }
             else{
                 System.out.println("system error");

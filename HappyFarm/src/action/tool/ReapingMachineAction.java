@@ -1,34 +1,28 @@
 package action.tool;
 
-
-import propComp.tools.Tool;
-import utils.Enum.PlantType;
-
-
-
 /**
  *
  */
 public class ReapingMachineAction extends ToolAction {
     public ReapingMachineAction(){
-    }
-
-    @Override
-    public boolean harvest(PlantType plantType) {
-        System.out.println("Harvesting "+plantType+" with Reaping Machine.");
-        return true;
+        templateMethodOutput("constructor","I am created.");
     }
 
     @Override
     public boolean harvest() {
-        System.out.println("Harvesting with Reaping Machine.");
+        //templateMethodOutput("harvest","harvesting with reaping machine.");
         return true;
+    }
+
+    protected String getClassName() {
+        return "ReapingMachineAction";
+    }
+    protected String getObjectID() {
+        return "";
     }
 
     @Override
-    public boolean harvestWheat() {
-        System.out.println("Harvesting reap with Reaping Machine.");
-        return true;
-    }
+    public void execute(boolean success) {
 
+    }
 }

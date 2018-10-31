@@ -1,6 +1,7 @@
 package building.farmland;
 
 import factory.FarmLandFactory;
+import utils.Enum.DesignPatternMode;
 import utils.Enum.FarmLandType;
 
 /**
@@ -14,6 +15,8 @@ public class CornField extends FarmLand {
         super();
         this.landType = FarmLandType.cornField;
         FarmLandFactory.getInstance().putFarmLand(this);
-        System.out.println("CornField initial once");
+        if(DesignPattern== DesignPatternMode.PrototypePattern){
+            System.out.println("CornField initial once");
+        }
     }
 }

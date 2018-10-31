@@ -1,24 +1,30 @@
 package sampleProgram;
 
+import store.Criteria.Criteria;
+import test.Iterator.IteratorDemo;
+import test.abstractFactory.FactoryDemo1;
 import test.adaptor.AdaptorPatternDemo1;
 import test.adaptor.AdaptorPatternDemo2;
 import test.bridge.Bridge;
 import test.builder.Builder;
 import test.chainOfResponsibility.COR_Demo1;
+import test.composite.CompositePatternDemo;
 import test.compositeEntity.CompositeEntityPatternDemo;
 import test.decorator.DecoratorPatternDemo;
-import test.factoryMethod.FactoryDemo1;
+import test.factoryMethod.*;
+import test.filter.CriteriaTest;
 import test.flyweight.FlyweightPatternDemo;
 import test.mediator.Mediator;
+import test.observer.Observer;
 import test.prototype.PrototypeDemo1;
 import test.singleton.Singleton;
 import test.singleton.SingletonDemo2;
+import test.specification.Specification;
 import test.state.State;
+import test.strategy.Strategy;
 import test.templateMethod.TemplateMethod;
 import test.visitor.VisitorPatternDemo;
 
-import java.util.ArrayList;
-import java.util.Observer;
 import java.util.Scanner;
 
 public class Main {
@@ -72,13 +78,17 @@ public class Main {
         while (!input.equals("0")) {
             switch (input) {
                 case "1":
-//                    AbstractFactoryDemo.main(args);
+                    FactoryDemo1.main(args);
                     break;
                 case "2":
                     Builder.main(args);
                     break;
                 case "3":
-//                    FactoryDemo1.main(args);
+                    FactoryPatternDemo1.main(args);
+                    FactoryPatternDemo2.main(args);
+                    FactoryPatternDemo3.main(args);
+                    FactoryPatternDemo4.main(args);
+                    FactoryPatternDemo5.main(args);
                     break;
                 case "4":
                     PrototypeDemo1.main(args);
@@ -97,7 +107,7 @@ public class Main {
                     DecoratorPatternDemo.main(args);
                     break;
                 case "9":
-//                    CompositeDemo.main(args);
+                    CompositePatternDemo.main(args);
                     break;
                 case "10":
                     AdaptorPatternDemo1.main(args);
@@ -107,22 +117,22 @@ public class Main {
                     Bridge.main(args);
                     break;
                 case "12":
-//                    FilterDemo.main(args);
+                    CriteriaTest.main(args);
                     break;
                 case "13":
-//                    FactoryDemo.main(args);
+//                    FacadeDemo.main(args);
                     break;
                 case "14":
-//                    StrategyDemo.main(args);
+                    Strategy.main(args);
                     break;
                 case "15":
-//                    TemplateMethodDemo.main(args);
+                    TemplateMethod.main(args);
                     break;
                 case "16":
-//                    ObserverDemo.main(args);
+                    Observer.main(args);
                     break;
                 case "17":
-//                    IteratorDemo.main(args);
+                    IteratorDemo.main(args);
                     break;
                 case "18":
                     COR_Demo1.main(args);
@@ -152,7 +162,7 @@ public class Main {
                     CompositeEntityPatternDemo.main(args);
                     break;
                 case "27":
-//                    SpecificationDemo.main(args);
+                    Specification.main(args);
                     break;
                 case "28":
 //                    DoubleCheckedLockingDemo.main(args);

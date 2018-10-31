@@ -3,6 +3,9 @@ package processSystem;
 import animal.Cow;
 import base.animal.Animal;
 import base.plant.Plant;
+import produce.AnimalFood;
+import produce.CookedFood;
+import produce.Milk;
 
 /**
  * Design-Pattern: SingleTon, Facade
@@ -26,22 +29,24 @@ public class ProcessMaker {
         plantProcessor = new PlantProcessor();
     }
 
-    public void processCow(Cow cow) {
-        if (cow.getName().length() > 2 && cow.getName().substring(0, 3) == "cow") {
-            cowProcessor.process(cow);
+    public Milk processCow(Cow cow) {
+        if (cow.getName().length() > 2 && cow.getName().substring(0, 3).equals("cow")) {
+            return (Milk) cowProcessor.process(cow);
         }
+        return null;
     }
 
-    public void processMeat(Animal animal) {
-        if(animal.getName().length() > 2 && !(animal.getName().substring(0, 3) == "cow")){
-            meatProcessor.process(animal);
+    public CookedFood processMeat(Animal animal) {
+        if(animal.getName().length() > 2 && !(animal.getName().substring(0, 3).equals("cow"))){
+            return (CookedFood) meatProcessor.process(animal);
         }
-
+        return null;
     }
 
-    public void processPlant(Plant plant) {
-        if(plant.getType()=="Plant"){
-            plantProcessor.process(plant);
+    public AnimalFood processPlant(Plant plant) {
+        if(plant.getType().equals("Plant")){
+            return (AnimalFood) plantProcessor.process(plant);
         }
+        return null;
     }
 }

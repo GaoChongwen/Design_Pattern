@@ -1,5 +1,4 @@
 package action.person;
-import action.ActionStrategy;
 import base.Action;
 
 /**
@@ -14,9 +13,12 @@ abstract public class PersonAction extends Action{
      */
     @Override
     protected void doSomething() {
-        System.out.println("Performing PersonAction.");
-        if(checkCondition()){
-            execute();
+        templateMethodOutput("step 1. doSomething","a person is performing an action.");
+        if(checkCondition()){           // step 1_1
+            execute(true);                  // step 1_2
+        }else {
+            templateMethodOutput("step 1_2. execute", "failed to execute.");
+            execute(false);
         }
     }
 
@@ -27,5 +29,13 @@ abstract public class PersonAction extends Action{
      */
     protected abstract boolean checkCondition();
 
-    abstract protected void execute();
+    abstract public void execute(boolean success);
+
+    protected String getClassName() {
+        return "Person Action";
+    }
+
+    protected String getObjectID() {
+        return "";
+    }
 }

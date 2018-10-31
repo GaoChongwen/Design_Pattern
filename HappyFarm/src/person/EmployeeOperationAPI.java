@@ -2,7 +2,9 @@ package person;
 
 import base.FarmObj;
 import base.animal.Animal;
+import base.plant.Plant;
 import building.farmland.FarmLand;
+import building.shed.AnimalHouse;
 import utils.Enum.PlantType;
 
 /**
@@ -39,4 +41,10 @@ public interface EmployeeOperationAPI {
 
     /** water a chosen farmland. */
     public void water(FarmLand farmLand);
+
+    public void harvest(FarmLand farmLand, String tool);
+
+    public void killAnimals(AnimalHouse animalHouse);
+
+    public void sowSeeds(FarmLand farmLand, Plant plant);
 }

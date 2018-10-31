@@ -3,6 +3,7 @@ package plant;
 import base.plant.Plant;
 import factory.PlantFactory;
 import utils.Context;
+import utils.Enum.DesignPatternMode;
 import utils.Enum.FarmLandType;
 import utils.Enum.PlantType;
 
@@ -20,9 +21,11 @@ public class Cabbage extends Plant {
         this.type = PlantType.cabbage;
         this.stockPrice = Context.cabbage_stockPrice;
         this.salePrice = Context.cabbage_salePrice;
-        this.reqLandType= FarmLandType.vegtbField;
+        this.reqLandType = FarmLandType.vegtbField;
         PlantFactory.getInstance().putPlant(this);
-        System.out.println("cabbage initial once");
-    }
+        if (designPattern == DesignPatternMode.PrototypePattern) {
+            System.out.println("Prototype Pattern | Cabbage: method Cabbage() -> Cabbage initial once");
+        }
 
+    }
 }

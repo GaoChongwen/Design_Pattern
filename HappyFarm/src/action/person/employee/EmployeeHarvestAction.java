@@ -1,7 +1,6 @@
 package action.person.employee;
 
 import base.FarmObj;
-import base.plant.Plant;
 import building.farmland.FarmLand;
 import propComp.tools.Tool;
 
@@ -11,7 +10,7 @@ import propComp.tools.Tool;
  * The class <coode>EmployeeHarvestAction</coode> is a singleton, which cannot be
  * instantiated by anyone.
  *
- * The method {@link EmployeeHarvestAction#execute()} is realized, which can be
+ * The method {@link EmployeeHarvestAction#execute(boolean)} is realized, which can be
  * executed only if all the targets of the harvest action is set.
  *
  * @author Chudi LAN
@@ -22,19 +21,22 @@ public class EmployeeHarvestAction extends EmployeeCultivateAction {
     private  Tool harvestTool = null;
 
     private volatile static EmployeeHarvestAction instance = new EmployeeHarvestAction();
-    private EmployeeHarvestAction(){}
+    private EmployeeHarvestAction(){
+        templateMethodOutput("constructor", "I am created.");
+    }
     public static EmployeeHarvestAction getInstance() {
         return instance;
     }
 
     @Override
     protected boolean checkTool() {
+        templateMethodOutput("step 1_1_2. checkTool","checking farmland and harvest tool.");
         if(farmLand==null){
-            System.out.println("You haven't specified a farmland to harvest.");
+            System.out.println("ERROR: You haven't specified a farmland to harvest.");
             return false;
         }
         if(harvestTool==null){
-            System.out.println("You haven't specified a tool to harvest.");
+            System.out.println("ERROR: You haven't specified a tool to harvest.");
             return false;
         }
         return true;
@@ -49,17 +51,27 @@ public class EmployeeHarvestAction extends EmployeeCultivateAction {
      *      3. A tool is sepcified by {@link #setHarvestTool(Tool)}
      */
     @Override
-    protected void execute() {
-        System.out.println("EmployeeHarvestAction is executing.");
-        farmLand.harvest();
+    public void execute(boolean success) {
+        if(success){
+            templateMethodOutput("step 1_2. execute", "harvesting in a farmland.");
+            strategyPatternOutput("EmployeeHarvestAction: execute(true)","harvest action success strategy");
+            farmLand.harvest();
+        }else {
+            strategyPatternOutput("EmployeeHarvestAction: execute(false)", "harvest action success strategy");
+
+        }
     }
 
-    public  void setFarmLand(FarmLand farmLand) {
-        System.out.println(farmLand.getName()+" is set to EmployeeHarvestAction.");
+    public  EmployeeHarvestAction setFarmLand(FarmLand farmLand) {
+//       templateMethodOutput("setFarmLand", "a farmland is specified.");
         this.farmLand = farmLand;
+        return instance;
     }
 
-    public  void setHarvestTool(Tool harvestTool) {
+    public EmployeeHarvestAction setHarvestTool(Tool harvestTool) {
+//        templateMethodOutput("setHarvestTool", "a harvest tool is specified.");
         this.harvestTool = harvestTool;
+        return instance;
     }
+
 }

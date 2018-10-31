@@ -3,6 +3,7 @@ package plant;
 import base.plant.Plant;
 import factory.PlantFactory;
 import utils.Context;
+import utils.Enum.DesignPatternMode;
 import utils.Enum.FarmLandType;
 import utils.Enum.PlantType;
 
@@ -22,7 +23,9 @@ public class Wheat extends Plant {
         this.salePrice = Context.wheat_salePrice;
         this.reqLandType = FarmLandType.cornField;
         PlantFactory.getInstance().putPlant(this);
-        System.out.println("wheat initial once");
+        if(designPattern== DesignPatternMode.PrototypePattern){
+            System.out.println("Prototype Pattern | Wheat: method Apple() -> Wheat initial once");
+        }
 
     }
 
