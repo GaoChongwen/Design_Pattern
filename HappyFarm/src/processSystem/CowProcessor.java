@@ -1,4 +1,4 @@
-package process;
+package processSystem;
 
 import base.FarmObj;
 import base.Produce;
@@ -6,7 +6,7 @@ import base.animal.Animal;
 import factory.ProduceFactory;
 import utils.Enum.ProduceType;
 
-public class CowProcessor implements ProcessAPI{
+public class CowProcessor implements ProcessAPI {
     protected boolean designPattern = false;
 
     public Produce process(FarmObj obj){
@@ -40,7 +40,6 @@ public class CowProcessor implements ProcessAPI{
             System.out.println("Facade Pattern | AnimalProcessor pack the "+animal.getName());
             return;
         }
-        System.out.println("AnimalProcessor pack the "+animal.getName()+" ...");
     }
     protected Produce createAnimalFood(){
         return ProduceFactory.getInstance().createProduce(ProduceType.milk.toString());

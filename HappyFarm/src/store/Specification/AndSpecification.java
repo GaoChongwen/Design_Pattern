@@ -1,6 +1,6 @@
 package store.Specification;
 
-import base.Item;
+import base.plant.Plant;
 
 public class AndSpecification extends CompositeSpecification {
     //传递两个规格书进行and操作
@@ -13,7 +13,7 @@ public class AndSpecification extends CompositeSpecification {
     }
     //进行and运算
     @Override
-    public boolean isSatisfiedBy(Item item) {
+    public boolean isSatisfiedBy(Plant item) {
         return left.isSatisfiedBy(item) && right.isSatisfiedBy(item);
     }
 }

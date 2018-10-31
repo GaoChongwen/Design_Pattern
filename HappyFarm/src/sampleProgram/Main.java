@@ -27,14 +27,14 @@ public class Main {
         System.out.println("=======================================================================");
         System.out.println("====================== Welcome to Happy Farm! =========================");
         System.out.println("=======================================================================");
-	    System.out.println("* 欢迎来到快乐农场，农场中有五个元素：农场主的房子、种植园、牲畜园、商店和雇员。 *");
+        System.out.println("* 欢迎来到快乐农场，农场中有五个元素：农场主的房子、种植园、牲畜园、商店和雇员。 *");
         System.out.println("* 种植园：有4块不同种类的土地，分别对应不同种类的植物，种植和收割的工作是雇员的；*");
         System.out.println("* 牲畜园：有1个鸡窝和1个牛棚，鸡窝可以容纳40只鸡，牛棚可以容纳40头牛；         *");
         System.out.println("* 商店：主要出售种子、动物幼崽、道具、雇员；                                *");
         System.out.println("=======================================================================");
         System.out.println("整个项目涉及到28个设计模式：");
-	    System.out.println("1. Abstract Factory");
-	    System.out.println("2. Builder");
+        System.out.println("1. Abstract Factory");
+        System.out.println("2. Builder");
         System.out.println("3. Factory Method");
         System.out.println("4. Prototype");
         System.out.println("5. Singleton");
@@ -166,5 +166,5 @@ public class Main {
                 input = scanner.next();
             }
         }
-
+    }
 }

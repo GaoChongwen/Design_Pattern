@@ -45,7 +45,7 @@ public class TemplateMethod {
         chickShed.addAnimal(chicken1);
         chickShed.addAnimal(chicken2);
         chickShed.addAnimal(chicken3);
-        Farm.initialFarmObj();
+        Farm.getInstance().initialFarmObj();
         AppleAdaptor appleAdaptor = (AppleAdaptor) AdaptorFactory.getInstance().createAdaptor("appleField");
 
 
@@ -162,8 +162,15 @@ public class TemplateMethod {
         /* 加工demo */
         // 1. 指定加工操作
         FarmerProcessAction processAction = FarmerProcessAction.getInstance();
+        processAction.setTemplateMethodMode(true);
         // 2. 指定加工对象
-        // todo...
+        processAction.setFarmObj(wheat);
+        System.out.println("" +
+                "\n====================================================================" +
+                "\n Scenario 7:" +
+                "\n     The farmer tries to process a harvested wheat "+
+                "\n====================================================================");
+        processAction.doAction();
 
         /* 使用Adaptor Demo */
         // 1. 指定操作

@@ -1,10 +1,10 @@
 package store.Specification;
 
-import base.Item;
+import base.plant.Plant;
 
 public abstract class CompositeSpecification implements ISpecification{
     //是否满足条件有实现类实现
-    public abstract boolean isSatisfiedBy(Item item);
+    public abstract boolean isSatisfiedBy(Plant item);
     //and操作
     public ISpecification and(ISpecification spec) {
         return new AndSpecification(this,spec);

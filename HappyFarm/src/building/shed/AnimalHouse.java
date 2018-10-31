@@ -53,7 +53,13 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
         public Object next() {
             Animal animal = animals[curPos];
             curPos++;
-            return animals;
+            return animal;
+        }
+
+        public FarmObj m_next(){
+            Animal animal = animals[curPos];
+            curPos++;
+            return animal;
         }
     }
 
@@ -74,6 +80,7 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
             if(animals[i]!=null&&animals[i].isMature){
                 animals[i].shouldRemove=true;
                 ret.add(animals[i]);
+                System.out.println(animals[i].getName()+" has been killed");
                 //System.out.println("您是想卖掉这只"+animals[i].getName()+"还是想加工它呢？");
             }
         }

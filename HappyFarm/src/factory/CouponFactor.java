@@ -9,6 +9,13 @@ import utils.Enum.PlantType;
 import java.util.Hashtable;
 import java.util.Map;
 
+/**
+ * @Design-Pattern: Static Factory Method,Singleton Pattern，Prototype
+ * @description: CouponFactor类 用于生成兑换券实例
+ * @version 2018/10/30
+ * @author jihao luo
+ *
+ */
 public class CouponFactor  {
     private volatile static CouponFactor singleton = new CouponFactor();
     private static Hashtable<String, Coupon> couponMap = new Hashtable<String, Coupon>();

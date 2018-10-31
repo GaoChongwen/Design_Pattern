@@ -3,7 +3,14 @@ package propComp.PropDir;
 import base.FarmObj;
 import base.Item;
 import propComp.props.landAdaptor.LandAdaptor;
-import utils.test.Adaptor;
+
+/**
+ * @Design-Pattern: Composite Pattern
+ * @description: Filer类 继承于PropDir 文件节点 存储Item类型实例
+ * @version 2018/10/30
+ * @author jihao luo
+ *
+ */
 
 public class Filer extends PropDir {
     private Item item = null;

@@ -1,10 +1,21 @@
-package process;
+package processSystem;
 
 import animal.Cow;
 import base.animal.Animal;
 import base.plant.Plant;
 
+/**
+ * Design-Pattern: SingleTon, Facade
+ * @description: 加工者类，为Facade对外提供的接待者
+ * @version 2018/10/31
+ * @author lipeng liang
+ *
+ */
 public class ProcessMaker {
+    private volatile static ProcessMaker processMaker = new ProcessMaker();
+
+    public  static ProcessMaker getInstance(){return processMaker;}
+
     private ProcessAPI cowProcessor;
     private ProcessAPI meatProcessor;
     private ProcessAPI plantProcessor;

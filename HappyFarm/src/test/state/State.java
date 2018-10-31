@@ -5,6 +5,13 @@ import factory.AbstractFactory;
 import factory.AnimalFactory;
 
 import java.util.Random;
+/**
+ * @project: HappyFarm
+ * @scene: animal有4种不同的状态，grow时animal会在四种不同的状态间切换
+ * @designPattern: State
+ * @author: Tingjie Wen
+ * @date: 2018-10-31
+ **/
 
 public class State {
     public static void main(String args[]){
