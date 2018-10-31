@@ -26,7 +26,7 @@ public class Context {
     public static int pig_salePrice = 7000;
 
     // price of produce
-   public static int milk_price = cow_salePrice * 2;
+    public static int milk_price = cow_salePrice * 2;
     public static int cookedFood_price = pig_salePrice * 2;
     public static int animalFood_price = rice_salePrice * 2;
 

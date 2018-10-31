@@ -1,15 +1,17 @@
 package utils.clock;
 
-import propComp.PropDir.Root;
+import utils.Enum.DesignPatternMode;
 
 import java.util.*;
 
 public class Clock extends Observable {
     private static Clock instance;
+    private static DesignPatternMode designPattern = null;
 
     private Clock() {
         curDay = 1;
         timeSpeed = 1;
+        designPattern=null;
     }
 
     private int curDay;
@@ -35,12 +37,13 @@ public class Clock extends Observable {
         notifyObservers();
     }
 
-    private static ArrayList<Observer> observers = new ArrayList<Observer>();
+    private ArrayList<Observer> observers = new ArrayList();
 
     public void addObserver(Observer observer) {
-        //System.out.println("add");
+        if(designPattern==DesignPatternMode.ObserverPattern){
+            System.out.println("Observer Pattern | Clock method: addObserver(Observer observer) -> "+observer.getClass()+" add to ClockObserverList");
+        }
         observers.add(observer);
-        System.out.println(observers.size());
     }
 
     public void deleteObserver(Observer observer) {
@@ -48,10 +51,17 @@ public class Clock extends Observable {
     }
 
     public void notifyObservers() {
+        if(designPattern==DesignPatternMode.ObserverPattern){
+            System.out.println("Observer Pattern | Clock method: notifyObservers() -> notify the ClockObserverList");
+        }
         Iterator it = observers.iterator();
         while (it.hasNext()) {
             Observer o = (Observer) it.next();
             o.update(this, null);
         }
     }
+    public void setDesignPattern(DesignPatternMode designPatter){
+        designPattern=designPatter;
+    }
+
 }

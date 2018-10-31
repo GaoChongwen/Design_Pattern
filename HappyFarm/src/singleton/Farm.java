@@ -18,7 +18,6 @@ import produce.AnimalFood;
 import produce.CookedFood;
 import produce.Milk;
 import propComp.PropDir.Prop;
-import propComp.PropDir.Root;
 import propComp.props.landAdaptor.*;
 import utils.Context;
 import utils.Enum.FarmLandType;
@@ -33,7 +32,8 @@ public class Farm extends FarmObj {
     private ArrayList<AnimalHouse> sheds;
     private ArrayList<FarmLand> lands;
     private House house;
-    private Root toolBag;
+    private Prop propBag;
+
 
     private Farm(){ }
 
@@ -73,6 +73,7 @@ public class Farm extends FarmObj {
         CouponFactor.getInstance().CouponInitial();
 
         // 初始化工具包
+        propBag =new Prop();
         try{
             Prop.createTree();
         } catch (Exception e) {

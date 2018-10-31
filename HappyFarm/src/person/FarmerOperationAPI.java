@@ -35,4 +35,6 @@ public interface FarmerOperationAPI {
 
     /** use land-adapter. */
     public void useLandAdapter(FarmLand farmLand, LandAdaptor landAdapter);
+
+    public Employee getEmployee(int id);
 }

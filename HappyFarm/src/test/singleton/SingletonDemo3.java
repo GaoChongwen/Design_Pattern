@@ -1,7 +1,5 @@
-package test.composite;
+package test.singleton;
 
-import base.animal.Animal;
-import factory.AnimalFactory;
 import produce.AnimalFood;
 import produce.CookedFood;
 import propComp.PropDir.Prop;
@@ -13,21 +11,20 @@ import propComp.props.landAdaptor.CornAdaptor;
 /**
  * @project: HappyFarm
  * @scene: 工具箱 用于存储Produce以及Adaptor
- * @designPattern: Composite
+ * @designPattern: Singleton
  * @author: Jihao Luo
  * @date: 2018-10-30
  **/
-
-public class CompositePatternDemo {
+public class SingletonDemo3 {
     public static void main(String[] args) {
-        System.out.println("==========Composite Demo========");
+        System.out.println("==========Singleton Demo========");
         System.out.println("Scene: After buying certain items in the store, we need to store them.");
         System.out.println("===================================================");
         System.out.println("=============We first add some instance ===========");
+        System.out.println("Singleton:Root:root:Instance Get");
         Prop prop = new Prop();
         try {
             prop.createTree();//Initial !!!!!!
-            System.out.println("Composite:Prop:createTree:Composite Initial");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -37,15 +34,11 @@ public class CompositePatternDemo {
         //System.out.println(adaptor.getName());
         //System.out.println(Root.getInstance().propDir.nodeList.size());
         prop.addAdaptor(adaptor);
-        System.out.println("Composite:Prop:addAdaptor:Adaptor added");
         prop.addAdaptor(cornAdaptor);
-        System.out.println("Composite:Prop:addAdaptor:Adaptor added");
         prop.display((PropDir) Root.getInstance().propDir);
         System.out.println("=====Add some more and demonstrate it again=======");
         AnimalFood animalFood = new AnimalFood();
-        System.out.println("Composite:Prop:addProduct:Product added");
         CookedFood cookedFood = new CookedFood();
-        System.out.println("Composite:Prop:addProduct:Product added");
         prop.addProduct(animalFood);
         prop.addProduct(cookedFood);
         prop.display((PropDir) Root.getInstance().propDir);

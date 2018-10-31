@@ -64,7 +64,7 @@ public class Repository {
     }
 
     // 从仓库中获取植物，传入植物类型，返回所有此类型的植物
-    ArrayList<Plant> get(String plantType) {
+    public ArrayList<Plant> get(String plantType) {
         ArrayList<Plant> somePlants = new ArrayList<>();
         for (int i = 0; i < plants.size(); i++) {
             Plant curPlant = plants.get(i);
@@ -73,6 +73,11 @@ public class Repository {
             }
         }
         return somePlants;
+    }
+
+    // 获取某种植物的数量
+    public int getPlantNum(String plantType) {
+        return get(plantType).size();
     }
 
     // 从仓库中获取植物，传入索引

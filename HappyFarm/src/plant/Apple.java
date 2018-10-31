@@ -3,6 +3,7 @@ package plant;
 import base.plant.Plant;
 import factory.PlantFactory;
 import utils.Context;
+import utils.Enum.DesignPatternMode;
 import utils.Enum.FarmLandType;
 import utils.Enum.PlantType;
 
@@ -22,6 +23,8 @@ public class Apple extends Plant {
         this.salePrice=Context.apple_salePrice;
         this.reqLandType= FarmLandType.appleField;
         PlantFactory.getInstance().putPlant(this);
-        System.out.println("apple initial once");
+        if(designPattern== DesignPatternMode.PrototypePattern){
+            System.out.println("Prototype Pattern | Apple: method Apple() -> Apple initial once");
+        }
     }
 }
