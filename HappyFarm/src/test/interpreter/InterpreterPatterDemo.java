@@ -13,6 +13,9 @@ import java.util.Scanner;
  **/
 public class InterpreterPatterDemo{
     public static void main(String args[]){
+        System.out.println("==========InterpreterPatternDemo========");
+        System.out.println("Scene: calculator");
+        System.out.println("===================================================");
         System.out.println("InterpreterPatter:Calculator:build:input your Expression(Each character is separated by spaces like: 5 * 6 - 1) ");
         Scanner input=new Scanner(System.in);
 

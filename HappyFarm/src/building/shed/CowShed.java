@@ -83,20 +83,23 @@ public class CowShed extends AnimalHouse {
 
     // 判断牛棚是否为空
     public boolean isEmpty() {
-        if (animals[0] == null) {
-            return true;
+        for (int i = 0; i < capacity; ++i) {
+            if (animals[i] != null) {
+                return false;
+            }
         }
-        return false;
+        return true;
     }
 
     // 获取牛牛数量
     public int getCowCount() {
+        int count = 0;
         for (int i = 0; i < capacity; ++i) {
-            if (animals[i] == null) {
-                return i;
+            if (animals[i] != null) {
+                count += 1;
             }
         }
-        return capacity;
+        return count;
     }
 
     // 从牛棚中移除牛牛，牛棚为空，移除失败

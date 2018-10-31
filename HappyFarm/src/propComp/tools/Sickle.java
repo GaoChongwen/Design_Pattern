@@ -11,10 +11,13 @@ import utils.Enum.ToolType;
 public class Sickle extends Tool {
     public Sickle(){
         this(new SickleAction());
+        bridgeOutput("Sickle()","A sickle is create.");
+
     }
 
     public Sickle(HarvestAPI harvestAPI){
         super(ToolType.sickle, harvestAPI);
+        bridgeOutput("Sickle(HarvestAPI)","The action is bound to sickle.");
     }
     @Override
     public void use() {

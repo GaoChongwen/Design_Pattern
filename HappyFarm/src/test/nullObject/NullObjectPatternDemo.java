@@ -12,6 +12,9 @@ import building.house.NullObject.CommandFactory;
  **/
 public class NullObjectPatternDemo {
     public static  void main (String[] args){
+        System.out.println("==========NullObjectPatternDemo========");
+        System.out.println("Scene: you can input the command,it will check whether it's in the command list");
+        System.out.println("===================================================");
         AbstractCommand command1= CommandFactory.getCommand("AddChair");
         AbstractCommand command2=CommandFactory.getCommand("RemoveChair");
         AbstractCommand command3=CommandFactory.getCommand("AddTable");

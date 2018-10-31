@@ -15,6 +15,9 @@ public class ReapingMachine extends Tool {
      */
     public ReapingMachine(){
         this(new ReapingMachineAction());
+        setName("reapingMachine");
+        bridgeOutput("ReapingMachine()","A reaping machine is created.");
+
     }
     /**
      * For Bridge Pattern.
@@ -23,6 +26,8 @@ public class ReapingMachine extends Tool {
      */
     public ReapingMachine(HarvestAPI harvestAPI){
         super(ToolType.reaping_machine, harvestAPI);
+        bridgeOutput("ReapingMachine(HarvestAPI)","the action is bound to reaping machine.");
+        setName("reapingMachine");
     }
 
     @Override

@@ -1,6 +1,7 @@
 package singleton;
 
 import base.Person;
+import utils.Enum.DesignPatternMode;
 
 import java.util.*;
 
@@ -9,7 +10,7 @@ import java.util.*;
  * Design-Pattern: Singleton, Double checked Locking, Observer, Mediator
  */
 public class MessageBoard extends Observable {
-
+    private static DesignPatternMode designPatternMode = DesignPatternMode.Default;
     /**
      * Design-Pattern: Singleton, Double checked locking
      */
@@ -31,15 +32,21 @@ public class MessageBoard extends Observable {
         messages.add(new Date().toString()
                 + " [" + person.getName() +"] : " + message);
         ourInstance.notifyObservers();
+        if(designPatternMode == DesignPatternMode.MediatorPattern) {
+            System.out.println("                    [ Mediator Pattern]                      ");
+            System.out.println("Person: leaveMessage(): a user is sending message via message board.");
+        }
         showMessages();
     }
 
     public static void showMessages(){
-        System.out.println("--------------- Message Bord ---------------");
+        if(designPatternMode == DesignPatternMode.MediatorPattern)
+            System.out.println("Person: showMessage(): Message board show messages as a mediator.");
+        System.out.println("-------------------------- Message Bord ------------------------------\n");
         for(String m : messages){
             System.out.println(m);
         }
-        System.out.println();
+        System.out.println("\n----------------------------------------------------------------------\n\n");
     }
 
     /**
@@ -66,6 +73,9 @@ public class MessageBoard extends Observable {
         return messages.size();
     }
 
+    public static void setDesignPatternMode(DesignPatternMode designPatternMode) {
+        MessageBoard.designPatternMode = designPatternMode;
+    }
 }
 
 

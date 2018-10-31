@@ -2,6 +2,7 @@ package propComp.tools;
 
 import action.tool.HarvestAPI;
 import base.Item;
+import utils.Enum.DesignPatternMode;
 import utils.Enum.ToolType;
 
 /**
@@ -13,11 +14,16 @@ public abstract class Tool extends Item {
     private ToolType toolType;
     protected HarvestAPI harvestAPI;
 
-    public Tool(){}
+    protected static DesignPatternMode designPatternMode = DesignPatternMode.Default;
+
+    public Tool(){
+        setType("tool");
+    }
 
     protected Tool(ToolType toolType, HarvestAPI harvestAPI){
         this.harvestAPI = harvestAPI;
         this.toolType = toolType;
+        setType("tool");
     }
 
     public ToolType getToolType() {
@@ -25,4 +31,13 @@ public abstract class Tool extends Item {
     }
 
     public abstract void use();
+
+    protected void bridgeOutput(String methodName, String actionDesc){
+        if(designPatternMode==DesignPatternMode.BridgePattern)
+            System.out.println(methodName+ ": " +actionDesc);
+    }
+
+    static public void setDesignPatternMode(DesignPatternMode designPatternMode) {
+        Tool.designPatternMode = designPatternMode;
+    }
 }

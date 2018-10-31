@@ -6,12 +6,14 @@ package action.tool;
  */
 public class WheatReapingMachineAction extends ReapingMachineAction{
     public WheatReapingMachineAction(){
+        defaultOutput("WheatReapingMachineAction", "a wheat reaping machine is created.");
         templateMethodOutput("constructor", "I am created.");
+        bridgeOutput("WheatReapingMachineAction", "a WheatReapingMachineAction is created.");
     }
 
     @Override
     public boolean harvest() {
-        //templateMethodOutput("harvest","harvesting with wheat reaping machin.");
+        bridgeOutput("WheatReapingMachine: harvest","The tool functions as a wheat reaping machine.");
         return false;
     }
 

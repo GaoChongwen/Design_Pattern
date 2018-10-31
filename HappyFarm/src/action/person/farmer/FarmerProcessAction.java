@@ -6,6 +6,7 @@ import base.Produce;
 import base.animal.Animal;
 import base.plant.Plant;
 import processSystem.ProcessMaker;
+import propComp.PropDir.Prop;
 import singleton.Farm;
 
 /**
@@ -67,7 +68,7 @@ public class FarmerProcessAction extends FarmerAction{
                 templateMethodOutput("step 1_2_1.execute","producing fodder.");
                 product =(ProcessMaker.getInstance().processPlant((Plant)farmObj));
              if(product != null){
-                 // todo add to prop bag
+                 Prop.addProduct(product);
              }
         }
         }else {

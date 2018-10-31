@@ -1,5 +1,6 @@
 package base;
 
+import calculator.Calculator;
 import singleton.MessageBoard;
 
 import java.util.ArrayList;
@@ -31,7 +32,17 @@ abstract public class Person extends FarmObj implements Observer {
      * Design-Pattern：Mediator
      */
     public void leaveMessage(String message) {
+
         MessageBoard.addMessage(this, message);
+    }
+
+    /**
+     * Used in Interpreter
+     */
+    public String calculate(String expression) {
+        Calculator calculator = new Calculator();
+        calculator.build(expression);
+        return calculator.compute()+"";
     }
 
 }

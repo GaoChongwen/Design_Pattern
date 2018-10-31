@@ -4,13 +4,13 @@ import base.animal.Animal;
 import utils.Context;
 
 public class Cow extends Animal {
-    private static int index=1;
+    private static int index=1;  ////静态索引，区分名称
     public Cow(){
         super();
         this.setType("chicken");
         this.setName("cow"+index);  index++;
         setStockPrice(Context.getInstance().cow_stockPrice);
         setSalePrice(Context.getInstance().cow_salePrice);
-        System.out.println("a cow has been created");
+        //System.out.println("a cow has been created");
     }
 }
