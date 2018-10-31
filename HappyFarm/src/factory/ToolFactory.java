@@ -12,7 +12,7 @@ public class ToolFactory extends AbstractFactory{
     }
 
     @Override
-    Tool createTool(String name) {
+    public Tool createTool(String name) {
         if(name.equals("reapingMachine")){
             return new ReapingMachine();
         }

@@ -1,13 +1,9 @@
 package propComp.PropDir;
 
-import base.Item;
 import base.Produce;
 import propComp.props.landAdaptor.AppleAdaptor;
 import propComp.props.landAdaptor.CornAdaptor;
 import propComp.props.landAdaptor.LandAdaptor;
-import utils.test.Adaptor;
-
-import java.io.File;
 
 public class Prop {
 

@@ -35,6 +35,6 @@ public class GrowingState implements PlantState {
     }
 
     public boolean harvest(Plant plant) { return false;}
-    public void process(Plant plant){ }
+    public boolean process(Plant plant){ return false;}
 
 }

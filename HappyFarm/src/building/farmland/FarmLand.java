@@ -3,6 +3,7 @@ package building.farmland;
 import base.FarmObj;
 import base.plant.Plant;
 import propComp.props.landAdaptor.LandAdaptor;
+import utils.Enum.DesignPatternMode;
 import utils.Enum.FarmLandType;
 
 import java.util.Observable;
@@ -20,13 +21,13 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
     protected boolean idle;
     protected Plant plant;
     protected LandAdaptor adaptor;
-    protected String DesignPattern;
+    protected DesignPatternMode DesignPattern;
 
     protected FarmLand() {
         this.idle = true;
         this.adaptor = null;
         this.plant = null;
-        this.DesignPattern="";
+        this.DesignPattern=null;
     }
 
     // 获取土地种类名
@@ -68,7 +69,7 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
      *               否则，种植失败。
      */
     public boolean plant(Plant p) {
-        if(DesignPattern=="Adaptor Pattern"){
+        if(DesignPattern==DesignPatternMode.AdaptorPattern){
             System.out.println("- Adaptor Pattern | "+landType+" method: plant(Plant p)");
         }
         if (idle && (p.plant(landType) || (adaptor != null && adaptor.plant(p)))) {
@@ -108,7 +109,7 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
         return clone;
     }
 
-    public void setDesignPattern(String designPattern){
+    public void setDesignPattern(DesignPatternMode designPattern){
         DesignPattern=designPattern;
     }
 }

@@ -77,7 +77,7 @@ public abstract class Plant extends FarmObj implements Cloneable {
     }
 
     // 加工
-    public void process(){ state.process(this);}
+    public boolean process(){ return state.process(this);}
 
     protected void harvest(int _) { System.out.println(type+" harvest success!");}
 

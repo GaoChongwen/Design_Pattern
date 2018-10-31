@@ -13,7 +13,7 @@ public class MatureState implements AnimalState{
         Random ra=new Random();
         int num=ra.nextInt(100)+1;
         if(num<5){ //百分之5概率死亡
-            System.out.println(animal.getName()+"病死了");
+            System.out.println(animal.getName()+" has been dead");
             animal.setState(animal.deadState);
             animal.shouldRemove=true;
             animal.isMature=false;
@@ -26,9 +26,10 @@ public class MatureState implements AnimalState{
     }
 
     @Override
-    public void process() {
+    public boolean process() {
         animal.setState(animal.deadState);
         animal.shouldRemove=true;
         animal.isMature=false;
+        return true;
     }
 }

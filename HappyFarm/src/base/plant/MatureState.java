@@ -35,9 +35,10 @@ public class MatureState implements PlantState {
     }
 
     // 加工: MatureState to RemovedState
-    public void process(Plant plant){
+    public boolean process(Plant plant){
         plant.process(1);
         plant.setState(RemovedState.getInstance());
+        return true;
     }
 
 }
