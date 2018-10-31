@@ -21,9 +21,11 @@ public class IteratorDemo {
         }
 
         Iterator iterator=chickShed.getIterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()){
             Chicken chicken=(Chicken)iterator.next();
-            System.out.println(chicken.getName()+"has been covered by iterator");
+            if(chicken!=null) {
+                System.out.println(chicken.getName() + "has been covered by iterator");
+            }
         }
     }
 }

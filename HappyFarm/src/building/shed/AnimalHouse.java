@@ -56,6 +56,11 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
             return animal;
         }
 
+        public FarmObj m_next(){
+            Animal animal = animals[curPos];
+            curPos++;
+            return animal;
+        }
     }
 
     public boolean addAnimal(Animal animal) {
