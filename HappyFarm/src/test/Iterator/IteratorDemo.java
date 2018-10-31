@@ -18,13 +18,14 @@ public class IteratorDemo {
         ChickShed chickShed=ChickShed.getInstance();
         for(int i=0; i<20; ++i){
             chickShed.addAnimal(new Chicken());
+            System.out.println("a chicken has been Created");
         }
 
         Iterator iterator=chickShed.getIterator();
         while (iterator.hasNext()){
             Chicken chicken=(Chicken)iterator.next();
             if(chicken!=null) {
-                System.out.println(chicken.getName() + "has been covered by iterator");
+                System.out.println(chicken.getName() + " has been covered by iterator");
             }
         }
     }

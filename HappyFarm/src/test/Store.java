@@ -1,6 +1,7 @@
 package test;
 
 
+import animal.Cow;
 import base.plant.Plant;
 import building.shed.CowShed;
 import factory.PlantFactory;
@@ -8,6 +9,7 @@ import plant.Apple;
 import plant.Cabbage;
 import plant.Rice;
 import plant.Wheat;
+import propComp.PropDir.Prop;
 import singleton.Farm;
 import singleton.Repository;
 import utils.Enum.PlantType;
@@ -22,14 +24,16 @@ public class Store {
         new Wheat();
         new Cabbage();
         new Rice();
+        Prop prop = new Prop();
         /**
          * 测试购买，暂只支持购买animal和plant
          */
 
         store.Store.getInstance().buyCommity("wheat",2);
         System.out.println("Does the warehouse contain wheat?，true or false ");
-        System.out.println(Repository.getInstance().contains(new Wheat()));
+        System.out.println(Repository.getInstance().getPlantNum("wheat"));
         store.Store.getInstance().buyCommity("cow",2);
-
+        System.out.println("Does the warehouse contain cow?，true or false ");
+        System.out.println(!CowShed.getInstance().isEmpty());
  }
 }

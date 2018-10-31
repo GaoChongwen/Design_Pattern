@@ -22,12 +22,15 @@ public class State {
             int num = ra.nextInt(2) + 1;
             if(num==1){
                 animals[i]=animalFactory.createAnimal("chicken");
+                System.out.println("a chicken has been created");
             }
             else if(num==2){
                 animals[i]=animalFactory.createAnimal("cow");
+                System.out.println("a cow has been created");
             }
             else if(num==3){
                 animals[i]=animalFactory.createAnimal("pig");
+                System.out.println("a pig has been created");
             }
             else{
                 System.out.println("system error");
@@ -39,5 +42,12 @@ public class State {
                 animals[i].grow();
             }
         }
+
+        for(int i=0; i<10; ++i){
+            if(!animals[i].shouldRemove){
+                animals[i].grow();
+            }
+        }
+
     }
 }

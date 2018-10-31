@@ -24,6 +24,7 @@ public abstract class LandAdaptor extends Item implements Cloneable {
         this.isUsed = false;
         this.land = null;
         DesignPattern=null;
+        this.price=200;
     }
 
     @Override
@@ -64,7 +65,11 @@ public abstract class LandAdaptor extends Item implements Cloneable {
         }
         return clone;
     }
-    public void setDesignPattern(DesignPatternMode designPattern){
-        DesignPattern=designPattern;
+    public void setDesignPattern(DesignPatternMode designPatter){
+        DesignPattern=designPatter;
+    };
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

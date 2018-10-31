@@ -6,6 +6,9 @@ import base.plant.Plant;
 import produce.AnimalFood;
 import produce.CookedFood;
 import produce.Milk;
+import utils.Enum.DesignPatternMode;
+
+import java.beans.DesignMode;
 
 /**
  * Design-Pattern: SingleTon, Facade
@@ -16,6 +19,8 @@ import produce.Milk;
  */
 public class ProcessMaker {
     private volatile static ProcessMaker processMaker = new ProcessMaker();
+    protected DesignPatternMode designPattern = null;
+
 
     public  static ProcessMaker getInstance(){return processMaker;}
 
@@ -31,6 +36,10 @@ public class ProcessMaker {
 
     public Milk processCow(Cow cow) {
         if (cow.getName().length() > 2 && cow.getName().substring(0, 3).equals("cow")) {
+            if(designPattern==DesignPatternMode.FacadePattern){
+                cowProcessor.setDesignPattern(true);
+                System.out.println("Facade Pattern | ProcessMaker method: processCow(cow)");
+            }
             return (Milk) cowProcessor.process(cow);
         }
         return null;
@@ -38,6 +47,11 @@ public class ProcessMaker {
 
     public CookedFood processMeat(Animal animal) {
         if(animal.getName().length() > 2 && !(animal.getName().substring(0, 3).equals("cow"))){
+
+            if(designPattern==DesignPatternMode.FacadePattern){
+                cowProcessor.setDesignPattern(true);
+                System.out.println("Facade Pattern | ProcessMaker method: processMeat(animal)");
+            }
             return (CookedFood) meatProcessor.process(animal);
         }
         return null;
@@ -45,8 +59,16 @@ public class ProcessMaker {
 
     public AnimalFood processPlant(Plant plant) {
         if(plant.getType().equals("Plant")){
+            if(designPattern==DesignPatternMode.FacadePattern){
+                cowProcessor.setDesignPattern(true);
+                System.out.println("Facade Pattern | ProcessMaker method: processPlant(plant)");
+            }
             return (AnimalFood) plantProcessor.process(plant);
         }
         return null;
+    }
+    // 设置设计模式
+    public void setDesignPattern(DesignPatternMode designPatter){
+        designPattern=designPatter;
     }
 }
