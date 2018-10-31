@@ -1,6 +1,5 @@
 package base.plant;
 
-import java.util.Random;
 
 /**
  * @Project: HappyFarm
@@ -27,18 +26,16 @@ public class MatureState implements PlantState {
         return false;
     }
 
-    // 收获: MatureState to RemovedState
+    // 收获: MatureState to HarvestState
     public boolean harvest(Plant plant) {
         plant.harvest(1);
-        plant.setState(RemovedState.getInstance());
+        plant.setState(HarvestState.getInstance());
         return true;
     }
 
     // 加工: MatureState to RemovedState
     public boolean process(Plant plant){
-        plant.process(1);
-        plant.setState(RemovedState.getInstance());
-        return true;
+        return false;
     }
 
 }
