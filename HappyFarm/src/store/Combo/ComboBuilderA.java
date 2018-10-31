@@ -3,6 +3,7 @@ package store.Combo;
 import base.FarmObj;
 import base.Item;
 import base.plant.Plant;
+import singleton.Farm;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,8 @@ public class ComboBuilderA extends Builder {
         /**
          * 在这里添加套餐内的东西
          */
-        product.setPlant("white",1,1);
+        Farm.getInstance().initialFarmObj();
+        product.setPlant("rice",1,1);
         product.setAdaptors("",1,10);
         product.setAnimals("chicken",1,10);
         product.setTools("",1,1);
