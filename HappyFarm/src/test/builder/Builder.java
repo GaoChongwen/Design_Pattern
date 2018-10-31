@@ -10,6 +10,11 @@ import store.Combo.ComboBuilderA;
 import store.Combo.ComboBuilderB;
 import store.Combo.Director;
 
+/**
+ * @author Wenyuan Li
+ * @version 2018-10-31
+ * Scenario: Dynamically combined into different combos
+ */
 public class Builder {
     public static void main(String args[]){
         Farm.initialFarmObj();

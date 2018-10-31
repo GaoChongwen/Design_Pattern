@@ -8,6 +8,11 @@ import store.Specification.PlantByPriceThan;
 
 import java.util.ArrayList;
 
+/**
+ * @author Wenyuan Li
+ * @version 2018-10-31
+ * Scenario: Screen plants according to specific conditions
+ */
 public class Specification {
     public static void main(String args[]){
         Farm.initialFarmObj();
@@ -16,7 +21,7 @@ public class Specification {
         plantList.add(PlantFactory.getInstance().createPlant("cow"));
         plantList.add(PlantFactory.getInstance().createPlant("chicken"));
         plantList.add(PlantFactory.getInstance().createPlant("pig"));
-        
+
         //打印出价格高于20的植物
         System.out.println("===The price of plant is higher than 20===");
         //定义一个规格
