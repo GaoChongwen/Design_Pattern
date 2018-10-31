@@ -45,11 +45,9 @@ public class Store {
         Kinds.put("rice", "Plant");
         Kinds.put("cabbage", "Plant");
         Kinds.put("sickle", "Tool");
-        Kinds.put("wheatReapingMachine", "Tool");
         Kinds.put("reapingMachine", "Tool");
         Kinds.put("cow", "Animal");
         Kinds.put("chicken", "Animal");
-        Kinds.put("pig", "Animal");
     }
 
     //添加商品,指定商品名和添加数量
@@ -60,7 +58,7 @@ public class Store {
             Commodities.put(name, number);
         }
     }
-
+    //向商店出售商品
     public boolean sellCommity(String name) throws IllegalArgumentException {
         if (Kinds.get(name).equals("Plant")) {
             Plant plant = PlantFactory.getInstance().createPlant(name);
@@ -74,36 +72,29 @@ public class Store {
 
         return true;
     }
+    //从商店购买商品
     public boolean buyCommity(String name, Integer number) throws IllegalArgumentException {
-        List<FarmObj> result = new ArrayList<FarmObj>();
         //Create Items
-        if (Commodities.containsKey(name)) {
-            Money.getInstance().buy(name , number ,PlantFactory.getInstance().createPlant(name).getStockPrice());
-            if (Kinds.get(name).equals("Plant")) {
-                result.add(PlantFactory.getInstance().createPlant(name));
-            }
-            else if (Kinds.get(name).equals("Tool")) {
-                //TODO wait ToolFactory
-                //result.add(ToolFactory.getInstance().createPlant(name));
-            }
-            else if (Kinds.get(name).equals("Animal")) {
-                Animal animal = AnimalFactory.getInstance().createAnimal(name);
-                if(name.equals("pig")){
+        for(Integer i=0 ;i <number;i++) {
+            if (Kinds.containsKey(name)) {
+                if (Kinds.get(name).equals("Plant")) {
+                    Money.getInstance().buy(name, number, PlantFactory.getInstance().createPlant(name).getStockPrice());
+                    Repository.getInstance().add((PlantFactory.getInstance().createPlant(name)));
+                } else if (Kinds.get(name).equals("Tool")) {
+                    //TODO wait ToolFactory
+                    //result.add(ToolFactory.getInstance().createPlant(name));
+                } else if (Kinds.get(name).equals("Animal")) {
+                    Money.getInstance().buy(name, number, AnimalFactory.getInstance().createAnimal(name).getStockPrice());
+                    Animal animal = AnimalFactory.getInstance().createAnimal(name);
+                    if (name.equals("cow")) {
+                        CowShed.getInstance().add();
+                    } else if (name.equals("chicken")) {
+                        ChickShed.getInstance().add();
+                    }
+                } else if (Kinds.get(name).equals("Adaptor")) {
 
                 }
-                else if (name.equals("cow")){
-                    //TODO
- //                   CowShed.getInstance().add();
-                }
-                else if(name.equals("chicken")){
-                    //TODO
- //                   ChickShed.getInstance().add();
-                }
             }
-            else if (Kinds.get(name).equals("Adaptor")) {
-
-            }
-            throw new IllegalArgumentException();
         }
     return true;
 }
