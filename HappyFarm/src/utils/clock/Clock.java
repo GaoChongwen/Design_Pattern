@@ -1,9 +1,11 @@
 package utils.clock;
 
+import propComp.PropDir.Root;
+
 import java.util.*;
 
 public class Clock extends Observable {
-    private Clock instance;
+    private static Clock instance;
 
     private Clock() {
         curDay = 1;
@@ -13,7 +15,7 @@ public class Clock extends Observable {
     private int curDay;
     private int timeSpeed;
 
-    public Clock getInstance() {
+    public static Clock getInstance() {
         if (instance == null) {
             return new Clock();
         }
@@ -33,11 +35,12 @@ public class Clock extends Observable {
         notifyObservers();
     }
 
-    private ArrayList<Observer> observers = new ArrayList();
+    private static ArrayList<Observer> observers = new ArrayList<Observer>();
 
     public void addObserver(Observer observer) {
+        //System.out.println("add");
         observers.add(observer);
-
+        System.out.println(observers.size());
     }
 
     public void deleteObserver(Observer observer) {

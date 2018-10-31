@@ -27,6 +27,7 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
     @Override
     public void update(Observable o, Object arg) {
         _clear();
+        //System.out.println("hello");
         for(int i=0; i<capacity; ++i){
             if(animals[i]!=null) {
                 animals[i].grow();
