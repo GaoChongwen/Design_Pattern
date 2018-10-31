@@ -1,6 +1,7 @@
 package singleton;
 
 import base.Person;
+import utils.Enum.DesignPatternMode;
 
 import java.util.*;
 
@@ -9,7 +10,7 @@ import java.util.*;
  * Design-Pattern: Singleton, Double checked Locking, Observer, Mediator
  */
 public class MessageBoard extends Observable {
-
+    private static DesignPatternMode designPatternMode = DesignPatternMode.Default;
     /**
      * Design-Pattern: Singleton, Double checked locking
      */
@@ -31,7 +32,8 @@ public class MessageBoard extends Observable {
         messages.add(new Date().toString()
                 + " [" + person.getName() +"] : " + message);
         ourInstance.notifyObservers();
-        showMessages();
+        if(designPatternMode == DesignPatternMode.Default)
+            showMessages();
     }
 
     public static void showMessages(){
@@ -66,6 +68,9 @@ public class MessageBoard extends Observable {
         return messages.size();
     }
 
+    public static void setDesignPatternMode(DesignPatternMode designPatternMode) {
+        MessageBoard.designPatternMode = designPatternMode;
+    }
 }
 
 
