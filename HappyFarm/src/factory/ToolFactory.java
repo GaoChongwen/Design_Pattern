@@ -16,9 +16,6 @@ public class ToolFactory extends AbstractFactory{
         if(name.equals("reapingMachine")){
             return new ReapingMachine();
         }
-        if(name.equals("wheatReapingMachine")){
-            return new ReapingMachine(new WheatReapingMachineAction());
-        }
         if(name.equals("sickle")){
             return new Sickle();
         }

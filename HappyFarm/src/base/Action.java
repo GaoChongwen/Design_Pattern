@@ -82,6 +82,11 @@ abstract public class Action implements ActionStrategy {
             System.out.println(methodName+ "(): " +actionDesc);
     }
 
+    protected void bridgeOutput(String methodName, String actionDesc){
+        if(designPatternMode==DesignPatternMode.BridgePattern)
+            System.out.println(methodName+ "(): " +actionDesc);
+    }
+
     protected String getClassName() {
         return "Action";
     }
