@@ -9,9 +9,9 @@ import base.plant.Plant;
 import java.util.Hashtable;
 
 public class AnimalFactory extends AbstractFactory {
-    private volatile static PlantFactory singleton = new PlantFactory();
+    private volatile static AnimalFactory singleton = new AnimalFactory();
 
-    public static PlantFactory getInstance() {
+    public static AnimalFactory getInstance() {
         return singleton;
     }
     @Override

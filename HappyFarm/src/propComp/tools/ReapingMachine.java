@@ -17,6 +17,7 @@ public class ReapingMachine extends Tool {
         this(new ReapingMachineAction());
         setName("reapingMachine");
         bridgeOutput("ReapingMachine()","A reaping machine is created.");
+
     }
     /**
      * For Bridge Pattern.

@@ -2,6 +2,8 @@ package singleton;
 
 import animal.Cow;
 import base.FarmObj;
+import base.Item;
+import base.Produce;
 import base.animal.Animal;
 import base.plant.Plant;
 import building.farmland.*;
@@ -9,6 +11,7 @@ import building.house.House;
 import building.shed.AnimalHouse;
 import building.shed.ChickShed;
 import building.shed.CowShed;
+import com.sun.xml.internal.ws.api.server.Adapter;
 import factory.*;
 import plant.Apple;
 import plant.Cabbage;
@@ -19,6 +22,7 @@ import produce.CookedFood;
 import produce.Milk;
 import propComp.PropDir.Prop;
 import propComp.props.landAdaptor.*;
+import propComp.tools.Tool;
 import utils.Context;
 import utils.Enum.FarmLandType;
 import utils.Enum.PlantType;
@@ -33,6 +37,7 @@ public class Farm extends FarmObj {
     private ArrayList<FarmLand> lands;
     private House house;
     private Prop propBag;
+    private ArrayList<Tool> toolBag;
 
 
     private Farm(){ }
@@ -75,7 +80,7 @@ public class Farm extends FarmObj {
         // 初始化工具包
         propBag =new Prop();
         try{
-            Prop.createTree();
+            propBag.createTree();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -95,5 +100,22 @@ public class Farm extends FarmObj {
 
         System.out.println("Initial Done.");
 
+    }
+
+    // 将工具放入工具包
+    public boolean putIntoToolBag(Tool tool){
+        if(tool.getType().equals("Tool")){
+            toolBag.add(tool);
+            return true;
+        }
+        return false;
+    }
+
+    public void putProduceIntoPropBag(Produce product){
+        propBag.addProduct(product);
+    }
+
+    public void putAdaptorIntoPropBag(LandAdaptor adapter){
+        propBag.addAdaptor(adapter);
     }
 }

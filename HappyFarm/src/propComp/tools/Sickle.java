@@ -12,6 +12,7 @@ public class Sickle extends Tool {
     public Sickle(){
         this(new SickleAction());
         bridgeOutput("Sickle()","A sickle is create.");
+
     }
 
     public Sickle(HarvestAPI harvestAPI){

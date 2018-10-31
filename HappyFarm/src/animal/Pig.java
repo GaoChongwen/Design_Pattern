@@ -12,6 +12,6 @@ public class Pig extends Animal {
         this.setName("pig"+index);  index++;
         setStockPrice(Context.getInstance().pig_stockPrice);
         setSalePrice(Context.getInstance().pig_stockPrice);
-        System.out.println("a pig has been created");
+        //System.out.println("a pig has been created");
     }
 }

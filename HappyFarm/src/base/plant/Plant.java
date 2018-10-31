@@ -91,6 +91,12 @@ public abstract class Plant extends FarmObj implements Cloneable {
         designPattern=designPatter;
     }
 
+    // 输出当前状态
+    public void state(){
+        System.out.println("State Pattern | "+type+" state is "+this.state.getClass());
+    }
+
+
     /**
      * @Design-Pattern: Prototype
      */

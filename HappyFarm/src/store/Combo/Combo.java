@@ -46,8 +46,7 @@ public class Combo {
     }
     public void setAnimals(String kind , Integer num , Integer price){
         for(int i=0;i< num ; i++){
-            //TODO add animal
-            // animals.add(AnimalFactory.getInstance().createPlant(kind));
+            this.animals.add(AnimalFactory.getInstance().createAnimal(kind));
             //add Value
             totalPrice+=price;
         }
@@ -75,10 +74,10 @@ public class Combo {
     }
     //TODO Show Combo
     public void showCombo(){
-        System.out.println("套餐中含有");
-        System.out.println(plants.size() + "个" +plants.get(0).getType());
-        System.out.println(animals.size() + "个" +animals.get(0).getType());
-        System.out.println("总价为"+getTotalPrice());
+        System.out.println("The Combo concludes");
+        System.out.println(plants.size() + " " +plants.get(0).getName());
+        System.out.println(animals.size() + " " +animals.get(0).getType());
+        System.out.println("total price is "+getTotalPrice());
     }
 
     public void setTotalPrice(Integer totalPrice) {

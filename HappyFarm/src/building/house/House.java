@@ -3,6 +3,8 @@ package building.house;
 import base.FarmObj;
 import building.ImpVisitor.BuildingAcceptor;
 import building.ImpVisitor.BuildingVisitor;
+import building.house.airconditioner.AirConditioner;
+import building.house.airconditioner.ProxyConditioner;
 import building.house.furniture.Furniture;
 
 import java.util.ArrayList;
@@ -10,7 +12,7 @@ import java.util.ArrayList;
 /**
  * @project: HappyFarm
  * @description: 房屋的组合实体
- * @designPattern: CompositeEntity, Visitor, Singleton, DoubleCheckLocking
+ * @designPattern: CompositeEntity, Visitor, Singleton, DoubleCheckLocking,Proxy
  * @author: Chen Yulei
  * @date: 2018-10-27
  **/
@@ -22,6 +24,7 @@ public class House extends FarmObj implements BuildingAcceptor {
     private static House instance;
 
     private String lightState="off";
+    private AirConditioner airConditioner = new ProxyConditioner();
 
     // 房屋中有的家具
     ArrayList<Furniture> furnitures = new ArrayList<>();
@@ -97,5 +100,6 @@ public class House extends FarmObj implements BuildingAcceptor {
     public void setLightState(String lightState){
         this.lightState=lightState;
     }
+    public void changeAirconditionerState(){ this.airConditioner.changeStatus();}
 
 }
