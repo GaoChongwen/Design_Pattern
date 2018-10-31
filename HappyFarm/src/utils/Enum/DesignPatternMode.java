@@ -25,4 +25,5 @@ public enum DesignPatternMode {
     VisitorPattern, //
     StrategyPattern, //
     StatePattern, //
+    Default,    // 默认模式
 }
