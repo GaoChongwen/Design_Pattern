@@ -13,7 +13,7 @@ import utils.clock.Clock;
  * @date: 2018-10-27
  **/
 
-public class ObserverDemo2 {
+public class ObserverPatternDemo3 {
     public static void main(String args[]){
         Clock.getInstance().addObserver(CowShed.getInstance());
         for(int i=0; i<10; ++i){
