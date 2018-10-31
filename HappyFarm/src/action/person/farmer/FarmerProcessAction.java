@@ -65,7 +65,7 @@ public class FarmerProcessAction extends FarmerAction{
     }
 
 
-    public static void setFarmObj(FarmObj farmObj) {
+    public void setFarmObj(FarmObj farmObj) {
         System.out.println("FarmObj "+farmObj.getName()+" is set to FarmerProcessAction.");
         this.farmObj = farmObj;
     }

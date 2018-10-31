@@ -10,7 +10,7 @@ import action.ActionStrategy;
  *
  */
 abstract public class Action implements ActionStrategy {
-    private boolean templateMethodMode;
+    static private boolean templateMethodMode;
     /**
      * Target: invoker of src.Action
      * The target will be set in the runAction() method of FarmObj.java with the 'setTarget' method.
@@ -62,7 +62,7 @@ abstract public class Action implements ActionStrategy {
         return "";
     }
 
-    public void setTemplateMethodMode(boolean templateMethodMode) {
-        this.templateMethodMode = templateMethodMode;
+    public static void setTemplateMethodMode(boolean templateMethodMode) {
+        Action.templateMethodMode = templateMethodMode;
     }
 }
