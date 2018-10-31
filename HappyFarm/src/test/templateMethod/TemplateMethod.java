@@ -1,14 +1,10 @@
 package test.templateMethod;
 
-import action.person.employee.EmployeeFeedAction;
-import action.person.employee.EmployeeHarvestAction;
-import action.person.employee.EmployeeSlaughterAction;
-import action.person.employee.EmployeeSowSeedAction;
-import action.person.farmer.FarmerBuyAction;
-import action.person.farmer.FarmerProcessAction;
-import action.person.farmer.FarmerSellAction;
-import action.person.farmer.FarmerUseLandAdaptorAction;
+import action.person.employee.*;
+import action.person.farmer.*;
+
 import animal.Chicken;
+import base.Action;
 import base.animal.Animal;
 import building.farmland.CornField;
 import building.shed.ChickShed;
@@ -26,7 +22,7 @@ import utils.Enum.EmployeeSkill;
 /**
  * @author Chudi LAN
  * @version 2018-10-28
- * Scenario:
+ * Scenarios: Describes the possible
  */
 public class TemplateMethod {
     public static void main(String args[]){
@@ -48,12 +44,12 @@ public class TemplateMethod {
         Farm.getInstance().initialFarmObj();
         AppleAdaptor appleAdaptor = (AppleAdaptor) AdaptorFactory.getInstance().createAdaptor("appleField");
 
+        // 指定debug Template Method模式
+        Action.setTemplateMethodMode(true);
 
         /* 播种操作demo */
         // 1. 指定一个播种Action
         EmployeeSowSeedAction employeeSowSeedAction = EmployeeSowSeedAction.getInstance();
-            // 指定debug Template Method模式
-        employeeSowSeedAction.setTemplateMethodMode(true);
         // 2. 指定一个雇员
         employeeSowSeedAction.setTarget(testEmp);
         // 3. 指定一块土地
@@ -78,8 +74,6 @@ public class TemplateMethod {
         /* 收割操作demo */
         // 1. 指定一个收割Action
         EmployeeHarvestAction employeeHarvestAction = EmployeeHarvestAction.getInstance();
-            // 指定debug Template Method模式
-        employeeHarvestAction.setTemplateMethodMode(true);
         // 2. 指定一个雇员
         employeeHarvestAction.setTarget(testEmp);
         // 3. 指定一块土地
@@ -98,7 +92,6 @@ public class TemplateMethod {
 
         /* 喂养动物demo */
         EmployeeFeedAction feedAction = EmployeeFeedAction.getInstance();
-        feedAction.setTemplateMethodMode(true);
         feedAction.setAnimalHouse(chickShed);
         System.out.println("" +
                 "\n====================================================================" +
@@ -111,8 +104,6 @@ public class TemplateMethod {
         /* 屠宰动物demo */
         // 1. 指定一个屠宰Action
         EmployeeSlaughterAction slaughterAction = EmployeeSlaughterAction.getInstance();
-        // 指定debug Template Method模式
-        slaughterAction.setTemplateMethodMode(true);
         // 2. 指定一个雇员
         slaughterAction.setTarget(breadEmp);
         // 3. 指定一个AnimalHouse
@@ -130,8 +121,6 @@ public class TemplateMethod {
         /* 买东西demo */
         // 1. 指定买东西Action
         FarmerBuyAction buyAction = FarmerBuyAction.getInstance();
-            // 指定debug Template Method模式
-        buyAction.setTemplateMethodMode(true);
         // 2. 指定购买种类
         buyAction.setItemName("wheat");
         // 3. 执指定购买数量
@@ -147,8 +136,6 @@ public class TemplateMethod {
         /* 卖东西demo */
         // 1. 指定卖东西操作
         FarmerSellAction sellAction = FarmerSellAction.getInstance();
-            // 指定debug Template Method模式
-        sellAction.setTemplateMethodMode(true);
         // 2. 指定出售种类
         sellAction.setItemName("wheat");
         // 3. 执行出售操作
@@ -162,7 +149,6 @@ public class TemplateMethod {
         /* 加工demo */
         // 1. 指定加工操作
         FarmerProcessAction processAction = FarmerProcessAction.getInstance();
-        processAction.setTemplateMethodMode(true);
         // 2. 指定加工对象
         processAction.setFarmObj(wheat);
         System.out.println("" +
@@ -175,8 +161,6 @@ public class TemplateMethod {
         /* 使用Adaptor Demo */
         // 1. 指定操作
         FarmerUseLandAdaptorAction useLandAdaptorAction = FarmerUseLandAdaptorAction.getInstance();
-            //  指定debug Template模式
-        useLandAdaptorAction.setTemplateMethodMode(true);
         // 2. 指定farm land
         useLandAdaptorAction.setFarmLand(cornField);
         // 3. 指定Adaptor

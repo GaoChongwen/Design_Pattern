@@ -1,6 +1,7 @@
 package base;
 
 import action.ActionStrategy;
+import utils.Enum.DesignPatternMode;
 
 /**
  * @author Chudi LAN
@@ -11,6 +12,7 @@ import action.ActionStrategy;
  */
 abstract public class Action implements ActionStrategy {
     static private boolean templateMethodMode;
+    static private DesignPatternMode designPatternMode;
     /**
      * Target: invoker of src.Action
      * The target will be set in the runAction() method of FarmObj.java with the 'setTarget' method.
