@@ -2,9 +2,11 @@ package action.person.farmer;
 
 import animal.Cow;
 import base.FarmObj;
+import base.Produce;
 import base.animal.Animal;
 import base.plant.Plant;
 import processSystem.ProcessMaker;
+import singleton.Farm;
 
 /**
  * @author Chudi LAN
@@ -44,17 +46,18 @@ public class FarmerProcessAction extends FarmerAction{
     @Override
     protected void execute() {
         templateMethodOutput("step 1_2. execute","processing a farmObj.");
-
-        if(farmObj.getName().length() > 2 && farmObj.getName().substring(0, 3).equals("cow")){
-            templateMethodOutput("step 1_2_1. execute","producing milk");
-            ProcessMaker.getInstance().processCow((Cow) farmObj);
-        }else if(farmObj.getType().equals("Animal")&&farmObj.getName().length() > 2 && !farmObj.getName().substring(0, 3).equals("cow")){
-            templateMethodOutput("step 1_2_1. execute","producing meat");
-            ProcessMaker.getInstance().processMeat((Animal)farmObj);
-        }else if(farmObj.getType().equals("Plant")){
-            templateMethodOutput("step 1_2_1.execute","producing fodder.");
-            ProcessMaker.getInstance().processPlant((Plant)farmObj);
-        }
+        Produce product = null;
+//        if(farmObj.getName().length() > 2 && farmObj.getName().substring(0, 3).equals("cow")){
+//            templateMethodOutput("step 1_2_1. execute","producing milk");
+//            product = (Produce) (ProcessMaker.getInstance().processCow((Cow) farmObj));
+//        }else if(farmObj.getType().equals("Animal")&&farmObj.getName().length() > 2 && !farmObj.getName().substring(0, 3).equals("cow")){
+//            templateMethodOutput("step 1_2_1. execute","producing meat");
+//            product =(Produce) (ProcessMaker.getInstance().processMeat((Animal)farmObj));
+//        }else if(farmObj.getType().equals("Plant")){
+//            templateMethodOutput("step 1_2_1.execute","producing fodder.");
+//            product =(Produce) (ProcessMaker.getInstance().processPlant((Plant)farmObj));
+//        }
+//
     }
 
     protected String getClassName() {
