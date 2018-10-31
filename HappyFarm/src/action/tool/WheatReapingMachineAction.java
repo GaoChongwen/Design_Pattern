@@ -11,7 +11,7 @@ public class WheatReapingMachineAction extends ReapingMachineAction{
 
     @Override
     public boolean harvest() {
-        templateMethodOutput("harvest","harvesting with wheat reaping machin.");
+        //templateMethodOutput("harvest","harvesting with wheat reaping machin.");
         return false;
     }
 

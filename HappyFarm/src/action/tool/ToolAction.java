@@ -20,7 +20,7 @@ public abstract class ToolAction extends Action implements HarvestAPI {
     }
 
     protected void doSomething() {
-        templateMethodOutput("doSomething", "harvesting with a tool.");
+        //templateMethodOutput("doSomething", "harvesting with a tool.");
         harvest();
     }
 

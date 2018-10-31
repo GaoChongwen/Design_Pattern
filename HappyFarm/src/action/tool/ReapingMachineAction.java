@@ -10,7 +10,7 @@ public class ReapingMachineAction extends ToolAction {
 
     @Override
     public boolean harvest() {
-        templateMethodOutput("harvest","harvesting with reaping machine.");
+        //templateMethodOutput("harvest","harvesting with reaping machine.");
         return true;
     }
 

@@ -12,7 +12,7 @@ public class SickleAction extends  ToolAction{
 
     @Override
     public boolean harvest() {
-        templateMethodOutput("harvest", "harvesting with sickle.");
+        //templateMethodOutput("harvest", "harvesting with sickle.");
         return true;
     }
 

@@ -55,16 +55,21 @@ public class FarmerProcessAction extends FarmerAction{
             templateMethodOutput("step 1_2. execute", "processing a farmObj.");
             strategyPatternOutput("FarmerProcessAction: execute(true)", "process action success strategy");
             Produce product = null;
-//        if(farmObj.getName().length() > 2 && farmObj.getName().substring(0, 3).equals("cow")){
-//            templateMethodOutput("step 1_2_1. execute","producing milk");
-//            product = (Produce) (ProcessMaker.getInstance().processCow((Cow) farmObj));
-//        }else if(farmObj.getType().equals("Animal")&&farmObj.getName().length() > 2 && !farmObj.getName().substring(0, 3).equals("cow")){
-//            templateMethodOutput("step 1_2_1. execute","producing meat");
-//            product =(Produce) (ProcessMaker.getInstance().processMeat((Animal)farmObj));
-//        }else if(farmObj.getType().equals("Plant")){
-//            templateMethodOutput("step 1_2_1.execute","producing fodder.");
-//            product =(Produce) (ProcessMaker.getInstance().processPlant((Plant)farmObj));
-//        }
+            if(farmObj.getName().length() > 2 && farmObj.getName().substring(0, 3).equals("cow")){
+                templateMethodOutput("step 1_2_1. execute","producing milk");
+                product = (ProcessMaker.getInstance().processCow((Cow) farmObj));
+            }
+            else if(farmObj.getType().equals("Animal")&&farmObj.getName().length() > 2 && !farmObj.getName().substring(0, 3).equals("cow")){
+                templateMethodOutput("step 1_2_1. execute","producing meat");
+                product =(ProcessMaker.getInstance().processMeat((Animal)farmObj));
+            }
+            else if(farmObj.getType().equals("Plant")){
+                templateMethodOutput("step 1_2_1.execute","producing fodder.");
+                product =(ProcessMaker.getInstance().processPlant((Plant)farmObj));
+             if(product != null){
+                 // todo add to prop bag
+             }
+        }
         }else {
             strategyPatternOutput("FarmerProcessAction: execute(false)", "process action failed strategy");
         }

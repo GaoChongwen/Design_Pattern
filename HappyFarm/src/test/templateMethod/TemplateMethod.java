@@ -23,7 +23,7 @@ import utils.Enum.EmployeeSkill;
 /**
  * @author Chudi LAN
  * @version 2018-10-28
- * Scenarios: Describes the possible
+ * Scenarios: Describes the actions implemented with template method.
  */
 public class TemplateMethod {
     public static void main(String args[]){
@@ -45,11 +45,12 @@ public class TemplateMethod {
         Farm.getInstance().initialFarmObj();
         AppleAdaptor appleAdaptor = (AppleAdaptor) AdaptorFactory.getInstance().createAdaptor("appleField");
 
-        Action.setDesignPatternMode(DesignPatternMode.TemplateMethodPattern);
+
 
         /* 播种操作demo */
         // 1. 指定一个播种Action
         EmployeeSowSeedAction employeeSowSeedAction = EmployeeSowSeedAction.getInstance();
+        Action.setDesignPatternMode(DesignPatternMode.TemplateMethodPattern);
             // 指定debug Template Method模式
 //        employeeSowSeedAction.setTemplateMethodMode(true);
         // 2. 指定一个雇员

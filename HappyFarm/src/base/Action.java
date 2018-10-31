@@ -11,7 +11,7 @@ import utils.Enum.DesignPatternMode;
  *
  */
 abstract public class Action implements ActionStrategy {
-    static protected DesignPatternMode designPatternMode=DesignPatternMode.Default;
+    static public DesignPatternMode designPatternMode=DesignPatternMode.Default;
     /**
      * Target: invoker of src.Action
      * The target will be set in the runAction() method of FarmObj.java with the 'setTarget' method.
@@ -29,7 +29,7 @@ abstract public class Action implements ActionStrategy {
     }
 
     protected Action() {
-        designPatternMode = DesignPatternMode.Default;
+
     }
 
     /**
@@ -67,12 +67,12 @@ abstract public class Action implements ActionStrategy {
      */
     abstract protected void doSomething();
 
-    public void templateMethodOutput(String methodName, String actionDesc) {
+    protected void templateMethodOutput(String methodName, String actionDesc) {
         if(designPatternMode==DesignPatternMode.TemplateMethodPattern)
             System.out.println(methodName+ "(): " +actionDesc);
     }
 
-    public void strategyPatternOutput(String methodName, String actionDesc){
+    protected void strategyPatternOutput(String methodName, String actionDesc){
         if(designPatternMode==DesignPatternMode.StrategyPattern)
             System.out.println(methodName+ "(): " +actionDesc);
     }
