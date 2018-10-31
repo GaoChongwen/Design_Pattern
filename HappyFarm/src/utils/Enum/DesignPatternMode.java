@@ -13,4 +13,16 @@ public enum DesignPatternMode {
     ChainofResponsibilityPattern, // 责任链模式
     CommandPattern, // 命令模式
     CompositePattern, // 组合模式
+    FilterPattern, //
+    CompositeEntityPattern, //
+    DeroratorPattern, //
+    FlyweightPattern, // 蝇量模式
+    Interpreter, // 解释器模式
+    Iterator, //
+    PrototypePattern, //
+    ProxyPattern, //
+    SingletonPattern, //
+    VisitorPattern, //
+    StrategyPattern, //
+    StatePattern, //
 }
