@@ -15,7 +15,7 @@ import utils.Enum.FarmLandType;
 public class FacadePatternDemo {
     public static void main(String args[]) {
         Apple a = new Apple();
-        Cow cow =
+       // Cow cow =
 
     }
 }
