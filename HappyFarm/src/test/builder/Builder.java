@@ -17,7 +17,7 @@ import store.Combo.Director;
  */
 public class Builder {
     public static void main(String args[]){
-        Farm.initialFarmObj();
+        Farm.getInstance().initialFarmObj();
         new Apple();
         new Wheat();
         new Cabbage();

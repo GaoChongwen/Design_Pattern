@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class Specification {
     public static void main(String args[]){
-        Farm.initialFarmObj();
+        Farm.getInstance().initialFarmObj();
         //首先初始化一批植物
         ArrayList<Plant> plantList = new ArrayList<Plant>();
         plantList.add(PlantFactory.getInstance().createPlant("cow"));
