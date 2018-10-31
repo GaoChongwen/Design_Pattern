@@ -27,7 +27,6 @@ public class FacadePatternDemo {
         // 初始化 获得可加工的动物与植物
         // 植物：需要种植、生长、收获后才可加工
         Apple a = new Apple();
-
         a.plant(FarmLandType.appleField);
         a.grow();
         a.harvest();

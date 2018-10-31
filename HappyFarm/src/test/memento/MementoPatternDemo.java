@@ -17,6 +17,9 @@ import building.house.memento.Undo;
 
 public class MementoPatternDemo {
     public static void main(String[] args) {
+     System.out.println("==========MementoPatternDemo========");
+     System.out.println("Scene: In the house ,you can turn off/on the light,then you can revert the action ues redo/undo ");
+     System.out.println("===================================================");
         int index=-1;
       Originator originator=new Originator();
        CareTaker careTaker=new CareTaker();
