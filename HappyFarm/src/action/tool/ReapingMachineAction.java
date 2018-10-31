@@ -5,6 +5,7 @@ package action.tool;
  */
 public class ReapingMachineAction extends ToolAction {
     public ReapingMachineAction(){
+        defaultOutput("ReapingMachineAction", "a reaping machine is created.");
         templateMethodOutput("constructor","I am created.");
     }
 

@@ -6,6 +6,7 @@ package action.tool;
  */
 public class WheatReapingMachineAction extends ReapingMachineAction{
     public WheatReapingMachineAction(){
+        defaultOutput("WheatReapingMachineAction", "a wheat reaping machine is created.");
         templateMethodOutput("constructor", "I am created.");
     }
 

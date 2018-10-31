@@ -7,6 +7,7 @@ package action.tool;
  */
 public class SickleAction extends  ToolAction{
     public SickleAction(){
+        defaultOutput("SickleAction", "a sickle is created.");
         templateMethodOutput("constructor", "I am created.");
     }
 
