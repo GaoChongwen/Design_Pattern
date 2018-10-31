@@ -5,6 +5,7 @@ import base.Iterator;
 import base.animal.Animal;
 import building.ImpVisitor.BuildingAcceptor;
 import building.ImpVisitor.BuildingVisitor;
+import utils.Enum.DesignPatternMode;
 
 import java.util.ArrayList;
 import java.util.Observable;
@@ -17,15 +18,21 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
     protected int cost;  //造价
     //protected int level;
     Animal[] animals;
+    protected static DesignPatternMode DesignPattern;
+
 
     public AnimalHouse() {
         capacity = 0;
         //count=0;
         cost = 0;
+        DesignPattern=null;
     }
 
     @Override
     public void update(Observable o, Object arg) {
+        if(DesignPattern==DesignPatternMode.ObserverPattern){
+            System.out.println("Observer Pattern | "+getName()+" method: update(Observable o, Object arg) -> to grow FarmObj in "+getName());
+        }
         _clear();
         for(int i=0; i<capacity; ++i){
             if(animals[i]!=null) {
@@ -128,6 +135,10 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
     @Override
     public void accept(BuildingVisitor buildingVisitor) {
         buildingVisitor.visit(this);
+    }
+
+    public static void setDesignPattern(DesignPatternMode designPatter){
+        DesignPattern=designPatter;
     }
 
 }

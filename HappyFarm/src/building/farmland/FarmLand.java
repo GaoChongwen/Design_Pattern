@@ -92,6 +92,10 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
      */
     @Override
     public void update(Observable o, Object arg) {
+        if(DesignPattern==DesignPatternMode.ObserverPattern){
+            System.out.println("Observer Pattern | "+landType+" method: update(Observable o, Object arg) -> to grow FarmObj in "+landType);
+        }
+
         if (plant == null) {
             return;
         }
