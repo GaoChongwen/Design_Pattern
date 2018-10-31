@@ -5,15 +5,17 @@ import base.plant.Plant;
 import factory.AbstractFactory;
 import factory.AnimalFactory;
 import factory.PlantFactory;
+import factory.ToolFactory;
+import propComp.tools.Tool;
 
 import java.util.Random;
 
 public class FactoryDemo1 {
     public static void main(String args[]){
         AbstractFactory animalFactory=new AnimalFactory();
-        AbstractFactory plantFactory=new PlantFactory();
+        AbstractFactory toolFactory=new ToolFactory();
         Animal[] animals=new Animal[10];
-        Plant[] plants=new Plant[10];
+        Tool[] tools=new Tool[10];
 
         for(int i=0; i<10; ++i){
             Random ra = new Random();
@@ -26,6 +28,17 @@ public class FactoryDemo1 {
             }
             else{
                 animals[i]=animalFactory.createAnimal("pig");
+            }
+        }
+
+        for(int i=0; i<10; ++i){
+            Random ra = new Random();
+            int num = ra.nextInt(2) + 1;
+            if(num==1){
+                tools[i]=toolFactory.createTool("reapingMachine");
+            }
+            else{
+                tools[i]=toolFactory.createTool("sickle");
             }
         }
     }
