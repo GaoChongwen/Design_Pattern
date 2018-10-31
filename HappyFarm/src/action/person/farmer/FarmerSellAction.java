@@ -34,12 +34,17 @@ public class FarmerSellAction extends FarmerAction {
     }
 
     @Override
-    protected void execute() {
-        templateMethodOutput("1_2_1. execute", "selling item "+itemName);
-        if(Store.getInstance().sellCommity(itemName)){
-            templateMethodOutput("1_2_2 execute", itemName+" sold successfully.");
-        }else {
-            templateMethodOutput("1_2_2 execute", "failed to sell "+itemName);
+    public void execute(boolean success) {
+        if(success) {
+            templateMethodOutput("1_2_1. execute", "selling item " + itemName);
+            strategyPatternOutput("FarmerSellAction: execute(true)", "sell action success strategy");
+            if (Store.getInstance().sellCommity(itemName)) {
+                templateMethodOutput("1_2_2 execute", itemName + " sold successfully.");
+            } else {
+                templateMethodOutput("1_2_2 execute", "failed to sell " + itemName);
+            }
+        } else {
+            strategyPatternOutput("FarmerSellAction: execute(false)", "sell action failed strategy");
         }
     }
 

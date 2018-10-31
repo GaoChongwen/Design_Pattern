@@ -4,6 +4,7 @@ import action.person.employee.*;
 import action.person.farmer.*;
 
 import animal.Chicken;
+import base.Action;
 import base.animal.Animal;
 import building.farmland.CornField;
 import building.shed.ChickShed;
@@ -16,6 +17,7 @@ import propComp.tools.Sickle;
 import propComp.tools.Tool;
 import singleton.Farm;
 import store.Store;
+import utils.Enum.DesignPatternMode;
 import utils.Enum.EmployeeSkill;
 
 /**
@@ -43,12 +45,13 @@ public class TemplateMethod {
         Farm.getInstance().initialFarmObj();
         AppleAdaptor appleAdaptor = (AppleAdaptor) AdaptorFactory.getInstance().createAdaptor("appleField");
 
+        Action.setDesignPatternMode(DesignPatternMode.TemplateMethodPattern);
 
         /* 播种操作demo */
         // 1. 指定一个播种Action
         EmployeeSowSeedAction employeeSowSeedAction = EmployeeSowSeedAction.getInstance();
             // 指定debug Template Method模式
-        employeeSowSeedAction.setTemplateMethodMode(true);
+//        employeeSowSeedAction.setTemplateMethodMode(true);
         // 2. 指定一个雇员
         employeeSowSeedAction.setTarget(testEmp);
         // 3. 指定一块土地
@@ -74,7 +77,7 @@ public class TemplateMethod {
         // 1. 指定一个收割Action
         EmployeeHarvestAction employeeHarvestAction = EmployeeHarvestAction.getInstance();
             // 指定debug Template Method模式
-        employeeHarvestAction.setTemplateMethodMode(true);
+//        employeeHarvestAction.setTemplateMethodMode(true);
         // 2. 指定一个雇员
         employeeHarvestAction.setTarget(testEmp);
         // 3. 指定一块土地
@@ -93,7 +96,7 @@ public class TemplateMethod {
 
         /* 喂养动物demo */
         EmployeeFeedAction feedAction = EmployeeFeedAction.getInstance();
-        feedAction.setTemplateMethodMode(true);
+//        feedAction.setTemplateMethodMode(true);
         feedAction.setAnimalHouse(chickShed);
         System.out.println("" +
                 "\n====================================================================" +
@@ -107,7 +110,7 @@ public class TemplateMethod {
         // 1. 指定一个屠宰Action
         EmployeeSlaughterAction slaughterAction = EmployeeSlaughterAction.getInstance();
         // 指定debug Template Method模式
-        slaughterAction.setTemplateMethodMode(true);
+//        slaughterAction.setTemplateMethodMode(true);
         // 2. 指定一个雇员
         slaughterAction.setTarget(breadEmp);
         // 3. 指定一个AnimalHouse
@@ -126,7 +129,7 @@ public class TemplateMethod {
         // 1. 指定买东西Action
         FarmerBuyAction buyAction = FarmerBuyAction.getInstance();
             // 指定debug Template Method模式
-        buyAction.setTemplateMethodMode(true);
+//        buyAction.setTemplateMethodMode(true);
         // 2. 指定购买种类
         buyAction.setItemName("wheat");
         // 3. 执指定购买数量
@@ -143,7 +146,7 @@ public class TemplateMethod {
         // 1. 指定卖东西操作
         FarmerSellAction sellAction = FarmerSellAction.getInstance();
             // 指定debug Template Method模式
-        sellAction.setTemplateMethodMode(true);
+//        sellAction.setTemplateMethodMode(true);
         // 2. 指定出售种类
         sellAction.setItemName("wheat");
         // 3. 执行出售操作
@@ -157,7 +160,7 @@ public class TemplateMethod {
         /* 加工demo */
         // 1. 指定加工操作
         FarmerProcessAction processAction = FarmerProcessAction.getInstance();
-        processAction.setTemplateMethodMode(true);
+//        processAction.setTemplateMethodMode(true);
         // 2. 指定加工对象
         processAction.setFarmObj(wheat);
         System.out.println("" +
@@ -171,7 +174,7 @@ public class TemplateMethod {
         // 1. 指定操作
         FarmerUseLandAdaptorAction useLandAdaptorAction = FarmerUseLandAdaptorAction.getInstance();
             //  指定debug Template模式
-        useLandAdaptorAction.setTemplateMethodMode(true);
+//        useLandAdaptorAction.setTemplateMethodMode(true);
         // 2. 指定farm land
         useLandAdaptorAction.setFarmLand(cornField);
         // 3. 指定Adaptor

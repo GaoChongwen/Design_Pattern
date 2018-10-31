@@ -22,7 +22,7 @@ public abstract class EmployeeBreedAction extends EmployeeAction {
 
     @Override
     abstract protected boolean checkTool();
-    abstract protected void execute();
+    abstract public void execute(boolean success);
 
     protected String getClassName() {
         return "EmployeeBreedAction";

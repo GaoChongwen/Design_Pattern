@@ -28,16 +28,14 @@ public class EmployeeSlaughterAction extends EmployeeBreedAction {
     }
 
     @Override
-    protected void execute() {
-        templateMethodOutput("step 1_2. execute", "slaughtering an animal.");
-        animalHouse.slaughter();
-    }
-
-    protected String getClassName() {
-        return "EmployeeSlaughterAction";
-    }
-    protected String getObjectID() {
-        return "instance";
+    public void execute(boolean success) {
+        if(success) {
+            templateMethodOutput("step 1_2. execute", "slaughtering an animal.");
+            strategyPatternOutput("EmployeeSlaughterAction: execute(true)", "slaughter action success strategy");
+            animalHouse.slaughter();
+        }else{
+            strategyPatternOutput("EmployeeSlaughterAction: execute(false)", "slaughter action failed strategy");
+        }
     }
 
     public EmployeeSlaughterAction setAnimalHouse(AnimalHouse animalHouse) {

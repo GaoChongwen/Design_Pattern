@@ -35,15 +35,14 @@ public class EmployeeFeedAction extends EmployeeBreedAction {
     }
 
     @Override
-    protected void execute() {
-        templateMethodOutput("step 1_2. execute", "feeding an animal.");
-        animalHouse.feed();
-    }
-
-    protected String getClassName() {
-        return "EmployeeFeedAction";
-    }
-    protected String getObjectID() {
-        return "instance";
+    public void execute(boolean success) {
+        if(success) {
+            templateMethodOutput("step 1_2. execute", "feeding an animal.");
+            strategyPatternOutput("EmployeeFeedAction: execute(true)", "feed action success strategy");
+            animalHouse.feed();
+        }
+        else {
+            strategyPatternOutput("EmployeeFeedAction: execute(false)", "feed action failed strategy");
+        }
     }
 }

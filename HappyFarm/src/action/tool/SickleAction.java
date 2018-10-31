@@ -22,4 +22,9 @@ public class SickleAction extends  ToolAction{
     protected String getObjectID() {
         return "";
     }
+
+    @Override
+    public void execute(boolean success) {
+
+    }
 }

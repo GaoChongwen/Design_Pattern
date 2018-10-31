@@ -34,9 +34,14 @@ public class FarmerUseLandAdaptorAction extends FarmerAction{
     }
 
     @Override
-    protected void execute() {
-        templateMethodOutput("step 1_2. execute","using an adaptor on a farmland.");
-        farmLand.use(landAdaptor);
+    public void execute(boolean success) {
+        if(success) {
+            templateMethodOutput("step 1_2. execute", "using an adaptor on a farmland.");
+            strategyPatternOutput("FarmerUseLandAdaptorAction: execute(true)", "use land adaptor action success strategy");
+            farmLand.use(landAdaptor);
+        } else {
+            strategyPatternOutput("FarmerUseLandAdaptorAction: execute", "use land adaptor action failed strategy");
+        }
     }
 
     public FarmerUseLandAdaptorAction setFarmLand(FarmLand farmLand) {

@@ -12,7 +12,7 @@ abstract public class FarmerAction extends PersonAction {
     }
 
     abstract protected boolean checkCondition();
-    abstract protected void execute();
+    abstract public void execute(boolean success);
 
     protected String getClassName() {
         return "FarmerAction";

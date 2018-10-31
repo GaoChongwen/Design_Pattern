@@ -11,8 +11,7 @@ import utils.Enum.DesignPatternMode;
  *
  */
 abstract public class Action implements ActionStrategy {
-    static private boolean templateMethodMode;
-    static private DesignPatternMode designPatternMode;
+    static protected DesignPatternMode designPatternMode=DesignPatternMode.Default;
     /**
      * Target: invoker of src.Action
      * The target will be set in the runAction() method of FarmObj.java with the 'setTarget' method.
@@ -30,7 +29,7 @@ abstract public class Action implements ActionStrategy {
     }
 
     protected Action() {
-        templateMethodMode = false;
+        designPatternMode = DesignPatternMode.Default;
     }
 
     /**
@@ -38,12 +37,29 @@ abstract public class Action implements ActionStrategy {
      * Design-Pattern: Template Method
      */
     public void doAction(){
-        if(templateMethodMode)System.out.println("[ Template Method starts ]");
-        templateMethodOutput("step 0. doAction","an action is performing.");
+        switch (designPatternMode){
+            case TemplateMethodPattern:
+                System.out.println("[ Template Method starts ]");
+                templateMethodOutput("step 0. doAction","an action is performing.");
+                break;
+            case Default:
+                break;
+            case StrategyPattern:
+                System.out.println("[ Strategy Pattern]");
+                strategyPatternOutput("Action: doAction","strategy invoked");
+                break;
+                default:
+                    System.out.println("Invalid mode.");
+                    return;
+        }
 
-        doSomething();
+        doSomething(); // step 1 doSomething();
 
-        if(templateMethodMode)System.out.println("[ Template Method ends ]\n");
+        switch(designPatternMode){
+            case TemplateMethodPattern:
+                System.out.println("[ Template Method ends ]\n");
+                break;
+        }
     }
 
     /**
@@ -52,9 +68,13 @@ abstract public class Action implements ActionStrategy {
     abstract protected void doSomething();
 
     public void templateMethodOutput(String methodName, String actionDesc) {
-        if(templateMethodMode){
-        System.out.println(methodName+ "(): " +actionDesc);
-        }
+        if(designPatternMode==DesignPatternMode.TemplateMethodPattern)
+            System.out.println(methodName+ "(): " +actionDesc);
+    }
+
+    public void strategyPatternOutput(String methodName, String actionDesc){
+        if(designPatternMode==DesignPatternMode.StrategyPattern)
+            System.out.println(methodName+ "(): " +actionDesc);
     }
 
     protected String getClassName() {
@@ -62,10 +82,6 @@ abstract public class Action implements ActionStrategy {
     }
     protected String getObjectID() {
         return "";
-    }
-
-    public static void setTemplateMethodMode(boolean templateMethodMode) {
-        Action.templateMethodMode = templateMethodMode;
     }
 
     public static void setDesignPatternMode(DesignPatternMode designPatternMode){

@@ -10,6 +10,6 @@ public class StrategyContext {
     }
 
     public void executeStrategy(){
-        strategy.execute();
+        strategy.doAction();
     }
 }

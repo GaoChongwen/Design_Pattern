@@ -44,15 +44,17 @@ public class FarmerProcessAction extends FarmerAction{
 
 
     public FarmerProcessAction setFarmObj(FarmObj farmObj) {
-        System.out.println("FarmObj "+farmObj.getName()+" is set to FarmerProcessAction.");
+        //System.out.println("FarmObj "+farmObj.getName()+" is set to FarmerProcessAction.");
         this.farmObj = farmObj;
         return instance;
     }
 
     @Override
-    protected void execute() {
-        templateMethodOutput("step 1_2. execute","processing a farmObj.");
-        Produce product = null;
+    public void execute(boolean success) {
+        if(success) {
+            templateMethodOutput("step 1_2. execute", "processing a farmObj.");
+            strategyPatternOutput("FarmerProcessAction: execute(true)", "process action success strategy");
+            Produce product = null;
 //        if(farmObj.getName().length() > 2 && farmObj.getName().substring(0, 3).equals("cow")){
 //            templateMethodOutput("step 1_2_1. execute","producing milk");
 //            product = (Produce) (ProcessMaker.getInstance().processCow((Cow) farmObj));
@@ -63,7 +65,9 @@ public class FarmerProcessAction extends FarmerAction{
 //            templateMethodOutput("step 1_2_1.execute","producing fodder.");
 //            product =(Produce) (ProcessMaker.getInstance().processPlant((Plant)farmObj));
 //        }
-//
+        }else {
+            strategyPatternOutput("FarmerProcessAction: execute(false)", "process action failed strategy");
+        }
     }
     protected String getClassName() {
         return "FarmerProcessAction";

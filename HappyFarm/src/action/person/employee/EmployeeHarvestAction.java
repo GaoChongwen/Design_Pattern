@@ -10,7 +10,7 @@ import propComp.tools.Tool;
  * The class <coode>EmployeeHarvestAction</coode> is a singleton, which cannot be
  * instantiated by anyone.
  *
- * The method {@link EmployeeHarvestAction#execute()} is realized, which can be
+ * The method {@link EmployeeHarvestAction#execute(boolean)} is realized, which can be
  * executed only if all the targets of the harvest action is set.
  *
  * @author Chudi LAN
@@ -51,9 +51,15 @@ public class EmployeeHarvestAction extends EmployeeCultivateAction {
      *      3. A tool is sepcified by {@link #setHarvestTool(Tool)}
      */
     @Override
-    protected void execute() {
-        templateMethodOutput("step 1_2. execute", "harvesting in a farmland.");
-        farmLand.harvest();
+    public void execute(boolean success) {
+        if(success){
+            templateMethodOutput("step 1_2. execute", "harvesting in a farmland.");
+            strategyPatternOutput("EmployeeHarvestAction: execute(true)","harvest action success strategy");
+            farmLand.harvest();
+        }else {
+            strategyPatternOutput("EmployeeHarvestAction: execute(false)", "harvest action success strategy");
+
+        }
     }
 
     public  EmployeeHarvestAction setFarmLand(FarmLand farmLand) {
@@ -68,10 +74,4 @@ public class EmployeeHarvestAction extends EmployeeCultivateAction {
         return instance;
     }
 
-    protected String getClassName() {
-        return "EmployeeHarvestAction";
-    }
-    protected String getObjectID() {
-        return "instance";
-    }
 }

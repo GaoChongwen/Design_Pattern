@@ -36,9 +36,14 @@ public class EmployeeSowSeedAction extends EmployeeCultivateAction {
     }
 
     @Override
-    protected void execute() {
-        templateMethodOutput("step 1_2. execute", "an employee is sowing seed");
-        farmLand.plant(seed);
+    public void execute(boolean success) {
+        if(success) {
+            templateMethodOutput("step 1_2. execute", "an employee is sowing seed");
+            strategyPatternOutput("EmployeeSowSeedAction: execute(true)", "sow seed action success strategy");
+            farmLand.plant(seed);
+        }else {
+            strategyPatternOutput("EmployeeSowSeedAction: execute(false)", "sow seed action failed strategy");
+        }
     }
 
     public  EmployeeSowSeedAction setFarmLand(FarmLand farmLand) {
@@ -53,10 +58,4 @@ public class EmployeeSowSeedAction extends EmployeeCultivateAction {
         return instance;
     }
 
-    protected String getClassName() {
-        return "EmployeeSowSeedAction";
-    }
-    protected String getObjectID() {
-        return "instance";
-    }
 }

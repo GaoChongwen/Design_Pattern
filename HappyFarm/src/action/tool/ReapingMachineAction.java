@@ -14,11 +14,15 @@ public class ReapingMachineAction extends ToolAction {
         return true;
     }
 
-
     protected String getClassName() {
         return "ReapingMachineAction";
     }
     protected String getObjectID() {
         return "";
+    }
+
+    @Override
+    public void execute(boolean success) {
+
     }
 }

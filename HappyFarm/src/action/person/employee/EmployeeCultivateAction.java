@@ -33,7 +33,7 @@ abstract public class EmployeeCultivateAction extends EmployeeAction {
     }
 
     abstract protected boolean checkTool();
-    abstract protected void execute();
+    abstract public void execute(boolean success);
 
     protected String getClassName() {
         return "EmployeeCultivateAction";
