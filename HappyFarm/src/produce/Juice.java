@@ -1,6 +1,5 @@
 package produce;
 
-import plant;
 import base.Produce;
 import factory.ProduceFactory;
 import utils.Enum.ProduceType;

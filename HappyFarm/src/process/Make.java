@@ -1,5 +1,6 @@
 package process;
 
+import base.FarmObj;
 import factory.ProduceFactory;
 import base.Produce;
 

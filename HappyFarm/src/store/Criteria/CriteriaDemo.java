@@ -12,7 +12,6 @@ import java.util.List;
 public class CriteriaDemo implements Criteria {
     @Override
     public List<Plant> meetCriteria(List<Plant> Items) {
-        // TODO Auto-generated method stub
         List<Plant> resultItems = new ArrayList<Plant>();
         for (Plant item: Items
              ) {

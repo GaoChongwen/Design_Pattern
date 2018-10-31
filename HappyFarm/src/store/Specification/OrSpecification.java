@@ -1,6 +1,6 @@
 package store.Specification;
 
-import base.Item;
+import base.plant.Plant;
 
 public class OrSpecification extends CompositeSpecification {
     //左右两个规格书
@@ -13,7 +13,7 @@ public class OrSpecification extends CompositeSpecification {
     }
     //or运算
     @Override
-    public boolean isSatisfiedBy(Item item) {
+    public boolean isSatisfiedBy(Plant item) {
         return left.isSatisfiedBy(item) || right.isSatisfiedBy(item);
     }
 }

@@ -8,11 +8,13 @@ import plant.Apple;
 import plant.Cabbage;
 import plant.Rice;
 import plant.Wheat;
+import singleton.Farm;
 import singleton.Repository;
 import utils.Enum.PlantType;
 
 public class Store {
     public static void main(String args[]){
+        Farm.initialFarmObj();
         new Apple();
         new Wheat();
         new Cabbage();
