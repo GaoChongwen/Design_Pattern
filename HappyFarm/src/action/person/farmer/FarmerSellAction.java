@@ -43,9 +43,10 @@ public class FarmerSellAction extends FarmerAction {
         }
     }
 
-    public void setItemName(String itemName) {
+    public FarmerSellAction setItemName(String itemName) {
 //        templateMethodOutput("setItemName", "an item name is specified.");
         this.itemName = itemName;
+        return instance;
     }
 
 

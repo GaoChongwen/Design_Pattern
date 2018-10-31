@@ -43,6 +43,12 @@ public class FarmerProcessAction extends FarmerAction{
     }
 
 
+    public FarmerProcessAction setFarmObj(FarmObj farmObj) {
+        System.out.println("FarmObj "+farmObj.getName()+" is set to FarmerProcessAction.");
+        this.farmObj = farmObj;
+        return instance;
+    }
+
     @Override
     protected void execute() {
         templateMethodOutput("step 1_2. execute","processing a farmObj.");
@@ -59,17 +65,12 @@ public class FarmerProcessAction extends FarmerAction{
 //        }
 //
     }
-
     protected String getClassName() {
         return "FarmerProcessAction";
     }
+
     protected String getObjectID() {
         return "instance";
     }
 
-
-    public void setFarmObj(FarmObj farmObj) {
-        System.out.println("FarmObj "+farmObj.getName()+" is set to FarmerProcessAction.");
-        this.farmObj = farmObj;
-    }
 }

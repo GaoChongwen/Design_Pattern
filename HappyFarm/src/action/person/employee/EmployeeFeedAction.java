@@ -17,9 +17,10 @@ public class EmployeeFeedAction extends EmployeeBreedAction {
         return instance;
     }
 
-    public void setAnimalHouse(AnimalHouse animalHouse) {
+    public EmployeeFeedAction setAnimalHouse(AnimalHouse animalHouse) {
         templateMethodOutput("setAnimalHouse", "an animal house is specified.");
         this.animalHouse = animalHouse;
+        return instance;
     }
 
 

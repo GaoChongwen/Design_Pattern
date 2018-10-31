@@ -39,11 +39,13 @@ public class FarmerUseLandAdaptorAction extends FarmerAction{
         farmLand.use(landAdaptor);
     }
 
-    public void setFarmLand(FarmLand farmLand) {
+    public FarmerUseLandAdaptorAction setFarmLand(FarmLand farmLand) {
         this.farmLand = farmLand;
+        return instance;
     }
 
-    public void setLandAdaptor(LandAdaptor landAdaptor) {
+    public FarmerUseLandAdaptorAction setLandAdaptor(LandAdaptor landAdaptor) {
         this.landAdaptor = landAdaptor;
+        return instance;
     }
 }

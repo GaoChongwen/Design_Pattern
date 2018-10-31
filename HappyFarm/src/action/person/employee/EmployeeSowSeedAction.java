@@ -41,14 +41,16 @@ public class EmployeeSowSeedAction extends EmployeeCultivateAction {
         farmLand.plant(seed);
     }
 
-    public  void setFarmLand(FarmLand farmLand) {
+    public  EmployeeSowSeedAction setFarmLand(FarmLand farmLand) {
         //templateMethodOutput("setFarmLand", "a farm land is specified.");
         this.farmLand = farmLand;
+        return instance;
     }
 
-    public  void setSeed(Plant seed) {
+    public  EmployeeSowSeedAction setSeed(Plant seed) {
         //templateMethodOutput("setSed", "a seed is specified.");
         this.seed = seed;
+        return instance;
     }
 
     protected String getClassName() {

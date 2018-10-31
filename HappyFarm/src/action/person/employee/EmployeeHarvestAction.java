@@ -56,14 +56,16 @@ public class EmployeeHarvestAction extends EmployeeCultivateAction {
         farmLand.harvest();
     }
 
-    public  void setFarmLand(FarmLand farmLand) {
+    public  EmployeeHarvestAction setFarmLand(FarmLand farmLand) {
 //       templateMethodOutput("setFarmLand", "a farmland is specified.");
         this.farmLand = farmLand;
+        return instance;
     }
 
-    public void setHarvestTool(Tool harvestTool) {
+    public EmployeeHarvestAction setHarvestTool(Tool harvestTool) {
 //        templateMethodOutput("setHarvestTool", "a harvest tool is specified.");
         this.harvestTool = harvestTool;
+        return instance;
     }
 
     protected String getClassName() {

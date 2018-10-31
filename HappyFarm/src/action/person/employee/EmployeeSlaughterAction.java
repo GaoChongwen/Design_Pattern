@@ -40,7 +40,9 @@ public class EmployeeSlaughterAction extends EmployeeBreedAction {
         return "instance";
     }
 
-    public void setAnimalHouse(AnimalHouse animalHouse) {
+    public EmployeeSlaughterAction setAnimalHouse(AnimalHouse animalHouse) {
+
         this.animalHouse = animalHouse;
+        return instance;
     }
 }

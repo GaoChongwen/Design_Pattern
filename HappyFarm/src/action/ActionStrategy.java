@@ -6,5 +6,5 @@ package action;
  * Design-Pattern: Strategy
  */
 public interface ActionStrategy {
-    public void doAction();
+    public void execute();
 }

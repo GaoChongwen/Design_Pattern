@@ -67,4 +67,8 @@ abstract public class Action implements ActionStrategy {
     public static void setTemplateMethodMode(boolean templateMethodMode) {
         Action.templateMethodMode = templateMethodMode;
     }
+
+    public static void setDesignPatternMode(DesignPatternMode designPatternMode){
+        Action.designPatternMode = designPatternMode;
+    }
 }

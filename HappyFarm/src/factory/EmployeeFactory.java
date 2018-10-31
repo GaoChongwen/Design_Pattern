@@ -26,12 +26,21 @@ public class EmployeeFactory extends AbstractFactory{
        return employee;
     }
 
-    public void getAllEmployees(){
+    public int getAllEmployees(){
         System.out.println("--------------- Employees ---------------");
         for(Employee e : employees){
             System.out.println("name: "+e.getName()+"   skill: "+e.getSkill().toString()+" salary: "+e.getSalary());
         }
         System.out.println();
+        return employees.size();
+    }
+
+    public Employee getEmpolyee(int id){
+        if(id < 1 || id > employees.size()){
+            System.out.println("Invalid id: out of range.");
+            return null;
+        }
+        return employees.get(id-1);
     }
 
     public ArrayList<Employee> findEmployeesWithSkill(EmployeeSkill skill){

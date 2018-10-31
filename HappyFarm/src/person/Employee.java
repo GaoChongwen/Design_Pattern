@@ -13,16 +13,14 @@ import java.util.Observable;
 public class Employee extends Person {
     private float salary;
     private EmployeeSkill skill;
-    private static int count;
     private int id;
-
+    private static int count = 1;
     public Employee(String name, EmployeeSkill skill, float salary){
         super();
         setName(name);
         setType("Employee");
         this.skill = skill;
         this.salary = salary;
-        count = 0;
         id = count++;
     }
 
