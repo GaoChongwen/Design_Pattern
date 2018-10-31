@@ -27,6 +27,7 @@ public class CompositePatternDemo {
         Prop prop = new Prop();
         try {
             prop.createTree();//Initial !!!!!!
+            System.out.println("Composite:Prop:createTree:Composite Initial");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -36,14 +37,19 @@ public class CompositePatternDemo {
         //System.out.println(adaptor.getName());
         //System.out.println(Root.getInstance().propDir.nodeList.size());
         prop.addAdaptor(adaptor);
+        System.out.println("Composite:Prop:addAdaptor:Adaptor added");
         prop.addAdaptor(cornAdaptor);
+        System.out.println("Composite:Prop:addAdaptor:Adaptor added");
         prop.display((PropDir) Root.getInstance().propDir);
         System.out.println("=====Add some more and demonstrate it again=======");
         AnimalFood animalFood = new AnimalFood();
+        System.out.println("Composite:Prop:addProduct:Product added");
         CookedFood cookedFood = new CookedFood();
+        System.out.println("Composite:Prop:addProduct:Product added");
         prop.addProduct(animalFood);
         prop.addProduct(cookedFood);
         prop.display((PropDir) Root.getInstance().propDir);
+
 
 
     }

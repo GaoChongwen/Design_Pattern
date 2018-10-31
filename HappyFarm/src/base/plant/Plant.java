@@ -2,6 +2,7 @@ package base.plant;
 
 
 import base.FarmObj;
+import utils.Enum.DesignPatternMode;
 import utils.Enum.FarmLandType;
 import utils.Enum.PlantType;
 
@@ -20,9 +21,11 @@ public abstract class Plant extends FarmObj implements Cloneable {
     protected int salePrice;
     protected PlantType type;
     protected FarmLandType reqLandType;
+    protected static DesignPatternMode designPattern;
 
     protected Plant() {
         state = SeedState.getInstance();
+        designPattern = null;
     }
 
     // 获取植物种类
@@ -83,6 +86,10 @@ public abstract class Plant extends FarmObj implements Cloneable {
 
     protected void process(int _) { System.out.println(type+" process success!");}
 
+    // 设置设计模式
+    public static void setDesignPattern(DesignPatternMode designPatter){
+        designPattern=designPatter;
+    }
 
     /**
      * @Design-Pattern: Prototype

@@ -21,6 +21,8 @@ public class House extends FarmObj implements BuildingAcceptor {
 
     private static House instance;
 
+    private String lightState="off";
+
     // 房屋中有的家具
     ArrayList<Furniture> furnitures = new ArrayList<>();
 
@@ -64,23 +66,36 @@ public class House extends FarmObj implements BuildingAcceptor {
         buildingVisitor.visit(this);
     }
 
-    // 向房屋中增添家具
-    public boolean addFurniture(Furniture furniture) {
-        return furnitures.add(furniture);
+    public void addFurniture(Furniture furniture){
+        furnitures.add(furniture);
     }
+    public void removeFuniture(Furniture furniture){
+        for(int i=furnitures.size()-1;i>=0;i--){
 
-    // 想房屋中删除家具
-    public boolean removeFurniture(Furniture furniture) {
-        return furnitures.remove(furniture);
+            if(furnitures.get(i).getName()==furniture.getName()){
+                furnitures.remove(i);
+
+            }
+
+        }
     }
-
-    // 获取房屋中的所有家具
-    public ArrayList<Furniture> getFurnitures() {
-        return furnitures;
+    public void showFurnitures(){
+        System.out.println("the furnitures are:");
+        for(Furniture f:furnitures){
+            System.out.println(f.getName());
+        }
+        if(furnitures.size()==0)
+            System.out.println("nothing");
+        System.out.println("**********");
     }
-
-    // 判断房屋中是否存在某种furniture
-    public boolean contains(Furniture furniture) {
+    public boolean contains(Furniture furniture){
         return furnitures.contains(furniture);
     }
+    public String getLightState(){
+        return  lightState;
+    }
+    public void setLightState(String lightState){
+        this.lightState=lightState;
+    }
+
 }

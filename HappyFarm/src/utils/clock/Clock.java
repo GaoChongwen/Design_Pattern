@@ -1,19 +1,23 @@
 package utils.clock;
 
+import utils.Enum.DesignPatternMode;
+
 import java.util.*;
 
 public class Clock extends Observable {
-    private Clock instance;
+    private static Clock instance;
+    private static DesignPatternMode designPattern = null;
 
     private Clock() {
         curDay = 1;
         timeSpeed = 1;
+        designPattern=null;
     }
 
     private int curDay;
     private int timeSpeed;
 
-    public Clock getInstance() {
+    public static Clock getInstance() {
         if (instance == null) {
             return new Clock();
         }
@@ -36,8 +40,10 @@ public class Clock extends Observable {
     private ArrayList<Observer> observers = new ArrayList();
 
     public void addObserver(Observer observer) {
+        if(designPattern==DesignPatternMode.ObserverPattern){
+            System.out.println("Observer Pattern | Clock method: addObserver(Observer observer) -> "+observer.getClass()+" add to ClockObserverList");
+        }
         observers.add(observer);
-
     }
 
     public void deleteObserver(Observer observer) {
@@ -45,10 +51,17 @@ public class Clock extends Observable {
     }
 
     public void notifyObservers() {
+        if(designPattern==DesignPatternMode.ObserverPattern){
+            System.out.println("Observer Pattern | Clock method: notifyObservers() -> notify the ClockObserverList");
+        }
         Iterator it = observers.iterator();
         while (it.hasNext()) {
             Observer o = (Observer) it.next();
             o.update(this, null);
         }
     }
+    public void setDesignPattern(DesignPatternMode designPatter){
+        designPattern=designPatter;
+    }
+
 }

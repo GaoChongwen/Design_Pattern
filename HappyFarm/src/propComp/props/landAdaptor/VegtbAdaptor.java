@@ -2,6 +2,7 @@ package propComp.props.landAdaptor;
 
 import factory.AdaptorFactory;
 import factory.FarmLandFactory;
+import utils.Enum.DesignPatternMode;
 import utils.Enum.FarmLandType;
 
 /**
@@ -17,6 +18,9 @@ public class VegtbAdaptor extends LandAdaptor {
         super();
         this.landType = FarmLandType.vegtbField;
         this.land = FarmLandFactory.getInstance().createFarmLand(landType.toString());
+        if(DesignPattern== DesignPatternMode.PrototypePattern){
+            System.out.println("VegtbAdaptor initial once");
+        }
         AdaptorFactory.getInstance().putAdaptor(this);
     }
 }

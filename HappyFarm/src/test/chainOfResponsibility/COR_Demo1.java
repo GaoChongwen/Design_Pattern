@@ -22,10 +22,16 @@ public class COR_Demo1 {
         System.out.println("===================================================");
         System.out.println("=============Then we create the instance===========");
         CouponFactor.getInstance().CouponInitial();//Initial !!!!!!
+
+        System.out.println("ChainOfResponsibility:AppleHandler:message:Apple Find");
         CouponFactor.getInstance().add(PlantType.apple.toString());
+        System.out.println("ChainOfResponsibility:WheatHandler:message:Wheat Find");
         CouponFactor.getInstance().add(PlantType.wheat.toString());
+        System.out.println("ChainOfResponsibility:RiceHandler:message:Rice Find");
         CouponFactor.getInstance().add(PlantType.rice.toString());
+        System.out.println("ChainOfResponsibility:CabbageHandler:message:Cabbage Find");
         CouponFactor.getInstance().add(PlantType.cabbage.toString());
+        System.out.println("ChainOfResponsibility:SuperHandler:message:Super Find");
         CouponFactor.getInstance().add("super");
         System.out.println("==========Now we try to use certain coupons========");
         System.out.println("==========In this demo we have money 200===========");

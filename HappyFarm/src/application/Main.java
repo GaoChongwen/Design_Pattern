@@ -1,9 +1,19 @@
 package application;
 
+import animal.Cow;
+import base.animal.Animal;
+import base.plant.Plant;
 import building.farmland.FarmLand;
+import building.shed.AnimalHouse;
+import building.shed.ChickShed;
+import building.shed.CowShed;
 import factory.EmployeeFactory;
+import factory.PlantFactory;
+import person.Employee;
 import person.Farmer;
 import propComp.PropDir.Prop;
+import singleton.Farm;
+import singleton.Repository;
 
 import java.util.Scanner;
 import java.util.SplittableRandom;
@@ -16,7 +26,10 @@ public class Main {
 
     static Scanner scanner = new Scanner(System.in);
 
-//    static Farmer farmer = Farmer;
+    static Farmer farmer = Farmer.getInstance();
+
+    static Repository repository = Repository.getInstance();
+    static PlantFactory plantFactory = PlantFactory.getInstance();
 
     public static void main(String[] args) {
 
@@ -126,6 +139,7 @@ public class Main {
                     killAnimals();
                     break;
                 case "2":
+//                    getProduct();
                     break;
                 default:
                     System.out.println("非合法输入，请重新输入：");
@@ -135,15 +149,56 @@ public class Main {
             System.out.println("*    1. 宰杀动物     *");
             System.out.println("*    2. 收农副产品   *");
             System.out.println("*    0. 返回        *");
-            System.out.println("====================");
+            System.out.println("=====================");
         }
     }
 
     private static void killAnimals() {
+        // 选择动物
+        AnimalHouse animalHouse = null;
+        System.out.print("请选择要宰杀的动物编号：");
+        int inputAni = 0;
+        if (scanner.hasNextInt()) {
+            inputAni = scanner.nextInt();
+        }
+        if (inputAni == 1) {
+            animalHouse = ChickShed.getInstance();
+        } else if (inputAni == 2) {
+            animalHouse = CowShed.getInstance();
+        } else {
+            System.out.print("非法输入。");
+            return;
+        }
+
+        // 选择雇员
+        System.out.println("您当前拥有雇员：");
+        int employeeNum = showAllEmployee();
+        System.out.println("请选择雇员（输入编号）：");
+        int inputEm = 0;
+        if (scanner.hasNextInt()) {
+            inputEm = scanner.nextInt();
+        }
+        if (inputEm == 0) {
+            return;
+        }
+        if (inputEm > 0 && inputEm <= employeeNum) {
+//            Employee employee = farmer.getEmployee(inputEm);
+        }
+        else {
+            System.out.print("非法输入");
+            return;
+        }
+
+//        employee.killAnimals(animalHouse);
+        System.out.println("宰杀完毕。");
     }
 
     private static void showAllAnimals() {
-        System.out.println("动物名称\t动物状态");
+        CowShed cowShed = CowShed.getInstance();
+        ChickShed chickShed = ChickShed.getInstance();
+        System.out.println("\t动物名称\t数量");
+        System.out.println("1\t" + chickShed.getName() + "\t" + chickShed.getChickCount());
+        System.out.println("2\t" + cowShed.getName() + "\t" + cowShed.getCowCount());
     }
 
     private static void showAllPlants() {
@@ -185,50 +240,106 @@ public class Main {
     }
 
     private static void sowSeeds() {
+        System.out.println("请选择你要播种的土地（输入编号）：");
+        int inputLand = 0;
+        FarmLand farmLand = null;
+        if (scanner.hasNextInt()) {
+            inputLand = scanner.nextInt();
+        }
+        if (inputLand >= 0 && inputLand <= 3 ) {
+            // 传入编号获取土地
+//            farmLand =
+        }
+        else {
+            System.out.print("非法输入");
+            return;
+        }
 
+        System.out.println("当前仓库中的种子有：");
+        System.out.println("编号\t种子名称\t种子数量");
+        System.out.println("1\twheat\t" + repository.getPlantNum("wheat"));
+        System.out.println("2\tapple\t" + repository.getPlantNum("apple"));
+        System.out.println("3\trice\t" + repository.getPlantNum("rice"));
+        System.out.println("4\tcabbage\t" + repository.getPlantNum("cabbage"));
+
+        Plant plant = null;
+        System.out.println("请选择你要播种的种子编号：");
+        int inputSeed = 0;
+        if (scanner.hasNextInt()) {
+            inputSeed = scanner.nextInt();
+        }
+        if (inputSeed == 0) {
+            return;
+        }
+        switch (inputSeed) {
+            case 1:plant = plantFactory.createPlant("wheat");break;
+            case 2:plant = plantFactory.createPlant("apple");break;
+            case 3:plant = plantFactory.createPlant("rice");break;
+            case 4:plant = plantFactory.createPlant("cabbage");break;
+            default:System.out.println("非法输入");return;
+        }
+
+        System.out.println("您当前拥有雇员：");
+        int employeeNum = showAllEmployee();
+        System.out.println("请选择雇员（输入编号）：");
+        int inputEm = 0;
+        if (scanner.hasNextInt()) {
+            inputEm = scanner.nextInt();
+        }
+        if (inputEm == 0) {
+            return;
+        }
+        if (inputEm > 0 && inputEm <= employeeNum) {
+//            Employee employee = farmer.getEmployee(inputEm);
+        }
+        else {
+            System.out.print("非法输入");
+            return;
+        }
+
+//        employee.sowSeeds(farmLand, plant);
+        System.out.println("播种完毕。");
     }
 
     private static void harvsetPlants() {
 
         System.out.println("请选择你要收割的土地（输入编号）：");
-        String input = "0";
-        if (scanner.hasNext()) {
-            input = scanner.next();
+        int inputLand = 0;
+        FarmLand farmLand = null;
+        if (scanner.hasNextInt()) {
+            inputLand = scanner.nextInt();
         }
-        if (input.equals("0")) {
+        if (inputLand >= 0 && inputLand <= 3 ) {
+            // 传入编号获取土地
+//            farmLand =
+        }
+        else {
+            System.out.print("非法输入");
             return;
         }
-        String landNum = input;
 
         System.out.println("您当前拥有雇员：");
-        showAllEmployee();
+        int employeeNum = showAllEmployee();
         System.out.println("请选择雇员（输入编号）：");
-        input = "0";
-        if (scanner.hasNext()) {
-            input = scanner.next();
+        int inputEm = 0;
+        if (scanner.hasNextInt()) {
+            inputEm = scanner.nextInt();
         }
-        if (input.equals("0")) {
+        if (inputEm == 0) {
             return;
         }
-        switch (input) {
-            case "1":
-//                ga;
-                break;
-            case "2":
-//                tool = "reapingMachine";
-                break;
-            case "3":
-//                tool = "wheatReapingMachine";
-                break;
-            default:
-                System.out.print("非合法输入。");
-                return;
+        if (inputEm > 0 && inputEm <= employeeNum) {
+//            Employee employee = farmer.getEmployee(inputEm);
         }
-        String employeeNum = input;
+        else {
+            System.out.print("非法输入");
+            return;
+        }
 
         System.out.println("您当前拥有的工具：");
         showAllTools();
         System.out.println("请输入工具编号："); // 1 sickle 2 reapingMachine 3 wheatReapingMachine
+        String input = "0";
         if (scanner.hasNext()) {
             input = scanner.next();
         }
@@ -251,13 +362,13 @@ public class Main {
                     return;
         }
 
-
-//        boolean harvsetSuccessfull =
-
-
+//        employee.harvest(farmLand, tool);
+        System.out.println("收割完毕。");
     }
 
     private static void showAllTools() {
+
+        // 这里用Prop还是prop？？Check好像不是static 问逻辑好
         Prop prop = new Prop();
         boolean exitSickle = prop.Check("sickle");
         boolean exitWheatReapingMachine = prop.Check("wheatReapingMachine");
@@ -285,7 +396,9 @@ public class Main {
         }
     }
 
-    private static void showAllEmployee() {
-        EmployeeFactory.getInstance().getAllEmployees();
+    // 返回雇员数量
+    private static int showAllEmployee() {
+//        return EmployeeFactory.getInstance().getAllEmployees();
+        return 0;
     }
 }
