@@ -3,7 +3,9 @@ package propComp.props.landAdaptor;
 import base.Item;
 import base.plant.Plant;
 import building.farmland.FarmLand;
+import utils.Enum.DesignPatternMode;
 import utils.Enum.FarmLandType;
+
 
 /**
  * Design-Pattern: Adaptor, Prototype
@@ -16,12 +18,12 @@ public abstract class LandAdaptor extends Item implements Cloneable {
     protected boolean isUsed;
     protected FarmLandType landType;
     protected FarmLand land;
-    protected String DesignPattern;
+    protected DesignPatternMode DesignPattern;
 
     protected LandAdaptor() {
         this.isUsed = false;
         this.land = null;
-        DesignPattern="";
+        DesignPattern=null;
     }
 
     @Override
@@ -39,7 +41,7 @@ public abstract class LandAdaptor extends Item implements Cloneable {
 
 
     public boolean plant(Plant plant) {
-        if(DesignPattern=="Adaptor Pattern"){
+        if(DesignPattern== DesignPatternMode.AdaptorPattern){
             System.out.println("- Adaptor Pattern | " + landType + " method: plant(Plant p)");
         }
         if (!isUsed) {
@@ -62,7 +64,7 @@ public abstract class LandAdaptor extends Item implements Cloneable {
         }
         return clone;
     }
-    public void setDesignPattern(String designPattern){
+    public void setDesignPattern(DesignPatternMode designPattern){
         DesignPattern=designPattern;
     }
 }

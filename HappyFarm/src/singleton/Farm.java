@@ -46,6 +46,7 @@ public class Farm extends FarmObj {
         new Rice();
 
         // 初始化土地并创建农田
+        this.lands=new ArrayList<>(4);
         this.lands.add(new CornField());
         this.lands.add(new RiceField());
         this.lands.add(new VegtbField());
