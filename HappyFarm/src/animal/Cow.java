@@ -11,6 +11,6 @@ public class Cow extends Animal {
         this.setName("cow"+index);  index++;
         setStockPrice(Context.getInstance().cow_stockPrice);
         setSalePrice(Context.getInstance().cow_salePrice);
-        System.out.println("a cow has been created");
+        //System.out.println("a cow has been created");
     }
 }

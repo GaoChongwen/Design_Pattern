@@ -11,6 +11,7 @@ import utils.Enum.ToolType;
 public class Sickle extends Tool {
     public Sickle(){
         this(new SickleAction());
+        //System.out.println("a Sickle hase been created");
     }
 
     public Sickle(HarvestAPI harvestAPI){

@@ -15,6 +15,7 @@ public class ReapingMachine extends Tool {
      */
     public ReapingMachine(){
         this(new ReapingMachineAction());
+        //System.out.println("a ReapingMachine has been created");
     }
     /**
      * For Bridge Pattern.
