@@ -17,6 +17,9 @@ import java.util.List;
  **/
 public class CommandPatternDemo {
     public static void main(String[] args) {
+        System.out.println("==========CommandPatternDemo========");
+        System.out.println("Scene: In the house you can carry out some command like addChair, addDesk and so on.");
+        System.out.println("===================================================");
         //初始化命令
         AddChair addChair=new AddChair(House.getInstance());
         AddDesk addDesk=new AddDesk(House.getInstance());
