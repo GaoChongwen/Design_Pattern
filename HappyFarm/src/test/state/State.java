@@ -15,6 +15,15 @@ import java.util.Random;
 
 public class State {
     public static void main(String args[]){
+
+        // 测试
+        System.out.println("==========StatePatternDemo1========");
+        System.out.println("Scene: animals have: babyState, growState, matureState, deadState.),\n"+
+                "After grow or eat : babyState to growingState;\n"+
+                "After grow or eat : growingState to MatureState;\n" +
+                "After die : anyState to deadState;\n");
+        System.out.println("=====================================\n");
+
         Animal[] animals=new Animal[10];
         AbstractFactory animalFactory=new AnimalFactory();
         for(int i=0; i<10; ++i) {

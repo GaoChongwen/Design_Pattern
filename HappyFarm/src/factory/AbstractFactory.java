@@ -14,7 +14,7 @@ import utils.Enum.EmployeeSkill;
 
 import propComp.props.landAdaptor.LandAdaptor;
 
-public abstract class AbstractFactory {
+public abstract class AbstractFactory {  //抽象工厂类
     public Plant createPlant(String name) {
         return null;
     }

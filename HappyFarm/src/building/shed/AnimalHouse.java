@@ -17,7 +17,7 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
     //protected int count;  //当前舍内动物数量
     protected int cost;  //造价
     //protected int level;
-    Animal[] animals;
+    Animal[] animals;  //存储animal数组
     protected static DesignPatternMode DesignPattern;
 
 
@@ -29,22 +29,21 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
     }
 
     @Override
-    public void update(Observable o, Object arg) {
+    public void update(Observable o, Object arg) {  //animalhouse作为观察者，观察clock
         if(DesignPattern==DesignPatternMode.ObserverPattern){
             System.out.println("Observer Pattern | "+getName()+" method: update(Observable o, Object arg) -> to grow FarmObj in "+getName());
         }
-        _clear();
-        //System.out.println("hello");
+        _clear(); //清理掉死掉的动物
         for(int i=0; i<capacity; ++i){
             if(animals[i]!=null) {
                 animals[i].grow();
             }
         }
-        _clear();
+        _clear();  //清理掉死掉的动物
     }
 
     //protected int lstPos;
-    class AnimalIterator implements Iterator {
+    class AnimalIterator implements Iterator {  //迭代器，可以遍历而不必关心容器的具体类型
         private int curPos = 0;
 
         @Override
@@ -64,14 +63,13 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
             return animal;
         }
 
-        public FarmObj m_next(){
-            Animal animal = animals[curPos];
-            curPos++;
-            return animal;
-        }
     }
 
-    public boolean addAnimal(Animal animal) {
+    public AnimalIterator getIterator() {
+        return new AnimalIterator();
+    }
+
+    public boolean addAnimal(Animal animal) {  //添加动物
         for (int i = 0; i < capacity; ++i) {
             if (animals[i] == null) {
                 animals[i] = animal;  //找到空栏位
@@ -81,23 +79,22 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
         return false;  //没有空栏位
     }
 
-    public ArrayList<Animal> slaughter(){
-        _clear();
+    public ArrayList<Animal> slaughter(){  //屠宰已经成熟的动物，返回一个被屠宰的动物的array
+        _clear();  //清理掉死动物
         ArrayList<Animal> ret=new ArrayList<Animal>();
         for(int i=0; i<capacity; ++i){
             if(animals[i]!=null&&animals[i].isMature){
                 animals[i].shouldRemove=true;
                 ret.add(animals[i]);
                 System.out.println(animals[i].getName()+" has been killed");
-                //System.out.println("您是想卖掉这只"+animals[i].getName()+"还是想加工它呢？");
             }
         }
-        _clear();
+        _clear();  //清理掉死动物
         return ret;
     }
 
-    public void feed(){
-        _clear();
+    public void feed(){  //喂养畜舍内所有的动物
+        _clear();//先清理死掉的动物
         for(int i=0; i<capacity; ++i){
             if(animals[i]!=null){
                 animals[i].eat();
@@ -106,15 +103,12 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
         _clear();
     }
 
-    private void _clear(){
+    private void _clear(){  //清理死掉的动物
         for(int i=0; i<capacity; ++i){
             if(animals[i]!=null&&animals[i].shouldRemove){
                 animals[i]=null;
             }
         }
-    }
-    public AnimalIterator getIterator() {
-        return new AnimalIterator();
     }
 
     // 获取动物窝的名字
