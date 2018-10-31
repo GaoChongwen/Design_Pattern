@@ -2,6 +2,7 @@ package factory;
 
 import base.plant.Plant;
 import singleton.Farm;
+import utils.Enum.DesignPatternMode;
 
 import java.util.Hashtable;
 import java.util.Map;
@@ -18,6 +19,7 @@ public class PlantFactory extends AbstractFactory {
 
     private volatile static PlantFactory singleton = new PlantFactory();
     private static Hashtable<String, Plant> plantMap = new Hashtable<String, Plant>();
+    private DesignPatternMode designPattern = null;
 
 
     public static PlantFactory getInstance() {
@@ -33,7 +35,11 @@ public class PlantFactory extends AbstractFactory {
         return cachedPlant.clone();
     }
 
-    public void putPlant(Plant plant){
+    public void putPlant(Plant plant)
+    {
+        if(designPattern==DesignPatternMode.FactoryPattern){
+            System.out.println(plant.getName()+" is put into PlantFactory.");
+        }
         plantMap.put(plant.getName(),plant);
     }
 
@@ -50,7 +56,10 @@ public class PlantFactory extends AbstractFactory {
         for (Map.Entry<String, Plant> entry : plantMap.entrySet()) {
             System.out.println("PlantType = " + entry.getKey() + ", Plant = " + entry.getValue().getType());
         }
+    }
 
+    public void setDesignPattern(DesignPatternMode designPattern){
+        this.designPattern=designPattern;
     }
 
 

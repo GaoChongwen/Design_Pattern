@@ -1,6 +1,12 @@
 package application;
 
+import building.farmland.FarmLand;
+import factory.EmployeeFactory;
+import person.Farmer;
+import propComp.PropDir.Prop;
+
 import java.util.Scanner;
+import java.util.SplittableRandom;
 
 /**
  * @author: Chen Yulei
@@ -9,6 +15,8 @@ import java.util.Scanner;
 public class Main {
 
     static Scanner scanner = new Scanner(System.in);
+
+//    static Farmer farmer = Farmer;
 
     public static void main(String[] args) {
 
@@ -139,7 +147,10 @@ public class Main {
     }
 
     private static void showAllPlants() {
-        System.out.println("植物名称\t植物状态");
+        System.out.println("\t土地1号\t土地2号\t土地3号\t土地4号");
+        System.out.println("植物种类");
+        System.out.println("植物状态");
+        // 鹏负责
     }
 
     private static void enterPlants() {
@@ -179,6 +190,102 @@ public class Main {
 
     private static void harvsetPlants() {
 
+        System.out.println("请选择你要收割的土地（输入编号）：");
+        String input = "0";
+        if (scanner.hasNext()) {
+            input = scanner.next();
+        }
+        if (input.equals("0")) {
+            return;
+        }
+        String landNum = input;
 
+        System.out.println("您当前拥有雇员：");
+        showAllEmployee();
+        System.out.println("请选择雇员（输入编号）：");
+        input = "0";
+        if (scanner.hasNext()) {
+            input = scanner.next();
+        }
+        if (input.equals("0")) {
+            return;
+        }
+        switch (input) {
+            case "1":
+//                ga;
+                break;
+            case "2":
+//                tool = "reapingMachine";
+                break;
+            case "3":
+//                tool = "wheatReapingMachine";
+                break;
+            default:
+                System.out.print("非合法输入。");
+                return;
+        }
+        String employeeNum = input;
+
+        System.out.println("您当前拥有的工具：");
+        showAllTools();
+        System.out.println("请输入工具编号："); // 1 sickle 2 reapingMachine 3 wheatReapingMachine
+        if (scanner.hasNext()) {
+            input = scanner.next();
+        }
+        if (input.equals("0")) {
+            return;
+        }
+        String tool;
+        switch (input) {
+            case "1":
+                tool = "sickle";
+                break;
+            case "2":
+                tool = "reapingMachine";
+                break;
+            case "3":
+                tool = "wheatReapingMachine";
+                break;
+                default:
+                    System.out.print("非合法输入。");
+                    return;
+        }
+
+
+//        boolean harvsetSuccessfull =
+
+
+    }
+
+    private static void showAllTools() {
+        Prop prop = new Prop();
+        boolean exitSickle = prop.Check("sickle");
+        boolean exitWheatReapingMachine = prop.Check("wheatReapingMachine");
+        boolean exitReapingMachine = prop.Check("reapingMachine");
+
+        System.out.print("工具编号：");
+        if (exitSickle) {
+            System.out.print("\t1");
+        }
+        if (exitReapingMachine) {
+            System.out.print("\t2");
+        }
+        if (exitWheatReapingMachine) {
+            System.out.print("\t3\n");
+        }
+        System.out.print("工具名称：");
+        if (exitSickle) {
+            System.out.print("\tSickle");
+        }
+        if (exitReapingMachine) {
+            System.out.print("\tReaping Machine");
+        }
+        if (exitWheatReapingMachine) {
+            System.out.print("\tWheat Reaping Machine\n");
+        }
+    }
+
+    private static void showAllEmployee() {
+        EmployeeFactory.getInstance().getAllEmployees();
     }
 }

@@ -15,7 +15,7 @@ public class CowProcessor implements ProcessAPI {
             milking(animal);
             disinfector(animal);
             pack(animal);
-            return createAnimalFood();
+            return createMilk();
         }
         return null;
     }
@@ -41,7 +41,7 @@ public class CowProcessor implements ProcessAPI {
             return;
         }
     }
-    protected Produce createAnimalFood(){
+    protected Produce createMilk(){
         return ProduceFactory.getInstance().createProduce(ProduceType.milk.toString());
     }
 

@@ -15,7 +15,7 @@ public class MeatProcessor implements ProcessAPI {
             slaughter(animal);
             cook(animal);
             pack(animal);
-            return createAnimalFood();
+            return createCookedFood();
         }
         return null;
     }
@@ -42,7 +42,7 @@ public class MeatProcessor implements ProcessAPI {
         }
         System.out.println("AnimalProcessor pack the "+animal.getName()+" ...");
     }
-    protected Produce createAnimalFood(){
+    protected Produce createCookedFood(){
         return ProduceFactory.getInstance().createProduce(ProduceType.cookedFood.toString());
     }
 

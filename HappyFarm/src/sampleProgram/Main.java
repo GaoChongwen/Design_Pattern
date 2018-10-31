@@ -7,18 +7,14 @@ import test.builder.Builder;
 import test.chainOfResponsibility.COR_Demo1;
 import test.compositeEntity.CompositeEntityPatternDemo;
 import test.decorator.DecoratorPatternDemo;
-import test.factoryMethod.FactoryDemo1;
 import test.flyweight.FlyweightPatternDemo;
 import test.mediator.Mediator;
 import test.prototype.PrototypeDemo1;
 import test.singleton.Singleton;
 import test.singleton.SingletonDemo2;
 import test.state.State;
-import test.templateMethod.TemplateMethod;
 import test.visitor.VisitorPatternDemo;
 
-import java.util.ArrayList;
-import java.util.Observer;
 import java.util.Scanner;
 
 public class Main {

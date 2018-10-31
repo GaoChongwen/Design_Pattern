@@ -1,4 +1,4 @@
-package test.factoryMethod;
+package test.abstractFactory;
 
 import base.animal.Animal;
 import base.plant.Plant;

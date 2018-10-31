@@ -17,7 +17,7 @@ public class COR_Demo1 {
     public static void main(String args[]){
 
         System.out.println("==========COR_DEMO1========");
-        System.out.println("Scene: After buying certain coupons in the store, we need ti create coupons.\n" +
+        System.out.println("Scene: After buying certain coupons in the store, we need to create coupons.\n" +
                 "In the program ,ChainOfResponsibility Pattern is used to vertify the kind of the coupon；");
         System.out.println("===================================================");
         System.out.println("=============Then we create the instance===========");

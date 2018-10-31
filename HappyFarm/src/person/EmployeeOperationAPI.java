@@ -39,4 +39,6 @@ public interface EmployeeOperationAPI {
 
     /** water a chosen farmland. */
     public void water(FarmLand farmLand);
+
+    public void harvest(FarmLand farmLand, String tool);
 }

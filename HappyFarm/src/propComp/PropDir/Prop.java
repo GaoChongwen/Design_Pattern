@@ -42,7 +42,7 @@ public class Prop {
                 PropDir propDir = node1.nodeList.get(i);
                 if (!propDir.isNode()){
                     Filer filer = (Filer)propDir;
-                    System.out.println(filer.name);
+                    System.out.println(node.name+" "+filer.name);
                 } else{
                     display(propDir);
                 }
@@ -115,8 +115,9 @@ public class Prop {
     //添加product节点
     public static void addProduct(Produce product) {
         Node node = null;
+        int t = Root.getInstance().propDir.nodeList.size();
         for (int i = 0; i < Root.getInstance().propDir.nodeList.size(); i++) {
-            if (Root.getInstance().propDir.nodeList.get(i).getName().equals("Product")) {
+            if (Root.getInstance().propDir.nodeList.get(i).getNodeName().equals("Product")) {
                 node = (Node) Root.getInstance().propDir.nodeList.get(i);
                 break;
             }
@@ -128,31 +129,5 @@ public class Prop {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-
-    public static void main(String[] args) {
-        try {
-            createTree();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        AppleAdaptor adaptor = new AppleAdaptor();
-        CornAdaptor cornAdaptor = new CornAdaptor();
-        //System.out.println(adaptor.getName());
-        //System.out.println(Root.getInstance().propDir.nodeList.size());
-        addAdaptor(adaptor);
-        addAdaptor(cornAdaptor);
-        display((PropDir)Root.getInstance().propDir);
-
-        Prop prop = new Prop();
-        prop.createTree();
-        //AppleAdaptor adaptor = new AppleAdaptor();
-        //CornAdaptor cornAdaptor = new CornAdaptor();
-        prop.addAdaptor(adaptor);
-        prop.addAdaptor(cornAdaptor);
-        prop.display((PropDir) Root.getInstance().propDir);
-
-
     }
 }
