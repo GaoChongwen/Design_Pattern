@@ -3,6 +3,7 @@ package plant;
 import base.plant.Plant;
 import factory.PlantFactory;
 import utils.Context;
+import utils.Enum.DesignPatternMode;
 import utils.Enum.FarmLandType;
 import utils.Enum.PlantType;
 
@@ -22,6 +23,8 @@ public class Rice extends Plant {
         this.salePrice = Context.rice_salePrice;
         this.reqLandType= FarmLandType.riceField;
         PlantFactory.getInstance().putPlant(this);
-        System.out.println("rice initial once");
+        if(designPattern== DesignPatternMode.PrototypePattern){
+            System.out.println("Prototype Pattern | Rice: method Rice() -> Rice initial once");
+        }
     }
 }

@@ -21,13 +21,13 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
     protected boolean idle;
     protected Plant plant;
     protected LandAdaptor adaptor;
-    protected DesignPatternMode DesignPattern;
+    protected static DesignPatternMode DesignPattern;
 
     protected FarmLand() {
         this.idle = true;
         this.adaptor = null;
         this.plant = null;
-        this.DesignPattern=null;
+        DesignPattern=null;
     }
 
     // 获取土地种类名
@@ -111,7 +111,7 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
         return clone;
     }
 
-    public void setDesignPattern(DesignPatternMode designPattern){
-        DesignPattern=designPattern;
+    public static void setDesignPattern(DesignPatternMode designPatter){
+        DesignPattern=designPatter;
     }
 }

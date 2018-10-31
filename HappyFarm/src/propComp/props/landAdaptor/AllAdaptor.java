@@ -4,6 +4,7 @@ import base.plant.Plant;
 import building.farmland.FarmLand;
 import factory.AdaptorFactory;
 import factory.FarmLandFactory;
+import utils.Enum.DesignPatternMode;
 import utils.Enum.FarmLandType;
 
 /**
@@ -18,6 +19,9 @@ public class AllAdaptor extends LandAdaptor {
         super();
         this.landType = FarmLandType.allField;
         AdaptorFactory.getInstance().putAdaptor(this);
+        if(DesignPattern== DesignPatternMode.PrototypePattern) {
+
+        }
     }
 
     @Override

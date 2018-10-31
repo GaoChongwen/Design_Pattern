@@ -1,6 +1,7 @@
 package base;
 
 import factory.ProduceFactory;
+import utils.Enum.DesignPatternMode;
 import utils.Enum.ProduceType;
 import base.FarmObj;
 
@@ -15,8 +16,11 @@ import base.FarmObj;
 public abstract class Produce extends Item implements Cloneable{
     protected int salePrice;
     protected ProduceType type;
+    protected DesignPatternMode DesignPattern;
+
 
     protected Produce() {
+        DesignPattern=null;
     }
 
     public int getSalePrice() {
@@ -39,4 +43,9 @@ public abstract class Produce extends Item implements Cloneable{
         }
         return clone;
     }
+
+    public void setDesignPattern(DesignPatternMode designPattern){
+        DesignPattern=designPattern;
+    }
+
 }
