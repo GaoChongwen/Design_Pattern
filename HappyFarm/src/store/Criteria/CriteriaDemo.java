@@ -15,7 +15,7 @@ public class CriteriaDemo implements Criteria {
         List<Plant> resultItems = new ArrayList<Plant>();
         for (Plant item: Items
              ) {
-            if(item.getType().equals("apple")){
+            if(item.getName().equals("apple")){
                 resultItems.add(item);
             }
         }

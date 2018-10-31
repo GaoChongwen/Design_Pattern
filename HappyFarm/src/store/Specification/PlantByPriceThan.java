@@ -10,6 +10,6 @@ public class PlantByPriceThan extends CompositeSpecification{
 
     @Override
     public boolean isSatisfiedBy(Plant item) {
-        return item.getSalePrice() > price;
+        return (item.getSalePrice() > this.price);
     }
 }

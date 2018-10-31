@@ -18,9 +18,9 @@ public class Specification {
         Farm.getInstance().initialFarmObj();
         //首先初始化一批植物
         ArrayList<Plant> plantList = new ArrayList<Plant>();
-        plantList.add(PlantFactory.getInstance().createPlant("cow"));
-        plantList.add(PlantFactory.getInstance().createPlant("chicken"));
-        plantList.add(PlantFactory.getInstance().createPlant("pig"));
+        plantList.add(PlantFactory.getInstance().createPlant("wheat"));
+        plantList.add(PlantFactory.getInstance().createPlant("apple"));
+        plantList.add(PlantFactory.getInstance().createPlant("rice"));
 
         //打印出价格高于20的植物
         System.out.println("===The price of plant is higher than 20===");
