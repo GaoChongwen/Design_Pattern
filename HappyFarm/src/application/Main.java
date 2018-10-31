@@ -139,6 +139,7 @@ public class Main {
                     killAnimals();
                     break;
                 case "2":
+//                    getProduct();
                     break;
                 default:
                     System.out.println("非合法输入，请重新输入：");
@@ -148,7 +149,7 @@ public class Main {
             System.out.println("*    1. 宰杀动物     *");
             System.out.println("*    2. 收农副产品   *");
             System.out.println("*    0. 返回        *");
-            System.out.println("====================");
+            System.out.println("=====================");
         }
     }
 
@@ -181,14 +182,14 @@ public class Main {
             return;
         }
         if (inputEm > 0 && inputEm <= employeeNum) {
-            Employee employee = farmer.getEmployee(inputEm);
+//            Employee employee = farmer.getEmployee(inputEm);
         }
         else {
             System.out.print("非法输入");
             return;
         }
 
-        employee.killAnimals(animalHouse);
+//        employee.killAnimals(animalHouse);
         System.out.println("宰杀完毕。");
     }
 
@@ -289,14 +290,14 @@ public class Main {
             return;
         }
         if (inputEm > 0 && inputEm <= employeeNum) {
-            Employee employee = farmer.getEmployee(inputEm);
+//            Employee employee = farmer.getEmployee(inputEm);
         }
         else {
             System.out.print("非法输入");
             return;
         }
 
-        employee.sowSeeds(farmLand, plant);
+//        employee.sowSeeds(farmLand, plant);
         System.out.println("播种完毕。");
     }
 
@@ -328,7 +329,7 @@ public class Main {
             return;
         }
         if (inputEm > 0 && inputEm <= employeeNum) {
-            Employee employee = farmer.getEmployee(inputEm);
+//            Employee employee = farmer.getEmployee(inputEm);
         }
         else {
             System.out.print("非法输入");
@@ -361,7 +362,7 @@ public class Main {
                     return;
         }
 
-        employee.harvest(farmLand, tool);
+//        employee.harvest(farmLand, tool);
         System.out.println("收割完毕。");
     }
 
@@ -398,5 +399,6 @@ public class Main {
     // 返回雇员数量
     private static int showAllEmployee() {
 //        return EmployeeFactory.getInstance().getAllEmployees();
+        return 0;
     }
 }
