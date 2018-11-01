@@ -25,26 +25,25 @@ public interface EmployeeOperationAPI {
 //    public void harvest(Plant plant);
 
     /** harvest a type of plants in the land. */
-    public void harvest(String plantType);
+//    public void harvest(String plantType);
 
     /** slaughter all animals in the shed. */
     public void slaughter();
 
     /** slaughter a chosen animal in the shed. */
-    public void slaughter(Animal animal);
+    public void slaughter(AnimalHouse animalHouse);
 
     /** slaughter a type a animals in the shed. */
 //    public void slaughter(AnimalType animalType);
 
     /** water all farmlands. */
-    public void water();
+//    public void water();
 
     /** water a chosen farmland. */
-    public void water(FarmLand farmLand);
+//    public void water(FarmLand farmLand);
 
     public void harvest(FarmLand farmLand, String tool);
 
-    public void killAnimals(AnimalHouse animalHouse);
 
     public void sowSeeds(FarmLand farmLand, Plant plant);
 }
