@@ -7,6 +7,12 @@ public class DeadState implements AnimalState {
     public DeadState(Animal animal){
         this.animal=animal;
     }
+
+    @Override
+    public String getStateNanem() {
+        return "deadState";
+    }
+
     @Override
     public void grow() {
 
