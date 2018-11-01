@@ -2,7 +2,6 @@ package test.facade;
 
 import animal.Chicken;
 import animal.Cow;
-import animal.Pig;
 import base.animal.Animal;
 import building.shed.ChickShed;
 import building.shed.CowShed;
@@ -41,8 +40,7 @@ public class FacadePatternDemo {
         CowShed.getInstance().feed();
         CowShed.getInstance().feed();
         CowShed.getInstance().feed();
-        ChickShed.getInstance().feed();
-        ChickShed.getInstance().feed();
+
 
         // 鸡窝：
         for(int i=0; i<1; ++i){
