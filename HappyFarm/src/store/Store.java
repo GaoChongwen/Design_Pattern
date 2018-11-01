@@ -111,7 +111,7 @@ public class Store {
                         ChickShed.getInstance().add();
                     }
                 } else if (Kinds.get(name).equals("Adaptor")) {
-              //      Money.getInstance().buy(name, number, AdaptorFactory.getInstance().createAdaptor(name));
+                    Money.getInstance().buy(name, number, 200);
                     Prop.addAdaptor(AdaptorFactory.getInstance().createAdaptor(name));
                 }
             }

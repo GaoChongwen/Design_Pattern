@@ -46,11 +46,11 @@ public class Store {
         System.out.println(!CowShed.getInstance().isEmpty());
 
         store.Store.getInstance().buyCommity("appleField",2);
-        System.out.println("Does user have appleField?，true or false ");
-        System.out.println("");
+        System.out.println("Does user have appleField?");
+        Farm.getInstance().showPropBag();
 
         store.Store.getInstance().buyCommity("sickle",2);
-        System.out.println("");
+        Farm.getInstance().showToolInBag();
         store.Store.getInstance().buyCombo(2);
 
  }
