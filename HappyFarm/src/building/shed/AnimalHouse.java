@@ -18,6 +18,16 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
     protected int cost;  //造价
     //protected int level;
     Animal[] animals;  //存储animal数组
+    private String animalName;
+
+    public String getAnimalName() {
+        return animalName;
+    }
+
+    public void setAnimalName(String animalName) {
+        this.animalName = animalName;
+    }
+
     protected static DesignPatternMode DesignPattern;
 
 
@@ -26,6 +36,34 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
         //count=0;
         cost = 0;
         DesignPattern=null;
+    }
+
+    public void count(){
+        _clear();
+        int bcnt=0;
+        int gcnt=0;
+        int mcnt=0;
+        int dcnt=0;
+        for(int i=0; i<capacity; ++i){
+            if(animals[i]!=null){
+                if(animals[i].getState().getStateNanem().equals("babyState")){
+                    bcnt++;
+                }
+                else if(animals[i].getState().getStateNanem().equals("growingState")){
+                    gcnt++;
+                }
+                else if(animals[i].getState().getStateNanem().equals("matureState")){
+                    mcnt++;
+                }
+                else if(animals[i].getState().getStateNanem().equals("deadState")){
+                    dcnt++;
+                }
+            }
+        }
+        System.out.println("in this "+this.getName()+"there are");
+        System.out.println("there are "+bcnt+" baby "+this.getAnimalName());
+        System.out.println("there are "+gcnt+" growing "+this.getAnimalName());
+        System.out.println("there are "+mcnt+" mature "+this.getAnimalName());
     }
 
     @Override
