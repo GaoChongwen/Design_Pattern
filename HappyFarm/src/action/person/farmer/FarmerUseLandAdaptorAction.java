@@ -34,7 +34,7 @@ public class FarmerUseLandAdaptorAction extends FarmerAction{
     }
 
     @Override
-    public void execute(boolean success) {
+    public boolean execute(boolean success) {
         if(success) {
             templateMethodOutput("step 1_2. execute", "using an adaptor on a farmland.");
             strategyPatternOutput("FarmerUseLandAdaptorAction: execute(true)", "use land adaptor action success strategy");
@@ -42,6 +42,7 @@ public class FarmerUseLandAdaptorAction extends FarmerAction{
         } else {
             strategyPatternOutput("FarmerUseLandAdaptorAction: execute", "use land adaptor action failed strategy");
         }
+        return success;
     }
 
     public FarmerUseLandAdaptorAction setFarmLand(FarmLand farmLand) {

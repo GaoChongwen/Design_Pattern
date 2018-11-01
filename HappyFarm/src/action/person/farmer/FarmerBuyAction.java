@@ -51,7 +51,7 @@ public class FarmerBuyAction extends FarmerAction {
      *
      */
     @Override
-    public void execute(boolean success) {
+    public boolean execute(boolean success) {
         if(success) {
             templateMethodOutput("step 1_2_1. execute", "buying " + count + " " + itemName);
             strategyPatternOutput("FarmerBuyAction: execute(true)", "buy action success strategy");
@@ -63,7 +63,7 @@ public class FarmerBuyAction extends FarmerAction {
         } else {
             strategyPatternOutput("FarmerBuyAction: execute(false)", "buy action failed strategy");
         }
-
+        return success;
     }
 
     public FarmerBuyAction setCount(int count) {

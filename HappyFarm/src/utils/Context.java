@@ -41,6 +41,11 @@ public class Context {
     public static String[] windowInfo = {"Landing Windows", "Sliding Windows"};
     public static String[] tileInfo = {"Red Tile", "Blue Tile", "Yellow Tile"};
 
+    // capacity of land, house, ...
+    public static int capacityLand = 4;
+    public static int capacityToolBag = 10;
+
+
     public static Context getInstance() {
         return singleton;
     }

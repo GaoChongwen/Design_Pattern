@@ -29,6 +29,7 @@ import utils.Enum.FarmLandType;
 import utils.Enum.PlantType;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Farm extends FarmObj {
     private volatile static Farm singleton = new Farm();
@@ -52,7 +53,7 @@ public class Farm extends FarmObj {
         new Rice();
 
         // 初始化土地并创建农田
-        this.lands=new ArrayList<>(4);
+        this.lands=new ArrayList<>(Context.capacityLand);
         this.lands.add(new CornField());
         this.lands.add(new RiceField());
         this.lands.add(new VegtbField());
@@ -73,11 +74,13 @@ public class Farm extends FarmObj {
         // 初始化农舍
 
 
+        // 初始化工具包
+        toolBag=new ArrayList<>(Context.capacityToolBag);
 
         // 初始化兑换券
         CouponFactor.getInstance().CouponInitial();
 
-        // 初始化工具包
+        // 初始化道具包
         propBag =new Prop();
         try{
             propBag.createTree();
@@ -104,7 +107,7 @@ public class Farm extends FarmObj {
 
     // 将工具放入工具包
     public boolean putIntoToolBag(Tool tool){
-        if(tool.getType().equals("Tool")){
+        if(tool.getType().equals("tool")){
             toolBag.add(tool);
             return true;
         }
@@ -128,4 +131,25 @@ public class Farm extends FarmObj {
     public void showPropBag(){
         Prop.display(Root.getInstance().propDir);
     }
+
+    public void showFarmLand(){
+        System.out.println("编号\t土地类型\t栽种植物\t植物状态");
+        for(int i=0;i<lands.size();i++){
+            Plant plant = lands.get(i).getPlant();
+            System.out.printf("%d\t%s\t%s\t%s\n",i+1,lands.get(i).getName(),plant==null?"无":plant.getName(),plant==null?"无":plant.getState());
+        }
+    }
+
+    public FarmLand getFarmLand(int index){
+        while(index<1||index>Context.capacityLand){
+            System.out.println("该序号无效噢~ 重新输入呢~");
+            Scanner scanner = new Scanner(System.in);
+            if (scanner.hasNextInt()) {
+                index = scanner.nextInt();
+                break;
+            }
+        }
+        return lands.get(index);
+    }
+
 }

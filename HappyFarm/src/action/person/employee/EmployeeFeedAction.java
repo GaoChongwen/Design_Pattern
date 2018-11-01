@@ -1,6 +1,10 @@
 package action.person.employee;
 
+import base.Action;
+import base.FarmObj;
 import building.shed.AnimalHouse;
+import person.Employee;
+import utils.Enum.EmployeeSkill;
 
 /**
  * @author Chudi LAN
@@ -35,14 +39,17 @@ public class EmployeeFeedAction extends EmployeeBreedAction {
     }
 
     @Override
-    public void execute(boolean success) {
+    public boolean execute(boolean success) {
         if(success) {
             templateMethodOutput("step 1_2. execute", "feeding an animal.");
             strategyPatternOutput("EmployeeFeedAction: execute(true)", "feed action success strategy");
             animalHouse.feed();
+            return true;
         }
         else {
             strategyPatternOutput("EmployeeFeedAction: execute(false)", "feed action failed strategy");
+            return false;
         }
     }
+
 }

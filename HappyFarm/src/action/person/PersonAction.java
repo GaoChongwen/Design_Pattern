@@ -12,13 +12,13 @@ abstract public class PersonAction extends Action{
      * @return
      */
     @Override
-    protected void doSomething() {
+    protected boolean doSomething() {
         templateMethodOutput("step 1. doSomething","a person is performing an action.");
         if(checkCondition()){           // step 1_1
-            execute(true);                  // step 1_2
+            return execute(true);                  // step 1_2
         }else {
             templateMethodOutput("step 1_2. execute", "failed to execute.");
-            execute(false);
+            return execute(false);
         }
     }
 
@@ -29,7 +29,7 @@ abstract public class PersonAction extends Action{
      */
     protected abstract boolean checkCondition();
 
-    abstract public void execute(boolean success);
+    abstract public boolean execute(boolean success);
 
     protected String getClassName() {
         return "Person Action";

@@ -41,4 +41,5 @@ public class HarvestState implements PlantState {
         return true;
     }
 
+    public String getState(){return "已收获";}
 }
