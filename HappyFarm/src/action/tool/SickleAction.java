@@ -7,15 +7,7 @@ package action.tool;
  */
 public class SickleAction extends  ToolAction{
     public SickleAction(){
-        defaultOutput("SickleAction", "a SickleAction is created.");
-        templateMethodOutput("constructor", "I am created.");
         bridgeOutput("SickleAction", "a SickleAction is created.");
-    }
-
-    @Override
-    public boolean harvest() {
-        bridgeOutput("SickleAction: harvest","The tool functions as sickle'");
-        return true;
     }
 
     protected String getClassName() {
@@ -23,6 +15,11 @@ public class SickleAction extends  ToolAction{
     }
     protected String getObjectID() {
         return "";
+    }
+
+    @Override
+    void execute() {
+        templateMethodOutput("SickelAction: step 2. execute()","harvesting with a sickle");
     }
 
     @Override

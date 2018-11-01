@@ -5,15 +5,7 @@ package action.tool;
  */
 public class ReapingMachineAction extends ToolAction {
     public ReapingMachineAction(){
-        defaultOutput("ReapingMachineAction", "a ReapingMachineAction is created.");
-        templateMethodOutput("constructor","I am created.");
         bridgeOutput("ReapingMachineAction", "a ReapingMachineAction is created.");
-    }
-
-    @Override
-    public boolean harvest() {
-        bridgeOutput("ReapingMachine: harvest","The tool functions as a reaping machine.");
-        return true;
     }
 
     protected String getClassName() {
@@ -21,6 +13,11 @@ public class ReapingMachineAction extends ToolAction {
     }
     protected String getObjectID() {
         return "";
+    }
+
+    @Override
+    void execute() {
+        templateMethodOutput("ReapingMachineAction: step 2. execute()","harvasting with a reaping machine.");
     }
 
     @Override
