@@ -50,7 +50,8 @@ public class CompositePatternDemo {
         prop.addProduct(cookedFood);
         prop.display((PropDir) Root.getInstance().propDir);
 
-
+        prop.displayAdaptor();
+        prop.displayProduct();
 
     }
 }

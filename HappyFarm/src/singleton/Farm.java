@@ -29,17 +29,20 @@ import utils.Enum.FarmLandType;
 import utils.Enum.PlantType;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Scanner;
 
 public class Farm extends FarmObj {
     private volatile static Farm singleton = new Farm();
     public static Farm getInstance() { return singleton; }
 
-    private ArrayList<AnimalHouse> sheds;
+    private CowShed cowShed = CowShed.getInstance();
+    private ChickShed chickShed =ChickShed.getInstance();
     private ArrayList<FarmLand> lands;
     private House house;
     private Prop propBag;
-    private ArrayList<Tool> toolBag;
+    private HashMap<String,HashMap<Tool,Integer>> toolBag;
 
 
     private Farm(){ }
@@ -72,10 +75,12 @@ public class Farm extends FarmObj {
         new Milk();
 
         // 初始化农舍
+        cowShed.bulidShed();
+        chickShed.bulidShed();
 
 
         // 初始化工具包
-        toolBag=new ArrayList<>(Context.capacityToolBag);
+        // toolBag=new ArrayList<>(Context.capacityToolBag);
 
         // 初始化兑换券
         CouponFactor.getInstance().CouponInitial();
@@ -100,19 +105,58 @@ public class Farm extends FarmObj {
             }
         }
 
-
         System.out.println("Initial Done.");
 
     }
 
+    /**
+     * 对工具包的操作：
+     * - 放入工具包
+     * - 展示工具
+     */
+
     // 将工具放入工具包
     public boolean putIntoToolBag(Tool tool){
         if(tool.getType().equals("tool")){
-            toolBag.add(tool);
+            if(toolBag.get(tool)==null){
+//                toolBag.put(tool, new HashMap<Tool,Integer>());
+            }
             return true;
         }
         return false;
     }
+
+    public boolean showToolInBag(){
+        if(toolBag.size()==0){
+            System.out.println("工具包里暂时没有工具噢~");
+            return false;
+        }
+        for(int i=0;i<toolBag.size();i++){
+            System.out.println(i+".\t"+toolBag.get(i));
+        }
+        return true;
+    }
+
+    public Tool getToolByName(String tool){
+//        for(Tool t: toolBag){
+//
+//        }
+        return null;
+    }
+
+    public boolean existTool(String tool){
+        return false;
+    }
+
+
+    /**
+     * 对道具包的操作：
+     * - 将加工副产品加入道具包
+     * - 将适配器加入道具包
+     * - 展示道具包中所有道具
+     * - 展示道具包中所有适配器
+     * - 展示道具包中所有加工副产品
+     */
 
     public void putProduceIntoPropBag(Produce product){
         propBag.addProduct(product);
@@ -122,15 +166,17 @@ public class Farm extends FarmObj {
         propBag.addAdaptor(adapter);
     }
 
-    public void showToolInBag(){
-        for(int i=0;i<toolBag.size();i++){
-            System.out.println(i+". "+toolBag.get(i));
-        }
-    }
+    public void showAllInPropBag(){ Prop.display(Root.getInstance().propDir); }
 
-    public void showPropBag(){
-        Prop.display(Root.getInstance().propDir);
-    }
+    public void showAdaptorInPropBag(){ Prop.displayAdaptor(); }
+
+    public void showProduceInPropBag(){ Prop.displayProduct(); }
+
+    /**
+     * 对种植园的操作：
+     * - 展示种植园的所有土地、栽种植物以及植物状态
+     * - 对种植园某块土地进行操作
+     */
 
     public void showFarmLand(){
         System.out.println("编号\t土地类型\t栽种植物\t植物状态");
@@ -151,5 +197,19 @@ public class Farm extends FarmObj {
         }
         return lands.get(index);
     }
+
+    /**
+     * 对农舍的操作：
+     * - 展示农舍的牛棚和鸡窝、及其状态
+     * - 对牛棚或鸡窝进行操作
+     */
+
+    public void showSheds(){
+        // 牛棚
+        System.out.printf("牛棚~\t%");
+
+        // 鸡舍
+    }
+
 
 }

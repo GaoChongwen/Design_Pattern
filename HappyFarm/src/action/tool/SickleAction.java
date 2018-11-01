@@ -18,12 +18,13 @@ public class SickleAction extends  ToolAction{
     }
 
     @Override
-    void execute() {
-        templateMethodOutput("SickelAction: step 2. execute()","harvesting with a sickle");
+    boolean execute() {
+        templateMethodOutput("SickleAction: step 2. execute()","harvesting with a sickle");
+        return true;
     }
 
     @Override
-    public void execute(boolean success) {
-
+    public boolean execute(boolean success) {
+        return success;
     }
 }

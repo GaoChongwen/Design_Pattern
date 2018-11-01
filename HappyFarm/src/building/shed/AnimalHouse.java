@@ -170,6 +170,8 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
         buildingVisitor.visit(this);
     }
 
+    public int getCapacity(){return capacity;}
+
     public static void setDesignPattern(DesignPatternMode designPatter){
         DesignPattern=designPatter;
     }

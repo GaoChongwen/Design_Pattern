@@ -16,12 +16,14 @@ public class ReapingMachineAction extends ToolAction {
     }
 
     @Override
-    void execute() {
+    boolean execute() {
         templateMethodOutput("ReapingMachineAction: step 2. execute()","harvasting with a reaping machine.");
+        return false;
     }
 
     @Override
-    public void execute(boolean success) {
-
+    public boolean execute(boolean success) {
+        return success;
     }
+
 }
