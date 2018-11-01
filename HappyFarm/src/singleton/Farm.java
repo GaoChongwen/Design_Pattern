@@ -1,17 +1,12 @@
 package singleton;
 
-import animal.Cow;
 import base.FarmObj;
-import base.Item;
 import base.Produce;
-import base.animal.Animal;
 import base.plant.Plant;
 import building.farmland.*;
 import building.house.House;
-import building.shed.AnimalHouse;
 import building.shed.ChickShed;
 import building.shed.CowShed;
-import com.sun.xml.internal.ws.api.server.Adapter;
 import factory.*;
 import person.Employee;
 import plant.Apple;
@@ -25,12 +20,9 @@ import propComp.PropDir.Prop;
 import propComp.PropDir.Root;
 import propComp.props.landAdaptor.*;
 import propComp.tools.ReapingMachine;
-import propComp.tools.RiceReapingMachine;
 import propComp.tools.Sickle;
 import propComp.tools.Tool;
 import utils.Context;
-import utils.Enum.FarmLandType;
-import utils.Enum.PlantType;
 
 import java.util.*;
 
