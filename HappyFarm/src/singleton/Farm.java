@@ -93,6 +93,11 @@ public class Farm extends FarmObj {
 
         // 初始化兑换券
         CouponFactor.getInstance().CouponInitial();
+        CouponFactor.getInstance().add(PlantType.apple.toString());
+        CouponFactor.getInstance().add(PlantType.wheat.toString());
+        CouponFactor.getInstance().add(PlantType.rice.toString());
+        CouponFactor.getInstance().add(PlantType.cabbage.toString());
+        CouponFactor.getInstance().add("super");
 
         // 初始化道具包
         propBag =new Prop();

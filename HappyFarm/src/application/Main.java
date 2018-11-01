@@ -559,12 +559,15 @@ public class Main {
         if (scanner.hasNextInt()) {
             inputLand = scanner.nextInt();
         }
+        if (inputLand == 0) {
+            return;
+        }
         if (inputLand >= 1 && inputLand <= 4 ) {
             // 传入编号获取土地
             farmLand = farm.getFarmLand(inputLand);
         }
         else {
-            System.out.print("非法输入");
+            System.out.println("非法输入");
             return;
         }
 
@@ -591,7 +594,10 @@ public class Main {
                     while (scanner.hasNext()) {
                         inputBuySeed = scanner.next();
                         if (inputBuySeed.equals("y")) {
+                            //System.out.println(Money.money);
                             farmer.buy("wheat", 1); // 默认买一枚
+                            System.out.println(Money.money);
+                            Money.getInstance().displayAllCoupon();
                             break;
                         }
                         else if (inputBuySeed.equals("n")) {
