@@ -142,7 +142,7 @@ public class Farm extends FarmObj {
 
     public FarmLand getFarmLand(int index){
         while(index<1||index>Context.capacityLand){
-            System.out.println("该序号无效噢~ 重新输入呢~");
+            System.out.println("该序号无效噢~ 重新输入呢~\n请重新输入：");
             Scanner scanner = new Scanner(System.in);
             if (scanner.hasNextInt()) {
                 index = scanner.nextInt();
