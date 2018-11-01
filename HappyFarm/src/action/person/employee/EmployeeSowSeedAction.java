@@ -36,13 +36,15 @@ public class EmployeeSowSeedAction extends EmployeeCultivateAction {
     }
 
     @Override
-    public void execute(boolean success) {
+    public boolean execute(boolean success) {
         if(success) {
             templateMethodOutput("step 1_2. execute", "an employee is sowing seed");
             strategyPatternOutput("EmployeeSowSeedAction: execute(true)", "sow seed action success strategy");
             farmLand.plant(seed);
+            return true;
         }else {
             strategyPatternOutput("EmployeeSowSeedAction: execute(false)", "sow seed action failed strategy");
+            return false;
         }
     }
 

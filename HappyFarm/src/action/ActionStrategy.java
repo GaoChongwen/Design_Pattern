@@ -6,6 +6,6 @@ package action;
  * Design-Pattern: Strategy
  */
 public interface ActionStrategy {
-    void execute(boolean success);
-    void doAction();
+    boolean execute(boolean success);
+    boolean doAction();
 }

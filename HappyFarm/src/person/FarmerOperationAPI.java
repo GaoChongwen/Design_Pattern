@@ -16,25 +16,22 @@ public interface FarmerOperationAPI {
     public void changeName(String name);
 
     /** buy an item from the store. */
-    public void buy(String itemName);
+    public boolean buy(String itemName);
 
     /** buy n items from the store. */
-    public void buy(String itemName, int count);
+    public boolean buy(String itemName, int count);
 
     /** sell an item. */
-    public void sell(String itemName);
+    public boolean sell(String itemName);
 
     /** sell n items. */
-    public void sell(String itemName, int count);
+    public boolean sell(String itemName, int count);
 
     /** process an item. */
-    public void process(FarmObj farmObj);
-
-    /** process all items. */
-//    public void process();
+    public boolean process(FarmObj farmObj);
 
     /** use land-adapter. */
-    public void useLandAdapter(FarmLand farmLand, LandAdaptor landAdapter);
+    public boolean useLandAdapter(FarmLand farmLand, LandAdaptor landAdapter);
 
     public Employee getEmployee(int id);
 }

@@ -51,7 +51,7 @@ public class FarmerProcessAction extends FarmerAction{
     }
 
     @Override
-    public void execute(boolean success) {
+    public boolean execute(boolean success) {
         if(success) {
             templateMethodOutput("step 1_2. execute", "processing a farmObj.");
             strategyPatternOutput("FarmerProcessAction: execute(true)", "process action success strategy");
@@ -74,6 +74,7 @@ public class FarmerProcessAction extends FarmerAction{
         }else {
             strategyPatternOutput("FarmerProcessAction: execute(false)", "process action failed strategy");
         }
+        return success;
     }
     protected String getClassName() {
         return "FarmerProcessAction";

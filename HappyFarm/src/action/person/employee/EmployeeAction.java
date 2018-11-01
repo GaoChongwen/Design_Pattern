@@ -34,7 +34,7 @@ abstract public class EmployeeAction extends PersonAction {
 
     abstract protected boolean checkTool();
     abstract protected boolean checkSkill();
-    abstract public void execute(boolean success);
+    abstract public boolean execute(boolean success);
 
     protected String getClassName() {
         return "EmployeeAction";
