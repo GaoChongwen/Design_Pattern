@@ -51,14 +51,15 @@ public class EmployeeHarvestAction extends EmployeeCultivateAction {
      *      3. A tool is sepcified by {@link #setHarvestTool(Tool)}
      */
     @Override
-    public void execute(boolean success) {
+    public boolean execute(boolean success) {
         if(success){
             templateMethodOutput("step 1_2. execute", "harvesting in a farmland.");
             strategyPatternOutput("EmployeeHarvestAction: execute(true)","harvest action success strategy");
             farmLand.harvest();
+            return true;
         }else {
             strategyPatternOutput("EmployeeHarvestAction: execute(false)", "harvest action success strategy");
-
+            return false;
         }
     }
 

@@ -25,36 +25,37 @@ public class Farmer extends Person implements FarmerOperationAPI{
     }
 
     @Override
-    public void buy(String itemName) {
-        FarmerBuyAction.getInstance().setItemName(itemName).setCount(1).doAction();
+    public boolean buy(String itemName) {
+        return FarmerBuyAction.getInstance().setItemName(itemName).setCount(1).doAction();
     }
 
     @Override
-    public void buy(String itemName, int count) {
-        FarmerBuyAction.getInstance().setItemName(itemName).setCount(count);
+    public boolean buy(String itemName, int count) {
+        return FarmerBuyAction.getInstance().setItemName(itemName).setCount(count).doAction();
     }
 
     @Override
-    public void sell(String itemName) {
-        FarmerSellAction.getInstance().setItemName(itemName).doAction();
+    public boolean sell(String itemName) {
+        return FarmerSellAction.getInstance().setItemName(itemName).doAction();
     }
 
     @Override
-    public void sell(String itemName, int count) {
+    public boolean sell(String itemName, int count) {
         for(int i = 0 ; i < count; i++){
-            sell(itemName);
+            if(!sell(itemName))
+                return false;
         }
+        return true;
     }
 
     @Override
-    public void process(FarmObj farmObj) {
-        FarmerProcessAction.getInstance().setFarmObj(farmObj).doAction();
+    public boolean process(FarmObj farmObj) {
+        return FarmerProcessAction.getInstance().setFarmObj(farmObj).doAction();
     }
 
     @Override
-    public void useLandAdapter(FarmLand farmLand, LandAdaptor landAdapter) {
-        FarmerUseLandAdaptorAction.getInstance().setLandAdaptor(landAdapter).setFarmLand(farmLand).doAction();
-
+    public boolean useLandAdapter(FarmLand farmLand, LandAdaptor landAdapter) {
+        return FarmerUseLandAdaptorAction.getInstance().setLandAdaptor(landAdapter).setFarmLand(farmLand).doAction();
     }
 
     @Override

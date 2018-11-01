@@ -37,7 +37,7 @@ abstract public class Action implements ActionStrategy {
      * run src.Action.
      * Design-Pattern: Template Method
      */
-    public void doAction(){
+    public boolean doAction(){
         switch (designPatternMode){
             case TemplateMethodPattern:
                 System.out.println("[ Template Method starts ]");
@@ -51,22 +51,17 @@ abstract public class Action implements ActionStrategy {
                 break;
                 default:
                     System.out.println("Invalid mode.");
-                    return;
+                    return false;
         }
 
-        doSomething(); // step 1 doSomething();
+        return (doSomething());  // step 1 doSomething();
 
-        switch(designPatternMode){
-            case TemplateMethodPattern:
-                System.out.println("[ Template Method ends ]\n");
-                break;
-        }
     }
 
     /**
      * content will be decided by developers.
      */
-    abstract protected void doSomething();
+    abstract protected boolean doSomething();
 
     protected void templateMethodOutput(String methodName, String actionDesc) {
         if(designPatternMode==DesignPatternMode.TemplateMethodPattern)

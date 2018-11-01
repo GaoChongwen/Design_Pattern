@@ -7,6 +7,8 @@ import building.farmland.FarmLand;
 import building.shed.AnimalHouse;
 import utils.Enum.PlantType;
 
+import java.util.ArrayList;
+
 /**
  * @author Chudi LAN
  * @version 2018-10-29
@@ -15,35 +17,10 @@ import utils.Enum.PlantType;
  *
  */
 public interface EmployeeOperationAPI {
-    /** sow a seed in given farmland. */
-//    public void sowSeed(int farmLand, Plant plant);
-
-    /** harvest all plants in the land. */
-    public void harvest();
-
-    /** harvest a chosen plant in the land.*/
-//    public void harvest(Plant plant);
-
-    /** harvest a type of plants in the land. */
-//    public void harvest(String plantType);
-
-    /** slaughter all animals in the shed. */
-    public void slaughter();
-
     /** slaughter a chosen animal in the shed. */
-    public void slaughter(AnimalHouse animalHouse);
+    public ArrayList<Animal> slaughter(AnimalHouse animalHouse);
 
-    /** slaughter a type a animals in the shed. */
-//    public void slaughter(AnimalType animalType);
+    public boolean harvest(FarmLand farmLand, String tool);
 
-    /** water all farmlands. */
-//    public void water();
-
-    /** water a chosen farmland. */
-//    public void water(FarmLand farmLand);
-
-    public void harvest(FarmLand farmLand, String tool);
-
-
-    public void sowSeeds(FarmLand farmLand, Plant plant);
+    public boolean sowSeed(FarmLand farmLand, Plant plant);
 }
