@@ -31,7 +31,7 @@ public interface FarmerOperationAPI {
     public void process(FarmObj farmObj);
 
     /** process all items. */
-    public void process();
+//    public void process();
 
     /** use land-adapter. */
     public void useLandAdapter(FarmLand farmLand, LandAdaptor landAdapter);

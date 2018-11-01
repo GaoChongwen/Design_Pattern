@@ -24,8 +24,9 @@ abstract public class Action implements ActionStrategy {
     protected FarmObj getTarget(){
         return Target;
     }
-    public void setTarget(FarmObj target) {
+    public Action setTarget(FarmObj target) {
         this.Target = target;
+        return this;
     }
 
     protected Action() {

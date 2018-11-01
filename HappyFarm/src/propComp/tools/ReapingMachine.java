@@ -23,6 +23,7 @@ public class ReapingMachine extends Tool {
      * @param harvestAPI specify the action of machine.
      */
     public ReapingMachine(HarvestAPI harvestAPI){
+        super((harvestAPI));
         bridgeOutput("ReapingMachine(HarvestAPI)","a reaping machine is created.");
         setName("reapingMachine");
     }
@@ -35,6 +36,7 @@ public class ReapingMachine extends Tool {
 
     @Override
     public void harvest() {
-        System.out.println("ReapingMachine: harvest(): harvesting with reaping machine");
+        harvestAPI.harvestWithMachine();
+//        System.out.println("ReapingMachine: harvest(): harvesting with reaping machine");
     }
 }
