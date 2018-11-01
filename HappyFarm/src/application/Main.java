@@ -18,6 +18,7 @@ import singleton.Farm;
 import singleton.MessageBoard;
 import singleton.Repository;
 import store.Specification.ISpecification;
+import store.Specification.SpecificationShow;
 import store.Store;
 import test.specification.Specification;
 import utils.Money.Money;
