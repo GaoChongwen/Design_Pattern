@@ -30,22 +30,26 @@ public class Store {
         new Rice();
         Prop prop = new Prop();
         /**
-         * 商店展示
+         * 商店展示，暂只支持买卖animal,plant，购买adaptor,employee,出售produce
          */
         store.Store.getInstance().show();
         /**
-         * 测试购买，暂只支持买卖animal,plant，购买adaptor
+         * 测试购买
          */
 
         store.Store.getInstance().buyCommity("wheat",2);
         System.out.println("Does the warehouse contain wheat?，true or false ");
         System.out.println(Repository.getInstance().getPlantNum("wheat"));
+
         store.Store.getInstance().buyCommity("cow",2);
         System.out.println("Does the cowshed contain cow?，true or false ");
         System.out.println(!CowShed.getInstance().isEmpty());
+
         store.Store.getInstance().buyCommity("appleField",2);
         System.out.println("Does user have appleField?，true or false ");
         System.out.println("");
+
+        store.Store.getInstance().buyCombo(2);
 
  }
 }
