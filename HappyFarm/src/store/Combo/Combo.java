@@ -9,6 +9,7 @@ import factory.AdaptorFactory;
 import factory.AnimalFactory;
 import factory.PlantFactory;
 import person.Employee;
+import propComp.props.landAdaptor.LandAdaptor;
 import propComp.tools.Tool;
 
 
@@ -20,12 +21,11 @@ import java.util.List;
  * 是否需要show方法
  */
 public class Combo {
-    private String comboName;
+    private String comboName ="";
     private Integer totalPrice = 0;
     private List<Plant>  plants= new ArrayList<Plant>();
     private List<Animal>  animals= new ArrayList<Animal>();
-    private List<Item>  adaptors= new ArrayList<Item>();
-    private List<Employee>  employees= new ArrayList<Employee>();
+    private List<LandAdaptor>  adaptors= new ArrayList<LandAdaptor>();
     public String getComboName(){
         return comboName;
     }
@@ -58,8 +58,6 @@ public class Combo {
             totalPrice+=price;
         }
     }
-    //TODO complete Employees
-    public void setEmployees(){}
     public List<Plant> getPlants(){
         return plants;
     }
@@ -68,6 +66,7 @@ public class Combo {
         System.out.println("The Combo concludes");
         System.out.println(plants.size() + " " +plants.get(0).getName());
         System.out.println(animals.size() + " " +animals.get(0).getType());
+        System.out.println(adaptors.size() + " " + adaptors.get(0).getLandType());
         System.out.println("total price is "+getTotalPrice());
     }
 
@@ -75,14 +74,11 @@ public class Combo {
         this.totalPrice = totalPrice;
     }
 
-    public List<Item> getAdaptors(){
+    public List<LandAdaptor> getAdaptors(){
         return adaptors;
     }
     public List<Animal> getAnimals(){
         return animals;
-    }
-    public List<Employee> getEmployees(){
-        return employees;
     }
 
 }

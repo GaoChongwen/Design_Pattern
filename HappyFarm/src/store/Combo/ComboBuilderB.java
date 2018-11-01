@@ -21,9 +21,9 @@ public class ComboBuilderB extends Builder {
          * 在这里添加套餐内的东西
          */
         product.setPlant("wheat",1,1);
-        product.setAdaptors("",1,10);
+        product.setAdaptors("appleField",2,10);
         product.setAnimals("cow",1,10);
-        product.setEmployees();
+        product.setTotalPrice(22);
     }
 
     @Override

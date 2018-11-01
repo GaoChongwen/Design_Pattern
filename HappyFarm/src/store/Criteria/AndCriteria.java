@@ -15,7 +15,6 @@ public class AndCriteria implements Criteria {
 
     @Override
     public List<Plant> meetCriteria(List<Plant> persons) {
-        // TODO Auto-generated method stub
         List<Plant> firstCriteriaPersons = criteria.meetCriteria(persons);
         return otherCriteria.meetCriteria(firstCriteriaPersons);
     }
