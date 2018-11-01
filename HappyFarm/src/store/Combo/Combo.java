@@ -25,7 +25,6 @@ public class Combo {
     private List<Plant>  plants= new ArrayList<Plant>();
     private List<Animal>  animals= new ArrayList<Animal>();
     private List<Item>  adaptors= new ArrayList<Item>();
-    private List<Tool>  tools= new ArrayList<Tool>();
     private List<Employee>  employees= new ArrayList<Employee>();
     public String getComboName(){
         return comboName;
@@ -59,14 +58,6 @@ public class Combo {
             totalPrice+=price;
         }
     }
-    public void setTools(String kind , Integer num , Integer price){
-        for(int i=0;i< num ; i++){
-            //TODO add tool
-            //tools.add(.getInstance().createAdaptor(kind));
-            //add Value
-            totalPrice+=price;
-        }
-    }
     //TODO complete Employees
     public void setEmployees(){}
     public List<Plant> getPlants(){
@@ -86,9 +77,6 @@ public class Combo {
 
     public List<Item> getAdaptors(){
         return adaptors;
-    }
-    public List<Tool> getTools(){
-        return tools;
     }
     public List<Animal> getAnimals(){
         return animals;

@@ -23,7 +23,6 @@ public class ComboBuilderB extends Builder {
         product.setPlant("wheat",1,1);
         product.setAdaptors("",1,10);
         product.setAnimals("cow",1,10);
-        product.setTools("",1,1);
         product.setEmployees();
     }
 

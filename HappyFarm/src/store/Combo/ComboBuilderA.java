@@ -25,7 +25,6 @@ public class ComboBuilderA extends Builder {
         product.setPlant("rice",1,1);
         product.setAdaptors("",1,10);
         product.setAnimals("chicken",1,10);
-        product.setTools("",1,1);
         product.setEmployees();
         product.setTotalPrice(22);
     }
