@@ -49,6 +49,8 @@ public class Store {
         System.out.println("Does user have appleField?，true or false ");
         System.out.println("");
 
+        store.Store.getInstance().buyCommity("sickle",2);
+        System.out.println("");
         store.Store.getInstance().buyCombo(2);
 
  }

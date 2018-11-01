@@ -102,8 +102,7 @@ public class Store {
                     Repository.getInstance().add((PlantFactory.getInstance().createPlant(name)));
                 } else if (Kinds.get(name).equals("Tool")) {
                     Money.getInstance().buy(name, number, 1000);
-                    //TODO wait ToolFactory
-                   //.add(ToolFactory.getInstance().createPlant(name));
+                   Farm.getInstance().putIntoToolBag((ToolFactory.getInstance().createTool(name)));
                 } else if (Kinds.get(name).equals("Animal")) {
                     Money.getInstance().buy(name, number, AnimalFactory.getInstance().createAnimal(name).getStockPrice());
                     if (name.equals("cow")) {
