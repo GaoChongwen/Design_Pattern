@@ -13,6 +13,7 @@ import building.shed.ChickShed;
 import building.shed.CowShed;
 import com.sun.xml.internal.ws.api.server.Adapter;
 import factory.*;
+import person.Employee;
 import plant.Apple;
 import plant.Cabbage;
 import plant.Rice;
@@ -23,15 +24,15 @@ import produce.Milk;
 import propComp.PropDir.Prop;
 import propComp.PropDir.Root;
 import propComp.props.landAdaptor.*;
+import propComp.tools.ReapingMachine;
+import propComp.tools.RiceReapingMachine;
+import propComp.tools.Sickle;
 import propComp.tools.Tool;
 import utils.Context;
 import utils.Enum.FarmLandType;
 import utils.Enum.PlantType;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Scanner;
+import java.util.*;
 
 public class Farm extends FarmObj {
     private volatile static Farm singleton = new Farm();
@@ -42,7 +43,9 @@ public class Farm extends FarmObj {
     private ArrayList<FarmLand> lands;
     private House house;
     private Prop propBag;
-    private HashMap<String,HashMap<Tool,Integer>> toolBag;
+    private HashMap<String,Tool> toolBag;
+    private HashMap<String,Integer> toolNum;
+    private ArrayList<Employee> employees;
 
 
     private Farm(){ }
@@ -80,7 +83,13 @@ public class Farm extends FarmObj {
 
 
         // 初始化工具包
-        // toolBag=new ArrayList<>(Context.capacityToolBag);
+         toolBag= new HashMap<>();
+         toolBag.put("sickle",new Sickle());
+         toolBag.put("reapingMachine",new ReapingMachine());
+
+         toolNum =new HashMap<>();
+         toolNum.put("sickle",0);
+         toolNum.put("reapingMachine",0);
 
         // 初始化兑换券
         CouponFactor.getInstance().CouponInitial();
@@ -113,39 +122,40 @@ public class Farm extends FarmObj {
      * 对工具包的操作：
      * - 放入工具包
      * - 展示工具
+     * - 通过工具名获取工具包中的工具
      */
 
     // 将工具放入工具包
     public boolean putIntoToolBag(Tool tool){
-        if(tool.getType().equals("tool")){
-            if(toolBag.get(tool)==null){
-//                toolBag.put(tool, new HashMap<Tool,Integer>());
-            }
+        if(tool.getType()=="tool"){
+            toolNum.put(tool.getName(),toolNum.get(tool.getName())+1);
             return true;
         }
         return false;
     }
 
     public boolean showToolInBag(){
-        if(toolBag.size()==0){
+        boolean isEmpty=true;
+        for (Map.Entry<String,Integer> entry : toolNum.entrySet()) {
+            if(entry.getValue()!=0){isEmpty=false;}
+        }
+        if(isEmpty){
             System.out.println("工具包里暂时没有工具噢~");
             return false;
         }
-        for(int i=0;i<toolBag.size();i++){
-            System.out.println(i+".\t"+toolBag.get(i));
+        for (Map.Entry<String,Tool> entry : toolBag.entrySet()) {
+            System.out.printf("%s\t有%d个\n",entry.getKey(),toolNum.get(entry.getKey()));
         }
         return true;
     }
 
     public Tool getToolByName(String tool){
-//        for(Tool t: toolBag){
-//
-//        }
-        return null;
-    }
-
-    public boolean existTool(String tool){
-        return false;
+        Tool t = toolBag.get(tool);
+        if(t==null) {
+            System.out.println("暂时没有这个工具噢～ 可爱的小姑娘可以去商店看看，现在文渊老板打一折呢！");
+            return null;
+        }
+        return t;
     }
 
 
@@ -206,9 +216,10 @@ public class Farm extends FarmObj {
 
     public void showSheds(){
         // 牛棚
-        System.out.printf("牛棚~\t%");
+        System.out.printf("牛棚~\t可以养殖%d头牛，目前牛棚里有%d头牛～\n",cowShed.getCapacity(),cowShed.getCowCount());
 
         // 鸡舍
+        System.out.printf("鸡舍~\t可以养殖%d只鸡，目前鸡舍里有%d只鸡～\n",cowShed.getCapacity(),cowShed.getCowCount());
     }
 
 
