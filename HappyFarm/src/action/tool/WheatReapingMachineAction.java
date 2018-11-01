@@ -18,7 +18,8 @@ public class WheatReapingMachineAction extends ReapingMachineAction{
     }
 
     @Override
-    void execute() {
+    boolean execute() {
         templateMethodOutput("WheatReapingMachine step 2. execute","harvesting with a reaping machine");
+        return true;
     }
 }

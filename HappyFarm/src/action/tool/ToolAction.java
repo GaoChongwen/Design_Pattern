@@ -19,9 +19,9 @@ public abstract class ToolAction extends Action {
     protected ToolAction(){
     }
 
-    protected void doSomething() {
+    protected boolean doSomething() {
         templateMethodOutput("ToolAction: step 1. doSomething","harvesting with a tool.");
-        execute();
+        return execute();
     }
 
     protected String getClassName() {
@@ -31,5 +31,6 @@ public abstract class ToolAction extends Action {
         return "";
     }
 
-    abstract void execute();
+    abstract boolean execute();
+
 }

@@ -8,7 +8,10 @@ import base.animal.Animal;
 import base.plant.Plant;
 import building.farmland.FarmLand;
 import building.shed.AnimalHouse;
+import propComp.PropDir.Prop;
+import propComp.tools.ReapingMachine;
 import propComp.tools.Tool;
+import singleton.Farm;
 import utils.Enum.EmployeeSkill;
 import singleton.MessageBoard;
 
@@ -59,7 +62,7 @@ public class Employee extends Person implements EmployeeOperationAPI{
 
     @Override
     public boolean harvest(FarmLand farmLand, String toolName) {
-        Tool tool = null;
+        Tool tool = Farm.getInstance().getToolByName(toolName);
         return EmployeeHarvestAction.getInstance().setFarmLand(farmLand).setHarvestTool(tool).setTarget(this).doAction();
     }
 
