@@ -22,4 +22,7 @@ public interface PlantState {
     // 加工:MatureState to RemovedState
     public boolean process(Plant plant);
 
+    // 获取状态名
+    public String getState();
+
 }

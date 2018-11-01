@@ -4,6 +4,7 @@ import action.person.employee.EmployeeHarvestAction;
 import action.person.employee.EmployeeSlaughterAction;
 import action.person.employee.EmployeeSowSeedAction;
 import base.Person;
+import base.animal.Animal;
 import base.plant.Plant;
 import building.farmland.FarmLand;
 import building.shed.AnimalHouse;
@@ -11,6 +12,7 @@ import propComp.tools.Tool;
 import utils.Enum.EmployeeSkill;
 import singleton.MessageBoard;
 
+import java.util.ArrayList;
 import java.util.Observable;
 
 /**
@@ -44,7 +46,9 @@ public class Employee extends Person implements EmployeeOperationAPI{
         return (this.skill == skill);
     }
 
-    public EmployeeSkill getSkill() { return skill; }
+    public EmployeeSkill getSkill() {
+        return skill;
+    }
 
     public float getSalary(){
         return salary;
@@ -52,29 +56,23 @@ public class Employee extends Person implements EmployeeOperationAPI{
 
     public int getId() { return this.id; }
 
-    @Override
-    public void harvest() {
-        // todo
-    }
 
     @Override
-    public void harvest(FarmLand farmLand, String toolName) {
+    public boolean harvest(FarmLand farmLand, String toolName) {
         Tool tool = null;
-        EmployeeHarvestAction.getInstance().setFarmLand(farmLand).setHarvestTool(tool).setTarget(this).doAction();
+        return EmployeeHarvestAction.getInstance().setFarmLand(farmLand).setHarvestTool(tool).setTarget(this).doAction();
+    }
+
+
+    @Override
+    public ArrayList<Animal> slaughter(AnimalHouse animalHouse) {
+        EmployeeSlaughterAction slaughterAction = EmployeeSlaughterAction.getInstance();
+        slaughterAction.setAnimalHouse(animalHouse).setTarget(this).doAction();
+        return slaughterAction.getDeadAnimals();
     }
 
     @Override
-    public void slaughter() {
-        // todo
-    }
-
-    @Override
-    public void slaughter(AnimalHouse animalHouse) {
-        EmployeeSlaughterAction.getInstance().setAnimalHouse(animalHouse).setTarget(this).doAction();
-    }
-
-    @Override
-    public void sowSeeds(FarmLand farmLand, Plant plant) {
-        EmployeeSowSeedAction.getInstance().setFarmLand(farmLand).setSeed(plant).setTarget(this).doAction();
+    public boolean sowSeed(FarmLand farmLand, Plant plant) {
+        return EmployeeSowSeedAction.getInstance().setFarmLand(farmLand).setSeed(plant).setTarget(this).doAction();
     }
 }

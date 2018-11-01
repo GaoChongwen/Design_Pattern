@@ -34,7 +34,7 @@ public class FarmerSellAction extends FarmerAction {
     }
 
     @Override
-    public void execute(boolean success) {
+    public boolean execute(boolean success) {
         if(success) {
             templateMethodOutput("1_2_1. execute", "selling item " + itemName);
             strategyPatternOutput("FarmerSellAction: execute(true)", "sell action success strategy");
@@ -46,6 +46,7 @@ public class FarmerSellAction extends FarmerAction {
         } else {
             strategyPatternOutput("FarmerSellAction: execute(false)", "sell action failed strategy");
         }
+        return success;
     }
 
     public FarmerSellAction setItemName(String itemName) {

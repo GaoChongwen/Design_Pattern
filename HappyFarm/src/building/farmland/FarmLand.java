@@ -59,6 +59,9 @@ public abstract class FarmLand extends FarmObj implements Cloneable, Observer {
         System.out.println(landType + " Adaptor works.");
     }
 
+    // 获取栽种的植物
+    public Plant getPlant(){return plant;}
+
     /**
      * @Design-Pattern: Adaptor
      * @param p: 需要种植的植物
