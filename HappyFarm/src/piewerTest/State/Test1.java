@@ -11,6 +11,12 @@ public class Test1 {
         System.out.println("======\n种子");
         Apple a1 = new Apple();
         a1.state();
+        System.out.println("======\n加工");
+        a1.process();
+        a1.state();
+        System.out.println("======\n收获");
+        a1.harvest();
+        a1.state();
         System.out.println("======\n生长");
         a1.grow();
         a1.state();
