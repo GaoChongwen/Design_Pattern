@@ -29,7 +29,10 @@ public class Store {
         new Cabbage();
         new Rice();
         Prop prop = new Prop();
-
+        /**
+         * 商店展示
+         */
+        store.Store.getInstance().show();
         /**
          * 测试购买，暂只支持买卖animal,plant，购买adaptor
          */

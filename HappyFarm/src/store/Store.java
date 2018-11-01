@@ -122,12 +122,23 @@ public class Store {
     public void show(){
         System.out.println("The following items can be sold to the store.");
         System.out.println("Plant: Wheat        Apple       Cabbage     Rice");
-        System.out.println("Price: "+Context.wheat_salePrice+"      "+Context.apple_salePrice+"     "+Context.cabbage_salePrice+"       "+Context.rice_salePrice);
+        System.out.println("Price: "+Context.wheat_salePrice+"         "+Context.apple_salePrice+"        "+Context.cabbage_salePrice+"        "+Context.rice_salePrice);
         System.out.println("Animal: Cow     Chicken");
         System.out.println("Price: " + Context.cow_salePrice+"      "+Context.chicken_salePrice);
-        System.out.println("Produce: Milk       CookedFood      AnimalFood");
-        System.out.println("Price: " + Context.milk_price +"        " + Context.cookedFood_price + "        "+Context.animalFood_price);
-        System.out.println("The following items can be sold to the store.");
+        System.out.println("Produce:Milk       CookedFood      AnimalFood");
+        System.out.println("Price:  " + Context.milk_price +"        " + Context.cookedFood_price + "           "+Context.animalFood_price);
+        System.out.println("==================================================");
+        System.out.println("The following items can be purchased to the store.");
+        System.out.println("Plant: Wheat        Apple       Cabbage     Rice");
+        System.out.println("Price: "+Context.wheat_stockPrice+"            "+Context.apple_stockPrice+"         "+Context.cabbage_stockPrice+"          "+Context.rice_stockPrice);
+        System.out.println("Animal:  Cow     Chicken");
+        System.out.println("Price:   " + Context.cow_stockPrice+"       "+Context.chicken_stockPrice);
+        System.out.println("Adaptor: appleField     vegtbField      riceField       cornField       allField");
+        System.out.println("Price: ");
+        System.out.println("Employee: ");
+        System.out.println("Name:       firstLi     secondLi        thirdLi");
+        System.out.println("Skill:      "+employeesSkill.get("firstLi") +"    "+employeesSkill.get("secondLi")+"       "+employeesSkill.get("thirdLi"));
+        System.out.println("Price:      "+employeesSalary.get("firstLi")+"           "+employeesSalary.get("secondLi")+"           "+employeesSalary.get("thirdLi"));
     }
 //买套餐
 public boolean buyCombo(Integer id){

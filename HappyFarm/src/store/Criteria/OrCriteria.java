@@ -15,7 +15,6 @@ public class OrCriteria implements Criteria {
 
     @Override
     public List<Plant> meetCriteria(List<Plant> persons) {
-        // TODO Auto-generated method stub
         List<Plant> firstCriteriaPersons = criteria.meetCriteria(persons);
         List<Plant> otherCriteriaPersons = otherCriteria.meetCriteria(persons);
         for (Plant plant : otherCriteriaPersons) {
