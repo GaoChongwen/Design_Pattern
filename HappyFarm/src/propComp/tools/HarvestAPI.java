@@ -1,4 +1,4 @@
-package action.tool;
+package propComp.tools;
 
 
 import utils.Enum.PlantType;
@@ -9,5 +9,5 @@ import utils.Enum.PlantType;
  * Design-Pattern: Bridge
  */
 public interface HarvestAPI {
-    public boolean harvest();
+    public void harvestWithMachine();
 }

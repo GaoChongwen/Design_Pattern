@@ -1,6 +1,7 @@
 package action.tool;
 
 import base.Action;
+import propComp.tools.HarvestAPI;
 
 /**
  * Design-Pattern: Bridge, Strategy
@@ -14,17 +15,14 @@ import base.Action;
  * @author Chudi LAN
  * @version 2018-10-28
  */
-public abstract class ToolAction extends Action implements HarvestAPI {
+public abstract class ToolAction extends Action {
     protected ToolAction(){
-
     }
 
     protected void doSomething() {
-        //templateMethodOutput("doSomething", "harvesting with a tool.");
-        harvest();
+        templateMethodOutput("ToolAction: step 1. doSomething","harvesting with a tool.");
+        execute();
     }
-
-    abstract public boolean harvest();
 
     protected String getClassName() {
         return "ToolAction";
@@ -32,4 +30,6 @@ public abstract class ToolAction extends Action implements HarvestAPI {
     protected String getObjectID() {
         return "";
     }
+
+    abstract void execute();
 }

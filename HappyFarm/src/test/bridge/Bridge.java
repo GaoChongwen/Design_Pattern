@@ -5,9 +5,7 @@ import action.tool.SickleAction;
 import action.tool.ToolAction;
 import action.tool.WheatReapingMachineAction;
 import base.Action;
-import propComp.tools.ReapingMachine;
-import propComp.tools.Sickle;
-import propComp.tools.Tool;
+import propComp.tools.*;
 import utils.Enum.DesignPatternMode;
 
 /**
@@ -22,40 +20,21 @@ public class Bridge {
         System.out.println("" +
                 "\n====================================================================\n" +
                 "\n Scenario 1" +
-                "\n     Bound HarvestAPI implemented by SickleAction to a Sickle: " +
-                "\n         create a sickle with sickleAction" +
+                "\n     Create a reaping machine that only harvests rice " +
                 "\n     -------------------------------------------------------   " +
                 "\n                     [ Bridge Pattern ]");
-        Tool sickleTool = new Sickle(new SickleAction());
-        sickleTool.use();
-        System.out.println();
+        Tool riceReapingMachine = new ReapingMachine(new RiceReapingMachine());
+        riceReapingMachine.harvest();
+        System.out.println("\n====================================================================\n");
 
         System.out.println("" +
                 "\n====================================================================\n" +
                 "\n Scenario 2" +
-                "\n     Bound HarvestAPI implemented by ReapingMachineAction to a" +
-                "\n     ReapingMachine: " +
-                "\n         create a reaping machine with reapingMachineAction." +
+                "\n     Create a reaping machine that only harvests wheat" +
                 "\n     -------------------------------------------------------   " +
                 "\n                     [ Bridge Pattern ]");
-        Tool reapingMachineTool = new ReapingMachine(new ReapingMachineAction());
-        reapingMachineTool.use();
+        Tool wheatRepingMachine = new ReapingMachine(new WheatReapingMachine());
+        wheatRepingMachine.harvest();
         System.out.println("\n====================================================================\n");
-
-
-        System.out.println("" +
-                "\n====================================================================\n" +
-                "\n Scenario 3" +
-                "\n     Bound HarvestAPI implemented by WheatReapingMachineAction to a" +
-                "\n     ReapingMachine: " +
-                "\n         Create a reaping machine with WheatReapingMachineAction " +
-                "\n         so the reaping machine is therefore performing as a wheat" +
-                "\n         reaping machine." +
-                "\n     -------------------------------------------------------   " +
-                "\n                     [ Bridge Pattern ]");
-        Tool wheatReapingMachineTool = new ReapingMachine(new WheatReapingMachineAction());
-        wheatReapingMachineTool.use();
-        System.out.println("\n====================================================================\n");
-
     }
 }

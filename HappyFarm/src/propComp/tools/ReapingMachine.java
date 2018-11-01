@@ -1,6 +1,5 @@
 package propComp.tools;
 
-import action.tool.HarvestAPI;
 import action.tool.ReapingMachineAction;
 import utils.Enum.ToolType;
 
@@ -14,9 +13,8 @@ public class ReapingMachine extends Tool {
      *      Assign ReapingMachineAction by default.
      */
     public ReapingMachine(){
-        this(new ReapingMachineAction());
         setName("reapingMachine");
-        bridgeOutput("ReapingMachine()","A reaping machine is created.");
+        System.out.println("ReapingMachine(): A reaping machine is created.");
 
     }
     /**
@@ -25,13 +23,18 @@ public class ReapingMachine extends Tool {
      * @param harvestAPI specify the action of machine.
      */
     public ReapingMachine(HarvestAPI harvestAPI){
-        super(ToolType.reaping_machine, harvestAPI);
-        bridgeOutput("ReapingMachine(HarvestAPI)","the action is bound to reaping machine.");
+        bridgeOutput("ReapingMachine(HarvestAPI)","a reaping machine is created.");
         setName("reapingMachine");
     }
 
     @Override
     public void use() {
-        harvestAPI.harvest();
+        harvestAPI.harvestWithMachine();
+
+    }
+
+    @Override
+    public void harvest() {
+        System.out.println("ReapingMachine: harvest(): harvesting with reaping machine");
     }
 }
