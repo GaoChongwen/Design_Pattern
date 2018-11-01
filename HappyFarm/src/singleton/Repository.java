@@ -1,9 +1,13 @@
 package singleton;
 
 import base.plant.Plant;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import utils.Enum.PlantType;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
 
 /**
  * @project: HappyFarm
@@ -13,6 +17,10 @@ import java.util.ArrayList;
  * @date: 2018-10-29
  **/
 public class Repository {
+
+    public ArrayList<Plant> getPlants() {
+        return plants;
+    }
 
     ArrayList<Plant> plants = new ArrayList<>();
 
@@ -90,5 +98,30 @@ public class Repository {
         return "Repository{" +
                 "plants=" + plants +
                 '}';
+    }
+
+    // 判断仓库是否为空
+    public boolean isEmtpy() {
+        return plants.isEmpty();
+    }
+
+    // 打印仓库的信息
+    // 格式 名字 数量
+    public void printRepoInfo() {
+        Hashtable<String, Integer> exitPlant = new Hashtable<>();
+        for (Plant plant : plants) {
+//            System.out.println(plant.getName());
+            if (!exitPlant.containsKey(plant.getName())) {
+                exitPlant.put(plant.getName(), 1);
+            }else {
+                int value = exitPlant.get(plant.getName()) + 1;
+                System.out.println(value);
+                exitPlant.put(plant.getName(), value);
+            }
+        }
+        System.out.println("Name\tNumber");
+        for (Map.Entry entry : exitPlant.entrySet()) {
+            System.out.println(entry.getKey() + "\t" + entry.getValue());
+        }
     }
 }
