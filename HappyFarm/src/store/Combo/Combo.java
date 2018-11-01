@@ -62,7 +62,7 @@ public class Combo {
         return plants;
     }
     public void showCombo(){
-        System.out.println("The Combo concludes");
+        System.out.println("The "+comboName+" concludes");
         System.out.println(plants.size() + " " +plants.get(0).getName());
         System.out.println(animals.size() + " " +animals.get(0).getType());
         System.out.println(adaptors.size() + " " + adaptors.get(0).getLandType());

@@ -12,7 +12,7 @@ public class ComboBuilderB extends Builder {
 
     @Override
     public void buildComboName() {
-        product.setComboName("套餐B");
+        product.setComboName("ComboB");
     }
 
     @Override
@@ -23,7 +23,7 @@ public class ComboBuilderB extends Builder {
         product.setPlant("wheat",1,1);
         product.setAdaptors("appleField",2,10);
         product.setAnimals("cow",1,10);
-        product.setTotalPrice(22);
+        product.setTotalPrice(31);
     }
 
     @Override
