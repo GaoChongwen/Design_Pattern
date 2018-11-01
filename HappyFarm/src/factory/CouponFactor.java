@@ -1,13 +1,10 @@
 package factory;
 
-import base.Item;
-import base.plant.Plant;
 import propComp.props.coupon.*;
 import propComp.props.coupon.Handler.*;
 import utils.Enum.PlantType;
 
 import java.util.Hashtable;
-import java.util.Map;
 
 /**
  * @Design-Pattern: Static Factory Method,Singleton Pattern，Prototype
@@ -16,7 +13,7 @@ import java.util.Map;
  * @author jihao luo
  *
  */
-public class CouponFactor  {
+public class CouponFactor {
     private volatile static CouponFactor singleton = new CouponFactor();
     private static Hashtable<String, Coupon> couponMap = new Hashtable<String, Coupon>();
 

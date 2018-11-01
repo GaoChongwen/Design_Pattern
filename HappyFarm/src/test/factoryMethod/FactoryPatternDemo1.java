@@ -30,7 +30,7 @@ public class FactoryPatternDemo1 {
         // 设置DesignPatternMode,输出该模式相关信息
         PlantFactory.setDesignPattern(DesignPatternMode.FactoryPattern);
 
-        System.out.println("1. Now we create somee Plants, like Apple, Wheat, Rice, Cabbage.\n");
+        System.out.println("1. Now we create some Plants, like Apple, Wheat, Rice, Cabbage.\n");
 
         // 创建植物：苹果、小麦、卷心菜、水稻
         new Apple();

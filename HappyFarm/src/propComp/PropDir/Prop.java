@@ -21,11 +21,28 @@ public class Prop {
         Node node1 = new Node("Product");
         Root.getInstance().propDir.addNode(filer);
         Root.getInstance().propDir.addNode(node1);
+        Root.initialize();
+    }
+
+    public static boolean checkInitialization(){
+        if (!Root.isInitialized()){
+            System.out.println("operate prop dir without initialization.");
+            System.out.println("initialize the prop dir automatically.");
+            createTree();
+            return false;
+        }else{
+            return true;
+        }
     }
 
     public static void display(PropDir node)
     //展示函数
     {
+        if (!checkInitialization()){
+            System.out.println("empty prop dir");
+            return;
+        }
+
         if (node.isNode()) {
             Node node1 = (Node) node;
             for (int i = 0; i < node1.nodeList.size(); i++) {
@@ -44,6 +61,11 @@ public class Prop {
 
     // 展示adaptor包
     public static void displayAdaptor(){
+        if (!checkInitialization()){
+            System.out.println("empty prop dir");
+            return;
+        }
+
         Node adaptor = null;
         for (int i = 0; i<Root.getInstance().propDir.nodeList.size(); i++){
             if(Root.getInstance().propDir.nodeList.get(i).getNodeName().equals("Adaptor")){
@@ -55,6 +77,11 @@ public class Prop {
 
     // 展示produce包
     public static void displayProduct(){
+        if (!checkInitialization()){
+            System.out.println("empty prop dir");
+            return;
+        }
+
         Node product = null;
         for (int i=0; i<Root.getInstance().propDir.nodeList.size(); i++){
             if(Root.getInstance().propDir.nodeList.get(i).getNodeName().equals("Product")){
@@ -67,6 +94,11 @@ public class Prop {
     public static void CheckAndRemove(PropDir node)
     //在回合结束的时候遍历 去除所有已经使用过的道具
     {
+        if(!checkInitialization()){
+            System.out.println("empty, no check and remove done");
+            return;
+        }
+
         if (node.isNode()) {
             Node node1 = (Node) node;
 
@@ -86,6 +118,11 @@ public class Prop {
     //按目录遍历 查找是否存在相关道具可以使用
     public static boolean checkNow(PropDir node,String name)
     {
+        if(!checkInitialization()){
+            System.out.println("empty, no check done");
+            return false;
+        }
+
         if (node.isNode()) {
             Node node1 = (Node) node;
             for (int i = 0; i < node1.nodeList.size(); i++) {
@@ -103,7 +140,11 @@ public class Prop {
         return false;
     }
 
-    public boolean Check(String name){
+    public static boolean Check(String name){
+        if(!checkInitialization()){
+            System.out.println("empty, no check done");
+            return false;
+        }
         boolean flag = checkNow((PropDir)Root.getInstance().propDir,name);
         return flag;
     }
@@ -111,6 +152,11 @@ public class Prop {
 
     //添加adaptor节点
     public static void addAdaptor(LandAdaptor adaptor){
+        if (!Root.isInitialized()){
+            createTree();
+            System.out.println("create tree automatically");
+        }
+
         Node node = null;
         for (int i=0;i<Root.getInstance().propDir.nodeList.size();i++){
             if (Root.getInstance().propDir.nodeList.get(i).getNodeName().equals("Adaptor")){
@@ -144,6 +190,11 @@ public class Prop {
 
     //添加product节点
     public static void addProduct(Produce product) {
+        if (!Root.isInitialized()){
+            createTree();
+            System.out.println("create tree automatically");
+        }
+
         Node node = null;
         int t = Root.getInstance().propDir.nodeList.size();
         for (int i = 0; i < Root.getInstance().propDir.nodeList.size(); i++) {
