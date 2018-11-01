@@ -21,6 +21,7 @@ import produce.AnimalFood;
 import produce.CookedFood;
 import produce.Milk;
 import propComp.PropDir.Prop;
+import propComp.PropDir.Root;
 import propComp.props.landAdaptor.*;
 import propComp.tools.Tool;
 import utils.Context;
@@ -70,9 +71,8 @@ public class Farm extends FarmObj {
         new Milk();
 
         // 初始化农舍
-        /**
-         *
-          */
+
+
 
         // 初始化兑换券
         CouponFactor.getInstance().CouponInitial();
@@ -117,5 +117,15 @@ public class Farm extends FarmObj {
 
     public void putAdaptorIntoPropBag(LandAdaptor adapter){
         propBag.addAdaptor(adapter);
+    }
+
+    public void showToolInBag(){
+        for(int i=0;i<toolBag.size();i++){
+            System.out.println(i+". "+toolBag.get(i));
+        }
+    }
+
+    public void showPropBag(){
+        Prop.display(Root.getInstance().propDir);
     }
 }
