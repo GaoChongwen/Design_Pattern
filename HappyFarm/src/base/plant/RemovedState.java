@@ -19,4 +19,6 @@ public class RemovedState implements PlantState {
 
     public boolean process(Plant plant){ return false;}
 
+    public String getState(){return "已移除";}
+
 }

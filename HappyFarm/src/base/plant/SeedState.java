@@ -27,4 +27,7 @@ public class SeedState implements PlantState {
 
     public boolean process(Plant plant){ return false;}
 
+    public String getState(){return "种子状态";}
+
+
 }

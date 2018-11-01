@@ -8,9 +8,8 @@ import propComp.props.landAdaptor.LandAdaptor;
 /**
  * @Design-Pattern: Singleton Pattern，Composite Pattern
  * @description: Prop类 用于生成工具箱结构
- * @version 2018/10/30
- * @author jihao luo
- *
+ * @version 2018/11/01
+ * @author pengcheng he
  */
 
 public class Prop {
@@ -23,16 +22,7 @@ public class Prop {
         Root.getInstance().propDir.addNode(filer);
         Root.getInstance().propDir.addNode(node1);
     }
-    //初始化函数
-/*
-    public static void createBranch(Node propDir) throws Exception{
-        Filer node = new Filer("");
-        Filer node1 = new Filer("Product");
-        propDir.addNode(node);
-        propDir.addNode(node1);
-        //adapter PRODUCT
-    }
-    */
+
     public static void display(PropDir node)
     //展示函数
     {
@@ -42,10 +32,34 @@ public class Prop {
                 PropDir propDir = node1.nodeList.get(i);
                 if (!propDir.isNode()){
                     Filer filer = (Filer)propDir;
-                    System.out.println(node.name+" "+filer.name);
+                    if(!filer.isNull()){
+                        System.out.println(node.name+" "+filer.name);
+                    }
                 } else{
                     display(propDir);
                 }
+            }
+        }
+    }
+
+    // 展示adaptor包
+    public static void displayAdaptor(){
+        Node adaptor = null;
+        for (int i = 0; i<Root.getInstance().propDir.nodeList.size(); i++){
+            if(Root.getInstance().propDir.nodeList.get(i).getNodeName().equals("Adaptor")){
+                adaptor = (Node) Root.getInstance().propDir.nodeList.get(i);
+                display(adaptor);
+            }
+        }
+    }
+
+    // 展示produce包
+    public static void displayProduct(){
+        Node product = null;
+        for (int i=0; i<Root.getInstance().propDir.nodeList.size(); i++){
+            if(Root.getInstance().propDir.nodeList.get(i).getNodeName().equals("Product")){
+                product = (Node)Root.getInstance().propDir.nodeList.get(i);
+                display(product);
             }
         }
     }
@@ -88,6 +102,7 @@ public class Prop {
         }
         return false;
     }
+
     public boolean Check(String name){
         boolean flag = checkNow((PropDir)Root.getInstance().propDir,name);
         return flag;
@@ -103,6 +118,21 @@ public class Prop {
                 break;
             }
         }
+
+        // 查找空filer节点
+        // 将adaptor存入空节点
+        for(int i = 0; i<node.nodeList.size(); i++){
+            if(!node.nodeList.get(i).isNode()){
+                Filer filer = (Filer)node.nodeList.get(i);
+                if(filer.isNull()){
+                    filer.setItem(adaptor);
+                    return;
+                }
+            }
+        }
+
+        // 没有空filer节点
+        // 将adaptor加入新的filer节点，加入队列
         Filer filer = new Filer(adaptor.getName());
         filer.setItem(adaptor);
         try {
@@ -122,6 +152,20 @@ public class Prop {
                 break;
             }
         }
+
+        // 查找空的filer节点
+        for(int i = 0; i<node.nodeList.size(); i++){
+            if(!node.isNode()){
+                Filer filer = (Filer)node.nodeList.get(i);
+                if(filer.isNull()){
+                    filer.setItem(product);
+                    return;
+                }
+            }
+        }
+
+        // 没有空的filer节点
+        // 将product加入到新的filer节点中，加入队列
         Filer filer = new Filer(product.getName());
         filer.setItem(product);
         try {

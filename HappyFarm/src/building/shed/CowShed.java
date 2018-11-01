@@ -23,6 +23,7 @@ public class CowShed extends AnimalHouse {
         this.capacity = 40;
         this.animals = new Animal[40];
         this.name = "CowShed";
+        this.setAnimalName("cow");
     }
 
     public static CowShed getInstance() {

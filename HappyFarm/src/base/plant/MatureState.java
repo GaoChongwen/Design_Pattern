@@ -38,4 +38,6 @@ public class MatureState implements PlantState {
         return false;
     }
 
+    public String getState(){return "成熟";}
+
 }

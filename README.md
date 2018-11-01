@@ -12,13 +12,13 @@ A framework for happy farm using 23+ Design_Patterns
 | 4.Prototype                |         |         |         |         |         |         |         |         |         |         |
 | 5.Singleton                | 2 |         | 1 |         |         |         |         |         |         |         |
 | 6.Proxy                    |         |         |         |         |         |         |         |         |         |         |
-| 7.Flyweight                |         |         | 1 |         |         |         |         |         |         |         |
+| 7.Flyweight       |         |         | 1 |         |         |         |         |         |         |         |
 | 8.Decorator                |         |         | 1 |         |         |         |         |         |         |         |
 | 9.Composite                |         |         |         |         |         |         |         |         |         |         |
-| 10.Adaptor                 |         |         |         |         |         |         |         |         |         |         |
+| 10.Adaptor          |         |         |         |         |         |         |         |         |         |         |
 | 11.Bridge                  |         |         |         |         |         |         |         |         |         |         |
 | 12.Filter                  |         |         |         |         |         |         |         |         |         |         |
-| 13.Facade                  |         |         |         |         |         |         |         |         |         |         |
+| 13.Facade            |         |         |         |         |         |         |         |         |         |         |
 | 14.Strategy                |         |         |         |         |         |         |         |         |         |         |
 | 15.Template Method         | 1 |         |         |         |         |         |         |         |         |         |
 | 16. Observer               | 1 |         |         |         |         |         |         |         |         |         |

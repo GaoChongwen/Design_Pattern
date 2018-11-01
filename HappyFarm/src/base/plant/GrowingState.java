@@ -37,4 +37,6 @@ public class GrowingState implements PlantState {
     public boolean harvest(Plant plant) { return false;}
     public boolean process(Plant plant){ return false;}
 
+    public String getState(){return "正在生长";}
+
 }
