@@ -11,13 +11,21 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 public class Test {
     public static void main(String args[]){
+        //创建动物工厂
         AbstractFactory animalFactory=new AnimalFactory();
+        //创建植物工厂
         AbstractFactory plantFactory= PlantFactory.getInstance();
+        //两个工厂都是继承自抽象工厂的具体工厂
 
+        //动物数组，用来存放工厂生成的动物
         Animal[] animals=new Animal[10];
+        //植物数组，用来存在工厂生成的植物
         Plant[] plants=new Plant[10];
 
+        System.out.println("==========AbstractorFactoryTest========");
+        System.out.println("=====================================\n");
         for(int i=0; i<10; ++i){
+            //根据随机数随机生成鸡，牛，猪
             Random ra = new Random();
             int num = ra.nextInt(3) + 1;
             if(num==1){
@@ -38,6 +46,7 @@ public class Test {
         }
 
         for(int i=0; i<10; ++i){
+            //随机生成苹果，卷心菜，水稻，小麦
             Random ra = new Random();
             int num = ra.nextInt(4) + 1;
             if(num==1){
@@ -60,6 +69,9 @@ public class Test {
                 System.out.println("System Error");
             }
         }
+
+        System.out.println("=====\n");
+        System.out.println("Test Done.");
 
     }
 }
