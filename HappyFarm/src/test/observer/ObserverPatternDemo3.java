@@ -21,5 +21,6 @@ public class ObserverPatternDemo3 {
         }
         Clock.getInstance().nextRound();
         Clock.getInstance().nextRound();
+        CowShed.getInstance().count();
     }
 }

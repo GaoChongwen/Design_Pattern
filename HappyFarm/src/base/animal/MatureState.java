@@ -9,6 +9,11 @@ public class MatureState implements AnimalState{
     }
 
     @Override
+    public String getStateNanem() {
+        return "matureState";
+    }
+
+    @Override
     public void grow() {
         Random ra=new Random();
         int num=ra.nextInt(100)+1;

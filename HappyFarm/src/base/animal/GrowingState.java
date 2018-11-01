@@ -8,6 +8,12 @@ public class GrowingState implements AnimalState{
     public GrowingState(Animal animal){
         this.animal=animal;
     }
+
+    @Override
+    public String getStateNanem() {
+        return "growState";
+    }
+
     @Override
     public void grow() {
         Random ra=new Random();
