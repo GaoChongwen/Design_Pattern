@@ -61,7 +61,6 @@ public class Combo {
     public List<Plant> getPlants(){
         return plants;
     }
-    //TODO Show Combo
     public void showCombo(){
         System.out.println("The Combo concludes");
         System.out.println(plants.size() + " " +plants.get(0).getName());

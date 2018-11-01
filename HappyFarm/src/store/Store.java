@@ -9,6 +9,7 @@ import factory.*;
 import person.Employee;
 import plant.Apple;
 import propComp.PropDir.Prop;
+import propComp.props.landAdaptor.LandAdaptor;
 import singleton.Farm;
 import singleton.MessageBoard;
 import singleton.Repository;
@@ -134,8 +135,8 @@ public class Store {
         System.out.println("Animal:  Cow     Chicken");
         System.out.println("Price:   " + Context.cow_stockPrice+"       "+Context.chicken_stockPrice);
         System.out.println("Adaptor: appleField     vegtbField      riceField       cornField       allField");
-        System.out.println("Price: ");
-        System.out.println("Employee: ");
+        System.out.println("Price:      200             200             200             200             200");
+        System.out.println("Employee:      1            2               3");
         System.out.println("Name:       firstLi     secondLi        thirdLi");
         System.out.println("Skill:      "+employeesSkill.get("firstLi") +"    "+employeesSkill.get("secondLi")+"       "+employeesSkill.get("thirdLi"));
         System.out.println("Price:      "+employeesSalary.get("firstLi")+"           "+employeesSalary.get("secondLi")+"           "+employeesSalary.get("thirdLi"));
@@ -144,6 +145,7 @@ public class Store {
 public boolean buyCombo(Integer id){
        Director director =new Director();
        if(id.equals(1)){
+           director.ConstructBuild(builder);
            //解压Animals
            for (Animal animal:builder.getCombo().getAnimals()
                 ) {
@@ -152,6 +154,7 @@ public boolean buyCombo(Integer id){
        }
        else if(id.equals(2)){
           builder = new ComboBuilderB();
+          director.ConstructBuild(builder);
            for (Animal animal:builder.getCombo().getAnimals()
            ) {
                CowShed.getInstance().addAnimal(animal);
@@ -167,8 +170,10 @@ public boolean buyCombo(Integer id){
             ) {
            Repository.getInstance().add(plant);
        }
-       //TODO store adaptor
-
+    for (LandAdaptor adaptor: builder.getCombo().getAdaptors()
+         ) {
+        Prop.addAdaptor(adaptor);
+    }
         return true;
    }
 }
