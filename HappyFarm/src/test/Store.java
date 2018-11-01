@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 商店测试，目前植物可以完全支持，动物可能有问题，其他未添加
+ * 商店测试
  */
 public class Store {
     public static void main(String args[]){
@@ -46,8 +46,11 @@ public class Store {
         System.out.println(!CowShed.getInstance().isEmpty());
 
         store.Store.getInstance().buyCommity("appleField",2);
-        System.out.println("Does user have appleField?，true or false ");
-        System.out.println("");
+        System.out.println("Does user have appleField?");
+        Farm.getInstance().showAdaptorInPropBag();
+
+        store.Store.getInstance().buyCommity("sickle",2);
+        Farm.getInstance().showToolInBag();
 
         store.Store.getInstance().buyCombo(2);
 

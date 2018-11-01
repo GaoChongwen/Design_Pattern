@@ -5,6 +5,7 @@ import factory.PlantFactory;
 import singleton.Farm;
 import store.Specification.ISpecification;
 import store.Specification.PlantByPriceThan;
+import store.Specification.SpecificationShow;
 
 import java.util.ArrayList;
 
@@ -22,13 +23,6 @@ public class Specification {
         plantList.add(PlantFactory.getInstance().createPlant("apple"));
         plantList.add(PlantFactory.getInstance().createPlant("rice"));
 
-        //打印出价格高于20的植物
-        System.out.println("===The price of plant is higher than 20===");
-        //定义一个规格
-        ISpecification spec = new PlantByPriceThan(25);
-        for(Plant u:plantList){
-            if(spec.isSatisfiedBy(u))
-                System.out.println(u);
-        }
+        SpecificationShow.getInstance().useSpecification(plantList,20);
     }
 }

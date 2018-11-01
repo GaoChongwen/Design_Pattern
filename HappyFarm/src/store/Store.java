@@ -102,8 +102,7 @@ public class Store {
                     Repository.getInstance().add((PlantFactory.getInstance().createPlant(name)));
                 } else if (Kinds.get(name).equals("Tool")) {
                     Money.getInstance().buy(name, number, 1000);
-                    //TODO wait ToolFactory
-                   // .add(ToolFactory.getInstance().createPlant(name));
+                   Farm.getInstance().putIntoToolBag((ToolFactory.getInstance().createTool(name)));
                 } else if (Kinds.get(name).equals("Animal")) {
                     Money.getInstance().buy(name, number, AnimalFactory.getInstance().createAnimal(name).getStockPrice());
                     if (name.equals("cow")) {
@@ -112,34 +111,40 @@ public class Store {
                         ChickShed.getInstance().add();
                     }
                 } else if (Kinds.get(name).equals("Adaptor")) {
-              //      Money.getInstance().buy(name, number, AdaptorFactory.getInstance().createAdaptor(name));
+                    Money.getInstance().buy(name, number, 200);
                     Prop.addAdaptor(AdaptorFactory.getInstance().createAdaptor(name));
                 }
             }
+            System.out.println("Successful purchase of " +name );
         }
     return true;
 }
 //展示商店
     public void show(){
-        System.out.println("The following items can be sold to the store.");
-        System.out.println("Plant: Wheat        Apple       Cabbage     Rice");
-        System.out.println("Price: "+Context.wheat_salePrice+"         "+Context.apple_salePrice+"        "+Context.cabbage_salePrice+"        "+Context.rice_salePrice);
-        System.out.println("Animal: Cow     Chicken");
-        System.out.println("Price: " + Context.cow_salePrice+"      "+Context.chicken_salePrice);
-        System.out.println("Produce:Milk       CookedFood      AnimalFood");
-        System.out.println("Price:  " + Context.milk_price +"        " + Context.cookedFood_price + "           "+Context.animalFood_price);
+//        System.out.println("The following items can be sold to the store.");
+//        System.out.println("Plant: Wheat        Apple       Cabbage     Rice");
+//        System.out.println("Price: "+Context.wheat_salePrice+"         "+Context.apple_salePrice+"        "+Context.cabbage_salePrice+"        "+Context.rice_salePrice);
+//        System.out.println("Animal: Cow     Chicken");
+//        System.out.println("Price: " + Context.cow_salePrice+"      "+Context.chicken_salePrice);
+//        System.out.println("Produce:Milk       CookedFood      AnimalFood");
+//        System.out.println("Price:  " + Context.milk_price +"        " + Context.cookedFood_price + "           "+Context.animalFood_price);
         System.out.println("==================================================");
         System.out.println("The following items can be purchased to the store.");
-        System.out.println("Plant: Wheat        Apple       Cabbage     Rice");
-        System.out.println("Price: "+Context.wheat_stockPrice+"            "+Context.apple_stockPrice+"         "+Context.cabbage_stockPrice+"          "+Context.rice_stockPrice);
-        System.out.println("Animal:  Cow     Chicken");
-        System.out.println("Price:   " + Context.cow_stockPrice+"       "+Context.chicken_stockPrice);
-        System.out.println("Adaptor: appleField     vegtbField      riceField       cornField       allField");
-        System.out.println("Price:      200             200             200             200             200");
-        System.out.println("Employee:      1            2               3");
-        System.out.println("Name:       firstLi     secondLi        thirdLi");
-        System.out.println("Skill:      "+employeesSkill.get("firstLi") +"    "+employeesSkill.get("secondLi")+"       "+employeesSkill.get("thirdLi"));
-        System.out.println("Price:      "+employeesSalary.get("firstLi")+"           "+employeesSalary.get("secondLi")+"           "+employeesSalary.get("thirdLi"));
+        System.out.println("==================================================");
+        System.out.println("Plant:  1.wheat       2.apple      3.cabbage    4.rice");
+        System.out.println("Price:  "+Context.wheat_stockPrice+"            "+Context.apple_stockPrice+"           "+Context.cabbage_stockPrice+"           "+Context.rice_stockPrice);
+        System.out.println("**************************************************");
+        System.out.println("Animal: 5.cow         6.chicken");
+        System.out.println("Price:  " + Context.cow_stockPrice+"           "+Context.chicken_stockPrice);
+        System.out.println("**************************************************");
+        System.out.println("Adaptor:7.appleField  8.vegtbField 9.riceField  10.cornField       11.allField");
+        System.out.println("Price:  200           200          200          200                200");
+        System.out.println("**************************************************");
+        System.out.println("Employee: 12         13            14");
+        System.out.println("Name:    firstLi    secondLi      thirdLi");
+        System.out.println("Skill:  "+employeesSkill.get("firstLi") +"    "+employeesSkill.get("secondLi")+"       "+employeesSkill.get("thirdLi"));
+        System.out.println("Price:      "+employeesSalary.get("firstLi")+"       "+employeesSalary.get("secondLi")+"             "+employeesSalary.get("thirdLi"));
+        System.out.println("==================================================");
     }
 //买套餐
 public boolean buyCombo(Integer id){
