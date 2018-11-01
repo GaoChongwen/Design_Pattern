@@ -214,13 +214,13 @@ public class Farm extends FarmObj {
      * - 对牛棚或鸡窝进行操作
      */
 
-    public void showSheds(){
-        // 牛棚
-        System.out.printf("牛棚~\t可以养殖%d头牛，目前牛棚里有%d头牛～\n",cowShed.getCapacity(),cowShed.getCowCount());
-
-        // 鸡舍
-        System.out.printf("鸡舍~\t可以养殖%d只鸡，目前鸡舍里有%d只鸡～\n",cowShed.getCapacity(),cowShed.getCowCount());
-    }
+//    public void showSheds(){
+//        // 牛棚
+//        System.out.printf("牛棚~\t可以养殖%d头牛，目前牛棚里有%d头牛～\n",cowShed.getCapacity(),cowShed.getCowCount());
+//
+//        // 鸡舍
+//        System.out.printf("鸡舍~\t可以养殖%d只鸡，目前鸡舍里有%d只鸡～\n",cowShed.getCapacity(),cowShed.getCowCount());
+//    }
 
 
 }
