@@ -72,6 +72,9 @@ public class Farm extends FarmObj {
         new Milk();
 
         // 初始化农舍
+        sheds = new ArrayList<>(2);
+        sheds.add(new CowShed("CowShed"));
+        sheds.add(ChickShed.getInstance());
 
 
         // 初始化工具包
@@ -100,10 +103,15 @@ public class Farm extends FarmObj {
             }
         }
 
-
         System.out.println("Initial Done.");
 
     }
+
+    /**
+     * 对工具包的操作：
+     * - 放入工具包
+     * - 展示工具
+     */
 
     // 将工具放入工具包
     public boolean putIntoToolBag(Tool tool){
@@ -114,6 +122,21 @@ public class Farm extends FarmObj {
         return false;
     }
 
+    public void showToolInBag(){
+        for(int i=0;i<toolBag.size();i++){
+            System.out.println(i+". "+toolBag.get(i));
+        }
+    }
+
+    /**
+     * 对道具包的操作：
+     * - 将加工副产品加入道具包
+     * - 将适配器加入道具包
+     * - 展示道具包中所有道具
+     * - 展示道具包中所有适配器
+     * - 展示道具包中所有加工副产品
+     */
+
     public void putProduceIntoPropBag(Produce product){
         propBag.addProduct(product);
     }
@@ -122,15 +145,17 @@ public class Farm extends FarmObj {
         propBag.addAdaptor(adapter);
     }
 
-    public void showToolInBag(){
-        for(int i=0;i<toolBag.size();i++){
-            System.out.println(i+". "+toolBag.get(i));
-        }
-    }
+    public void showAllInPropBag(){ Prop.display(Root.getInstance().propDir); }
 
-    public void showPropBag(){
-        Prop.display(Root.getInstance().propDir);
-    }
+    public void showAdaptorInPropBag(){ Prop.displayAdaptor(); }
+
+    public void showProduceInPropBag(){ Prop.displayProduct(); }
+
+    /**
+     * 对种植园的操作：
+     * - 展示种植园的所有土地、栽种植物以及植物状态
+     * - 对种植园某块土地进行操作
+     */
 
     public void showFarmLand(){
         System.out.println("编号\t土地类型\t栽种植物\t植物状态");
@@ -151,5 +176,12 @@ public class Farm extends FarmObj {
         }
         return lands.get(index);
     }
+
+    /**
+     * 对农舍的操作：
+     * - 展示农舍的牛棚和鸡窝、及其状态
+     * - 对牛棚或鸡窝进行操作
+     */
+
 
 }
