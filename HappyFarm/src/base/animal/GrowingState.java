@@ -11,7 +11,7 @@ public class GrowingState implements AnimalState{
 
     @Override
     public String getStateNanem() {
-        return "growState";
+        return "growingState";
     }
 
     @Override

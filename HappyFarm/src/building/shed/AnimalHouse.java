@@ -60,7 +60,7 @@ public class AnimalHouse extends FarmObj implements BuildingAcceptor, Observer {
                 }
             }
         }
-        System.out.println("in this "+this.getName()+"there are");
+        System.out.println("in this "+this.getName());
         System.out.println("there are "+bcnt+" baby "+this.getAnimalName());
         System.out.println("there are "+gcnt+" growing "+this.getAnimalName());
         System.out.println("there are "+mcnt+" mature "+this.getAnimalName());
