@@ -8,18 +8,18 @@ A framework for happy farm using 23+ Design_Patterns
 |                            | 蓝楚迪  | 李文渊  | 陈雨蕾  | 承翊雯  | 梁栎鹏  | 刘轩    | 贺鹏程  | 温庭杰  | 罗吉皓  | 陈志    |
 | 1.Abstract Factory         |         |         |         |         |         |         |         |         |         |         |
 | 2.Builder                  |         |         |         |         |         |         |         |         |         |         |
-| 3.Factory Method           |         |         | 1 |         |         |         |         |         |         |         |
+| 3.Factory Method           |  1       |         | 1 |         |         |         |         |         |         |         |
 | 4.Prototype                |         |         |         |         |         |         |         |         |         |         |
-| 5.Singleton                | 2 |         | 1 |         |         |         |         |         |         |         |
+| 5.Singleton                | 10 |         | 1 |         |         |         |         |         |         |         |
 | 6.Proxy                    |         |         |         |         |         |         |         |         |         |         |
 | 7.Flyweight       |         |         | 1 |         |         |         |         |         |         |         |
 | 8.Decorator                |         |         | 1 |         |         |         |         |         |         |         |
 | 9.Composite                |         |         |         |         |         |         |         |         |         |         |
 | 10.Adaptor          |         |         |         |         |         |         |         |         |         |         |
-| 11.Bridge                  |         |         |         |         |         |         |         |         |         |         |
+| 11.Bridge                  |     1    |         |         |         |         |         |         |         |         |         |
 | 12.Filter                  |         |         |         |         |         |         |         |         |         |         |
 | 13.Facade            |         |         |         |         |         |         |         |         |         |         |
-| 14.Strategy                |         |         |         |         |         |         |         |         |         |         |
+| 14.Strategy                |     1    |         |         |         |         |         |         |         |         |         |
 | 15.Template Method         | 1 |         |         |         |         |         |         |         |         |         |
 | 16. Observer               | 1 |         |         |         |         |         |         |         |         |         |
 | 17.Iterator                |         |         |         |         |         |         |         |         |         |         |
