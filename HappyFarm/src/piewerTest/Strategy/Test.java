@@ -22,6 +22,7 @@ import utils.Enum.EmployeeSkill;
 
 public class Test {
     public static void main(String args[]){
+        Farm.getInstance().initialFarmObj();
         Employee testEmp = new Employee("Mary", EmployeeSkill.cultivation, 5000);
         Employee breadEmp = new Employee("Breeder",EmployeeSkill.breeding, 5000);
         Farmer farmer = Farmer.getInstance();
@@ -34,7 +35,7 @@ public class Test {
         AppleAdaptor appleAdaptor = (AppleAdaptor) AdaptorFactory.getInstance().createAdaptor("appleField");
 
         Action sowSeed = EmployeeSowSeedAction.getInstance().setFarmLand(cornField).setSeed(wheat).setTarget(testEmp);
-        Action buy = FarmerBuyAction.getInstance().setItemName("Plant").setCount(1);
+        Action buy = FarmerBuyAction.getInstance().setItemName("apple").setCount(1);
         Action.setDesignPatternMode(DesignPatternMode.StrategyPattern);
 
         System.out.println("Strategy test 1:");

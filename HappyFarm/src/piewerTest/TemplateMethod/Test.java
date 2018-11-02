@@ -23,7 +23,8 @@ import utils.Enum.DesignPatternMode;
 import utils.Enum.EmployeeSkill;
 
 public class Test {
-    public  static void main(String argsp[]){
+    public  static void main(String argsp[])
+    {   Farm.getInstance().initialFarmObj();
         Employee cultivateEmp = new Employee("Cultivator", EmployeeSkill.cultivation, 5000);
         Employee breadEmp = new Employee("Breeder",EmployeeSkill.breeding, 5000);
         Farmer farmer = Farmer.getInstance();
@@ -35,10 +36,13 @@ public class Test {
         AppleAdaptor appleAdaptor = (AppleAdaptor) AdaptorFactory.getInstance().createAdaptor("appleField");
 
         Action sowSeed = EmployeeSowSeedAction.getInstance().setSeed(wheat).setFarmLand(cornField).setTarget(breadEmp);
+        FarmerBuyAction buy = FarmerBuyAction.getInstance().setItemName("apple").setCount(2);
         Action.setDesignPatternMode(DesignPatternMode.TemplateMethodPattern);
+
+        System.out.println("\nTemplate method test 1:");
         sowSeed.doAction();
 
-        FarmerBuyAction buy = FarmerBuyAction.getInstance().setItemName("apple").setCount(2);
+        System.out.println("\nTemplate method test 2:");
         buy.doAction();
 
 //        Store.getInstance().buyCommity("apple",1);
