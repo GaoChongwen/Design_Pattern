@@ -32,6 +32,7 @@ import utils.Context;
 import utils.Enum.EmployeeSkill;
 import utils.Enum.FarmLandType;
 import utils.Enum.PlantType;
+import utils.clock.Clock;
 
 import java.util.*;
 
@@ -47,6 +48,7 @@ public class Farm extends FarmObj {
     private HashMap<String,Tool> toolBag;
     private HashMap<String,Integer> toolNum;
     private ArrayList<Employee> employees;
+    private Clock clock = Clock.getInstance();
 
 
     private Farm(){ }
@@ -215,11 +217,19 @@ public class Farm extends FarmObj {
                 break;
             }
         }
-        return lands.get(index);
+        return lands.get(index-1);
     }
 
 
     public ArrayList<Employee> getEmployees(){return employees;}
+
+    public void nextRound(){
+        clock.nextRound();
+    }
+
+    public void now(){
+        System.out.printf("现在是第%d天\n……", clock.getCurDay());
+    }
     /**
      * 对农舍的操作：
      * - 展示农舍的牛棚和鸡窝、及其状态
