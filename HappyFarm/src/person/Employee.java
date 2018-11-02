@@ -62,7 +62,9 @@ public class Employee extends Person implements EmployeeOperationAPI{
 
     @Override
     public boolean harvest(FarmLand farmLand, String toolName) {
-        Tool tool = Farm.getInstance().getToolByName(toolName);
+        Tool tool = null;
+        //Tool tool = Farm.getInstance().getToolByName(toolName);
+
         return EmployeeHarvestAction.getInstance().setFarmLand(farmLand).setHarvestTool(tool).setTarget(this).doAction();
     }
 

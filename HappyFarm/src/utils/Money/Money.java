@@ -57,19 +57,19 @@ public class Money {
     public boolean buy(String item, int count,int price){
         int temp;
         switch (item){
-            case "Apple":
+            case "apple":
                 temp = appleCouponNum;
                 appleCouponNum = calculate(appleCouponNum,count,price);
                 return (!(temp==appleCouponNum));
-            case "Wheat":
+            case "wheat":
                 temp = wheatCouponNum;
                 wheatCouponNum = calculate(wheatCouponNum,count,price);
                 return (!(temp==wheatCouponNum));
-            case "Rice":
+            case "rice":
                 temp = riceCouponNum;
                 riceCouponNum = calculate(riceCouponNum,count,price);
                 return (!(temp==riceCouponNum));
-            case "Cabbage":
+            case "cabbage":
                 temp = cabbageCouponNum;
                 cabbageCouponNum = calculate(cabbageCouponNum,count,price);
                 return (!(temp==cabbageCouponNum));
@@ -79,5 +79,13 @@ public class Money {
                     return true;
                 }else return false;
         }
+    }
+    public void displayAllCoupon(){
+        System.out.println("AppleCoupon:   "+appleCouponNum);
+        System.out.println("WheatCoupon:   "+wheatCouponNum);
+        System.out.println("RiceCoupon:    "+riceCouponNum);
+        System.out.println("CabbageCoupon: "+cabbageCouponNum);
+        System.out.println("SuperCoupon:   "+superCouponNum);
+
     }
 }

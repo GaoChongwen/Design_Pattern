@@ -1,8 +1,6 @@
 package propComp.props.coupon.Handler;
 
 import factory.CouponFactor;
-import plant.Wheat;
-import propComp.props.coupon.CabbageCoupon;
 import propComp.props.coupon.WheatCoupon;
 import utils.Enum.PlantType;
 import utils.Money.Money;

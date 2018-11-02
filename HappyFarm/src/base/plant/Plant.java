@@ -105,6 +105,9 @@ public abstract class Plant extends FarmObj implements Cloneable {
      * @Design-Pattern: Prototype
      */
     public Plant clone() {
+        if(designPattern==DesignPatternMode.PrototypePattern){
+            System.out.println("Prototype Pattern | "+getName()+" method: Plant clone() -> create the plant by cloning it.");
+        }
         Plant clone = null;
         try {
             clone = (Plant) super.clone();

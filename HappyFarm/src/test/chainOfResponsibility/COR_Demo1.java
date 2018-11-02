@@ -39,11 +39,11 @@ public class COR_Demo1 {
         System.out.println("=========And the coupons you created above=========");
         System.out.println("=========if true , we buy items successfully=======");
         System.out.println("=2 apples=");
-        System.out.println(Money.getInstance().buy("Apple",2,100));
+        System.out.println(Money.getInstance().buy("apple",2,100));
         System.out.println("=then 2 wheat=");
-        System.out.println(Money.getInstance().buy("Wheat",2,100));
+        System.out.println(Money.getInstance().buy("wheat",2,100));
         System.out.println("=1 more wheat=");
-        System.out.println(Money.getInstance().buy("Wheat",1,100));
+        System.out.println(Money.getInstance().buy("wheat",1,100));
 
         //System.out.println(Money.getInstance().couponList.size());
 

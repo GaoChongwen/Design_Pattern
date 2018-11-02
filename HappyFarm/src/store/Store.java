@@ -99,20 +99,20 @@ public class Store {
             }
             if (Kinds.containsKey(name)) {
                 if (Kinds.get(name).equals("Plant")) {
-                    Money.getInstance().buy(name, number, PlantFactory.getInstance().createPlant(name).getStockPrice());
+                    Money.getInstance().buy(name, 1, PlantFactory.getInstance().createPlant(name).getStockPrice());
                     Repository.getInstance().add((PlantFactory.getInstance().createPlant(name)));
                 } else if (Kinds.get(name).equals("Tool")) {
-                    Money.getInstance().buy(name, number, 1000);
+                    Money.getInstance().buy(name, 1, 1000);
                    Farm.getInstance().putIntoToolBag((ToolFactory.getInstance().createTool(name)));
                 } else if (Kinds.get(name).equals("Animal")) {
-                    Money.getInstance().buy(name, number, AnimalFactory.getInstance().createAnimal(name).getStockPrice());
+                    Money.getInstance().buy(name, 1, AnimalFactory.getInstance().createAnimal(name).getStockPrice());
                     if (name.equals("cow")) {
                         CowShed.getInstance().add();
                     } else if (name.equals("chicken")) {
                         ChickShed.getInstance().add();
                     }
                 } else if (Kinds.get(name).equals("Adaptor")) {
-                    Money.getInstance().buy(name, number, 200);
+                    Money.getInstance().buy(name, 1, 200);
                     Prop.addAdaptor(AdaptorFactory.getInstance().createAdaptor(name));
                 }
                 System.out.println("Successful purchase of " +name );

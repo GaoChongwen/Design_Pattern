@@ -29,6 +29,7 @@ import propComp.tools.RiceReapingMachine;
 import propComp.tools.Sickle;
 import propComp.tools.Tool;
 import utils.Context;
+import utils.Enum.EmployeeSkill;
 import utils.Enum.FarmLandType;
 import utils.Enum.PlantType;
 
@@ -93,6 +94,11 @@ public class Farm extends FarmObj {
 
         // 初始化兑换券
         CouponFactor.getInstance().CouponInitial();
+        CouponFactor.getInstance().add(PlantType.apple.toString());
+        CouponFactor.getInstance().add(PlantType.wheat.toString());
+        CouponFactor.getInstance().add(PlantType.rice.toString());
+        CouponFactor.getInstance().add(PlantType.cabbage.toString());
+        CouponFactor.getInstance().add("super");
 
         // 初始化道具包
         propBag =new Prop();
@@ -113,6 +119,10 @@ public class Farm extends FarmObj {
                 TileFactory.getTile(key);
             }
         }
+        // 雇员
+        employees = new ArrayList<Employee>(10);
+        employees.add(new Employee("A", EmployeeSkill.cultivation,10));
+        employees.add(new Employee("B", EmployeeSkill.breeding,20));
 
         System.out.println("Initial Done.");
 
@@ -208,6 +218,8 @@ public class Farm extends FarmObj {
         return lands.get(index);
     }
 
+
+    public ArrayList<Employee> getEmployees(){return employees;}
     /**
      * 对农舍的操作：
      * - 展示农舍的牛棚和鸡窝、及其状态

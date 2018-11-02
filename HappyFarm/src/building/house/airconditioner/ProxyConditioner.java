@@ -23,6 +23,5 @@ public class ProxyConditioner implements AirConditioner {
             realConditioner = new RealConditioner();
         }
         realConditioner.display();
-
     }
 }
