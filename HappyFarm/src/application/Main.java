@@ -581,6 +581,7 @@ public class Main {
         if (inputLand >= 1 && inputLand <= 4 ) {
             // 传入编号获取土地
             farmLand = farm.getFarmLand(inputLand);
+            System.out.println(">>>"+farmLand);
         }
         else {
             System.out.println("非法输入");
@@ -740,6 +741,7 @@ public class Main {
             return;
         }
 
+        System.out.println(">>>"+farmLand + plant);
         boolean sowSucc = employee.sowSeed(farmLand, plant);
         if (sowSucc) {
             System.out.println("播种成功。");
@@ -855,10 +857,16 @@ public class Main {
                     System.out.print("非合法输入。请重新输入工具编号：");
                 }
             }
-            employee.harvest(farmLand, tool);
+            boolean harvestSucc = employee.harvest(farmLand, tool);
+            if (harvestSucc) {
+                System.out.println("收割成功。");
+            }
+            else {
+                System.out.println("收割失败。失败的原因可能是该雇员没有收割技能，或植物还没有成熟。");
+            }
         }
 
-        System.out.println("====收割完毕。");
+
     }
 
 //    private static boolean showAllTools() {

@@ -51,7 +51,6 @@ public class FacadePatternDemo {
         ChickShed.getInstance().feed();
         ChickShed.getInstance().feed();
         ChickShed.getInstance().feed();
-        ChickShed.getInstance().feed();
 
         // 屠宰成熟态的动物，并返回屠宰好的动物，此时可加工
         ArrayList<Animal> slaughterCows =CowShed.getInstance().slaughter();
