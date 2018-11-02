@@ -95,6 +95,7 @@ public class Store {
         for(Integer i=0 ;i <number;i++) {
             if(name.equals("firstLi") || name.equals("secondLi") || name.equals("thirdLi")){
                 EmployeeFactory.getInstance().createEmployee(employeesName.get(name),employeesSkill.get(name),employeesSalary.get(name));
+                System.out.println("Successful purchase of " +name );
             }
             if (Kinds.containsKey(name)) {
                 if (Kinds.get(name).equals("Plant")) {
@@ -114,8 +115,11 @@ public class Store {
                     Money.getInstance().buy(name, number, 200);
                     Prop.addAdaptor(AdaptorFactory.getInstance().createAdaptor(name));
                 }
+                System.out.println("Successful purchase of " +name );
             }
-            System.out.println("Successful purchase of " +name );
+            else{
+                System.out.println("Fail to purchase of " +name +" because "+name +" is not belong to commodity");
+            }
         }
     return true;
 }
