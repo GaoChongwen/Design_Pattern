@@ -103,7 +103,7 @@ public class Store {
                 }
                 System.out.println("Successful purchase of " +name );
             }
-            if (Kinds.containsKey(name)) {
+            else if (Kinds.containsKey(name)) {
                 if (Kinds.get(name).equals("Plant")) {
                     Plant plant =PlantFactory.getInstance().createPlant(name);
                     if(plant == null)

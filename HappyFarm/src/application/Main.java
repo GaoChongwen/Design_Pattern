@@ -89,7 +89,7 @@ public class Main {
                     watchMessageBorad();
                     break;
                 case "7":
-
+                    farm.nextRound();
                     break;
                 default:
                     System.out.println("非合法输入，请重新输入：");
@@ -268,16 +268,27 @@ public class Main {
                     messages = scanner.next();
                     farmer.leaveMessage(messages);
                 }
-                break;
+                System.out.println("===================");
+                System.out.println("*    1. 留言       *");
+                System.out.println("*    2. 计算板     *");
+                System.out.println("*    0. 返回       *");
+                System.out.println("===================");
             }
             else if (inputSel == 2) {
                 System.out.println("请输入算式表达式（如：1 + 1）：");
+                Scanner scanner1 = new Scanner(System.in);
                 String expression;
-                if (scanner.hasNext()) {
-                    expression = scanner.next();
-                    farmer.calculate(expression);
+                if (scanner1.hasNextLine()) {
+                    expression = scanner1.nextLine();
+                    String result = farmer.calculate(expression);
+                    System.out.println(result);
+                    scanner1.close();
                 }
-                break;
+                System.out.println("===================");
+                System.out.println("*    1. 留言       *");
+                System.out.println("*    2. 计算板     *");
+                System.out.println("*    0. 返回       *");
+                System.out.println("===================");
             }else if(inputSel == 0){
                 return;
             }
@@ -548,11 +559,16 @@ public class Main {
             System.out.println("*    2. 播种植物    *");
             System.out.println("*    0. 返回       *");
             System.out.println("====================");
+            if (scanner.hasNext()) {
+                input = scanner.next();
+            }
         }
     }
 
     private static void sowSeeds() {
         // 选择要播种的土地
+        System.out.println("\n==== 播种植物 ====");
+        System.out.println("\n1. 选择土地");
         System.out.println("请选择你要播种的土地（输入编号）：");
         int inputLand = 0;
         FarmLand farmLand = null;
@@ -571,6 +587,7 @@ public class Main {
             return;
         }
 
+        System.out.println("\n2. 选择种子");
         System.out.println("当前仓库中的种子有：");
         System.out.println("编号\t种子名称\t种子数量");
         System.out.println("1\twheat\t" + repository.getPlantNum("wheat"));
@@ -589,15 +606,20 @@ public class Main {
             }
             else if (inputSeed == 1) {
                 if (repository.getPlantNum("wheat") == 0) {
-                    System.out.println("当前wheat种子数为0，是否购买(y/n)?");
+                    System.out.println("您当前拥有的wheat种子数为0" +
+                            "\n您当前拥有的兑换券有：");
+                    Money.getInstance().displayAllCoupon();
+                    System.out.print("您当前有用的金钱为：" + Money.money +
+                            "，是否购买一枚wheat种子(y/n)?");
                     String inputBuySeed;
                     while (scanner.hasNext()) {
                         inputBuySeed = scanner.next();
                         if (inputBuySeed.equals("y")) {
                             //System.out.println(Money.money);
                             farmer.buy("wheat", 1); // 默认买一枚
-                            System.out.println(Money.money);
+                            System.out.println("您当前拥有的兑换券有：");
                             Money.getInstance().displayAllCoupon();
+                            System.out.println("您当前有用的金钱为：" + Money.money);
                             break;
                         }
                         else if (inputBuySeed.equals("n")) {
@@ -675,11 +697,32 @@ public class Main {
             else {
                 System.out.print("非法输入。请重新选择：");
             }
+
         }
 
         // 选择要操作的雇员
+        System.out.println("\n3.选择雇员");
         System.out.println("您当前拥有雇员：");
         int employeeNum = showAllEmployee();
+        if (employeeNum == 0) {
+            System.out.println("是否购买一名雇员?(y/n)");
+            while (scanner.hasNext()) {
+                String buyEmployee = scanner.next();
+                if (buyEmployee.equals("y")) {
+                    farmer.buy("firstLi",1);
+//                    farmer.buy("secondLi",1);
+//                    farmer.buy("thirdLi",1);
+                    break;
+                }
+                else if (buyEmployee.equals("n")){
+                    return;
+                }
+                else {
+                    System.out.println("非法输入。是否购买雇员？(y/n)");
+                }
+            }
+            employeeNum = showAllEmployee();
+        }
         System.out.println("请选择雇员（输入编号）：");
         Employee employee;
         int inputEm = 0;
@@ -693,12 +736,17 @@ public class Main {
             employee = farmer.getEmployee(inputEm);
         }
         else {
-            System.out.print("非法输入");
+            System.out.println("非法输入");
             return;
         }
 
-        employee.sowSeed(farmLand, plant);
-        System.out.println("播种完毕。");
+        boolean sowSucc = employee.sowSeed(farmLand, plant);
+        if (sowSucc) {
+            System.out.println("播种成功。");
+        }
+        else {
+            System.out.println("播种失败。失败的原因可能有：土地和植物不匹配，该雇员没有播种的技能。");
+        }
     }
 
     private static void harvsetPlants() {
@@ -709,12 +757,17 @@ public class Main {
         if (scanner.hasNextInt()) {
             inputLand = scanner.nextInt();
         }
-        if (inputLand >= 0 && inputLand <= 3 ) {
+        if (inputLand >= 0 && inputLand <= 4 ) {
             // 传入编号获取土地
-            farmLand = farm.getFarmLand(inputLand);
+            if (inputLand == 0) {
+                return;
+            }
+            else {
+                farmLand = farm.getFarmLand(inputLand);
+            }
         }
         else {
-            System.out.print("非法输入");
+            System.out.println("非法输入");
             return;
         }
 
