@@ -120,6 +120,7 @@ public class Farm extends FarmObj {
             }
         }
         // 雇员
+        employees = new ArrayList<Employee>(10);
         employees.add(new Employee("A", EmployeeSkill.cultivation,10));
         employees.add(new Employee("B", EmployeeSkill.breeding,20));
 
