@@ -10,6 +10,7 @@ import person.Employee;
 import plant.Apple;
 import propComp.PropDir.Prop;
 import propComp.props.landAdaptor.LandAdaptor;
+import propComp.tools.Tool;
 import singleton.Farm;
 import singleton.MessageBoard;
 import singleton.Repository;
@@ -94,16 +95,33 @@ public class Store {
         //Create Items
         for(Integer i=0 ;i <number;i++) {
             if(name.equals("firstLi") || name.equals("secondLi") || name.equals("thirdLi")){
-                EmployeeFactory.getInstance().createEmployee(employeesName.get(name),employeesSkill.get(name),employeesSalary.get(name));
+                Employee employee = EmployeeFactory.getInstance().createEmployee(employeesName.get(name),employeesSkill.get(name),employeesSalary.get(name));
+                if(employee == null)
+                {
+                    System.out.println("Failed , because you did't initialize");
+                    return false;
+                }
                 System.out.println("Successful purchase of " +name );
             }
             if (Kinds.containsKey(name)) {
                 if (Kinds.get(name).equals("Plant")) {
-                    Money.getInstance().buy(name, 1, PlantFactory.getInstance().createPlant(name).getStockPrice());
-                    Repository.getInstance().add((PlantFactory.getInstance().createPlant(name)));
+                    Plant plant =PlantFactory.getInstance().createPlant(name);
+                    if(plant == null)
+                    {
+                        System.out.println("Failed , Failed , because you did't initialize");
+                        return false;
+                    }
+                    Money.getInstance().buy(name, 1, plant.getStockPrice());
+                    Repository.getInstance().add((plant));
                 } else if (Kinds.get(name).equals("Tool")) {
+                    Tool tool =ToolFactory.getInstance().createTool(name);
+                    if(tool == null)
+                    {
+                        System.out.println("Failed , Failed , because you did't initialize");
+                        return false;
+                    }
                     Money.getInstance().buy(name, 1, 1000);
-                   Farm.getInstance().putIntoToolBag((ToolFactory.getInstance().createTool(name)));
+                   Farm.getInstance().putIntoToolBag(tool);
                 } else if (Kinds.get(name).equals("Animal")) {
                     Money.getInstance().buy(name, 1, AnimalFactory.getInstance().createAnimal(name).getStockPrice());
                     if (name.equals("cow")) {
@@ -112,8 +130,14 @@ public class Store {
                         ChickShed.getInstance().add();
                     }
                 } else if (Kinds.get(name).equals("Adaptor")) {
+                    LandAdaptor adaptor =AdaptorFactory.getInstance().createAdaptor(name);
+                    if(adaptor == null)
+                    {
+                        System.out.println("Failed , Failed , because you did't initialize");
+                        return false;
+                    }
                     Money.getInstance().buy(name, 1, 200);
-                    Prop.addAdaptor(AdaptorFactory.getInstance().createAdaptor(name));
+                    Prop.addAdaptor(adaptor);
                 }
                 System.out.println("Successful purchase of " +name );
             }

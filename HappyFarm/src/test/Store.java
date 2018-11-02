@@ -24,10 +24,6 @@ import java.util.List;
 public class Store {
     public static void main(String args[]){
         Farm.getInstance().initialFarmObj();
-        new Apple();
-        new Wheat();
-        new Cabbage();
-        new Rice();
         Prop prop = new Prop();
         /**
          * 商店展示，暂只支持买卖animal,plant，购买adaptor,employee,出售produce
