@@ -30,11 +30,6 @@ public class DecoratorPatternDemo {
         cowShedWithCanopy.bulidShed();
         cowShedWithCanopy.done();
 
-        System.out.println("<<<");
-        AnimalHouse cowShedWithStrongFence = new FenceShedDecorator(cowShed);
-        cowShedWithStrongFence.bulidShed();
-        cowShedWithStrongFence.done();
-
         // 新建一个简陋的鸡窝
         AnimalHouse chickShed = ChickShed.getInstance();
         chickShed.bulidShed();
