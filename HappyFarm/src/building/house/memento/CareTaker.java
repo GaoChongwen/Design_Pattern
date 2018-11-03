@@ -15,8 +15,8 @@ public class CareTaker {
     public int length(){
         return  mementoList.size();
     }
-    public void add(Memento LightState){
-        mementoList.add(LightState);
+    public void add(Memento HouseName){
+        mementoList.add(HouseName);
     }
     public Memento get(int index){
         return mementoList.get(index);

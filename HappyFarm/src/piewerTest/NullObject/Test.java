@@ -6,6 +6,13 @@ import building.house.command.*;
 
 import java.util.Scanner;
 
+
+import building.house.House;
+import building.house.NullObject.AbstractCommand;
+import building.house.NullObject.CommandFactory;
+import building.house.command.*;
+
+import java.util.Scanner;
 public class Test {
     public static  void main(String arg[]){
 

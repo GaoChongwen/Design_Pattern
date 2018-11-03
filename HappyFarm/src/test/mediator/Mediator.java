@@ -17,6 +17,7 @@ public class Mediator {
         Farmer farmer = Farmer.getInstance();
         Employee emp1 = new Employee("Mary", EmployeeSkill.cultivation, 5000);
         Employee emp2 = new Employee("Tom", EmployeeSkill.breeding, 5000);
+
         MessageBoard messageBoard = MessageBoard.getInstance();
         MessageBoard.setDesignPatternMode(DesignPatternMode.MediatorPattern);
 
@@ -33,6 +34,7 @@ public class Mediator {
 
         String expression = "234 + 367 ";
         farmer.leaveMessage("calculate: "+expression+" = "+farmer.calculate(expression));
+
     }
 
 }

@@ -12,17 +12,15 @@ import building.house.House;
  **/
 
 public class Originator {
-    private String LightState;
-    public void setLightState(String LightState){
-        this.LightState=LightState;
+    private String HouseName;
+    public void setHouseName(String HouseName){
+        this.HouseName=HouseName;
     }
-    public String getLightState(){
-        return LightState;
+    public String getHouseName(){
+        return HouseName;
     }
-    public Memento saveLightStateToMemento(){
-        return new Memento(LightState);
+    public Memento saveHouseNameToMemento(){
+        return new Memento(HouseName);
     }
-    public void getHouseFromMemento(Memento memento){
-        LightState=memento.getLightState();
-    }
+
 }

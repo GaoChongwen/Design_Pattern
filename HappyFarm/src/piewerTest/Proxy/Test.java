@@ -5,7 +5,6 @@ import building.house.airconditioner.ProxyConditioner;
 
 public class Test {
     public static void main(String[] args) {
-
         System.out.println("===代理模式=======");
         AirConditioner airConditioner = new ProxyConditioner();
         airConditioner.display();

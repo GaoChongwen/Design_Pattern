@@ -8,6 +8,7 @@ import building.house.airconditioner.ProxyConditioner;
 import building.house.furniture.Furniture;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * @project: HappyFarm
@@ -23,7 +24,7 @@ public class House extends FarmObj implements BuildingAcceptor {
 
     private static House instance;
 
-    private String lightState="off";
+    private String houseName="your house";
     private AirConditioner airConditioner = new ProxyConditioner();
 
     // 房屋中有的家具
@@ -77,9 +78,7 @@ public class House extends FarmObj implements BuildingAcceptor {
 
             if(furnitures.get(i).getName()==furniture.getName()){
                 furnitures.remove(i);
-
             }
-
         }
     }
     public void showFurnitures(){
@@ -94,12 +93,20 @@ public class House extends FarmObj implements BuildingAcceptor {
     public boolean contains(Furniture furniture){
         return furnitures.contains(furniture);
     }
-    public String getLightState(){
-        return  lightState;
+    public String getHouseName(){
+        return  houseName;
     }
-    public void setLightState(String lightState){
-        this.lightState=lightState;
+    public void setHouseName(){
+        System.out.println("input your house name");
+        Scanner in =new Scanner(System.in);
+        String houseName=in.nextLine();
+        this.houseName=houseName;
     }
-    public void changeAirconditionerState(){ this.airConditioner.changeStatus();}
 
+    public void setHouseName(String houseName){
+        this.houseName=houseName;
+    }
+    public void showHouseName(){
+        System.out.println("your housename is "+houseName);
+    }
 }

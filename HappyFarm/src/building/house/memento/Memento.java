@@ -9,13 +9,12 @@ import building.house.House;
  * @author: Chen Zhi
  * @create: 2018-10-28
  **/
-
 public class Memento {
-    private String LightState="off";
-    public Memento(String LightState){
-        this.LightState=LightState;
+    private String HouseName="your house";
+    public Memento(String HouseName){
+        this.HouseName=HouseName;
     }
-    public String getLightState() {
-        return LightState;
+    public String getHouseName() {
+        return HouseName;
     }
 }
